@@ -53,6 +53,7 @@ const BANNED_TOKENS = [
   { re: /SKU-[A-Z]{0,3}-?/i, label: 'internal SKU prefix' },
   { re: /[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}/i, label: 'UUID' },
   { re: /\bS[123]\b/, label: 'internal tier label S1/S2/S3' },
+  { re: /verification_note/i, label: 'removed field name verification_note' },
   { re: /TerraDrive/i, label: 'internal name TerraDrive' },
   { re: /Sanger/i, label: 'internal name Sanger' },
   { re: /力霸/, label: 'internal name 力霸' },
@@ -74,7 +75,7 @@ const BANNED_PHRASES = [
   { re: /￥\s?\d+/, label: 'RMB price' },
   { re: /成本/, label: 'supplier cost (成本)' },
   // Old "academic" caution phrasing must not linger on the commercial pages.
-  { re: /reported for reference/i, label: 'legacy wording "reported for reference"' },
+  { re: /\breported\b/i, label: 'legacy wording "reported"' },
   { re: /not independently verified/i, label: 'legacy wording "not independently verified"' },
   { re: /do not order by (these|it) alone/i, label: 'legacy wording "do not order by ... alone"' },
 ];
@@ -161,7 +162,26 @@ function pre() {
     ) {
       fail(`${p.url_path}: unexpected copy.pn_heading "${copy.pn_heading}"`);
     }
-    const hasNumbers = Array.isArray(p.reported_numbers) && p.reported_numbers.length > 0;
+    // New schema: part_number_groups + lead_pn; legacy fields must be gone.
+    if ('reported_numbers' in p) fail(`${p.url_path}: legacy field "reported_numbers" still present`);
+    if ('verification_note' in p) fail(`${p.url_path}: legacy field "verification_note" still present`);
+    const GROUP_KEYS = ['assembly', 'motor', 'service'];
+    const groups = p.part_number_groups || {};
+    for (const key of Object.keys(groups)) {
+      if (!GROUP_KEYS.includes(key)) fail(`${p.url_path}: unknown part_number_groups key "${key}"`);
+    }
+    const groupNumbers = GROUP_KEYS.flatMap(k => (Array.isArray(groups[k]) ? groups[k] : []));
+    for (const pn of groupNumbers) {
+      if (typeof pn !== 'string' || !pn.trim()) fail(`${p.url_path}: empty part number in groups`);
+    }
+    if (typeof p.lead_pn !== 'string') fail(`${p.url_path}: lead_pn must be a string`);
+    const hasNumbers = groupNumbers.length > 0;
+    if (!hasNumbers && p.lead_pn !== '') {
+      fail(`${p.url_path}: lead_pn must be empty when there are no part numbers`);
+    }
+    if (p.lead_pn && !groupNumbers.includes(p.lead_pn)) {
+      fail(`${p.url_path}: lead_pn "${p.lead_pn}" not found in part_number_groups`);
+    }
     if (!hasNumbers && copy.pn_heading !== 'Need the right part number?') {
       fail(`${p.url_path}: page without part numbers must use the "Need the right part number?" heading`);
     }
@@ -213,7 +233,14 @@ function pre() {
 
 /* ---------- POST-BUILD CHECKS ---------- */
 function stripHtml(html) {
-  return html.replace(/<script[\s\S]*?<\/script>/g, '').replace(/<[^>]+>/g, ' ');
+  return html
+    .replace(/<script[\s\S]*?<\/script>/g, '')
+    .replace(/<[^>]+>/g, ' ')
+    .replace(/&amp;/g, '&')
+    .replace(/&#x27;/g, "'")
+    .replace(/&quot;/g, '"')
+    .replace(/&lt;/g, '<')
+    .replace(/&gt;/g, '>');
 }
 
 function post() {
@@ -257,6 +284,46 @@ function post() {
     }
   }
   ok('brand hubs link exactly their own model pages');
+
+  console.log('\n[check-data:post] list surfaces use thumbnail cards (no application blurbs)');
+  // copy.application is duplicated low-value text for list surfaces: it must
+  // never appear on the home page, category hub or any brand hub.
+  const LIST_PAGES = ['/', '/parts/final-drives/', ...BRAND_ROUTES];
+  for (const route of LIST_PAGES) {
+    const file = path.join(OUT_DIR, route, 'index.html');
+    if (!fs.existsSync(file)) continue;
+    const html = fs.readFileSync(file, 'utf8');
+    const visible = stripHtml(html);
+    const relevant =
+      route === '/' || route === '/parts/final-drives/'
+        ? pages
+        : pages.filter(p => `/parts/final-drives/for/${p.make_slug}/` === route);
+    for (const p of relevant) {
+      const app = (p.copy.application || '').trim();
+      if (app && visible.includes(app)) {
+        fail(`${route}: application blurb "${app.slice(0, 40)}..." leaked into a list surface`);
+      }
+      // Every card must show the model main image thumbnail.
+      const main = p.images.find(i => i.tag === 'main') || p.images[0];
+      const isBrandHub = route.startsWith('/parts/final-drives/for/');
+      if (main && (isBrandHub || html.includes(`href="${p.url_path}"`))) {
+        if (isBrandHub && !html.includes(`/images/products/${main.file}`)) {
+          fail(`${route}: card for ${p.model_name} missing main-image thumbnail ${main.file}`);
+        }
+      }
+    }
+  }
+  // Home + hub must render product thumbnails as lazy <img> cards.
+  for (const route of ['/', '/parts/final-drives/']) {
+    const html = fs.readFileSync(path.join(OUT_DIR, route, 'index.html'), 'utf8');
+    const imgTags = html.match(/<img[^>]*>/g) || [];
+    const productImgs = imgTags.filter(t => t.includes('/images/products/'));
+    if (productImgs.length === 0) fail(`${route}: no product-thumbnail card images rendered`);
+    for (const t of productImgs) {
+      if (!/loading="lazy"/.test(t)) fail(`${route}: card thumbnail must be lazy-loaded (${t.slice(0, 120)})`);
+    }
+  }
+  if (failures === 0) ok('cards render thumbnails; no application blurbs on list surfaces');
 
   console.log('\n[check-data:post] banned tokens & compliance in exported output');
   const outFiles = walk(OUT_DIR, f => /\.(html|xml|txt)$/.test(f));
@@ -374,17 +441,45 @@ function post() {
       fail(`${label}: missing "Confirm the exact fit before you order" section`);
     }
 
-    // Part numbers: render the numbers when present; never an empty table when absent.
-    const numbers = [...new Set((p.reported_numbers || []).map(r => r.pn))];
-    if (numbers.length > 0) {
-      for (const pn of numbers) {
-        if (!visible.includes(pn)) fail(`${label}: part number ${pn} not rendered`);
+    // Part numbers: non-empty groups rendered with headings; lead_pn visible.
+    // No-number pages: no group tables, mandatory "Send my nameplate" CTA.
+    const GROUP_LABELS = {
+      assembly: 'Final drive assembly numbers',
+      motor: 'Travel motor numbers',
+      service: 'Service & repair kit numbers',
+    };
+    const groups = p.part_number_groups || {};
+    const groupNumbers = ['assembly', 'motor', 'service'].flatMap(k =>
+      Array.isArray(groups[k]) ? groups[k] : [],
+    );
+    if (groupNumbers.length > 0) {
+      let renderedGroups = 0;
+      for (const [key, label2] of Object.entries(GROUP_LABELS)) {
+        const nums = Array.isArray(groups[key]) ? groups[key] : [];
+        if (nums.length === 0) {
+          if (visible.includes(label2)) fail(`${label}: empty group "${label2}" must not render`);
+          continue;
+        }
+        if (!visible.includes(label2)) {
+          fail(`${label}: group heading "${label2}" not rendered`);
+          continue;
+        }
+        renderedGroups += 1;
+        for (const pn of nums) {
+          if (!visible.includes(pn)) fail(`${label}: part number ${pn} not rendered`);
+        }
       }
-      if (!/Send my nameplate/.test(visible) && !/Quote this number/.test(visible)) {
-        // nameplate CTA is only mandatory on no-number pages
+      if (renderedGroups === 0) fail(`${label}: no part-number group rendered`);
+      if (p.lead_pn && !visible.includes(p.lead_pn)) {
+        fail(`${label}: lead_pn "${p.lead_pn}" not visible on page`);
       }
     } else {
-      if (!/Send my nameplate/.test(html)) fail(`${label}: no-number page missing "Send my nameplate" button`);
+      if (!/Send my nameplate/.test(html)) {
+        fail(`${label}: no-number page missing "Send my nameplate" button`);
+      }
+      for (const label2 of Object.values(GROUP_LABELS)) {
+        if (visible.includes(label2)) fail(`${label}: empty part-number group "${label2}" rendered`);
+      }
     }
 
     // Fit-check guide link + prefilling RFQ CTA.

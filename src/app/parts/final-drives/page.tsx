@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { buildMetadata } from '@/lib/seo';
+import { ModelCard } from '@/components/model-card';
 import {
   data,
   makes,
@@ -117,32 +118,19 @@ export default function FinalDrivesHubPage() {
         </div>
       </section>
 
-      {/* Quick model links */}
+      {/* Quick model cards */}
       <section className="mt-14">
         <h2 className="text-lg font-semibold tracking-tight">Common model requests</h2>
-        <ul className="mt-5 divide-y divide-border border-y border-border">
+        <ul className="mt-5 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
           {recentCommon.map(page => (
             <li key={page.url_path}>
-              <Link
-                href={page.url_path}
-                className="grid grid-cols-[1fr_auto] items-center gap-4 py-3.5 transition-colors hover:bg-muted/50 sm:grid-cols-[160px_1fr_auto]"
-              >
-                <span className="font-mono text-sm font-semibold text-primary">
-                  {page.make_name} {page.model_name}
-                </span>
-                <span className="hidden text-sm text-muted-foreground sm:block">
-                  {page.copy.application}
-                </span>
-                <span className="text-xs font-semibold uppercase tracking-widest text-primary">
-                  Sourcing page →
-                </span>
-              </Link>
+              <ModelCard page={page} />
             </li>
           ))}
         </ul>
       </section>
 
-      <section className="mt-14 border border-border bg-muted/40 p-8">
+      <section className="mt-14 rounded-lg border border-border bg-muted/40 p-8">
         <h2 className="text-xl font-semibold tracking-tight">
           Do not see your machine on the list?
         </h2>
@@ -153,7 +141,7 @@ export default function FinalDrivesHubPage() {
         </p>
         <Link
           href={RFQ_PATH}
-          className="mt-5 inline-flex items-center justify-center rounded-sm bg-amber-600 px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-amber-700"
+          className="mt-5 inline-flex items-center justify-center rounded-md bg-amber-600 px-6 py-3 text-sm font-semibold text-white transition-colors duration-150 hover:bg-amber-700"
         >
           Request a quote
         </Link>

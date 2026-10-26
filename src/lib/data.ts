@@ -1,11 +1,5 @@
 import rawData from '@/content/public_batch1.json';
 
-export interface ReportedNumber {
-  pn: string;
-  status: string;
-  part_type: string;
-}
-
 export interface PageImage {
   slug: string;
   tag: string;
@@ -24,14 +18,24 @@ export interface ModelCopy {
   band?: string;
 }
 
+/**
+ * Pre-grouped part numbers shipped in the batch file. Render only non-empty
+ * groups; headings come from GROUP_LABELS below.
+ */
+export interface PartNumberGroups {
+  assembly?: string[];
+  motor?: string[];
+  service?: string[];
+}
+
 export interface ModelPage {
   url_path: string;
   title: string;
   h1: string;
   publish_tier: string;
   meta_description: string | null;
-  reported_numbers: ReportedNumber[];
-  verification_note: string;
+  lead_pn: string;
+  part_number_groups: PartNumberGroups;
   make_slug: string;
   make_name: string;
   model_slug: string;
@@ -113,45 +117,27 @@ export function extraImages(page: ModelPage): PageImage[] {
   return page.images.filter(i => i !== main);
 }
 
-/** Reported numbers deduplicated by part number (source data may repeat rows). */
-export function dedupedReportedNumbers(page: ModelPage): ReportedNumber[] {
-  const seen = new Set<string>();
-  const out: ReportedNumber[] = [];
-  for (const r of page.reported_numbers) {
-    if (seen.has(r.pn)) continue;
-    seen.add(r.pn);
-    out.push(r);
-  }
-  return out;
-}
+/** Group display order and headings for the part-number section. */
+export const GROUP_ORDER = ['assembly', 'motor', 'service'] as const;
+export type PartGroupKey = (typeof GROUP_ORDER)[number];
 
-/**
- * Source data records part_type in Chinese (and occasional OEM English labels).
- * The public site is English-only, so every value is rendered through this map.
- */
-const PART_TYPE_EN: Record<string, string> = {
-  '终传动（总成范围未确认）': 'Final drive (assembly scope unconfirmed)',
-  行走马达: 'Travel motor',
-  完整行走总成: 'Complete travel assembly',
-  行走减速箱: 'Travel reduction gearbox',
-  驱动齿圈: 'Drive ring gear',
-  行走维修件: 'Travel service parts',
-  行走液压马达: 'Travel hydraulic motor',
-  '液压马达（官方 MOTOR GP-PSF）': 'Hydraulic motor (OEM: MOTOR GP-PSF)',
-  '马达型号代码': 'Motor model code',
-  '底盘零件': 'Undercarriage part',
-  'Final Drive Group（官方）': 'Final drive group (OEM catalog)',
-  'Final Drive（官方未证明马达是否包含）': 'Final drive (motor inclusion unconfirmed)',
+export const GROUP_LABELS: Record<PartGroupKey, string> = {
+  assembly: 'Final drive assembly numbers',
+  motor: 'Travel motor numbers',
+  service: 'Service & repair kit numbers',
 };
 
-export function partTypeEn(partType: string): string {
-  return PART_TYPE_EN[partType] ?? 'Reported part (type unconfirmed)';
+/** Non-empty part-number groups in display order. */
+export function partGroups(page: ModelPage): { key: PartGroupKey; label: string; numbers: string[] }[] {
+  const groups = page.part_number_groups ?? {};
+  return GROUP_ORDER.map(key => ({ key, label: GROUP_LABELS[key], numbers: groups[key] ?? [] })).filter(
+    g => g.numbers.length > 0,
+  );
 }
 
-/** All part_type values seen in the JSON must be covered by the English map. */
-export const UNMAPPED_PART_TYPES: string[] = [
-  ...new Set(modelPages.flatMap(p => p.reported_numbers.map(r => r.part_type))),
-].filter(pt => !(pt in PART_TYPE_EN));
+export function hasPartNumbers(page: ModelPage): boolean {
+  return partGroups(page).length > 0;
+}
 
 export function modelDescription(page: ModelPage): string {
   if (page.meta_description) return page.meta_description;

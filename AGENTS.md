@@ -31,7 +31,7 @@
 │   │   ├── guides/how-to-check-excavator-final-drive-nameplate/
 │   │   ├── sitemap.ts / robots.ts                  # 由 allPublicRoutes() 生成
 │   │   └── not-found.tsx                           # 404 (noindex)
-│   ├── components/           # header/footer/consent-banner/analytics/rfq-form 等
+│   ├── components/           # header/footer/consent-banner/analytics/rfq-form/model-card/image-gallery 等
 │   ├── config/site.ts        # SITE_NAME 与 NEXT_PUBLIC_* 环境变量集中读取
 │   ├── content/public_batch1.json  # 唯一内容数据源（新增页面只换它+图片）
 │   ├── lib/data.ts           # JSON 类型化读取、路由推导、part_type 中→英映射
@@ -59,9 +59,9 @@
 ### 内容/合规红线（check-data.mjs 强制）
 - 路由只能来自 JSON：当前 80 个机型页 / 13 品牌，`url_path` 必须等于推导值；JSON 之外的机型绝不生成路由或文本。品牌枢纽只链接本品牌机型。
 - 公共输出禁止：`guaranteed fit` / `direct replacement` / `drop-in` / `fully interchangeable` / `in stock` / `48-hour shipping` / 价格 / 购物车 / `core charge` / 旧学术措辞（reported for reference / not independently verified / do not order by ... alone）/ `LB-` / `SKU-` / UUID / S1S2S3 标签 / 供应商名与成本 / 任何中文字符。
-- 机型页是**商业采购页**：H1、主图+CTA、`copy.intro/sourcing/fit_check/pn_note/generation_note` 逐字渲染；件号区有件号用 "Part numbers for this model"（件号可对照、底部 pn_note 收口、每号有 Quote 链接），无件号用 "Need the right part number?" + "Send my nameplate" 按钮，绝不放空表。
+- 机型页是**商业采购页**：H1、主图画廊+CTA、`copy.intro/sourcing/fit_check/pn_note/generation_note` 逐字渲染；件号区按 `part_number_groups`（assembly→"Final drive assembly numbers" / motor→"Travel motor numbers" / service→"Service & repair kit numbers"）分组渲染非空组（等宽 chip 可点、每号带预填 Quote 链接、底部 pn_note 收口），无件号（`lead_pn` 为空）用 "Need the right part number?" + "Send my nameplate" 按钮，绝不放空表。列表页（首页/Hub/品牌枢纽）统一用 `ModelCard` 缩略图卡片，**不渲染** `copy.application`。
 - 每 页 intro 必须含 make+model（差异化文案断言）；title/description/canonical 全站唯一；layout title template 已自动追加站名，metadata 传裸 title 即可，勿再手写 `| SITE_NAME`。
-- JSON 里 `part_type` 为中文，渲染必须经 `partTypeEn()` 映射为英文（新增取值需同步扩 map）；`verification_note` **不渲染**（部分含禁用语）。
+- JSON 件号已预分组为 `part_number_groups`（字符串数组）+ `lead_pn`（代表号，可能为空）；旧字段 `reported_numbers`/`verification_note` 已删除，代码与断言中不得再出现（含标识符本身）。
 - 图片：主图 tag=main 不 lazy 且 fetchPriority=high，其余 lazy；所有 `<img>` 必须有 width/height（尺寸维护在 `src/lib/image-sizes.ts`，换图需重新生成）。
 - RFQ 走 Web3Forms（`NEXT_PUBLIC_WEB3FORMS_KEY` 未配置时显示占位不崩溃）；GA4 仅 consent=granted 后注入，`generate_lead` 只在提交成功且已授权时触发。
 

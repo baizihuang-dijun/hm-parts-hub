@@ -37,18 +37,19 @@ Only two inputs are needed to publish more pages — **no code changes**:
    - `pages[]` — one object per machine model. `url_path` must be exactly
      `/equipment/{make_slug}/{model_slug}/final-drives/`; routes are derived verbatim
      from it. Each page carries `images` (`tag: "main"` is the hero image),
-     `reported_numbers` (may be empty), and a **`copy`** object with the commercial
-     page copy: `intro` (must mention make + model), `sourcing`, `fit_check`,
-     `pn_heading` (`"Part numbers for this model"` or `"Need the right part number?"`),
-     `pn_note`, `generation_note`, plus optional `application` / `ton_class_approx`
-     (used for brand-hub sorting) / `band`.
+     **`part_number_groups`** (`assembly` / `motor` / `service` string arrays, render
+     only non-empty groups), **`lead_pn`** (the representative number shown as
+     `PN {lead_pn}` on cards; empty string when the model has no numbers), and a
+     **`copy`** object with the commercial page copy: `intro` (must mention make +
+     model), `sourcing`, `fit_check`, `pn_heading` (`"Part numbers for this model"`
+     or `"Need the right part number?"`), `pn_note`, `generation_note`, plus optional
+     `ton_class_approx` (used for brand-hub sorting). `copy.application` is intentionally
+     **not rendered** on any list surface (cards stay scannable).
    - `makes[]` — every make listed gets a brand hub at `/parts/final-drives/for/{make}/`.
 2. **Drop the product photos into `public/images/products/`** using the exact `file`
    names referenced by the JSON, and regenerate `src/lib/image-sizes.ts` with the
    intrinsic width/height of each JPEG (the pre-build check fails if any referenced
    file is missing from the map).
-3. If new JSON uses a new Chinese `part_type` value, extend the `PART_TYPE_EN` map in
-   `src/lib/data.ts` (public output must stay English-only).
 
 Then run `pnpm build`. `scripts/check-data.mjs` re-validates everything (route count =
 JSON page count, verbatim `url_path`, image existence, per-page copy modules,
@@ -59,12 +60,14 @@ banned-token/compliance scan) and blocks the build on any failure.
 
 - Never publish: `guaranteed fit`, `direct replacement`, `drop-in`, `fully
   interchangeable`, `in stock`, `48-hour shipping`, prices/cart/core-charge, the old
-  academic disclaimers (`reported for reference`, `not independently verified`,
+  academic disclaimers (the word `reported`, `not independently verified`,
   `do not order by it/these alone`), internal identifiers (`LB-`, `SKU-`, UUIDs,
-  S1/S2/S3 tier labels), supplier names/costs, or any CJK text in public output.
-- Part numbers are presented as catalog numbers to cross-check against the nameplate;
-  pages with numbers close with the commercial `pn_note`, pages without numbers show
-  a "Send my nameplate" CTA. Numbers never get their own pages or external links.
+  S1/S2/S3 tier labels, the removed field name `verification_note`), supplier
+  names/costs, or any CJK text in public output.
+- Part numbers render as grouped catalog numbers (assembly / motor / service groups)
+  to cross-check against the nameplate; pages with numbers close with the commercial
+  `pn_note`, pages without numbers show a "Send my nameplate" CTA. Numbers never get
+  their own pages or external links.
 - OEM brand names are used for identification only (trademark notice in the footer,
   Privacy and Terms).
 - Machines absent from the JSON never get routes, links or mentions.

@@ -5,7 +5,7 @@ import { Breadcrumbs } from '@/components/breadcrumbs';
 
 export const metadata: Metadata = buildMetadata({
   title: 'Terms of Use',
-  description: `Terms of use for ${SITE_NAME}: sourcing-support service scope, reported cross-reference data, and identification-only trademark use.`,
+  description: `Terms of use for ${SITE_NAME}: sourcing-support service scope, cross-reference data, and identification-only trademark use.`,
   path: '/terms/',
 });
 
@@ -50,7 +50,7 @@ export default function TermsPage() {
         <section>
           <h2 className="text-lg font-semibold text-foreground">Content accuracy</h2>
           <p className="mt-2">
-            We work to keep machine coverage and reported numbers accurate, but all
+            We work to keep machine coverage and part-number listings accurate, but all
             content is provided as-is without warranty. Fitment decisions are made only
             through the confirmation process described above.
           </p>

@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import type { Metadata } from 'next';
 import { buildMetadata } from '@/lib/seo';
+import { ModelCard } from '@/components/model-card';
 import {
   makes,
   modelPages,
@@ -56,7 +57,7 @@ export default function HomePage() {
           <div className="mt-8 flex flex-wrap gap-3">
             <Link
               href={CATEGORY_PATH}
-              className="inline-flex items-center justify-center rounded-sm bg-amber-600 px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-amber-700"
+              className="inline-flex items-center justify-center rounded-md bg-amber-600 px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-amber-700"
             >
               Browse final drives by make
             </Link>
@@ -171,26 +172,10 @@ export default function HomePage() {
         <h2 className="mt-2 text-2xl font-semibold tracking-tight">
           Frequently requested model pages
         </h2>
-        <ul className="mt-8 divide-y divide-border border-y border-border">
+        <ul className="mt-8 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4">
           {sortPagesByTonnage(featured).map(page => (
             <li key={page.url_path}>
-              <Link
-                href={page.url_path}
-                className="grid grid-cols-[1fr_auto] items-center gap-4 py-4 transition-colors hover:bg-muted/50 sm:grid-cols-[1fr_1fr_auto]"
-              >
-                <span className="font-mono text-sm font-semibold text-primary">
-                  {page.make_name} {page.model_name}
-                </span>
-                <span className="hidden text-sm text-muted-foreground sm:block">
-                  {typeof page.copy.ton_class_approx === 'number'
-                    ? `~${page.copy.ton_class_approx} t class · `
-                    : ''}
-                  {page.copy.application}
-                </span>
-                <span className="text-xs font-semibold uppercase tracking-widest text-primary">
-                  View page →
-                </span>
-              </Link>
+              <ModelCard page={page} />
             </li>
           ))}
         </ul>
@@ -210,7 +195,7 @@ export default function HomePage() {
           </div>
           <Link
             href={RFQ_PATH}
-            className="inline-flex shrink-0 items-center justify-center rounded-sm bg-amber-600 px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-amber-700"
+            className="inline-flex shrink-0 items-center justify-center rounded-md bg-amber-600 px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-amber-700"
           >
             Request a quote
           </Link>

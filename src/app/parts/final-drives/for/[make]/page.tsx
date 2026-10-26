@@ -12,6 +12,7 @@ import {
 } from '@/lib/data';
 import { buildMetadata } from '@/lib/seo';
 import { Breadcrumbs } from '@/components/breadcrumbs';
+import { ModelCard } from '@/components/model-card';
 
 type RouteParams = Promise<{ make: string }>;
 
@@ -37,14 +38,6 @@ export async function generateMetadata({
     path: brandHubPath(makeInfo.slug),
   });
 }
-
-const BAND_LABEL: Record<string, string> = {
-  'mini and compact': 'Mini & compact',
-  'mid-size': 'Mid-size',
-  large: 'Large',
-  heavy: 'Heavy',
-  'ultra-class mining': 'Ultra-class / mining',
-};
 
 export default async function BrandHubPage({ params }: { params: RouteParams }) {
   const { make } = await params;
@@ -74,31 +67,15 @@ export default async function BrandHubPage({ params }: { params: RouteParams }) 
         before quoting factory-direct supply.
       </p>
 
-      <ul className="mt-10 divide-y divide-border border-y border-border">
+      <ul className="mt-10 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
         {pages.map(page => (
           <li key={page.url_path}>
-            <Link
-              href={page.url_path}
-              className="grid grid-cols-1 items-center gap-2 py-4 transition-colors hover:bg-muted/50 sm:grid-cols-[180px_1fr_120px_auto] sm:gap-6"
-            >
-              <span className="font-mono text-sm font-semibold text-primary">
-                {page.model_name}
-              </span>
-              <span className="text-sm text-muted-foreground">{page.copy.application}</span>
-              <span className="text-xs uppercase tracking-widest text-muted-foreground">
-                {typeof page.copy.ton_class_approx === 'number'
-                  ? `~${page.copy.ton_class_approx} t`
-                  : (page.copy.band && BAND_LABEL[page.copy.band]) || ''}
-              </span>
-              <span className="text-xs font-semibold uppercase tracking-widest text-primary">
-                View page →
-              </span>
-            </Link>
+            <ModelCard page={page} />
           </li>
         ))}
       </ul>
 
-      <section className="mt-12 border border-border bg-muted/40 p-8">
+      <section className="mt-12 rounded-lg border border-border bg-muted/40 p-8">
         <h2 className="text-xl font-semibold tracking-tight">
           Sourcing for a {makeInfo.name} not listed here?
         </h2>
@@ -109,7 +86,7 @@ export default async function BrandHubPage({ params }: { params: RouteParams }) 
         </p>
         <Link
           href={`${RFQ_PATH}?make=${encodeURIComponent(makeInfo.name)}`}
-          className="mt-5 inline-flex items-center justify-center rounded-sm bg-amber-600 px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-amber-700"
+          className="mt-5 inline-flex items-center justify-center rounded-md bg-amber-600 px-6 py-3 text-sm font-semibold text-white transition-colors duration-150 hover:bg-amber-700"
         >
           Request a quote
         </Link>

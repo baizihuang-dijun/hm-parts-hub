@@ -7,9 +7,8 @@ import {
   getMake,
   modelDescription,
   mainImage,
-  extraImages,
-  dedupedReportedNumbers,
-  partTypeEn,
+  partGroups,
+  hasPartNumbers,
   pagesByMake,
   sortPagesByTonnage,
   brandHubPath,
@@ -18,8 +17,8 @@ import {
   type ModelPage,
 } from '@/lib/data';
 import { buildMetadata } from '@/lib/seo';
-import { imageSize } from '@/lib/image-sizes';
 import { Breadcrumbs } from '@/components/breadcrumbs';
+import { ImageGallery, type GalleryImage } from '@/components/image-gallery';
 import { SITE_NAME } from '@/config/site';
 
 type RouteParams = Promise<{ make: string; model: string }>;
@@ -99,43 +98,57 @@ function jsonLd(page: ModelPage): object {
   };
 }
 
+function galleryImages(page: ModelPage): GalleryImage[] {
+  const main = mainImage(page);
+  const ordered = main ? [main, ...page.images.filter(i => i !== main)] : page.images;
+  return ordered.map((img, idx) => ({
+    file: img.file,
+    alt:
+      idx === 0
+        ? `Final drive assembly for ${page.make_name} ${page.model_name} excavator`
+        : `Final drive for ${page.make_name} ${page.model_name} excavator — additional view ${idx}`,
+  }));
+}
+
 function PartNumberBlock({ page }: { page: ModelPage }) {
-  const numbers = dedupedReportedNumbers(page);
-  const hasNumbers = numbers.length > 0;
+  const groups = partGroups(page);
   return (
     <section className="border-t border-border py-10">
       <h2 className="text-xl font-semibold tracking-tight">{page.copy.pn_heading}</h2>
-      {hasNumbers ? (
+      {hasPartNumbers(page) ? (
         <>
-          <ul className="mt-5 divide-y divide-border border-y border-border">
-            {numbers.map(r => (
-              <li
-                key={r.pn}
-                className="grid grid-cols-1 gap-1 py-3 sm:grid-cols-[1fr_auto_auto] sm:items-center sm:gap-4"
-              >
-                <span className="font-mono text-[15px] font-semibold text-primary">{r.pn}</span>
-                <span className="text-xs uppercase tracking-widest text-muted-foreground">
-                  {partTypeEn(r.part_type)}
-                </span>
-                <Link
-                  href={rfqHref(page, r.pn)}
-                  className="text-xs font-semibold uppercase tracking-widest text-primary underline-offset-4 hover:underline"
-                >
-                  Quote this number
-                </Link>
-              </li>
+          <div className="mt-6 space-y-7">
+            {groups.map(group => (
+              <div key={group.key}>
+                <p className="text-xs font-semibold uppercase tracking-widest text-muted-foreground">
+                  {group.label}
+                </p>
+                <ul className="mt-3 flex flex-wrap gap-2">
+                  {group.numbers.map(pn => (
+                    <li key={pn}>
+                      <Link
+                        href={rfqHref(page, pn)}
+                        title={`Request a quote for ${pn}`}
+                        className="inline-flex select-all items-center rounded-md border border-border bg-white px-3 py-1.5 font-mono text-sm font-semibold tracking-wide text-primary transition-colors duration-150 hover:border-primary hover:bg-muted"
+                      >
+                        {pn}
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </div>
             ))}
-          </ul>
-          <div className="mt-5 rounded-sm border border-border bg-muted/50 p-4 text-sm leading-6">
+          </div>
+          <div className="mt-6 rounded-lg border border-border bg-muted/50 p-4 text-sm leading-6">
             {page.copy.pn_note}
           </div>
         </>
       ) : (
         <div className="mt-5 space-y-5">
-          <p className="text-sm leading-6 text-muted-foreground">{page.copy.pn_note}</p>
+          <p className="max-w-prose text-sm leading-6 text-muted-foreground">{page.copy.pn_note}</p>
           <Link
             href={rfqHref(page)}
-            className="inline-flex items-center justify-center rounded-sm bg-amber-600 px-5 py-2.5 text-sm font-semibold text-white transition-colors hover:bg-amber-700"
+            className="inline-flex items-center justify-center rounded-md bg-amber-600 px-5 py-2.5 text-sm font-semibold text-white transition-colors duration-150 hover:bg-amber-700"
           >
             Send my nameplate
           </Link>
@@ -151,15 +164,13 @@ export default async function ModelFinalDrivesPage({ params }: { params: RoutePa
   if (!page) notFound();
 
   const makeInfo = getMake(page.make_slug);
-  const main = mainImage(page);
-  const extras = extraImages(page);
-  const mainSize = main ? imageSize(main.file) : { width: 1080, height: 1350 };
+  const images = galleryImages(page);
   const siblingModels = sortPagesByTonnage(
     pagesByMake(page.make_slug).filter(p => p.model_slug !== page.model_slug),
   ).slice(0, 8);
 
   return (
-    <div className="mx-auto max-w-6xl px-4 py-10 sm:px-6">
+    <div className="mx-auto max-w-6xl px-4 pb-24 pt-10 sm:px-6 md:pb-10">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd(page)) }}
@@ -180,52 +191,27 @@ export default async function ModelFinalDrivesPage({ params }: { params: RoutePa
       </p>
 
       <div className="mt-8 grid gap-10 lg:grid-cols-[minmax(0,5fr)_minmax(0,7fr)]">
-        {/* Left: photos + CTA */}
+        {/* Left: gallery + CTA */}
         <div className="space-y-4">
-          {main ? (
-            <figure className="border border-border bg-white p-2">
-              {/* eslint-disable-next-line @next/next/no-img-element -- static export, product archive photo */}
-              <img
-                src={`/images/products/${main.file}`}
-                alt={`Final drive assembly for ${page.make_name} ${page.model_name} excavator`}
-                width={mainSize.width}
-                height={mainSize.height}
-                className="h-auto w-full"
-                fetchPriority="high"
-              />
-            </figure>
-          ) : null}
-          {extras.map((img, idx) => {
-            const size = imageSize(img.file);
-            return (
-              <figure key={img.file} className="border border-border bg-white p-2">
-                {/* eslint-disable-next-line @next/next/no-img-element -- static export, product archive photo */}
-                <img
-                  src={`/images/products/${img.file}`}
-                  alt={`Final drive for ${page.make_name} ${page.model_name} excavator — additional view ${idx + 1}`}
-                  width={size.width}
-                  height={size.height}
-                  loading="lazy"
-                  className="h-auto w-full"
-                />
-              </figure>
-            );
-          })}
-          <div className="border border-border bg-muted/40 p-5">
-                <p className="text-sm font-semibold text-primary">
-                  Sourcing a {page.make_name} {page.model_name} final drive?
-                </p>
-                <p className="mt-1 text-sm leading-6 text-muted-foreground">
-                  Send the part number and a nameplate photo. We confirm the exact unit and quote
-                  factory-direct pricing before you commit.
-                </p>
-                <Link
-                  href={rfqHref(page)}
-                  className="mt-4 inline-flex items-center justify-center rounded-sm bg-amber-600 px-5 py-2.5 text-sm font-semibold text-white transition-colors hover:bg-amber-700"
-                >
-                  Request a quote for this model
-                </Link>
-              </div>
+          <ImageGallery images={images} />
+          <p className="text-center text-xs text-muted-foreground">
+            Final drive for {page.make_name} {page.model_name}
+          </p>
+          <div className="rounded-lg border border-border bg-muted/40 p-5">
+            <p className="text-sm font-semibold text-primary">
+              Sourcing a {page.make_name} {page.model_name} final drive?
+            </p>
+            <p className="mt-1 text-sm leading-6 text-muted-foreground">
+              Send the part number and a nameplate photo. We confirm the exact unit and quote
+              factory-direct pricing before you commit.
+            </p>
+            <Link
+              href={rfqHref(page)}
+              className="mt-4 inline-flex items-center justify-center rounded-md bg-amber-600 px-5 py-2.5 text-sm font-semibold text-white transition-colors duration-150 hover:bg-amber-700"
+            >
+              Request a quote for this model
+            </Link>
+          </div>
         </div>
 
         {/* Right: commercial copy */}
@@ -306,7 +292,7 @@ export default async function ModelFinalDrivesPage({ params }: { params: RoutePa
             </p>
             <Link
               href={rfqHref(page)}
-              className="mt-5 inline-flex items-center justify-center rounded-sm bg-amber-600 px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-amber-700"
+              className="mt-5 inline-flex items-center justify-center rounded-md bg-amber-600 px-6 py-3 text-sm font-semibold text-white transition-colors duration-150 hover:bg-amber-700"
             >
               Request a quote for this model
             </Link>
@@ -337,6 +323,16 @@ export default async function ModelFinalDrivesPage({ params }: { params: RoutePa
             </section>
           ) : null}
         </div>
+      </div>
+
+      {/* Sticky mobile CTA bar */}
+      <div className="fixed inset-x-0 bottom-0 z-40 border-t border-border bg-white/95 px-4 py-3 backdrop-blur md:hidden">
+        <Link
+          href={rfqHref(page)}
+          className="flex w-full items-center justify-center rounded-md bg-amber-600 px-5 py-2.5 text-sm font-semibold text-white transition-colors duration-150 hover:bg-amber-700"
+        >
+          Request a quote — {page.make_name} {page.model_name}
+        </Link>
       </div>
     </div>
   );

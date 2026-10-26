@@ -133,7 +133,7 @@ export default function NameplateGuidePage() {
           </h2>
           <p className="mt-2 text-sm leading-relaxed text-foreground/80">
             Attach the photos to your quote request together with any part numbers you
-            have. We confirm the match technically — reported cross-references, serial
+            have. We confirm the match technically — catalog cross-references, serial
             breaks and the nameplate — before anything is ordered.
           </p>
           <Link
