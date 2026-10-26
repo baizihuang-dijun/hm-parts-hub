@@ -20,7 +20,8 @@ export function ImageGallery({ images }: { images: GalleryImage[] }) {
 
   return (
     <div>
-      <div className="overflow-hidden rounded-lg border border-border bg-white shadow-sm">
+      {/* Fixed 4:3 frame on a dark steel backdrop; contained, never stretched or cropped (no CLS). */}
+      <div className="flex aspect-[4/3] w-full items-center justify-center overflow-hidden rounded-lg border border-border bg-[#1E2A33] shadow-sm">
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
           src={`/images/products/${current.file}`}
@@ -28,7 +29,7 @@ export function ImageGallery({ images }: { images: GalleryImage[] }) {
           width={size.width}
           height={size.height}
           fetchPriority="high"
-          className="h-auto w-full"
+          className="h-full w-full object-contain"
         />
       </div>
       {images.length > 1 && (
@@ -43,7 +44,7 @@ export function ImageGallery({ images }: { images: GalleryImage[] }) {
                 onClick={() => setActive(i)}
                 aria-label={`Show image ${i + 1}`}
                 aria-pressed={selected}
-                className={`shrink-0 overflow-hidden rounded-md border bg-muted transition-colors duration-150 ${
+                className={`shrink-0 overflow-hidden rounded-md border bg-[#1E2A33] transition-colors duration-150 ${
                   selected ? 'border-primary ring-1 ring-primary' : 'border-border hover:border-primary/50'
                 }`}
               >
@@ -54,7 +55,7 @@ export function ImageGallery({ images }: { images: GalleryImage[] }) {
                   width={s.width}
                   height={s.height}
                   loading="lazy"
-                  className="h-16 w-16 object-cover"
+                  className="aspect-[4/3] h-16 object-contain"
                 />
               </button>
             );

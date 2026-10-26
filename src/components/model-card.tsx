@@ -17,7 +17,8 @@ export function ModelCard({ page }: { page: ModelPage }) {
       href={page.url_path}
       className="group flex flex-col overflow-hidden rounded-lg border border-border bg-white shadow-none transition-shadow duration-150 hover:shadow-md"
     >
-      <div className="relative aspect-[4/3] w-full overflow-hidden bg-muted">
+      {/* Fixed 4:3 frame on a dark steel backdrop; images are contained, never stretched or cropped. */}
+      <div className="relative aspect-[4/3] w-full overflow-hidden bg-[#1E2A33]">
         {main && (
           // eslint-disable-next-line @next/next/no-img-element
           <img
@@ -26,7 +27,7 @@ export function ModelCard({ page }: { page: ModelPage }) {
             width={size.width}
             height={size.height}
             loading="lazy"
-            className="h-full w-full object-cover transition-transform duration-150 group-hover:scale-[1.02]"
+            className="h-full w-full object-contain transition-transform duration-150 group-hover:scale-[1.02]"
           />
         )}
       </div>
