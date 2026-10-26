@@ -156,7 +156,7 @@ function pre() {
 
     // Commercial copy fields must all be present and non-empty.
     const copy = p.copy || {};
-    for (const field of ['intro', 'sourcing', 'fit_check', 'pn_heading', 'pn_note', 'generation_note']) {
+    for (const field of ['intro', 'sourcing', 'fit_check', 'pn_heading', 'pn_note', 'generation_note', 'machine_kind']) {
       if (typeof copy[field] !== 'string' || copy[field].trim() === '') {
         fail(`${p.url_path}: copy.${field} missing or empty`);
       }
@@ -312,6 +312,15 @@ function post() {
     }
     if (/PN<\/span>\s*<span[^>]*>\s*Nameplate match/.test(html)) {
       fail(`${route}: "PN" prefix must not precede the "Nameplate match" label`);
+    }
+    // Adjacent text nodes must not be mashed together (JSX whitespace loss):
+    // - card PN prefix must be followed by a real space before the part number
+    // - brand tiles must read "{count} {Make} models in this batch"
+    if (/PN<\/span><span/.test(html)) {
+      fail(`${route}: "PN" prefix stuck to the part number (missing space text node)`);
+    }
+    if (/<\/span><span[^>]*>\d+ [A-Za-z]+ models? in this batch/.test(html)) {
+      fail(`${route}: brand name stuck to model count (missing space text node)`);
     }
     const relevant =
       route === '/' || route === '/parts/final-drives/'
@@ -510,6 +519,12 @@ function post() {
       }
     } else if (!new RegExp(`~\\s*${p.copy.ton_class_approx}\\s*T\\b`).test(visible)) {
       fail(`${label}: tonnage tag "~${p.copy.ton_class_approx} T" missing`);
+    }
+
+    // Subtitle machine kind comes from copy.machine_kind (excavator vs compact
+    // track loader) — no front-end inference from the model name.
+    if (!visible.includes(`${p.copy.machine_kind} undercarriage`)) {
+      fail(`${label}: subtitle must render "${p.copy.machine_kind} undercarriage"`);
     }
 
     // Fit-check guide link + prefilling RFQ CTA.

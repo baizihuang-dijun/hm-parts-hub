@@ -187,7 +187,7 @@ export default async function ModelFinalDrivesPage({ params }: { params: RoutePa
       <h1 className="mt-5 text-3xl font-semibold tracking-tight sm:text-4xl">{page.h1}</h1>
       <div className="mt-3 flex flex-wrap items-center gap-3">
         <p className="text-sm uppercase tracking-widest text-muted-foreground">
-          Replacement final drive &amp; travel motor assembly · excavator undercarriage
+          {`Replacement final drive & travel motor assembly · ${page.copy.machine_kind} undercarriage`}
         </p>
         {typeof page.copy.ton_class_approx === 'number' && (
           <span className="rounded border border-border bg-muted px-1.5 py-0.5 font-mono text-[11px] leading-none text-muted-foreground">

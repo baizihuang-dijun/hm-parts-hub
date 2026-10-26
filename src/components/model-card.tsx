@@ -43,7 +43,7 @@ export function ModelCard({ page }: { page: ModelPage }) {
         </div>
         {page.lead_pn ? (
           <p className="text-xs text-muted-foreground">
-            <span className="mr-1.5 text-[10px] font-semibold uppercase tracking-widest">PN</span>
+            <span className="text-[10px] font-semibold uppercase tracking-widest">PN</span>{' '}
             <span className="font-mono">{page.lead_pn}</span>
           </p>
         ) : (

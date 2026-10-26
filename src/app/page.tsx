@@ -152,7 +152,7 @@ export default function HomePage() {
                   >
                     <span className="text-base font-semibold tracking-tight text-primary">
                       {make.name}
-                    </span>
+                    </span>{' '}
                     <span className="text-xs uppercase tracking-widest text-muted-foreground">
                       {`${count} ${make.name} ${count === 1 ? 'model' : 'models'} in this batch`}
                     </span>

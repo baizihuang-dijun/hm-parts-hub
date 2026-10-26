@@ -59,7 +59,7 @@ export default function FinalDrivesHubPage() {
                 >
                   <span className="text-base font-semibold tracking-tight text-primary">
                     {make.name}
-                  </span>
+                  </span>{' '}
                   <span className="text-xs uppercase tracking-widest text-muted-foreground">
                     {`${pages.length} ${pages.length === 1 ? 'model' : 'models'} · ${rangeLabel}`}
                   </span>

@@ -14,8 +14,9 @@ export interface ModelCopy {
   pn_note: string;
   generation_note: string;
   application?: string;
-  ton_class_approx?: number;
+  ton_class_approx?: number | null;
   band?: string;
+  machine_kind: string;
 }
 
 /**
