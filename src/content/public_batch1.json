@@ -1,0 +1,714 @@
+{
+ "category": {
+  "slug": "final-drives",
+  "name": "Final Drives",
+  "intro": "Replacement final drives and travel motors for excavators. Sourcing support for OEM and aftermarket part numbers."
+ },
+ "makes": [
+  {
+   "slug": "case",
+   "name": "CASE"
+  },
+  {
+   "slug": "caterpillar",
+   "name": "Caterpillar"
+  },
+  {
+   "slug": "doosan",
+   "name": "Doosan"
+  },
+  {
+   "slug": "hitachi",
+   "name": "Hitachi"
+  },
+  {
+   "slug": "hyundai",
+   "name": "Hyundai"
+  },
+  {
+   "slug": "jcb",
+   "name": "JCB"
+  },
+  {
+   "slug": "kato",
+   "name": "Kato"
+  },
+  {
+   "slug": "kobelco",
+   "name": "Kobelco"
+  },
+  {
+   "slug": "komatsu",
+   "name": "Komatsu"
+  },
+  {
+   "slug": "sany",
+   "name": "SANY"
+  },
+  {
+   "slug": "sumitomo",
+   "name": "Sumitomo"
+  },
+  {
+   "slug": "volvo",
+   "name": "Volvo"
+  },
+  {
+   "slug": "xcmg",
+   "name": "XCMG"
+  }
+ ],
+ "pages": [
+  {
+   "url_path": "/equipment/caterpillar/320d/final-drives/",
+   "title": "Final Drive for Caterpillar 320D — Sourcing & RFQ",
+   "h1": "Final Drive for Caterpillar 320D",
+   "publish_tier": "B",
+   "meta_description": null,
+   "reported_numbers": [
+    {
+     "pn": "227-6913",
+     "status": "reported",
+     "part_type": "终传动（总成范围未确认）"
+    },
+    {
+     "pn": "296-6298",
+     "status": "reported",
+     "part_type": "终传动（总成范围未确认）"
+    }
+   ],
+   "verification_note": "Reported cross-references for reference only; not verified for guaranteed fit or interchangeability. Confirm by OEM part number, machine serial number and nameplate before ordering.",
+   "make_slug": "caterpillar",
+   "make_name": "Caterpillar",
+   "model_slug": "320d",
+   "model_name": "320D",
+   "model_aliases": [
+    "E320D"
+   ],
+   "serial_note": null,
+   "images": [
+    {
+     "slug": "caterpillar-320d",
+     "tag": "main",
+     "file": "caterpillar-320d-main.jpg"
+    },
+    {
+     "slug": "caterpillar-320d",
+     "tag": "view2",
+     "file": "caterpillar-320d-view2.jpg"
+    },
+    {
+     "slug": "caterpillar-320d",
+     "tag": "view3",
+     "file": "caterpillar-320d-view3.jpg"
+    }
+   ]
+  },
+  {
+   "url_path": "/equipment/caterpillar/330c/final-drives/",
+   "title": "Final Drive for Caterpillar 330C — Sourcing & RFQ",
+   "h1": "Final Drive for Caterpillar 330C",
+   "publish_tier": "B",
+   "meta_description": null,
+   "reported_numbers": [
+    {
+     "pn": "191-5606",
+     "status": "reported",
+     "part_type": "行走马达"
+    },
+    {
+     "pn": "199-4578",
+     "status": "reported",
+     "part_type": "完整行走总成"
+    },
+    {
+     "pn": "199-4579",
+     "status": "reported",
+     "part_type": "行走减速箱"
+    },
+    {
+     "pn": "199-4747",
+     "status": "reported",
+     "part_type": "完整行走总成"
+    },
+    {
+     "pn": "9Q-5696",
+     "status": "reported",
+     "part_type": "终传动（总成范围未确认）"
+    }
+   ],
+   "verification_note": "Reported cross-references for reference only; not verified for guaranteed fit or interchangeability. Confirm by OEM part number, machine serial number and nameplate before ordering.",
+   "make_slug": "caterpillar",
+   "make_name": "Caterpillar",
+   "model_slug": "330c",
+   "model_name": "330C",
+   "model_aliases": [],
+   "serial_note": null,
+   "images": [
+    {
+     "slug": "caterpillar-330c",
+     "tag": "main",
+     "file": "caterpillar-330c-main.jpg"
+    },
+    {
+     "slug": "caterpillar-330c",
+     "tag": "view2",
+     "file": "caterpillar-330c-view2.jpg"
+    },
+    {
+     "slug": "caterpillar-330c",
+     "tag": "view3",
+     "file": "caterpillar-330c-view3.jpg"
+    }
+   ]
+  },
+  {
+   "url_path": "/equipment/doosan/dx225/final-drives/",
+   "title": "Final Drive for Doosan DX225 — Sourcing & RFQ",
+   "h1": "Final Drive for Doosan DX225",
+   "publish_tier": "B",
+   "meta_description": null,
+   "reported_numbers": [
+    {
+     "pn": "K1000681A",
+     "status": "reported",
+     "part_type": "完整行走总成"
+    },
+    {
+     "pn": "170401-00039A",
+     "status": "reported",
+     "part_type": "终传动（总成范围未确认）"
+    },
+    {
+     "pn": "170401-00039B",
+     "status": "reported",
+     "part_type": "终传动（总成范围未确认）"
+    },
+    {
+     "pn": "K1037757",
+     "status": "reported",
+     "part_type": "终传动（总成范围未确认）"
+    }
+   ],
+   "verification_note": "Reported cross-references for reference only; not verified for guaranteed fit or interchangeability. Confirm by OEM part number, machine serial number and nameplate before ordering.",
+   "make_slug": "doosan",
+   "make_name": "Doosan",
+   "model_slug": "dx225",
+   "model_name": "DX225",
+   "model_aliases": [
+    "DX225LC",
+    "DX225LC-3",
+    "DX230LC"
+   ],
+   "serial_note": null,
+   "images": [
+    {
+     "slug": "doosan-dx225",
+     "tag": "main",
+     "file": "doosan-dx225-main.jpg"
+    },
+    {
+     "slug": "doosan-dx225",
+     "tag": "view2",
+     "file": "doosan-dx225-view2.jpg"
+    },
+    {
+     "slug": "doosan-dx225",
+     "tag": "view3",
+     "file": "doosan-dx225-view3.jpg"
+    }
+   ]
+  },
+  {
+   "url_path": "/equipment/hitachi/zx200-3/final-drives/",
+   "title": "Final Drive for Hitachi ZX200-3 — Sourcing & RFQ",
+   "h1": "Final Drive for Hitachi ZX200-3",
+   "publish_tier": "B",
+   "meta_description": null,
+   "reported_numbers": [
+    {
+     "pn": "1033091",
+     "status": "reported",
+     "part_type": "驱动齿圈"
+    },
+    {
+     "pn": "4634693",
+     "status": "reported",
+     "part_type": "行走维修件"
+    },
+    {
+     "pn": "9233692",
+     "status": "reported",
+     "part_type": "完整行走总成"
+    },
+    {
+     "pn": "9257254",
+     "status": "reported",
+     "part_type": "行走马达"
+    },
+    {
+     "pn": "9258325",
+     "status": "reported",
+     "part_type": "行走液压马达"
+    },
+    {
+     "pn": "9261222",
+     "status": "reported",
+     "part_type": "完整行走总成"
+    },
+    {
+     "pn": "XP00000230PS",
+     "status": "reported",
+     "part_type": "驱动齿圈"
+    }
+   ],
+   "verification_note": "Reported cross-references for reference only; not verified for guaranteed fit or interchangeability. Confirm by OEM part number, machine serial number and nameplate before ordering.",
+   "make_slug": "hitachi",
+   "make_name": "Hitachi",
+   "model_slug": "zx200-3",
+   "model_name": "ZX200-3",
+   "model_aliases": [],
+   "serial_note": null,
+   "images": [
+    {
+     "slug": "hitachi-zx200-3",
+     "tag": "main",
+     "file": "hitachi-zx200-3-main.jpg"
+    },
+    {
+     "slug": "hitachi-zx200-3",
+     "tag": "view2",
+     "file": "hitachi-zx200-3-view2.jpg"
+    }
+   ]
+  },
+  {
+   "url_path": "/equipment/hitachi/zx330-3/final-drives/",
+   "title": "Final Drive for Hitachi ZX330-3 — Sourcing & RFQ",
+   "h1": "Final Drive for Hitachi ZX330-3",
+   "publish_tier": "B",
+   "meta_description": null,
+   "reported_numbers": [
+    {
+     "pn": "1033163",
+     "status": "reported",
+     "part_type": "驱动齿圈"
+    },
+    {
+     "pn": "9244944",
+     "status": "reported",
+     "part_type": "完整行走总成"
+    },
+    {
+     "pn": "9256991",
+     "status": "reported",
+     "part_type": "完整行走总成"
+    },
+    {
+     "pn": "9281920",
+     "status": "reported",
+     "part_type": "完整行走总成"
+    },
+    {
+     "pn": "9281921",
+     "status": "reported",
+     "part_type": "完整行走总成"
+    },
+    {
+     "pn": "XP00000235PS",
+     "status": "reported",
+     "part_type": "驱动齿圈"
+    }
+   ],
+   "verification_note": "Reported cross-references for reference only; not verified for guaranteed fit or interchangeability. Confirm by OEM part number, machine serial number and nameplate before ordering.",
+   "make_slug": "hitachi",
+   "make_name": "Hitachi",
+   "model_slug": "zx330-3",
+   "model_name": "ZX330-3",
+   "model_aliases": [],
+   "serial_note": null,
+   "images": [
+    {
+     "slug": "hitachi-zx330-3",
+     "tag": "main",
+     "file": "hitachi-zx330-3-main.jpg"
+    },
+    {
+     "slug": "hitachi-zx330-3",
+     "tag": "view2",
+     "file": "hitachi-zx330-3-view2.jpg"
+    }
+   ]
+  },
+  {
+   "url_path": "/equipment/hyundai/r140lc-7/final-drives/",
+   "title": "Final Drive for Hyundai R140LC-7 — Sourcing & RFQ",
+   "h1": "Final Drive for Hyundai R140LC-7",
+   "publish_tier": "B",
+   "meta_description": null,
+   "reported_numbers": [
+    {
+     "pn": "31E6-42000",
+     "status": "reported",
+     "part_type": "终传动（总成范围未确认）"
+    },
+    {
+     "pn": "31EL-40010",
+     "status": "reported",
+     "part_type": "终传动（总成范围未确认）"
+    },
+    {
+     "pn": "31N4-43040",
+     "status": "reported",
+     "part_type": "终传动（总成范围未确认）"
+    },
+    {
+     "pn": "31Q4-40030",
+     "status": "reported",
+     "part_type": "完整行走总成"
+    },
+    {
+     "pn": "31Q4-40031",
+     "status": "reported",
+     "part_type": "完整行走总成"
+    },
+    {
+     "pn": "31Q4-40040",
+     "status": "reported",
+     "part_type": "完整行走总成"
+    },
+    {
+     "pn": "XKAH-01182",
+     "status": "reported",
+     "part_type": "行走马达"
+    },
+    {
+     "pn": "XKAH-01458",
+     "status": "reported",
+     "part_type": "行走减速箱"
+    }
+   ],
+   "verification_note": "Reported cross-references for reference only; not verified for guaranteed fit or interchangeability. Confirm by OEM part number, machine serial number and nameplate before ordering.",
+   "make_slug": "hyundai",
+   "make_name": "Hyundai",
+   "model_slug": "r140lc-7",
+   "model_name": "R140LC-7",
+   "model_aliases": [
+    "R140LC-9"
+   ],
+   "serial_note": null,
+   "images": [
+    {
+     "slug": "hyundai-r140lc-7",
+     "tag": "main",
+     "file": "hyundai-r140lc-7-main.jpg"
+    }
+   ]
+  },
+  {
+   "url_path": "/equipment/hyundai/r485vs/final-drives/",
+   "title": "Final Drive for Hyundai R485VS — Sourcing & RFQ",
+   "h1": "Final Drive for Hyundai R485VS",
+   "publish_tier": "B",
+   "meta_description": null,
+   "reported_numbers": [
+    {
+     "pn": "39QB-40101",
+     "status": "reported",
+     "part_type": "行走减速箱"
+    },
+    {
+     "pn": "39QB-41100",
+     "status": "reported",
+     "part_type": "行走马达"
+    },
+    {
+     "pn": "39QB-42100",
+     "status": "reported",
+     "part_type": "行走减速箱"
+    }
+   ],
+   "verification_note": "Reported cross-references for reference only; not verified for guaranteed fit or interchangeability. Confirm by OEM part number, machine serial number and nameplate before ordering.",
+   "make_slug": "hyundai",
+   "make_name": "Hyundai",
+   "model_slug": "r485vs",
+   "model_name": "R485VS",
+   "model_aliases": [],
+   "serial_note": null,
+   "images": [
+    {
+     "slug": "hyundai-r485vs",
+     "tag": "main",
+     "file": "hyundai-r485vs-main.jpg"
+    },
+    {
+     "slug": "hyundai-r485vs",
+     "tag": "view2",
+     "file": "hyundai-r485vs-view2.jpg"
+    },
+    {
+     "slug": "hyundai-r485vs",
+     "tag": "view3",
+     "file": "hyundai-r485vs-view3.jpg"
+    }
+   ]
+  },
+  {
+   "url_path": "/equipment/kobelco/sk200-8/final-drives/",
+   "title": "Final Drive for Kobelco SK200-8 — Sourcing & RFQ",
+   "h1": "Final Drive for Kobelco SK200-8",
+   "publish_tier": "B",
+   "meta_description": null,
+   "reported_numbers": [
+    {
+     "pn": "YN15V00037F1",
+     "status": "reported",
+     "part_type": "完整行走总成"
+    }
+   ],
+   "verification_note": "Reported cross-references for reference only; not verified for guaranteed fit or interchangeability. Confirm by OEM part number, machine serial number and nameplate before ordering.",
+   "make_slug": "kobelco",
+   "make_name": "Kobelco",
+   "model_slug": "sk200-8",
+   "model_name": "SK200-8",
+   "model_aliases": [],
+   "serial_note": null,
+   "images": [
+    {
+     "slug": "kobelco-sk200-8",
+     "tag": "main",
+     "file": "kobelco-sk200-8-main.jpg"
+    },
+    {
+     "slug": "kobelco-sk200-8",
+     "tag": "view2",
+     "file": "kobelco-sk200-8-view2.jpg"
+    }
+   ]
+  },
+  {
+   "url_path": "/equipment/komatsu/pc200-7/final-drives/",
+   "title": "Final Drive for Komatsu PC200-7 — Sourcing & RFQ",
+   "h1": "Final Drive for Komatsu PC200-7",
+   "publish_tier": "B",
+   "meta_description": null,
+   "reported_numbers": [
+    {
+     "pn": "150-27-00330",
+     "status": "reported",
+     "part_type": "行走维修件"
+    },
+    {
+     "pn": "20Y-27-00101",
+     "status": "reported",
+     "part_type": "行走马达"
+    },
+    {
+     "pn": "20Y-27-00300",
+     "status": "reported",
+     "part_type": "完整行走总成"
+    },
+    {
+     "pn": "20Y-27-00301",
+     "status": "reported",
+     "part_type": "终传动（总成范围未确认）"
+    },
+    {
+     "pn": "20Y-27-00470",
+     "status": "reported",
+     "part_type": "完整行走总成"
+    },
+    {
+     "pn": "20Y-27-22230",
+     "status": "reported",
+     "part_type": "行走维修件"
+    },
+    {
+     "pn": "20Y-27-22280",
+     "status": "reported",
+     "part_type": "行走维修件"
+    },
+    {
+     "pn": "708-8F-00170",
+     "status": "reported",
+     "part_type": "行走马达"
+    },
+    {
+     "pn": "708-8F-00171",
+     "status": "reported",
+     "part_type": "行走马达"
+    },
+    {
+     "pn": "708-8F-32121",
+     "status": "reported",
+     "part_type": "行走维修件"
+    }
+   ],
+   "verification_note": "Reported cross-references for reference only; not verified for guaranteed fit or interchangeability. Confirm by OEM part number, machine serial number and nameplate before ordering.",
+   "make_slug": "komatsu",
+   "make_name": "Komatsu",
+   "model_slug": "pc200-7",
+   "model_name": "PC200-7",
+   "model_aliases": [],
+   "serial_note": null,
+   "images": [
+    {
+     "slug": "komatsu-pc200-7",
+     "tag": "main",
+     "file": "komatsu-pc200-7-main.jpg"
+    }
+   ]
+  },
+  {
+   "url_path": "/equipment/sany/sy285/final-drives/",
+   "title": "Final Drive for SANY SY285 — Sourcing & RFQ",
+   "h1": "Final Drive for SANY SY285",
+   "publish_tier": "B",
+   "meta_description": null,
+   "reported_numbers": [
+    {
+     "pn": "11456929",
+     "status": "reported",
+     "part_type": "完整行走总成"
+    },
+    {
+     "pn": "60026021",
+     "status": "reported",
+     "part_type": "完整行走总成"
+    },
+    {
+     "pn": "60157369",
+     "status": "reported",
+     "part_type": "行走减速箱"
+    }
+   ],
+   "verification_note": "Reported cross-references for reference only; not verified for guaranteed fit or interchangeability. Confirm by OEM part number, machine serial number and nameplate before ordering.",
+   "make_slug": "sany",
+   "make_name": "SANY",
+   "model_slug": "sy285",
+   "model_name": "SY285",
+   "model_aliases": [],
+   "serial_note": null,
+   "images": [
+    {
+     "slug": "sany-sy285",
+     "tag": "main",
+     "file": "sany-sy285-main.jpg"
+    }
+   ]
+  },
+  {
+   "url_path": "/equipment/volvo/ec220d/final-drives/",
+   "title": "Final Drive for Volvo EC220D — Sourcing & RFQ",
+   "h1": "Final Drive for Volvo EC220D",
+   "publish_tier": "B",
+   "meta_description": null,
+   "reported_numbers": [
+    {
+     "pn": "14528733",
+     "status": "reported",
+     "part_type": "行走减速箱"
+    },
+    {
+     "pn": "14613847",
+     "status": "reported",
+     "part_type": "行走马达"
+    },
+    {
+     "pn": "14616208",
+     "status": "reported",
+     "part_type": "完整行走总成"
+    },
+    {
+     "pn": "14694038",
+     "status": "reported",
+     "part_type": "完整行走总成"
+    },
+    {
+     "pn": "VOE14616208",
+     "status": "reported",
+     "part_type": "完整行走总成"
+    },
+    {
+     "pn": "14528733",
+     "status": "reported",
+     "part_type": "行走减速箱"
+    },
+    {
+     "pn": "14613847",
+     "status": "reported",
+     "part_type": "行走马达"
+    },
+    {
+     "pn": "14694038",
+     "status": "reported",
+     "part_type": "完整行走总成"
+    }
+   ],
+   "verification_note": "Reported cross-references for reference only; not verified for guaranteed fit or interchangeability. Confirm by OEM part number, machine serial number and nameplate before ordering.",
+   "make_slug": "volvo",
+   "make_name": "Volvo",
+   "model_slug": "ec220d",
+   "model_name": "EC220D",
+   "model_aliases": [
+    "EC220DL"
+   ],
+   "serial_note": null,
+   "images": [
+    {
+     "slug": "volvo-ec220d",
+     "tag": "main",
+     "file": "volvo-ec220d-main.jpg"
+    },
+    {
+     "slug": "volvo-ec220d",
+     "tag": "view2",
+     "file": "volvo-ec220d-view2.jpg"
+    },
+    {
+     "slug": "volvo-ec220d",
+     "tag": "view3",
+     "file": "volvo-ec220d-view3.jpg"
+    }
+   ]
+  },
+  {
+   "url_path": "/equipment/volvo/ec480d/final-drives/",
+   "title": "Final Drive for Volvo EC480D — Sourcing & RFQ",
+   "h1": "Final Drive for Volvo EC480D",
+   "publish_tier": "B",
+   "meta_description": null,
+   "reported_numbers": [
+    {
+     "pn": "VOE14557192",
+     "status": "reported",
+     "part_type": "完整行走总成"
+    },
+    {
+     "pn": "VOE14727995",
+     "status": "reported",
+     "part_type": "行走马达"
+    },
+    {
+     "pn": "VOE14733880",
+     "status": "reported",
+     "part_type": "行走减速箱"
+    }
+   ],
+   "verification_note": "Reported cross-references for reference only; not verified for guaranteed fit or interchangeability. Confirm by OEM part number, machine serial number and nameplate before ordering.",
+   "make_slug": "volvo",
+   "make_name": "Volvo",
+   "model_slug": "ec480d",
+   "model_name": "EC480D",
+   "model_aliases": [],
+   "serial_note": null,
+   "images": [
+    {
+     "slug": "volvo-ec480d",
+     "tag": "main",
+     "file": "volvo-ec480d-main.jpg"
+    }
+   ]
+  }
+ ]
+}
