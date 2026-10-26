@@ -154,7 +154,7 @@ export default function HomePage() {
                       {make.name}
                     </span>
                     <span className="text-xs uppercase tracking-widest text-muted-foreground">
-                      {count} {count === 1 ? 'model' : 'models'}
+                      {`${count} ${make.name} ${count === 1 ? 'model' : 'models'} in this batch`}
                     </span>
                   </Link>
                 </li>

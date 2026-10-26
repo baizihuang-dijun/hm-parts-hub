@@ -41,10 +41,14 @@ export function ModelCard({ page }: { page: ModelPage }) {
             </span>
           )}
         </div>
-        <p className="text-xs text-muted-foreground">
-          <span className="mr-1.5 text-[10px] font-semibold uppercase tracking-widest">PN</span>
-          <span className="font-mono">{page.lead_pn || 'Nameplate match'}</span>
-        </p>
+        {page.lead_pn ? (
+          <p className="text-xs text-muted-foreground">
+            <span className="mr-1.5 text-[10px] font-semibold uppercase tracking-widest">PN</span>
+            <span className="font-mono">{page.lead_pn}</span>
+          </p>
+        ) : (
+          <p className="text-xs text-muted-foreground">Nameplate match</p>
+        )}
         <div className="mt-auto flex items-center justify-end pt-1">
           <span className="text-xs font-medium text-primary group-hover:underline">View →</span>
         </div>

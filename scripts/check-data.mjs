@@ -13,7 +13,13 @@ import path from 'node:path';
 const ROOT = process.cwd();
 const JSON_PATH = path.join(ROOT, 'src/content/public_batch1.json');
 const OUT_DIR = path.join(ROOT, 'out');
-const SITE_URL = (process.env.NEXT_PUBLIC_SITE_URL || 'https://www.example.com').replace(/\/+$/, '');
+const RAW_ORIGIN = (
+  process.env.NEXT_PUBLIC_SITE_URL ||
+  process.env.COZE_PROJECT_DOMAIN_DEFAULT ||
+  ''
+).trim();
+const ORIGIN_HOST = RAW_ORIGIN.replace(/^https?:\/\//i, '').replace(/\/.*$/, '');
+const SITE_URL = ORIGIN_HOST ? `https://${ORIGIN_HOST}` : '';
 const EXPECTED_MAKE_COUNT = 13;
 
 const mode = process.argv[2] || 'pre';
@@ -54,6 +60,7 @@ const BANNED_TOKENS = [
   { re: /[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}/i, label: 'UUID' },
   { re: /\bS[123]\b/, label: 'internal tier label S1/S2/S3' },
   { re: /verification_note/i, label: 'removed field name verification_note' },
+  { re: /example\.com/i, label: 'placeholder domain example.com' },
   { re: /TerraDrive/i, label: 'internal name TerraDrive' },
   { re: /Sanger/i, label: 'internal name Sanger' },
   { re: /力霸/, label: 'internal name 力霸' },
@@ -94,7 +101,11 @@ function walk(dir, filter) {
 
 function scanFiles(files, { tokens = true, phrases = true, cjk = false } = {}) {
   for (const file of files) {
-    const text = fs.readFileSync(file, 'utf8');
+    // Mask the configured public origin before scanning: the deployment domain
+    // itself may legitimately contain UUID-like segments (sandbox hostnames).
+    let text = fs.readFileSync(file, 'utf8');
+    if (SITE_URL) text = text.split(SITE_URL).join('');
+    if (ORIGIN_HOST) text = text.split(ORIGIN_HOST).join('');
     const rel = path.relative(ROOT, file);
     if (tokens) {
       for (const { re, label } of BANNED_TOKENS) {
@@ -294,6 +305,14 @@ function post() {
     if (!fs.existsSync(file)) continue;
     const html = fs.readFileSync(file, 'utf8');
     const visible = stripHtml(html);
+    // Cards: tonnage tag omitted entirely when ton_class_approx is null; the
+    // "Nameplate match" label never carries a "PN" prefix.
+    if (/~\s*(null|0)\s*T/i.test(html) || /~\s*T</.test(html)) {
+      fail(`${route}: broken/empty tonnage tag rendered on a card`);
+    }
+    if (/PN<\/span>\s*<span[^>]*>\s*Nameplate match/.test(html)) {
+      fail(`${route}: "PN" prefix must not precede the "Nameplate match" label`);
+    }
     const relevant =
       route === '/' || route === '/parts/final-drives/'
         ? pages
@@ -480,6 +499,17 @@ function post() {
       for (const label2 of Object.values(GROUP_LABELS)) {
         if (visible.includes(label2)) fail(`${label}: empty part-number group "${label2}" rendered`);
       }
+    }
+
+    // Tonnage tag: when copy.ton_class_approx is null the page must not show
+    // any "~X T" tag at all (no ~null / ~0T / empty brackets). Match on
+    // visible text so JSX comment separators do not break the probe.
+    if (p.copy.ton_class_approx === null || p.copy.ton_class_approx === undefined) {
+      if (/~\s*[\d.]+\s*T/.test(visible) || /~\s*null/i.test(visible) || /~\s*T\b/.test(visible)) {
+        fail(`${label}: ton_class_approx is null — no "~X T" tag may be rendered`);
+      }
+    } else if (!new RegExp(`~\\s*${p.copy.ton_class_approx}\\s*T\\b`).test(visible)) {
+      fail(`${label}: tonnage tag "~${p.copy.ton_class_approx} T" missing`);
     }
 
     // Fit-check guide link + prefilling RFQ CTA.

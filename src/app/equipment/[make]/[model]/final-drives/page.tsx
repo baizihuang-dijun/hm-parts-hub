@@ -19,7 +19,7 @@ import {
 import { buildMetadata } from '@/lib/seo';
 import { Breadcrumbs } from '@/components/breadcrumbs';
 import { ImageGallery, type GalleryImage } from '@/components/image-gallery';
-import { SITE_NAME } from '@/config/site';
+import { SITE_NAME, absoluteUrl } from '@/config/site';
 
 type RouteParams = Promise<{ make: string; model: string }>;
 
@@ -56,33 +56,32 @@ function rfqHref(page: ModelPage, pn?: string): string {
 
 function jsonLd(page: ModelPage): object {
   const main = mainImage(page);
-  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL
-    ? process.env.NEXT_PUBLIC_SITE_URL.replace(/\/$/, '')
-    : '';
+  // absoluteUrl falls back to root-relative paths when no public origin is
+  // configured — never emit a placeholder domain.
   return {
     '@context': 'https://schema.org',
     '@graph': [
       {
         '@type': 'BreadcrumbList',
         itemListElement: [
-          { '@type': 'ListItem', position: 1, name: 'Home', item: `${siteUrl}/` },
+          { '@type': 'ListItem', position: 1, name: 'Home', item: absoluteUrl('/') },
           {
             '@type': 'ListItem',
             position: 2,
             name: 'Final Drives',
-            item: `${siteUrl}${CATEGORY_PATH}`,
+            item: absoluteUrl(CATEGORY_PATH),
           },
           {
             '@type': 'ListItem',
             position: 3,
             name: page.make_name,
-            item: `${siteUrl}${brandHubPath(page.make_slug)}`,
+            item: absoluteUrl(brandHubPath(page.make_slug)),
           },
           {
             '@type': 'ListItem',
             position: 4,
             name: `${page.make_name} ${page.model_name}`,
-            item: `${siteUrl}${page.url_path}`,
+            item: absoluteUrl(page.url_path),
           },
         ],
       },
@@ -90,7 +89,7 @@ function jsonLd(page: ModelPage): object {
         '@type': 'Product',
         name: `Final Drive for ${page.make_name} ${page.model_name}`,
         category: 'Final drive / travel motor assembly',
-        image: main ? [`${siteUrl}/images/products/${main.file}`] : undefined,
+        image: main ? [absoluteUrl(`/images/products/${main.file}`)] : undefined,
         brand: { '@type': 'Brand', name: SITE_NAME },
         description: modelDescription(page),
       },
@@ -186,9 +185,16 @@ export default async function ModelFinalDrivesPage({ params }: { params: RoutePa
       />
 
       <h1 className="mt-5 text-3xl font-semibold tracking-tight sm:text-4xl">{page.h1}</h1>
-      <p className="mt-3 text-sm uppercase tracking-widest text-muted-foreground">
-        Replacement final drive &amp; travel motor assembly · excavator undercarriage
-      </p>
+      <div className="mt-3 flex flex-wrap items-center gap-3">
+        <p className="text-sm uppercase tracking-widest text-muted-foreground">
+          Replacement final drive &amp; travel motor assembly · excavator undercarriage
+        </p>
+        {typeof page.copy.ton_class_approx === 'number' && (
+          <span className="rounded border border-border bg-muted px-1.5 py-0.5 font-mono text-[11px] leading-none text-muted-foreground">
+            ~{page.copy.ton_class_approx} T
+          </span>
+        )}
+      </div>
 
       <div className="mt-8 grid gap-10 lg:grid-cols-[minmax(0,5fr)_minmax(0,7fr)]">
         {/* Left: gallery + CTA */}
