@@ -24,7 +24,7 @@
 │   └── prepare.sh            # 依赖预处理
 ├── src/
 │   ├── app/                  # 页面路由（仅需求书列出的页面）
-│   │   ├── equipment/[make]/[model]/final-drives/  # 12 个机型页（generateStaticParams）
+│   │   ├── equipment/[make]/[model]/final-drives/  # 80 个机型页（generateStaticParams）
 │   │   ├── parts/final-drives/                     # 品类 Hub
 │   │   ├── parts/final-drives/for/[make]/          # 13 品牌枢纽
 │   │   ├── request-quote/ about/ privacy/ terms/   # RFQ 与辅助页
@@ -57,10 +57,12 @@
 - 严禁非法 HTML 嵌套；不使用 `head` 标签，metadata 用 Next Metadata API。
 
 ### 内容/合规红线（check-data.mjs 强制）
-- 路由只能来自 JSON：机型页 12 个，`url_path` 逐字一致；JSON 之外的机型绝不生成路由或文本。
-- 公共输出禁止：`guaranteed fit` / `direct replacement` / `drop-in` / `fully interchangeable` / `in stock` / `48-hour shipping` / 价格 / 购物车 / `core charge` / `LB-` / `SKU-FD-` / UUID / S1S2S3 标签 / 供应商名与成本 / 任何中文字符。
-- OEM 件号一律标注 reported for reference / not independently verified，不建独立页不加链接；OEM 品牌仅识别引用，footer/Privacy/Terms 有商标声明。
-- JSON 里 `part_type` 为中文，渲染必须经 `partTypeEn()` 映射为英文；`verification_note` 含禁用语，**不得**原样渲染。
+- 路由只能来自 JSON：当前 80 个机型页 / 13 品牌，`url_path` 必须等于推导值；JSON 之外的机型绝不生成路由或文本。品牌枢纽只链接本品牌机型。
+- 公共输出禁止：`guaranteed fit` / `direct replacement` / `drop-in` / `fully interchangeable` / `in stock` / `48-hour shipping` / 价格 / 购物车 / `core charge` / 旧学术措辞（reported for reference / not independently verified / do not order by ... alone）/ `LB-` / `SKU-` / UUID / S1S2S3 标签 / 供应商名与成本 / 任何中文字符。
+- 机型页是**商业采购页**：H1、主图+CTA、`copy.intro/sourcing/fit_check/pn_note/generation_note` 逐字渲染；件号区有件号用 "Part numbers for this model"（件号可对照、底部 pn_note 收口、每号有 Quote 链接），无件号用 "Need the right part number?" + "Send my nameplate" 按钮，绝不放空表。
+- 每 页 intro 必须含 make+model（差异化文案断言）；title/description/canonical 全站唯一；layout title template 已自动追加站名，metadata 传裸 title 即可，勿再手写 `| SITE_NAME`。
+- JSON 里 `part_type` 为中文，渲染必须经 `partTypeEn()` 映射为英文（新增取值需同步扩 map）；`verification_note` **不渲染**（部分含禁用语）。
+- 图片：主图 tag=main 不 lazy 且 fetchPriority=high，其余 lazy；所有 `<img>` 必须有 width/height（尺寸维护在 `src/lib/image-sizes.ts`，换图需重新生成）。
 - RFQ 走 Web3Forms（`NEXT_PUBLIC_WEB3FORMS_KEY` 未配置时显示占位不崩溃）；GA4 仅 consent=granted 后注入，`generate_lead` 只在提交成功且已授权时触发。
 
 ## 构建与验证

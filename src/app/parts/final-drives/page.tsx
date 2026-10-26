@@ -1,72 +1,66 @@
-import Link from 'next/link';
 import type { Metadata } from 'next';
+import Link from 'next/link';
 import { buildMetadata } from '@/lib/seo';
 import {
-  CATEGORY_PATH,
-  GUIDE_PATH,
-  RFQ_PATH,
-  brandHubPath,
   data,
   makes,
   modelPages,
+  pagesByMake,
+  sortPagesByTonnage,
+  brandHubPath,
+  RFQ_PATH,
+  GUIDE_PATH,
 } from '@/lib/data';
-import { Breadcrumbs } from '@/components/breadcrumbs';
 
 export const metadata: Metadata = buildMetadata({
-  title: 'Excavator Final Drives — Sourcing & RFQ Hub',
+  title: `Excavator Final Drives & Travel Motors — Aftermarket Sourcing`,
   description:
-    'Excavator final drives and travel motors: sourcing support across 13 brands with reported OEM cross-reference numbers and technical confirmation by part number, serial number and nameplate.',
-  path: CATEGORY_PATH,
+    'Replacement final drives and travel motor assemblies for excavators across all major brands. Vetted China aftermarket and OEM-equivalent supply, fitment confirmed against OEM number, serial number and nameplate before quoting.',
+  path: '/parts/final-drives/',
 });
 
 export default function FinalDrivesHubPage() {
+  const recentCommon = sortPagesByTonnage(modelPages).slice(0, 6);
+
   return (
-    <div className="mx-auto max-w-6xl px-4 py-10 sm:px-6">
-      <Breadcrumbs items={[{ label: 'Home', href: '/' }, { label: 'Final Drives' }]} />
+    <div className="mx-auto max-w-6xl px-4 py-12 sm:px-6">
+      <p className="text-xs font-semibold uppercase tracking-widest text-muted-foreground">
+        Parts catalog
+      </p>
+      <h1 className="mt-3 text-3xl font-semibold tracking-tight sm:text-4xl">
+        Excavator final drives &amp; travel motors
+      </h1>
+      <p className="mt-4 max-w-3xl text-[15px] leading-7 text-muted-foreground">
+        {data.category.intro} We source complete final drive assemblies, travel motors and
+        reduction gearboxes from vetted China aftermarket and OEM-equivalent factories, then
+        confirm every order against the OEM part number, machine serial number and a nameplate
+        photo — so the unit that ships is the one that bolts on.
+      </p>
 
-      <div className="mt-6 max-w-3xl">
-        <p className="text-xs font-semibold uppercase tracking-widest text-muted-foreground">
-          Category hub
-        </p>
-        <h1 className="mt-3 text-3xl font-bold tracking-tight text-foreground md:text-4xl">
-          Excavator Final Drives &amp; Travel Motors
-        </h1>
-        <div className="mt-5 space-y-4 text-sm leading-relaxed text-foreground/80 md:text-base">
-          <p>
-            The final drive is the last reduction stage between the travel motor and the
-            track — and one of the most failure-exposed assemblies on any excavator. When
-            it goes, the machine stops. This hub organizes our sourcing coverage for
-            replacement final drives, travel motors and travel reduction gearboxes by
-            machine brand and model.
-          </p>
-          <p>
-            We do not sell from a catalog shelf. Each machine page lists OEM part numbers
-            reported to fit that model as a starting reference, and every request is
-            confirmed technically — by OEM part number, machine serial number and
-            nameplate photos — before an order is placed. Units are sourced through a
-            vetted OEM-equivalent aftermarket supply network in China.
-          </p>
-          <p>{data.category.intro}</p>
-        </div>
-      </div>
-
-      {/* Brand navigation */}
+      {/* Brand grid */}
       <section className="mt-12">
-        <h2 className="text-xl font-bold tracking-tight text-foreground">Browse by brand</h2>
-        <ul className="mt-5 grid grid-cols-2 gap-px border border-border bg-border sm:grid-cols-3 lg:grid-cols-4">
-          {makes.map(m => {
-            const count = modelPages.filter(p => p.make_slug === m.slug).length;
+        <h2 className="text-lg font-semibold tracking-tight">Browse by equipment make</h2>
+        <ul className="mt-6 grid grid-cols-2 gap-px border border-border bg-border sm:grid-cols-3 lg:grid-cols-4">
+          {makes.map(make => {
+            const pages = sortPagesByTonnage(pagesByMake(make.slug));
+            const range = pages
+              .map(p => p.copy.ton_class_approx)
+              .filter((t): t is number => typeof t === 'number');
+            const rangeLabel =
+              range.length > 0
+                ? `${Math.min(...range)}–${Math.max(...range)} t class`
+                : 'multiple classes';
             return (
-              <li key={m.slug} className="bg-card">
+              <li key={make.slug}>
                 <Link
-                  href={brandHubPath(m.slug)}
-                  className="flex h-full flex-col justify-between px-4 py-4 transition-colors hover:bg-muted"
+                  href={brandHubPath(make.slug)}
+                  className="flex h-full flex-col gap-2 bg-background p-5 transition-colors hover:bg-muted"
                 >
-                  <span className="text-sm font-semibold text-foreground">{m.name}</span>
-                  <span className="mt-1 text-xs text-muted-foreground">
-                    {count > 0
-                      ? `${count} published model${count > 1 ? 's' : ''}`
-                      : 'Sourcing on request'}
+                  <span className="text-base font-semibold tracking-tight text-primary">
+                    {make.name}
+                  </span>
+                  <span className="text-xs uppercase tracking-widest text-muted-foreground">
+                    {pages.length} {pages.length === 1 ? 'model' : 'models'} · {rangeLabel}
                   </span>
                 </Link>
               </li>
@@ -75,72 +69,94 @@ export default function FinalDrivesHubPage() {
         </ul>
       </section>
 
-      {/* Published model pages */}
-      <section className="mt-12">
-        <h2 className="text-xl font-bold tracking-tight text-foreground">
-          Published machine model pages
-        </h2>
-        <div className="mt-5 overflow-x-auto border border-border">
-          <table className="w-full min-w-[560px] text-left text-sm">
-            <thead className="bg-muted text-xs uppercase tracking-wider text-muted-foreground">
-              <tr>
-                <th className="px-4 py-3 font-semibold">Machine</th>
-                <th className="px-4 py-3 font-semibold">Reported OEM numbers</th>
-                <th className="px-4 py-3 font-semibold">Page</th>
-              </tr>
-            </thead>
-            <tbody className="divide-y divide-border bg-card">
-              {modelPages.map(p => (
-                <tr key={p.url_path}>
-                  <td className="px-4 py-3 font-medium text-foreground">
-                    {p.make_name} {p.model_name}
-                  </td>
-                  <td className="px-4 py-3 font-mono text-xs text-muted-foreground">
-                    {p.reported_numbers.length} reported
-                  </td>
-                  <td className="px-4 py-3">
-                    <Link
-                      href={p.url_path}
-                      className="font-semibold text-primary underline underline-offset-4 hover:text-primary/80"
-                    >
-                      Final drive sourcing
-                    </Link>
-                  </td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
-        </div>
-      </section>
-
-      {/* Guide + CTA */}
-      <section className="mt-12 grid gap-6 border-t border-border pt-10 md:grid-cols-2">
+      {/* Buying guidance */}
+      <section className="mt-14 grid gap-10 lg:grid-cols-2">
         <div>
-          <h2 className="text-lg font-semibold text-foreground">Check before you request</h2>
-          <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
-            A clear photo of the final drive nameplate and the machine serial number is the
-            fastest route to a confirmed match.
+          <h2 className="text-lg font-semibold tracking-tight">
+            When a final drive needs replacing
+          </h2>
+          <ul className="mt-4 space-y-2 text-sm leading-6 text-muted-foreground">
+            {[
+              'The machine tracks slowly or pulls to one side under load',
+              'Gear oil leaks from the travel motor or hub',
+              'Grinding or knocking noise from the track drive',
+              'Metal particles in the final drive oil on service',
+            ].map(item => (
+              <li key={item} className="flex gap-2">
+                <span aria-hidden="true" className="mt-2 h-px w-4 shrink-0 bg-foreground" />
+                {item}
+              </li>
+            ))}
+          </ul>
+        </div>
+        <div>
+          <h2 className="text-lg font-semibold tracking-tight">Order with the right information</h2>
+          <p className="mt-4 text-sm leading-7 text-muted-foreground">
+            Model name alone is not enough — the same model can use different final drives across
+            build years and regions. Before quoting we check:
           </p>
+          <ul className="mt-3 space-y-2 text-sm leading-6 text-muted-foreground">
+            {[
+              'The OEM number stamped on the travel motor or gearbox',
+              'The machine serial number',
+              'A clear nameplate or tag photo',
+              'Displacement, mounting pattern, sprocket interface and speed ratio',
+            ].map(item => (
+              <li key={item} className="flex gap-2">
+                <span aria-hidden="true" className="mt-2 h-px w-4 shrink-0 bg-foreground" />
+                {item}
+              </li>
+            ))}
+          </ul>
           <Link
             href={GUIDE_PATH}
-            className="mt-3 inline-block text-sm font-semibold text-primary underline underline-offset-4 hover:text-primary/80"
+            className="mt-4 inline-block text-sm font-semibold text-primary underline underline-offset-4"
           >
             Read the nameplate check guide
           </Link>
         </div>
-        <div>
-          <h2 className="text-lg font-semibold text-foreground">Machine not listed?</h2>
-          <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
-            Coverage beyond the published models is handled by RFQ. Send the machine
-            make/model and any part numbers you have.
-          </p>
-          <Link
-            href={RFQ_PATH}
-            className="mt-3 inline-block bg-accent px-5 py-2.5 text-sm font-semibold text-accent-foreground transition-colors hover:bg-accent/90"
-          >
-            Request a Quote
-          </Link>
-        </div>
+      </section>
+
+      {/* Quick model links */}
+      <section className="mt-14">
+        <h2 className="text-lg font-semibold tracking-tight">Common model requests</h2>
+        <ul className="mt-5 divide-y divide-border border-y border-border">
+          {recentCommon.map(page => (
+            <li key={page.url_path}>
+              <Link
+                href={page.url_path}
+                className="grid grid-cols-[1fr_auto] items-center gap-4 py-3.5 transition-colors hover:bg-muted/50 sm:grid-cols-[160px_1fr_auto]"
+              >
+                <span className="font-mono text-sm font-semibold text-primary">
+                  {page.make_name} {page.model_name}
+                </span>
+                <span className="hidden text-sm text-muted-foreground sm:block">
+                  {page.copy.application}
+                </span>
+                <span className="text-xs font-semibold uppercase tracking-widest text-primary">
+                  Sourcing page →
+                </span>
+              </Link>
+            </li>
+          ))}
+        </ul>
+      </section>
+
+      <section className="mt-14 border border-border bg-muted/40 p-8">
+        <h2 className="text-xl font-semibold tracking-tight">
+          Do not see your machine on the list?
+        </h2>
+        <p className="mt-3 max-w-2xl text-sm leading-6 text-muted-foreground">
+          The catalog expands batch by batch. Send your machine make, model, serial number and the
+          part number or nameplate photo — we can source most common excavator final drives even
+          before the model page is published.
+        </p>
+        <Link
+          href={RFQ_PATH}
+          className="mt-5 inline-flex items-center justify-center rounded-sm bg-amber-600 px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-amber-700"
+        >
+          Request a quote
+        </Link>
       </section>
     </div>
   );

@@ -1,38 +1,44 @@
-import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import type { Metadata } from 'next';
-import { buildMetadata } from '@/lib/seo';
-import { SITE_NAME, absoluteUrl } from '@/config/site';
+import Link from 'next/link';
 import {
+  makes,
+  getModelPage,
+  getMake,
+  modelDescription,
+  mainImage,
+  extraImages,
+  dedupedReportedNumbers,
+  partTypeEn,
+  pagesByMake,
+  sortPagesByTonnage,
+  brandHubPath,
   CATEGORY_PATH,
   GUIDE_PATH,
-  RFQ_PATH,
-  brandHubPath,
-  dedupedReportedNumbers,
-  extraImages,
-  getModelPage,
-  mainImage,
-  modelDescription,
-  modelPages,
-  partTypeEn,
+  type ModelPage,
 } from '@/lib/data';
-import { Breadcrumbs } from '@/components/breadcrumbs';
+import { buildMetadata } from '@/lib/seo';
 import { imageSize } from '@/lib/image-sizes';
+import { Breadcrumbs } from '@/components/breadcrumbs';
+import { SITE_NAME } from '@/config/site';
 
-export const dynamicParams = false;
+type RouteParams = Promise<{ make: string; model: string }>;
 
-export function generateStaticParams() {
-  return modelPages.map(p => ({ make: p.make_slug, model: p.model_slug }));
+export function generateStaticParams(): { make: string; model: string }[] {
+  return makes.flatMap(m =>
+    pagesByMake(m.slug).map(p => ({ make: p.make_slug, model: p.model_slug })),
+  );
 }
 
 export async function generateMetadata({
   params,
 }: {
-  params: Promise<{ make: string; model: string }>;
+  params: RouteParams;
 }): Promise<Metadata> {
   const { make, model } = await params;
   const page = getModelPage(make, model);
   if (!page) return {};
+  // The root layout applies a "%s | <site>" title template, so pass the bare title.
   return buildMetadata({
     title: page.title,
     description: modelDescription(page),
@@ -40,55 +46,117 @@ export async function generateMetadata({
   });
 }
 
-function jsonLd(page: NonNullable<ReturnType<typeof getModelPage>>) {
-  const main = mainImage(page);
-  const breadcrumb = {
-    '@context': 'https://schema.org',
-    '@type': 'BreadcrumbList',
-    itemListElement: [
-      { '@type': 'ListItem', position: 1, name: 'Home', item: absoluteUrl('/') },
-      { '@type': 'ListItem', position: 2, name: 'Final Drives', item: absoluteUrl(CATEGORY_PATH) },
-      {
-        '@type': 'ListItem',
-        position: 3,
-        name: page.make_name,
-        item: absoluteUrl(brandHubPath(page.make_slug)),
-      },
-      { '@type': 'ListItem', position: 4, name: page.h1, item: absoluteUrl(page.url_path) },
-    ],
-  };
-  const product = {
-    '@context': 'https://schema.org',
-    '@type': 'Product',
-    name: page.h1,
-    description: modelDescription(page),
-    // Brand is our sourcing service, never the OEM — OEM names appear only as
-    // compatibility references in text.
-    brand: { '@type': 'Brand', name: SITE_NAME },
-    category: 'Excavator final drive (OEM-equivalent aftermarket sourcing)',
-    image: main ? [absoluteUrl(`/images/products/${main.file}`)] : undefined,
-    url: absoluteUrl(page.url_path),
-  };
-  return [breadcrumb, product];
+function rfqHref(page: ModelPage, pn?: string): string {
+  const params = new URLSearchParams({
+    make: page.make_name,
+    model: page.model_name,
+  });
+  if (pn) params.set('pn', pn);
+  return `/request-quote/?${params.toString()}`;
 }
 
-export default async function ModelFinalDrivePage({
-  params,
-}: {
-  params: Promise<{ make: string; model: string }>;
-}) {
+function jsonLd(page: ModelPage): object {
+  const main = mainImage(page);
+  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL
+    ? process.env.NEXT_PUBLIC_SITE_URL.replace(/\/$/, '')
+    : '';
+  return {
+    '@context': 'https://schema.org',
+    '@graph': [
+      {
+        '@type': 'BreadcrumbList',
+        itemListElement: [
+          { '@type': 'ListItem', position: 1, name: 'Home', item: `${siteUrl}/` },
+          {
+            '@type': 'ListItem',
+            position: 2,
+            name: 'Final Drives',
+            item: `${siteUrl}${CATEGORY_PATH}`,
+          },
+          {
+            '@type': 'ListItem',
+            position: 3,
+            name: page.make_name,
+            item: `${siteUrl}${brandHubPath(page.make_slug)}`,
+          },
+          {
+            '@type': 'ListItem',
+            position: 4,
+            name: `${page.make_name} ${page.model_name}`,
+            item: `${siteUrl}${page.url_path}`,
+          },
+        ],
+      },
+      {
+        '@type': 'Product',
+        name: `Final Drive for ${page.make_name} ${page.model_name}`,
+        category: 'Final drive / travel motor assembly',
+        image: main ? [`${siteUrl}/images/products/${main.file}`] : undefined,
+        brand: { '@type': 'Brand', name: SITE_NAME },
+        description: modelDescription(page),
+      },
+    ],
+  };
+}
+
+function PartNumberBlock({ page }: { page: ModelPage }) {
+  const numbers = dedupedReportedNumbers(page);
+  const hasNumbers = numbers.length > 0;
+  return (
+    <section className="border-t border-border py-10">
+      <h2 className="text-xl font-semibold tracking-tight">{page.copy.pn_heading}</h2>
+      {hasNumbers ? (
+        <>
+          <ul className="mt-5 divide-y divide-border border-y border-border">
+            {numbers.map(r => (
+              <li
+                key={r.pn}
+                className="grid grid-cols-1 gap-1 py-3 sm:grid-cols-[1fr_auto_auto] sm:items-center sm:gap-4"
+              >
+                <span className="font-mono text-[15px] font-semibold text-primary">{r.pn}</span>
+                <span className="text-xs uppercase tracking-widest text-muted-foreground">
+                  {partTypeEn(r.part_type)}
+                </span>
+                <Link
+                  href={rfqHref(page, r.pn)}
+                  className="text-xs font-semibold uppercase tracking-widest text-primary underline-offset-4 hover:underline"
+                >
+                  Quote this number
+                </Link>
+              </li>
+            ))}
+          </ul>
+          <div className="mt-5 rounded-sm border border-border bg-muted/50 p-4 text-sm leading-6">
+            {page.copy.pn_note}
+          </div>
+        </>
+      ) : (
+        <div className="mt-5 space-y-5">
+          <p className="text-sm leading-6 text-muted-foreground">{page.copy.pn_note}</p>
+          <Link
+            href={rfqHref(page)}
+            className="inline-flex items-center justify-center rounded-sm bg-amber-600 px-5 py-2.5 text-sm font-semibold text-white transition-colors hover:bg-amber-700"
+          >
+            Send my nameplate
+          </Link>
+        </div>
+      )}
+    </section>
+  );
+}
+
+export default async function ModelFinalDrivesPage({ params }: { params: RouteParams }) {
   const { make, model } = await params;
   const page = getModelPage(make, model);
   if (!page) notFound();
 
+  const makeInfo = getMake(page.make_slug);
   const main = mainImage(page);
   const extras = extraImages(page);
-  const reported = dedupedReportedNumbers(page);
-  const firstPn = reported[0]?.pn ?? '';
-  const rfqHref =
-    `${RFQ_PATH}?make=${encodeURIComponent(page.make_name)}` +
-    `&model=${encodeURIComponent(page.model_name)}` +
-    (firstPn ? `&pn=${encodeURIComponent(firstPn)}` : '');
+  const mainSize = main ? imageSize(main.file) : { width: 1080, height: 1350 };
+  const siblingModels = sortPagesByTonnage(
+    pagesByMake(page.make_slug).filter(p => p.model_slug !== page.model_slug),
+  ).slice(0, 8);
 
   return (
     <div className="mx-auto max-w-6xl px-4 py-10 sm:px-6">
@@ -101,196 +169,175 @@ export default async function ModelFinalDrivePage({
         items={[
           { label: 'Home', href: '/' },
           { label: 'Final Drives', href: CATEGORY_PATH },
-          { label: page.make_name, href: brandHubPath(page.make_slug) },
-          { label: page.model_name },
+          { label: makeInfo?.name ?? page.make_name, href: brandHubPath(page.make_slug) },
+          { label: `${page.make_name} ${page.model_name}` },
         ]}
       />
 
-      {/* Header + images */}
-      <div className="mt-6 grid gap-8 lg:grid-cols-2">
-        <div>
-          {main && (
-            <figure className="border border-border bg-card">
-              {/* Above the fold: no lazy loading, high fetch priority. */}
-              {/* eslint-disable-next-line @next/next/no-img-element */}
+      <h1 className="mt-5 text-3xl font-semibold tracking-tight sm:text-4xl">{page.h1}</h1>
+      <p className="mt-3 text-sm uppercase tracking-widest text-muted-foreground">
+        Replacement final drive &amp; travel motor assembly · excavator undercarriage
+      </p>
+
+      <div className="mt-8 grid gap-10 lg:grid-cols-[minmax(0,5fr)_minmax(0,7fr)]">
+        {/* Left: photos + CTA */}
+        <div className="space-y-4">
+          {main ? (
+            <figure className="border border-border bg-white p-2">
+              {/* eslint-disable-next-line @next/next/no-img-element -- static export, product archive photo */}
               <img
                 src={`/images/products/${main.file}`}
                 alt={`Final drive assembly for ${page.make_name} ${page.model_name} excavator`}
-                width={imageSize(main.file).width}
-                height={imageSize(main.file).height}
+                width={mainSize.width}
+                height={mainSize.height}
                 className="h-auto w-full"
                 fetchPriority="high"
               />
-              <figcaption className="border-t border-border px-3 py-2 text-xs text-muted-foreground">
-                Reference photo — final drive / travel assembly reported to fit{' '}
-                {page.make_name} {page.model_name}
-              </figcaption>
             </figure>
-          )}
-          {extras.length > 0 && (
-            <ul className="mt-3 grid grid-cols-2 gap-3">
-              {extras.map((img, i) => (
-                <li key={img.file} className="border border-border bg-card">
-                  {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img
-                    src={`/images/products/${img.file}`}
-                    alt={`Final drive for ${page.make_name} ${page.model_name} excavator — additional view ${i + 2}`}
-                    width={imageSize(img.file).width}
-                    height={imageSize(img.file).height}
-                    className="h-auto w-full"
-                    loading="lazy"
-                  />
+          ) : null}
+          {extras.map((img, idx) => {
+            const size = imageSize(img.file);
+            return (
+              <figure key={img.file} className="border border-border bg-white p-2">
+                {/* eslint-disable-next-line @next/next/no-img-element -- static export, product archive photo */}
+                <img
+                  src={`/images/products/${img.file}`}
+                  alt={`Final drive for ${page.make_name} ${page.model_name} excavator — additional view ${idx + 1}`}
+                  width={size.width}
+                  height={size.height}
+                  loading="lazy"
+                  className="h-auto w-full"
+                />
+              </figure>
+            );
+          })}
+          <div className="border border-border bg-muted/40 p-5">
+                <p className="text-sm font-semibold text-primary">
+                  Sourcing a {page.make_name} {page.model_name} final drive?
+                </p>
+                <p className="mt-1 text-sm leading-6 text-muted-foreground">
+                  Send the part number and a nameplate photo. We confirm the exact unit and quote
+                  factory-direct pricing before you commit.
+                </p>
+                <Link
+                  href={rfqHref(page)}
+                  className="mt-4 inline-flex items-center justify-center rounded-sm bg-amber-600 px-5 py-2.5 text-sm font-semibold text-white transition-colors hover:bg-amber-700"
+                >
+                  Request a quote for this model
+                </Link>
+              </div>
+        </div>
+
+        {/* Right: commercial copy */}
+        <div>
+          <p className="text-[15px] leading-7 text-foreground">{page.copy.intro}</p>
+
+          {page.model_aliases.length > 0 ? (
+            <p className="mt-4 text-sm leading-6 text-muted-foreground">
+              <span className="font-semibold text-foreground">Also known as: </span>
+              {page.model_aliases.join(', ')} — same machine family in some markets.
+            </p>
+          ) : null}
+
+          <section className="mt-8 border-t border-border pt-8">
+            <p className="text-xs font-semibold uppercase tracking-widest text-muted-foreground">
+              Sourcing
+            </p>
+            <h2 className="mt-2 text-xl font-semibold tracking-tight">
+              Why source this final drive through us
+            </h2>
+            <p className="mt-4 text-sm leading-7 text-muted-foreground">{page.copy.sourcing}</p>
+            <ul className="mt-5 grid gap-2 text-sm leading-6 text-muted-foreground sm:grid-cols-2">
+              {[
+                'Vetted China aftermarket & OEM-equivalent factories',
+                'Technical check before every quote',
+                'Factory-direct pricing, no middleman markup',
+                'One point of contact from order to delivery',
+              ].map(item => (
+                <li key={item} className="flex gap-2">
+                  <span aria-hidden="true" className="mt-2 h-px w-4 shrink-0 bg-foreground" />
+                  {item}
                 </li>
               ))}
             </ul>
-          )}
-        </div>
+          </section>
 
-        <div>
-          <p className="text-xs font-semibold uppercase tracking-widest text-muted-foreground">
-            Sourcing &amp; RFQ
-          </p>
-          <h1 className="mt-3 text-3xl font-bold tracking-tight text-foreground md:text-4xl">
-            {page.h1}
-          </h1>
-          {page.model_aliases.length > 0 && (
-            <p className="mt-3 text-sm text-muted-foreground">
-              Also reported for:{' '}
-              <span className="font-mono">{page.model_aliases.join(', ')}</span>
+          <div className="mt-2">
+            <PartNumberBlock page={page} />
+          </div>
+
+          <section className="border-t border-border py-10">
+            <p className="text-xs font-semibold uppercase tracking-widest text-muted-foreground">
+              Fitment
             </p>
-          )}
-
-          <div className="mt-6 border border-border bg-card p-5">
-            <h2 className="text-base font-semibold text-foreground">
-              Reporting &amp; sourcing for this model
+            <h2 className="mt-2 text-xl font-semibold tracking-tight">
+              Confirm the exact fit before you order
             </h2>
-            <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
-              We help source a matching final drive for the {page.make_name}{' '}
-              {page.model_name} through a vetted China aftermarket / OEM-equivalent supply
-              network. Nothing is ordered from a listing alone: every unit is confirmed
-              technically against your OEM part number, machine serial number and
-              nameplate before the order is placed.
+            <p className="mt-4 text-sm leading-7 text-muted-foreground">{page.copy.fit_check}</p>
+            <p className="mt-4 text-sm leading-7 text-muted-foreground">
+              Not sure how to read the tag? Follow the{' '}
+              <Link href={GUIDE_PATH} className="text-primary underline underline-offset-4">
+                nameplate check guide
+              </Link>
+              .
+            </p>
+          </section>
+
+          <section className="border-t border-border py-10">
+            <p className="text-xs font-semibold uppercase tracking-widest text-muted-foreground">
+              Build year &amp; region
+            </p>
+            <h2 className="mt-2 text-xl font-semibold tracking-tight">
+              Same model name can mean a different unit
+            </h2>
+            <p className="mt-4 text-sm leading-7 text-muted-foreground">
+              {page.copy.generation_note}
+            </p>
+          </section>
+
+          <section className="border-t border-border py-10">
+            <h2 className="text-xl font-semibold tracking-tight">
+              Get your {page.make_name} {page.model_name} back on track
+            </h2>
+            <p className="mt-3 text-sm leading-6 text-muted-foreground">
+              Tell us the part number on your travel motor or gearbox — or send a photo of the
+              nameplate — and we will confirm the right unit and come back with a factory-direct
+              quote.
             </p>
             <Link
-              href={rfqHref}
-              className="mt-4 inline-block bg-accent px-5 py-2.5 text-sm font-semibold text-accent-foreground transition-colors hover:bg-accent/90"
+              href={rfqHref(page)}
+              className="mt-5 inline-flex items-center justify-center rounded-sm bg-amber-600 px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-amber-700"
             >
-              Request a quote for this {page.make_name} {page.model_name}
+              Request a quote for this model
             </Link>
-            <p className="mt-3 text-xs text-muted-foreground">
-              The RFQ form opens pre-filled with this machine&apos;s details.
-            </p>
-          </div>
+          </section>
+
+          {siblingModels.length > 0 ? (
+            <section className="border-t border-border py-10">
+              <h2 className="text-lg font-semibold tracking-tight">
+                Other {page.make_name} excavator final drives
+              </h2>
+              <ul className="mt-4 grid grid-cols-1 gap-x-6 gap-y-2 sm:grid-cols-2">
+                {siblingModels.map(sib => (
+                  <li key={sib.url_path}>
+                    <Link
+                      href={sib.url_path}
+                      className="group inline-flex items-center gap-2 text-sm text-muted-foreground transition-colors hover:text-primary"
+                    >
+                      <span className="font-mono text-xs">{sib.model_name}</span>
+                      {typeof sib.copy.ton_class_approx === 'number' ? (
+                        <span className="text-xs text-muted-foreground/70">
+                          ~{sib.copy.ton_class_approx} t
+                        </span>
+                      ) : null}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </section>
+          ) : null}
         </div>
       </div>
-
-      {/* Reported OEM numbers */}
-      <section className="mt-12">
-        <h2 className="text-xl font-bold tracking-tight text-foreground">
-          Reported OEM part numbers{' '}
-          <span className="text-sm font-normal text-muted-foreground">
-            — reported for reference
-          </span>
-        </h2>
-        {reported.length > 0 ? (
-          <>
-            <div className="mt-4 overflow-x-auto border border-border">
-              <table className="w-full min-w-[520px] text-left text-sm">
-                <thead className="bg-muted text-xs uppercase tracking-wider text-muted-foreground">
-                  <tr>
-                    <th className="px-4 py-3 font-semibold">Part number</th>
-                    <th className="px-4 py-3 font-semibold">Reported part type</th>
-                    <th className="px-4 py-3 font-semibold">Status</th>
-                  </tr>
-                </thead>
-                <tbody className="divide-y divide-border bg-card">
-                  {reported.map(r => (
-                    <tr key={r.pn}>
-                      <td className="px-4 py-3 font-mono text-sm text-foreground">{r.pn}</td>
-                      <td className="px-4 py-3 text-muted-foreground">{partTypeEn(r.part_type)}</td>
-                      <td className="px-4 py-3">
-                        <span className="inline-block border border-border bg-muted px-2 py-0.5 text-xs font-medium text-muted-foreground">
-                          reported
-                        </span>
-                      </td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
-            </div>
-            <p className="mt-3 border-l-2 border-accent bg-muted px-4 py-3 text-xs leading-relaxed text-muted-foreground">
-              These are reported cross-references, not independently verified. Do not
-              order by these numbers alone — always confirm by OEM part number, machine
-              serial number and nameplate before ordering.
-            </p>
-          </>
-        ) : (
-          <p className="mt-4 border border-border bg-card p-5 text-sm text-muted-foreground">
-            No OEM part numbers are reported for this model yet. Sourcing is still
-            available — send the machine serial number and nameplate photos and we will
-            work the identification from scratch.
-          </p>
-        )}
-      </section>
-
-      {/* How we confirm fit */}
-      <section className="mt-12 border border-border bg-muted p-6">
-        <h2 className="text-xl font-bold tracking-tight text-foreground">
-          How we confirm fit before quoting
-        </h2>
-        <ol className="mt-5 grid gap-4 md:grid-cols-3">
-          <li className="border border-border bg-background p-4">
-            <p className="font-mono text-xs text-muted-foreground">Step 1</p>
-            <p className="mt-1 text-sm font-semibold text-foreground">OEM part number</p>
-            <p className="mt-1 text-sm leading-relaxed text-muted-foreground">
-              Any number from the old unit, the parts book or a dealer quote — it anchors
-              the cross-reference.
-            </p>
-          </li>
-          <li className="border border-border bg-background p-4">
-            <p className="font-mono text-xs text-muted-foreground">Step 2</p>
-            <p className="mt-1 text-sm font-semibold text-foreground">Machine serial number</p>
-            <p className="mt-1 text-sm leading-relaxed text-muted-foreground">
-              Serial breaks separate different configurations of the same model — we check
-              against them before quoting.
-            </p>
-          </li>
-          <li className="border border-border bg-background p-4">
-            <p className="font-mono text-xs text-muted-foreground">Step 3</p>
-            <p className="mt-1 text-sm font-semibold text-foreground">Nameplate photos</p>
-            <p className="mt-1 text-sm leading-relaxed text-muted-foreground">
-              A clear photo of the final drive nameplate and the mounting face settles the
-              identification.
-            </p>
-          </li>
-        </ol>
-        <p className="mt-4 text-sm text-muted-foreground">
-          Not sure where the nameplate is or what to photograph?{' '}
-          <Link
-            href={GUIDE_PATH}
-            className="font-semibold text-primary underline underline-offset-4 hover:text-primary/80"
-          >
-            How to check your excavator final drive nameplate
-          </Link>
-        </p>
-      </section>
-
-      {/* Final CTA */}
-      <section className="mt-12 flex flex-wrap items-center justify-between gap-4 border border-border bg-primary p-6 text-primary-foreground">
-        <div>
-          <h2 className="text-lg font-semibold">Get sourcing support for this machine</h2>
-          <p className="mt-1 text-sm text-primary-foreground/80">
-            Send the reported numbers plus your serial and nameplate photos — we confirm
-            the match technically before any order.
-          </p>
-        </div>
-        <Link
-          href={rfqHref}
-          className="bg-accent px-6 py-3 text-sm font-semibold text-accent-foreground transition-colors hover:bg-accent/90"
-        >
-          Request a Quote
-        </Link>
-      </section>
     </div>
   );
 }

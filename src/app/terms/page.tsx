@@ -27,12 +27,14 @@ export default function TermsPage() {
           </p>
         </section>
         <section>
-          <h2 className="text-lg font-semibold text-foreground">Reported cross-reference data</h2>
+          <h2 className="text-lg font-semibold text-foreground">Part number information</h2>
           <p className="mt-2">
-            Part numbers shown on this site are reported cross-references provided for
-            reference only. They are not independently verified and must not be used as
-            the sole basis for ordering. Every sourcing request is confirmed by OEM part
-            number, machine serial number and nameplate before an order is placed.
+            Part numbers shown on this site are catalog numbers commonly associated with
+            the listed machines. Because the same model name can cover multiple build
+            configurations, numbers should be checked against the tag on your unit rather
+            than used as the sole basis for ordering. Every sourcing request is confirmed
+            by OEM part number, machine serial number and nameplate before an order is
+            placed.
           </p>
         </section>
         <section>

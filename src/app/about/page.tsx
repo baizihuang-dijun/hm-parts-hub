@@ -18,23 +18,24 @@ export default function AboutPage() {
       <h1 className="mt-6 text-3xl font-bold tracking-tight text-foreground md:text-4xl">About</h1>
       <div className="mt-6 space-y-4 text-sm leading-relaxed text-foreground/80 md:text-base">
         <p>
-          This platform is an independent sourcing service for mobile machinery
-          aftermarket parts. Our first published category is excavator final drives and
-          travel motors; further categories are added in batches as our reported
-          cross-reference data matures.
+          This platform is a sourcing service for mobile machinery aftermarket parts, built
+          for fleet operators and repair workshops that buy on technical facts rather than
+          catalog guesswork. Our first category covers excavator final drives and travel
+          motors, with new makes and models added in batches.
         </p>
         <p>
-          We are not a parts catalog and not an authorized dealer of any equipment
-          manufacturer. What we provide is identification and sourcing: you tell us the
-          machine, the part numbers you have and show us the nameplate; we confirm the
-          matching unit technically and source it through a vetted OEM-equivalent
-          aftermarket supply network in China.
+          We are not an authorized dealer of any equipment manufacturer. What we do is
+          identify and source: you tell us the machine, the numbers stamped on your unit and
+          show us the nameplate; our team confirms the exact part against those details and
+          sources it through vetted China aftermarket and OEM-equivalent factories at
+          factory-direct pricing.
         </p>
         <p>
-          Every part number published on this site is a reported cross-reference shown for
-          reference — not independently verified — and we never ask you to order by a
-          number alone. Confirmation by OEM part number, machine serial number and
-          nameplate is part of every request.
+          The part numbers listed on our model pages are the catalog numbers commonly
+          associated with each model. They are a starting point for matching, not the final
+          word: the same model name can use different units across build years and regions,
+          so every quote is confirmed against the OEM part number, machine serial number and
+          a nameplate photo before you commit.
         </p>
         <p>
           Manufacturer names, model designations and part numbers are trademarks of their
