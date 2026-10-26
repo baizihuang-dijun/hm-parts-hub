@@ -353,6 +353,47 @@ function post() {
   }
   if (failures === 0) ok('cards render thumbnails; no application blurbs on list surfaces');
 
+  console.log('\n[check-data:post] home page v6 (search, hot PNs, brand counts)');
+  {
+    const html = fs.readFileSync(path.join(OUT_DIR, '/', 'index.html'), 'utf8');
+    // Client search is progressive enhancement: the input ships in SSR HTML
+    // and every model is reachable through static brand/card links.
+    if (!/aria-label="Search final drives by part number, model or make"/.test(html)) {
+      fail('home: search input missing from SSR HTML');
+    }
+    // Hot part-number chips render as real links to their model pages.
+    const HOT_PNS = ['20Y-27-00300', '227-6913', '9233692', 'K1000681A', '31E6-42000', 'YN15V00037F1'];
+    for (const pn of HOT_PNS) {
+      const owner = pages.find(p => {
+        const g = p.part_number_groups || {};
+        return [...(g.assembly || []), ...(g.motor || []), ...(g.service || [])].includes(pn);
+      });
+      if (!owner) { fail(`home: hot PN ${pn} not found in JSON`); continue; }
+      if (!new RegExp(`<a[^>]*href="${owner.url_path}"[^>]*>\\s*${pn}\\s*</a>`).test(html)) {
+        fail(`home: hot PN chip ${pn} does not link to ${owner.url_path}`);
+      }
+    }
+    // Brand chips must carry the natural "{count} {Make} models" text with a
+    // real space (regression guard for the JSX whitespace-mashing bug).
+    for (const m of makes) {
+      const count = pages.filter(p => p.make_slug === m.slug).length;
+      const label = `${count} ${m.name} ${count === 1 ? 'model' : 'models'}`;
+      if (!html.includes(label)) {
+        fail(`home: brand chip missing natural count text "${label}"`);
+      }
+      if (html.includes(`${count}${m.name}`)) {
+        fail(`home: brand count stuck to make name ("${count}${m.name}")`);
+      }
+    }
+    // Trust strip and how-it-works anchors exist for the topbar nav.
+    if (!html.includes('id="makes"')) fail('home: missing #makes anchor');
+    if (!html.includes('id="how"')) fail('home: missing #how anchor');
+    for (const t of ['Nameplate-verified fitment', 'China aftermarket sourcing', 'Quote by part number']) {
+      if (!html.includes(t)) fail(`home: trust item "${t}" missing`);
+    }
+    if (failures === 0) ok('home v6: SSR search input, hot PN chips, spaced brand counts');
+  }
+
   console.log('\n[check-data:post] banned tokens & compliance in exported output');
   const outFiles = walk(OUT_DIR, f => /\.(html|xml|txt)$/.test(f));
   scanFiles(outFiles, { tokens: true, phrases: true, cjk: true });
@@ -394,7 +435,7 @@ function post() {
     if (!title || !title.trim()) fail(`${route}: missing <title>`);
     else if (seenTitles.has(title)) fail(`${route}: duplicate <title> with ${seenTitles.get(title)}`);
     else seenTitles.set(title, route);
-    if ((title.match(/Mobile Parts Platform/g) || []).length > 1) {
+    if ((title.match(/Parts Desk/g) || []).length > 1) {
       fail(`${route}: site name repeated in <title> ("${title}")`);
     }
     const desc = (html.match(/<meta name="description" content="([^"]*)"/) || [])[1];

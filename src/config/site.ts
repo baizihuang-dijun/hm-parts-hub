@@ -3,7 +3,7 @@
  * All runtime-tunable values come from environment variables.
  * Never hardcode real keys, recipients or placeholder domains here.
  */
-export const SITE_NAME = 'Mobile Parts Platform';
+export const SITE_NAME = 'Parts Desk';
 
 /**
  * Public origin of the deployed site.

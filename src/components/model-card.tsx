@@ -1,59 +1,61 @@
 import Link from 'next/link';
 import { imageSize } from '@/lib/image-sizes';
-import { mainImage, type ModelPage } from '@/lib/data';
+import { mainImage, RFQ_PATH, type ModelPage } from '@/lib/data';
 
 /**
- * Compact model card used on the home page, category hub and brand hubs.
- * Whole card links to the model page; no application blurb is rendered here
- * by design (list surfaces stay scannable).
+ * Model card used on the home page, category hub and brand hubs.
+ * Mockup mcard layout: mono make label, bold model name, tonnage tag and
+ * lead part number in mono. The main body links to the model page; a
+ * separate quote link prefills the RFQ form (no nested anchors).
  */
 export function ModelCard({ page }: { page: ModelPage }) {
   const main = mainImage(page);
   const size = main ? imageSize(main.file) : { width: 1200, height: 900 };
   const ton = page.copy.ton_class_approx;
+  const quoteHref =
+    `${RFQ_PATH}?make=${encodeURIComponent(page.make_name)}` +
+    `&model=${encodeURIComponent(page.model_name)}` +
+    (page.lead_pn ? `&pn=${encodeURIComponent(page.lead_pn)}` : '');
 
   return (
-    <Link
-      href={page.url_path}
-      className="group flex flex-col overflow-hidden rounded-lg border border-border bg-white shadow-none transition-shadow duration-150 hover:shadow-md"
-    >
-      {/* Fixed 4:3 frame on a dark steel backdrop; images are contained, never stretched or cropped. */}
-      <div className="relative aspect-[4/3] w-full overflow-hidden bg-[#1E2A33]">
-        {main && (
-          // eslint-disable-next-line @next/next/no-img-element
-          <img
-            src={`/images/products/${main.file}`}
-            alt={`Final drive for ${page.make_name} ${page.model_name}`}
-            width={size.width}
-            height={size.height}
-            loading="lazy"
-            className="h-full w-full object-contain transition-transform duration-150 group-hover:scale-[1.02]"
-          />
-        )}
-      </div>
-      <div className="flex flex-1 flex-col gap-1.5 p-4">
-        <div className="flex items-start justify-between gap-2">
-          <h3 className="text-base font-semibold tracking-tight">
-            {page.make_name} {page.model_name}
-          </h3>
-          {typeof ton === 'number' && (
-            <span className="shrink-0 rounded border border-border bg-muted px-1.5 py-0.5 font-mono text-[11px] leading-none text-muted-foreground">
-              ~{ton} T
-            </span>
+    <article className="v6-mcard">
+      <Link href={page.url_path} className="flex flex-1 flex-col">
+        {/* Fixed 4:3 frame on a dark steel backdrop; images are contained, never stretched or cropped. */}
+        <figure className="v6-mfig">
+          {main && (
+            // eslint-disable-next-line @next/next/no-img-element
+            <img
+              src={`/images/products/${main.file}`}
+              alt={`Final drive for ${page.make_name} ${page.model_name}`}
+              width={size.width}
+              height={size.height}
+              loading="lazy"
+            />
           )}
+        </figure>
+        <div className="v6-mbody">
+          <span className="v6-m-make">{page.make_name}</span>
+          <span className="v6-m-model">{page.model_name}</span>
+          <span className="v6-m-meta">
+            {typeof ton === 'number' && (
+              <span className="v6-m-ton">{`~${ton} T`}</span>
+            )}
+            {page.lead_pn ? (
+              <span className="v6-m-pn">{`PN ${page.lead_pn}`}</span>
+            ) : (
+              <span className="v6-m-pn-none">Nameplate match</span>
+            )}
+          </span>
         </div>
-        {page.lead_pn ? (
-          <p className="text-xs text-muted-foreground">
-            <span className="text-[10px] font-semibold uppercase tracking-widest">PN</span>{' '}
-            <span className="font-mono">{page.lead_pn}</span>
-          </p>
-        ) : (
-          <p className="text-xs text-muted-foreground">Nameplate match</p>
-        )}
-        <div className="mt-auto flex items-center justify-end pt-1">
-          <span className="text-xs font-medium text-primary group-hover:underline">View →</span>
-        </div>
+      </Link>
+      <div className="border-t border-border px-3.5 py-2.5">
+        <Link
+          href={quoteHref}
+          className="font-mono text-[11px] font-semibold uppercase tracking-[0.12em] text-[#C8430F] hover:text-[#E8531C]"
+        >
+          Quote this model →
+        </Link>
       </div>
-    </Link>
+    </article>
   );
 }
