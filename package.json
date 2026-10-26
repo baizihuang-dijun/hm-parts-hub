@@ -4,6 +4,7 @@
   "private": true,
   "scripts": {
     "build": "bash ./scripts/build.sh",
+    "check": "node scripts/check-data.mjs pre",
     "dev": "bash ./scripts/dev.sh",
     "preinstall": "npx only-allow pnpm",
     "lint": "eslint --cache --cache-location node_modules/.cache/eslint/",
@@ -47,7 +48,7 @@
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "cmdk": "^1.1.1",
-    "coze-coding-dev-sdk": "^0.7.28",
+    "coze-coding-dev-sdk": "^0.7.32",
     "date-fns": "^4.1.0",
     "dotenv": "^17.2.3",
     "drizzle-kit": "^0.31.8",

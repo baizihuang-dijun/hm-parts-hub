@@ -2,64 +2,69 @@
 
 ### 版本技术栈
 
-- **Framework**: Next.js 16 (App Router)
+- **Framework**: Next.js 16 (App Router), `output: 'export'` 纯静态导出, `trailingSlash: true`
 - **Core**: React 19
 - **Language**: TypeScript 5
-- **UI 组件**: shadcn/ui (基于 Radix UI)
+- **UI 组件**: shadcn/ui (基于 Radix UI)，预装于 `src/components/ui/`
 - **Styling**: Tailwind CSS 4
+
+## 项目定位
+
+英文 B2B 静态站：移动机械售后配件 RFQ 平台（第一批：excavator Final Drives）。
+内容为 JSON 快照驱动（`src/content/public_batch1.json`），不接数据库、不做电商功能。
 
 ## 目录结构
 
 ```
-├── public/                 # 静态资源
-├── scripts/                # 构建与启动脚本
-│   ├── build.sh            # 构建脚本
-│   ├── dev.sh              # 开发环境启动脚本
-│   ├── prepare.sh          # 预处理脚本
-│   └── start.sh            # 生产环境启动脚本
+├── public/images/products/   # 产品图（JSON 中 images[].file 一一对应）
+├── scripts/
+│   ├── build.sh              # check(pre) → next build(静态导出) → check(post) → tsup
+│   ├── check-data.mjs        # 数据/合规构建断言（失败非零退出阻断 build）
+│   ├── dev.sh / start.sh     # 开发/生产启动
+│   └── prepare.sh            # 依赖预处理
 ├── src/
-│   ├── app/                # 页面路由与布局
-│   ├── components/ui/      # Shadcn UI 组件库
-│   ├── hooks/              # 自定义 Hooks
-│   ├── lib/                # 工具库
-│   │   └── utils.ts        # 通用工具函数 (cn)
-│   └── server.ts           # 自定义服务端入口
-├── next.config.ts          # Next.js 配置
-├── package.json            # 项目依赖管理
-└── tsconfig.json           # TypeScript 配置
+│   ├── app/                  # 页面路由（仅需求书列出的页面）
+│   │   ├── equipment/[make]/[model]/final-drives/  # 12 个机型页（generateStaticParams）
+│   │   ├── parts/final-drives/                     # 品类 Hub
+│   │   ├── parts/final-drives/for/[make]/          # 13 品牌枢纽
+│   │   ├── request-quote/ about/ privacy/ terms/   # RFQ 与辅助页
+│   │   ├── guides/how-to-check-excavator-final-drive-nameplate/
+│   │   ├── sitemap.ts / robots.ts                  # 由 allPublicRoutes() 生成
+│   │   └── not-found.tsx                           # 404 (noindex)
+│   ├── components/           # header/footer/consent-banner/analytics/rfq-form 等
+│   ├── config/site.ts        # SITE_NAME 与 NEXT_PUBLIC_* 环境变量集中读取
+│   ├── content/public_batch1.json  # 唯一内容数据源（新增页面只换它+图片）
+│   ├── lib/data.ts           # JSON 类型化读取、路由推导、part_type 中→英映射
+│   ├── lib/seo.ts            # buildMetadata() 统一 title/description/canonical/OG
+│   └── server.ts             # 生产静态服务器（服务 out/，未命中回落 404.html）
+├── .env.example              # NEXT_PUBLIC_SITE_URL / WEB3FORMS_KEY / RFQ_EMAIL / GA4_ID
+└── DESIGN.md                 # 视觉设计规范（工业档案册风）
 ```
-
-- 项目文件（如 app 目录、pages 目录、components 等）默认初始化到 `src/` 目录下。
 
 ## 包管理规范
 
-**仅允许使用 pnpm** 作为包管理器，**严禁使用 npm 或 yarn**。
-**常用命令**：
-- 安装依赖：`pnpm add <package>`
-- 安装开发依赖：`pnpm add -D <package>`
-- 安装所有依赖：`pnpm install`
-- 移除依赖：`pnpm remove <package>`
+**仅允许使用 pnpm**，严禁 npm/yarn。常用：`pnpm add <pkg>` / `pnpm add -D <pkg>` / `pnpm install` / `pnpm remove <pkg>`。
 
 ## 开发规范
 
 ### 编码规范
+- TypeScript strict 心智；禁止隐式 `any` 与 `as any`；函数参数、事件对象、`catch` 错误先类型收窄。
+- 禁止引用未声明标识符；组件/函数/类型使用前必须 import。
+- next.config 路径用 `path.resolve(__dirname, ...)` 动态拼接，不写死绝对路径。
 
-- 默认按 TypeScript `strict` 心智写代码；优先复用当前作用域已声明的变量、函数、类型和导入，禁止引用未声明标识符或拼错变量名。
-- 禁止隐式 `any` 和 `as any`；函数参数、返回值、解构项、事件对象、`catch` 错误在使用前应有明确类型或先完成类型收窄，并清理未使用的变量和导入。
+### Hydration 防范
+- 严禁 JSX 渲染期直接使用 `typeof window` / `Date.now()` / `Math.random()`；动态内容用 `'use client'` + `useEffect` + `useState`（参考 consent-banner）。
+- 严禁非法 HTML 嵌套；不使用 `head` 标签，metadata 用 Next Metadata API。
 
-### next.config 配置规范
+### 内容/合规红线（check-data.mjs 强制）
+- 路由只能来自 JSON：机型页 12 个，`url_path` 逐字一致；JSON 之外的机型绝不生成路由或文本。
+- 公共输出禁止：`guaranteed fit` / `direct replacement` / `drop-in` / `fully interchangeable` / `in stock` / `48-hour shipping` / 价格 / 购物车 / `core charge` / `LB-` / `SKU-FD-` / UUID / S1S2S3 标签 / 供应商名与成本 / 任何中文字符。
+- OEM 件号一律标注 reported for reference / not independently verified，不建独立页不加链接；OEM 品牌仅识别引用，footer/Privacy/Terms 有商标声明。
+- JSON 里 `part_type` 为中文，渲染必须经 `partTypeEn()` 映射为英文；`verification_note` 含禁用语，**不得**原样渲染。
+- RFQ 走 Web3Forms（`NEXT_PUBLIC_WEB3FORMS_KEY` 未配置时显示占位不崩溃）；GA4 仅 consent=granted 后注入，`generate_lead` 只在提交成功且已授权时触发。
 
-- 配置的路径不要写死绝对路径，必须使用 path.resolve(__dirname, ...)、import.meta.dirname 或 process.cwd() 动态拼接。
+## 构建与验证
 
-### Hydration 问题防范
-
-1. 严禁在 JSX 渲染逻辑中直接使用 typeof window、Date.now()、Math.random() 等动态数据。**必须使用 'use client' 并配合 useEffect + useState 确保动态内容仅在客户端挂载后渲染**；同时严禁非法 HTML 嵌套（如 <p> 嵌套 <div>）。
-2. **禁止使用 head 标签**，优先使用 metadata，详见文档：https://nextjs.org/docs/app/api-reference/functions/generate-metadata
-   1. 三方 CSS、字体等资源可在 `globals.css` 中顶部通过 `@import` 引入或使用 next/font
-   2. preload, preconnect, dns-prefetch 通过 ReactDOM 的 preload、preconnect、dns-prefetch 方法引入
-   3. json-ld 可阅读 https://nextjs.org/docs/app/guides/json-ld
-
-## UI 设计与组件规范 (UI & Styling Standards)
-
-- 模板默认预装核心组件库 `shadcn/ui`，位于`src/components/ui/`目录下
-- Next.js 项目**必须默认**采用 shadcn/ui 组件、风格和规范，**除非用户指定用其他的组件和规范。**
+- `pnpm check`：仅跑 pre 断言；`pnpm build`：pre 断言 → 静态导出 → post 断言（扫描 `out/`）。
+- 修改数据/文案后必须 `pnpm build` 全绿方可交付。
+- 静态导出无服务端 API；接口测试不适用，验证以构建断言 + 页面静态检查为准。
