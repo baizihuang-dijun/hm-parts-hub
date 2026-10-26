@@ -144,6 +144,17 @@ function pre() {
   }
   ok('url_path verbatim check + image existence done');
 
+  console.log('\n[check-data:pre] image dimension map coverage (CLS width/height)');
+  const sizesSrc = fs.readFileSync(path.join(ROOT, 'src/lib/image-sizes.ts'), 'utf8');
+  for (const p of pages) {
+    for (const img of p.images) {
+      if (!sizesSrc.includes(`'${img.file}'`)) {
+        fail(`${p.url_path}: ${img.file} missing from src/lib/image-sizes.ts (no width/height → CLS risk)`);
+      }
+    }
+  }
+  if (failures === 0) ok('every JSON image has intrinsic dimensions in image-sizes.ts');
+
   console.log('\n[check-data:pre] banned tokens & compliance phrases in src/');
   const srcFiles = walk(path.join(ROOT, 'src'), f =>
     /\.(ts|tsx|js|jsx|css|mjs)$/.test(f),
@@ -243,6 +254,36 @@ function post() {
     const label = p.url_path;
     if (main && !html.includes(`/images/products/${main.file}`)) {
       fail(`${label}: main image ${main.file} not rendered`);
+    }
+    // Every JSON image must render as an <img> with width/height (CLS guard);
+    // the first-screen main image must NOT be lazy, extra views must be lazy.
+    for (const img of p.images) {
+      const tagMatch = html.match(new RegExp(`<img[^>]*${img.file.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}[^>]*>`));
+      if (!tagMatch) {
+        fail(`${label}: image ${img.file} not rendered as <img>`);
+        continue;
+      }
+      const tag = tagMatch[0];
+      if (!/\bwidth="\d+"/.test(tag) || !/\bheight="\d+"/.test(tag)) {
+        fail(`${label}: ${img.file} missing width/height attributes`);
+      }
+      const isMain = main && img.file === main.file;
+      if (isMain && /loading="lazy"/.test(tag)) {
+        fail(`${label}: first-screen main image must not be lazy-loaded`);
+      }
+      if (!isMain && !/loading="lazy"/.test(tag)) {
+        fail(`${label}: extra view ${img.file} must use loading="lazy"`);
+      }
+      if (!fs.existsSync(path.join(OUT_DIR, 'images/products', img.file))) {
+        fail(`${label}: ${img.file} missing from exported out/images/products/`);
+      }
+    }
+    if (!/Final drive assembly for [A-Za-z]+ [A-Za-z0-9-]+ excavator/.test(html)) {
+      fail(`${label}: main image missing descriptive alt "Final drive assembly for {Make} {Model} excavator"`);
+    }
+    // Legacy naming must be gone everywhere.
+    if (/-main\.jpg|-view\d\.jpg/.test(html)) {
+      fail(`${label}: legacy image filename (-main/-view) still referenced`);
     }
     if (p.reported_numbers.length > 0) {
       if (!/reported for reference/i.test(html)) fail(`${label}: missing "reported for reference" heading`);

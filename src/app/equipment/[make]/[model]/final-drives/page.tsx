@@ -17,6 +17,7 @@ import {
   partTypeEn,
 } from '@/lib/data';
 import { Breadcrumbs } from '@/components/breadcrumbs';
+import { imageSize } from '@/lib/image-sizes';
 
 export const dynamicParams = false;
 
@@ -110,15 +111,16 @@ export default async function ModelFinalDrivePage({
         <div>
           {main && (
             <figure className="border border-border bg-card">
-              <div className="aspect-[4/3] w-full overflow-hidden">
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img
-                  src={`/images/products/${main.file}`}
-                  alt={`Replacement final drive reported to fit ${page.make_name} ${page.model_name} — main view`}
-                  className="h-full w-full object-cover"
-                  fetchPriority="high"
-                />
-              </div>
+              {/* Above the fold: no lazy loading, high fetch priority. */}
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src={`/images/products/${main.file}`}
+                alt={`Final drive assembly for ${page.make_name} ${page.model_name} excavator`}
+                width={imageSize(main.file).width}
+                height={imageSize(main.file).height}
+                className="h-auto w-full"
+                fetchPriority="high"
+              />
               <figcaption className="border-t border-border px-3 py-2 text-xs text-muted-foreground">
                 Reference photo — final drive / travel assembly reported to fit{' '}
                 {page.make_name} {page.model_name}
@@ -127,17 +129,17 @@ export default async function ModelFinalDrivePage({
           )}
           {extras.length > 0 && (
             <ul className="mt-3 grid grid-cols-2 gap-3">
-              {extras.map(img => (
+              {extras.map((img, i) => (
                 <li key={img.file} className="border border-border bg-card">
-                  <div className="aspect-[4/3] w-full overflow-hidden">
-                    {/* eslint-disable-next-line @next/next/no-img-element */}
-                    <img
-                      src={`/images/products/${img.file}`}
-                      alt={`Replacement final drive reported to fit ${page.make_name} ${page.model_name} — additional view (${img.tag})`}
-                      className="h-full w-full object-cover"
-                      loading="lazy"
-                    />
-                  </div>
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img
+                    src={`/images/products/${img.file}`}
+                    alt={`Final drive for ${page.make_name} ${page.model_name} excavator — additional view ${i + 2}`}
+                    width={imageSize(img.file).width}
+                    height={imageSize(img.file).height}
+                    className="h-auto w-full"
+                    loading="lazy"
+                  />
                 </li>
               ))}
             </ul>

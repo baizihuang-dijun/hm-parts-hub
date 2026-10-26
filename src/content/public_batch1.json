@@ -89,18 +89,18 @@
    "images": [
     {
      "slug": "caterpillar-320d",
-     "tag": "main",
-     "file": "caterpillar-320d-main.jpg"
-    },
-    {
-     "slug": "caterpillar-320d",
      "tag": "view2",
-     "file": "caterpillar-320d-view2.jpg"
+     "file": "caterpillar-320d-final-drive-2.jpg"
     },
     {
      "slug": "caterpillar-320d",
      "tag": "view3",
-     "file": "caterpillar-320d-view3.jpg"
+     "file": "caterpillar-320d-final-drive-3.jpg"
+    },
+    {
+     "slug": "caterpillar-320d",
+     "tag": "main",
+     "file": "caterpillar-320d-final-drive.jpg"
     }
    ]
   },
@@ -147,18 +147,18 @@
    "images": [
     {
      "slug": "caterpillar-330c",
-     "tag": "main",
-     "file": "caterpillar-330c-main.jpg"
-    },
-    {
-     "slug": "caterpillar-330c",
      "tag": "view2",
-     "file": "caterpillar-330c-view2.jpg"
+     "file": "caterpillar-330c-final-drive-2.jpg"
     },
     {
      "slug": "caterpillar-330c",
      "tag": "view3",
-     "file": "caterpillar-330c-view3.jpg"
+     "file": "caterpillar-330c-final-drive-3.jpg"
+    },
+    {
+     "slug": "caterpillar-330c",
+     "tag": "main",
+     "file": "caterpillar-330c-final-drive.jpg"
     }
    ]
   },
@@ -204,18 +204,18 @@
    "images": [
     {
      "slug": "doosan-dx225",
-     "tag": "main",
-     "file": "doosan-dx225-main.jpg"
-    },
-    {
-     "slug": "doosan-dx225",
      "tag": "view2",
-     "file": "doosan-dx225-view2.jpg"
+     "file": "doosan-dx225-final-drive-2.jpg"
     },
     {
      "slug": "doosan-dx225",
      "tag": "view3",
-     "file": "doosan-dx225-view3.jpg"
+     "file": "doosan-dx225-final-drive-3.jpg"
+    },
+    {
+     "slug": "doosan-dx225",
+     "tag": "main",
+     "file": "doosan-dx225-final-drive.jpg"
     }
    ]
   },
@@ -272,13 +272,13 @@
    "images": [
     {
      "slug": "hitachi-zx200-3",
-     "tag": "main",
-     "file": "hitachi-zx200-3-main.jpg"
+     "tag": "view2",
+     "file": "hitachi-zx200-3-final-drive-2.jpg"
     },
     {
      "slug": "hitachi-zx200-3",
-     "tag": "view2",
-     "file": "hitachi-zx200-3-view2.jpg"
+     "tag": "main",
+     "file": "hitachi-zx200-3-final-drive.jpg"
     }
    ]
   },
@@ -330,13 +330,13 @@
    "images": [
     {
      "slug": "hitachi-zx330-3",
-     "tag": "main",
-     "file": "hitachi-zx330-3-main.jpg"
+     "tag": "view2",
+     "file": "hitachi-zx330-3-final-drive-2.jpg"
     },
     {
      "slug": "hitachi-zx330-3",
-     "tag": "view2",
-     "file": "hitachi-zx330-3-view2.jpg"
+     "tag": "main",
+     "file": "hitachi-zx330-3-final-drive.jpg"
     }
    ]
   },
@@ -401,7 +401,7 @@
     {
      "slug": "hyundai-r140lc-7",
      "tag": "main",
-     "file": "hyundai-r140lc-7-main.jpg"
+     "file": "hyundai-r140lc-7-final-drive.jpg"
     }
    ]
   },
@@ -438,18 +438,18 @@
    "images": [
     {
      "slug": "hyundai-r485vs",
-     "tag": "main",
-     "file": "hyundai-r485vs-main.jpg"
-    },
-    {
-     "slug": "hyundai-r485vs",
      "tag": "view2",
-     "file": "hyundai-r485vs-view2.jpg"
+     "file": "hyundai-r485vs-final-drive-2.jpg"
     },
     {
      "slug": "hyundai-r485vs",
      "tag": "view3",
-     "file": "hyundai-r485vs-view3.jpg"
+     "file": "hyundai-r485vs-final-drive-3.jpg"
+    },
+    {
+     "slug": "hyundai-r485vs",
+     "tag": "main",
+     "file": "hyundai-r485vs-final-drive.jpg"
     }
    ]
   },
@@ -476,13 +476,13 @@
    "images": [
     {
      "slug": "kobelco-sk200-8",
-     "tag": "main",
-     "file": "kobelco-sk200-8-main.jpg"
+     "tag": "view2",
+     "file": "kobelco-sk200-8-final-drive-2.jpg"
     },
     {
      "slug": "kobelco-sk200-8",
-     "tag": "view2",
-     "file": "kobelco-sk200-8-view2.jpg"
+     "tag": "main",
+     "file": "kobelco-sk200-8-final-drive.jpg"
     }
    ]
   },
@@ -555,7 +555,7 @@
     {
      "slug": "komatsu-pc200-7",
      "tag": "main",
-     "file": "komatsu-pc200-7-main.jpg"
+     "file": "komatsu-pc200-7-final-drive.jpg"
     }
    ]
   },
@@ -593,7 +593,7 @@
     {
      "slug": "sany-sy285",
      "tag": "main",
-     "file": "sany-sy285-main.jpg"
+     "file": "sany-sy285-final-drive.jpg"
     }
    ]
   },
@@ -657,18 +657,18 @@
    "images": [
     {
      "slug": "volvo-ec220d",
-     "tag": "main",
-     "file": "volvo-ec220d-main.jpg"
-    },
-    {
-     "slug": "volvo-ec220d",
      "tag": "view2",
-     "file": "volvo-ec220d-view2.jpg"
+     "file": "volvo-ec220d-final-drive-2.jpg"
     },
     {
      "slug": "volvo-ec220d",
      "tag": "view3",
-     "file": "volvo-ec220d-view3.jpg"
+     "file": "volvo-ec220d-final-drive-3.jpg"
+    },
+    {
+     "slug": "volvo-ec220d",
+     "tag": "main",
+     "file": "volvo-ec220d-final-drive.jpg"
     }
    ]
   },
@@ -706,7 +706,7 @@
     {
      "slug": "volvo-ec480d",
      "tag": "main",
-     "file": "volvo-ec480d-main.jpg"
+     "file": "volvo-ec480d-final-drive.jpg"
     }
    ]
   }
