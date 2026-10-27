@@ -4,21 +4,21 @@ import Link from 'next/link';
 import {
   makes,
   getModelPage,
-  getMake,
   modelDescription,
   mainImage,
   partGroups,
   hasPartNumbers,
   pagesByMake,
-  sortPagesByTonnage,
   brandHubPath,
   CATEGORY_PATH,
   GUIDE_PATH,
   type ModelPage,
+  type PartGroupKey,
 } from '@/lib/data';
 import { buildMetadata } from '@/lib/seo';
-import { Breadcrumbs } from '@/components/breadcrumbs';
 import { ImageGallery, type GalleryImage } from '@/components/image-gallery';
+import { CopyPnButton, QuoteThisLink } from '@/components/pn-actions';
+import { ModelRfqForm } from '@/components/model-rfq-form';
 import { SITE_NAME, absoluteUrl } from '@/config/site';
 
 type RouteParams = Promise<{ make: string; model: string }>;
@@ -52,6 +52,38 @@ function rfqHref(page: ModelPage, pn?: string): string {
   });
   if (pn) params.set('pn', pn);
   return `/request-quote/?${params.toString()}`;
+}
+
+/* ---------- per-model buying FAQ (rendered as <details> + FAQPage JSON-LD) ---------- */
+
+function faqs(page: ModelPage): { q: string; a: string }[] {
+  const machine = `${page.make_name} ${page.model_name}`;
+  return [
+    {
+      q: `What is the lead time for a ${machine} final drive?`,
+      a: 'Lead time depends on the confirmed configuration and the supply route for your unit. Once we have matched the unit to your tag, the quote states packing dimensions, gross weight and the current lead time — these are confirmed per order rather than posted as blanket promises.',
+    },
+    {
+      q: 'Do I need the nameplate part number to order?',
+      a: 'It is the fastest way, but not required. Send a clear photo of the travel-motor nameplate together with the machine serial number and we identify the unit from the tag instead of guessing from the model name.',
+    },
+    {
+      q: 'Is this an OEM or an aftermarket unit?',
+      a: 'We source from vetted China aftermarket and OEM-equivalent manufacturers. Each quote states the supply type and country of origin for that specific unit, so you know exactly what you are buying.',
+    },
+    {
+      q: 'How do you confirm the unit fits my machine?',
+      a: 'We match the OEM number and machine serial, check the nameplate photo, and verify displacement, mounting bolt pattern, sprocket interface and speed ratio against the factory data sheet. The configuration is confirmed on paper before anything ships.',
+    },
+    {
+      q: 'Do you ship worldwide?',
+      a: 'Yes. We arrange EXW, FOB, CIF or air freight depending on destination and urgency. Shipping method, packing and terms are stated on your individual quote.',
+    },
+    {
+      q: 'When will I receive my quote, and how long is it valid?',
+      a: 'We reply after the configuration check is complete, and the quote states its own validity period. Complete nameplate details up front keep the turnaround short.',
+    },
+  ];
 }
 
 function jsonLd(page: ModelPage): object {
@@ -93,6 +125,14 @@ function jsonLd(page: ModelPage): object {
         brand: { '@type': 'Brand', name: SITE_NAME },
         description: modelDescription(page),
       },
+      {
+        '@type': 'FAQPage',
+        mainEntity: faqs(page).map(f => ({
+          '@type': 'Question',
+          name: f.q,
+          acceptedAnswer: { '@type': 'Answer', text: f.a },
+        })),
+      },
     ],
   };
 }
@@ -109,233 +149,237 @@ function galleryImages(page: ModelPage): GalleryImage[] {
   }));
 }
 
-function PartNumberBlock({ page }: { page: ModelPage }) {
-  const groups = partGroups(page);
-  return (
-    <section className="border-t border-border py-10">
-      <h2 className="text-xl font-semibold tracking-tight">{page.copy.pn_heading}</h2>
-      {hasPartNumbers(page) ? (
-        <>
-          <div className="mt-6 space-y-7">
-            {groups.map(group => (
-              <div key={group.key}>
-                <p className="text-xs font-semibold uppercase tracking-widest text-muted-foreground">
-                  {group.label}
-                </p>
-                <ul className="mt-3 flex flex-wrap gap-2">
-                  {group.numbers.map(pn => (
-                    <li key={pn}>
-                      <Link
-                        href={rfqHref(page, pn)}
-                        title={`Request a quote for ${pn}`}
-                        className="inline-flex select-all items-center rounded-md border border-border bg-white px-3 py-1.5 font-mono text-sm font-semibold tracking-wide text-primary transition-colors duration-150 hover:border-primary hover:bg-muted"
-                      >
-                        {pn}
-                      </Link>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            ))}
-          </div>
-          <div className="mt-6 rounded-lg border border-border bg-muted/50 p-4 text-sm leading-6">
-            {page.copy.pn_note}
-          </div>
-        </>
-      ) : (
-        <div className="mt-5 space-y-5">
-          <p className="max-w-prose text-sm leading-6 text-muted-foreground">{page.copy.pn_note}</p>
-          <Link
-            href={rfqHref(page)}
-            className="inline-flex items-center justify-center rounded-md bg-amber-600 px-5 py-2.5 text-sm font-semibold text-white transition-colors duration-150 hover:bg-amber-700"
-          >
-            Send my nameplate
-          </Link>
-        </div>
-      )}
-    </section>
-  );
-}
+/** Group subtitle (mono chip) and per-row type label, keyed by JSON group. */
+const GROUP_META: Record<PartGroupKey, { code: string; role: string }> = {
+  assembly: { code: 'complete unit', role: 'assembly' },
+  motor: { code: 'hydraulic motor only', role: 'travel motor' },
+  service: { code: 'components / seals', role: 'service part' },
+};
+
+const FIT_CHECKLIST: { what: string; why: string }[] = [
+  { what: 'OEM number stamped on the unit', why: 'identifies the build' },
+  { what: 'Machine serial number', why: 'year & region' },
+  { what: 'Clear nameplate photo', why: 'removes tag-reading errors' },
+  {
+    what: 'We verify 4 fit points',
+    why: 'displacement · mounting holes · sprocket interface · speed ratio',
+  },
+];
 
 export default async function ModelFinalDrivesPage({ params }: { params: RouteParams }) {
   const { make, model } = await params;
   const page = getModelPage(make, model);
   if (!page) notFound();
 
-  const makeInfo = getMake(page.make_slug);
   const images = galleryImages(page);
-  const siblingModels = sortPagesByTonnage(
-    pagesByMake(page.make_slug).filter(p => p.model_slug !== page.model_slug),
-  ).slice(0, 8);
+  const groups = partGroups(page);
+  const hasNumbers = hasPartNumbers(page);
+  const ton = page.copy.ton_class_approx;
+  const faqItems = faqs(page);
 
   return (
-    <div className="mx-auto max-w-6xl px-4 pb-24 pt-10 sm:px-6 md:pb-10">
+    <div className="pb-20 md:pb-0">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd(page)) }}
       />
 
-      <Breadcrumbs
-        items={[
-          { label: 'Home', href: '/' },
-          { label: 'Final Drives', href: CATEGORY_PATH },
-          { label: makeInfo?.name ?? page.make_name, href: brandHubPath(page.make_slug) },
-          { label: `${page.make_name} ${page.model_name}` },
-        ]}
-      />
-
-      <h1 className="mt-5 text-3xl font-semibold tracking-tight sm:text-4xl">{page.h1}</h1>
-      <div className="mt-3 flex flex-wrap items-center gap-3">
-        <p className="text-sm uppercase tracking-widest text-muted-foreground">
-          {`Replacement final drive & travel motor assembly · ${page.copy.machine_kind} undercarriage`}
-        </p>
-        {typeof page.copy.ton_class_approx === 'number' && (
-          <span className="rounded border border-border bg-muted px-1.5 py-0.5 font-mono text-[11px] leading-none text-muted-foreground">
-            ~{page.copy.ton_class_approx} T
-          </span>
-        )}
+      {/* Breadcrumb */}
+      <div className="v6-wrap">
+        <nav className="v6-crumb" aria-label="Breadcrumb">
+          <Link href="/">Home</Link>
+          <span>/</span>
+          <Link href={CATEGORY_PATH}>Final Drives</Link>
+          <span>/</span>
+          <Link href={brandHubPath(page.make_slug)}>{page.make_name}</Link>
+          <span>/</span>
+          {page.model_name}
+        </nav>
       </div>
 
-      <div className="mt-8 grid gap-10 lg:grid-cols-[minmax(0,5fr)_minmax(0,7fr)]">
-        {/* Left: gallery + CTA */}
-        <div className="space-y-4">
-          <ImageGallery images={images} />
-          <p className="text-center text-xs text-muted-foreground">
-            Final drive for {page.make_name} {page.model_name}
-          </p>
-          <div className="rounded-lg border border-border bg-muted/40 p-5">
-            <p className="text-sm font-semibold text-primary">
-              Sourcing a {page.make_name} {page.model_name} final drive?
-            </p>
-            <p className="mt-1 text-sm leading-6 text-muted-foreground">
-              Send the part number and a nameplate photo. We confirm the exact unit and quote
-              factory-direct pricing before you commit.
-            </p>
-            <Link
-              href={rfqHref(page)}
-              className="mt-4 inline-flex items-center justify-center rounded-md bg-amber-600 px-5 py-2.5 text-sm font-semibold text-white transition-colors duration-150 hover:bg-amber-700"
-            >
-              Request a quote for this model
-            </Link>
-          </div>
+      {/* Identity bar — CSS uppercases visually; source keeps JSON casing for checks. */}
+      <div className="v6-idbar">
+        <div className="v6-wrap">
+          <i className="idi">
+            <b>{page.make_name.toUpperCase()}</b>
+          </i>
+          <i className="idi">
+            <b>{page.model_name}</b>
+          </i>
+          <i className="idi idi-kind">
+            {typeof ton === 'number'
+              ? `${page.copy.machine_kind} undercarriage · ~${ton} T class`
+              : `${page.copy.machine_kind} undercarriage`}
+          </i>
+          {page.copy.band ? <i className="idi idi-kind">{page.copy.band}</i> : null}
+          <i className="idi idi-ok">● page data verified to catalog</i>
         </div>
+      </div>
 
-        {/* Right: commercial copy */}
-        <div>
-          <p className="text-[15px] leading-7 text-foreground">{page.copy.intro}</p>
+      {/* Gallery + buy column */}
+      <div className="v6-wrap v6-model-grid">
+        <ImageGallery
+          images={images}
+          caption={`Final drive for ${page.make_name} ${page.model_name}`}
+        />
 
-          {page.model_aliases.length > 0 ? (
-            <p className="mt-4 text-sm leading-6 text-muted-foreground">
-              <span className="font-semibold text-foreground">Also known as: </span>
-              {page.model_aliases.join(', ')} — same machine family in some markets.
-            </p>
-          ) : null}
-
-          <section className="mt-8 border-t border-border pt-8">
-            <p className="text-xs font-semibold uppercase tracking-widest text-muted-foreground">
-              Sourcing
-            </p>
-            <h2 className="mt-2 text-xl font-semibold tracking-tight">
-              Why source this final drive through us
-            </h2>
-            <p className="mt-4 text-sm leading-7 text-muted-foreground">{page.copy.sourcing}</p>
-            <ul className="mt-5 grid gap-2 text-sm leading-6 text-muted-foreground sm:grid-cols-2">
-              {[
-                'Vetted China aftermarket & OEM-equivalent factories',
-                'Technical check before every quote',
-                'Factory-direct pricing, no middleman markup',
-                'One point of contact from order to delivery',
-              ].map(item => (
-                <li key={item} className="flex gap-2">
-                  <span aria-hidden="true" className="mt-2 h-px w-4 shrink-0 bg-foreground" />
-                  {item}
-                </li>
-              ))}
-            </ul>
-          </section>
-
-          <div className="mt-2">
-            <PartNumberBlock page={page} />
+        <div className="v6-buy">
+          <div className="v6-kicker">Sourcing &amp; RFQ · final drive</div>
+          <h1>{page.h1}</h1>
+          <p className="v6-lead">{page.copy.intro}</p>
+          <div className="v6-cta-row">
+            <a href="#rfq" className="v6-btn v6-btn-primary v6-btn-lg">
+              Request a quote — {page.model_name}
+            </a>
+            <a href="#rfq" className="v6-btn v6-btn-outline v6-btn-lg">
+              Send nameplate photo
+            </a>
           </div>
+          <ul className="v6-assure">
+            <li>
+              <span className="v6-tick">✓</span>
+              <span>Configuration matched to OEM number, serial &amp; nameplate before you commit</span>
+            </li>
+            <li>
+              <span className="v6-tick">✓</span>
+              <span>Sourced from vetted China aftermarket / OEM-equivalent factories</span>
+            </li>
+            <li>
+              <span className="v6-tick">✓</span>
+              <span>One technical contact from RFQ through delivery</span>
+            </li>
+          </ul>
+        </div>
+      </div>
 
-          <section className="border-t border-border py-10">
-            <p className="text-xs font-semibold uppercase tracking-widest text-muted-foreground">
-              Fitment
-            </p>
-            <h2 className="mt-2 text-xl font-semibold tracking-tight">
-              Confirm the exact fit before you order
-            </h2>
-            <p className="mt-4 text-sm leading-7 text-muted-foreground">{page.copy.fit_check}</p>
-            <p className="mt-4 text-sm leading-7 text-muted-foreground">
-              Not sure how to read the tag? Follow the{' '}
-              <Link href={GUIDE_PATH} className="text-primary underline underline-offset-4">
-                nameplate check guide
+      {/* Part numbers */}
+      <section className="v6-pnsection" id="numbers">
+        <div className="v6-wrap">
+          <div className="v6-sec-head">
+            <h2>{page.copy.pn_heading}</h2>
+            <span className="rule" />
+            <span className="cnt">cross-check against your tag</span>
+          </div>
+          <p className="v6-pn-note">{page.copy.pn_note}</p>
+
+          {hasNumbers ? (
+            groups.map(group => (
+              <div className="v6-pn-group" key={group.key}>
+                <div className="v6-pn-gtitle">
+                  <h3>{group.label}</h3>
+                  <span className="gcode">{GROUP_META[group.key].code}</span>
+                  <span className="rule" />
+                </div>
+                <table className="v6-pn">
+                  <thead>
+                    <tr>
+                      <th scope="col">Part number</th>
+                      <th scope="col">Type</th>
+                      <th scope="col" className="th-act">
+                        Action
+                      </th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {group.numbers.map(pn => (
+                      <tr key={pn}>
+                        <td className="pn-num">{pn}</td>
+                        <td className="pn-role">{GROUP_META[group.key].role}</td>
+                        <td className="pn-act">
+                          <CopyPnButton pn={pn} />
+                          <QuoteThisLink pn={pn} href={rfqHref(page, pn)} />
+                        </td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+            ))
+          ) : (
+            <div className="v6-nonum">
+              <div>
+                <h3 style={{ margin: 0, fontSize: '17px' }}>Need the right part number?</h3>
+                <p>
+                  Numbering varies by serial number and build region. Send a photo of the
+                  travel-motor nameplate and the machine serial — we identify the correct unit
+                  from the tag instead of guessing from the model name.
+                </p>
+              </div>
+              <Link href={rfqHref(page)} className="v6-btn v6-btn-primary v6-btn-lg">
+                Send my nameplate
               </Link>
-              .
-            </p>
-          </section>
-
-          <section className="border-t border-border py-10">
-            <p className="text-xs font-semibold uppercase tracking-widest text-muted-foreground">
-              Build year &amp; region
-            </p>
-            <h2 className="mt-2 text-xl font-semibold tracking-tight">
-              Same model name can mean a different unit
-            </h2>
-            <p className="mt-4 text-sm leading-7 text-muted-foreground">
-              {page.copy.generation_note}
-            </p>
-          </section>
-
-          <section className="border-t border-border py-10">
-            <h2 className="text-xl font-semibold tracking-tight">
-              Get your {page.make_name} {page.model_name} back on track
-            </h2>
-            <p className="mt-3 text-sm leading-6 text-muted-foreground">
-              Tell us the part number on your travel motor or gearbox — or send a photo of the
-              nameplate — and we will confirm the right unit and come back with a factory-direct
-              quote.
-            </p>
-            <Link
-              href={rfqHref(page)}
-              className="mt-5 inline-flex items-center justify-center rounded-md bg-amber-600 px-6 py-3 text-sm font-semibold text-white transition-colors duration-150 hover:bg-amber-700"
-            >
-              Request a quote for this model
-            </Link>
-          </section>
-
-          {siblingModels.length > 0 ? (
-            <section className="border-t border-border py-10">
-              <h2 className="text-lg font-semibold tracking-tight">
-                Other {page.make_name} excavator final drives
-              </h2>
-              <ul className="mt-4 grid grid-cols-1 gap-x-6 gap-y-2 sm:grid-cols-2">
-                {siblingModels.map(sib => (
-                  <li key={sib.url_path}>
-                    <Link
-                      href={sib.url_path}
-                      className="group inline-flex items-center gap-2 text-sm text-muted-foreground transition-colors hover:text-primary"
-                    >
-                      <span className="font-mono text-xs">{sib.model_name}</span>
-                      {typeof sib.copy.ton_class_approx === 'number' ? (
-                        <span className="text-xs text-muted-foreground/70">
-                          ~{sib.copy.ton_class_approx} t
-                        </span>
-                      ) : null}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </section>
-          ) : null}
+            </div>
+          )}
         </div>
+      </section>
+
+      {/* Lower: prose + sticky RFQ */}
+      <div className="v6-wrap v6-lower">
+        <div className="v6-prose">
+          <h2>Why source this final drive through us</h2>
+          <p>{page.copy.sourcing}</p>
+
+          <h2>Confirm the exact fit before you order</h2>
+          <p>{page.copy.fit_check}</p>
+          <ul className="v6-checklist">
+            {FIT_CHECKLIST.map((item, i) => (
+              <li key={item.what}>
+                <span className="ck">{`0${i + 1}`}</span>
+                <span className="what">{item.what}</span>
+                <span className="why">{item.why}</span>
+              </li>
+            ))}
+          </ul>
+          <p style={{ marginTop: '14px' }}>
+            Not sure how to read the tag? Follow the{' '}
+            <Link href={GUIDE_PATH}>nameplate check guide</Link>.
+          </p>
+
+          <h2>Same model name can mean a different unit</h2>
+          <p className="v6-gennote">{page.copy.generation_note}</p>
+        </div>
+
+        <ModelRfqForm make={page.make_name} model={page.model_name} />
       </div>
+
+      {/* FAQ */}
+      <section className="v6-faq">
+        <div className="v6-wrap">
+          <div className="v6-sec-head">
+            <h2>Buying questions</h2>
+            <span className="rule" />
+          </div>
+          {faqItems.map((f, i) => (
+            <details key={f.q} open={i === 0}>
+              <summary>{f.q}</summary>
+              <div className="ans">{f.a}</div>
+            </details>
+          ))}
+        </div>
+      </section>
+
+      {/* CTA band */}
+      <section className="v6-ctaband">
+        <div className="v6-wrap">
+          <div>
+            <h2>{`Get your ${page.make_name} ${page.model_name} back on track`}</h2>
+            <p>
+              Tell us the part number — or send a nameplate photo — and we&apos;ll confirm the
+              right unit and quote.
+            </p>
+          </div>
+          <a href="#rfq" className="v6-btn v6-btn-primary v6-btn-lg">
+            Request a quote
+          </a>
+        </div>
+      </section>
 
       {/* Sticky mobile CTA bar */}
       <div className="fixed inset-x-0 bottom-0 z-40 border-t border-border bg-white/95 px-4 py-3 backdrop-blur md:hidden">
         <Link
           href={rfqHref(page)}
-          className="flex w-full items-center justify-center rounded-md bg-amber-600 px-5 py-2.5 text-sm font-semibold text-white transition-colors duration-150 hover:bg-amber-700"
+          className="v6-btn v6-btn-primary"
+          style={{ width: '100%', justifyContent: 'center' }}
         >
           Request a quote — {page.make_name} {page.model_name}
         </Link>

@@ -41,7 +41,14 @@
 - Hero 钢底左对齐：kicker + H1（em 橙色）+ sub + 大号搜索框（客户端静态检索，键盘上下+回车，空结果给引导）+ 6 热门件号 chip（真实 <a> 链接进机型页）
 - trust 三条（01/02/03 编号）；13 品牌格（品牌名 + 钢底计数徽章）；8 常用机型卡；How it works 3 步（分隔线）；钢底 CTA band；钢底 footer + 商标声明行
 ### 机型页图片画廊
-- 主图大图展示：rounded-lg + 细边框 + 浅阴影；附图小缩略图可点击切换大图（客户端组件）
-- 图片下方一行图注：Final drive for {Make} {Model}
-### 机型页 CTA
-- 首屏与页尾各一个实心 amber 圆角按钮；移动端增加 sticky 底部 CTA 栏（md 以上隐藏）
+- 主图 4:3 深钢炭底 contain 居中（图内 padding 22px）+ 细边框 + 6px 圆角；附图小缩略图可点击切换（客户端组件）
+- 图片下方 mono 小字图注行：左 Final drive for {Make} {Model}，右 FIG · actual unit photo
+### 机型页结构（v6-step3，以 mockup_v6.html Model 视图 1:1 为准）
+- 面包屑 v6-crumb（mono 11.5px，/ 分隔）：Home / Final Drives / {Make} / {Model}
+- identity bar 钢底横条：MAKE（大写粗体）/ Model / {machine_kind} undercarriage · ~X T class / band / ● page data verified to catalog；视觉大写一律走 CSS text-transform，HTML 源保留 JSON 原大小写（check-data 断言依赖）；ton=null 不渲染吨位
+- 首屏双栏 v6-model-grid：左画廊 + 右采购区（kicker「Sourcing & RFQ · final drive」+ H1 + lead=copy.intro + CTA 行 + assure 三 tick ✓）
+- 件号区 v6-pnsection（米白底上下细线）：sec-head + pn_note + 三分组表（gcode：assembly=complete unit / motor=hydraulic motor only / service=components / seals；行内 Type：assembly / travel motor / service part）；等宽件号 + Copy（copied 绿反馈）+ Quote this（钢底小钮，SSR href=/request-quote/?make&model&pn，客户端增强为页内表单预填并滚动 #rfq）
+- 无件号页：v6-nonum 虚线框「Need the right part number?」+ Send my nameplate 主 CTA，不渲染空表
+- lower 双栏：左 prose（Why source… / Confirm the exact fit… + 4 项编号 checklist + 铭牌指南链接 / Same model name… gennote 左线块）；右 sticky RFQ 表单（top:60px，机型 mono 预填块、铭牌照上传、成功绿勾态）
+- FAQ v6-faq：6 条 details/summary（首条 open，+/– 橙符号），配 FAQPage JSON-LD
+- 底部钢底 ctaband + 移动端 sticky 底部 CTA 栏（md 以上隐藏，v6-btn-primary 全宽）

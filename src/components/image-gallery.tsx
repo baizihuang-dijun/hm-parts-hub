@@ -9,19 +9,26 @@ export interface GalleryImage {
 }
 
 /**
- * Product gallery: large framed main image plus clickable thumbnails.
+ * Product gallery (v6 mockup .gallery): large framed shot on a dark steel
+ * backdrop, clickable thumbnails, and a mono caption row underneath.
  * The first image is treated as the LCP candidate (eager, fetchPriority high);
  * thumbnails and any non-selected large views are lazy.
  */
-export function ImageGallery({ images }: { images: GalleryImage[] }) {
+export function ImageGallery({
+  images,
+  caption,
+}: {
+  images: GalleryImage[];
+  caption?: string;
+}) {
   const [active, setActive] = useState(0);
   const current = images[Math.min(active, images.length - 1)];
   const size = imageSize(current.file);
 
   return (
-    <div>
+    <div className="v6-gallery">
       {/* Fixed 4:3 frame on a dark steel backdrop; contained, never stretched or cropped (no CLS). */}
-      <div className="flex aspect-[4/3] w-full items-center justify-center overflow-hidden rounded-lg border border-border bg-[#1E2A33] shadow-sm">
+      <figure className="v6-shot">
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
           src={`/images/products/${current.file}`}
@@ -29,24 +36,19 @@ export function ImageGallery({ images }: { images: GalleryImage[] }) {
           width={size.width}
           height={size.height}
           fetchPriority="high"
-          className="h-full w-full object-contain"
         />
-      </div>
+      </figure>
       {images.length > 1 && (
-        <div className="mt-3 flex gap-2 overflow-x-auto">
+        <div className="v6-thumbs">
           {images.map((img, i) => {
             const s = imageSize(img.file);
-            const selected = i === active;
             return (
               <button
                 key={img.file}
                 type="button"
                 onClick={() => setActive(i)}
                 aria-label={`Show image ${i + 1}`}
-                aria-pressed={selected}
-                className={`shrink-0 overflow-hidden rounded-md border bg-[#1E2A33] transition-colors duration-150 ${
-                  selected ? 'border-primary ring-1 ring-primary' : 'border-border hover:border-primary/50'
-                }`}
+                aria-pressed={i === active}
               >
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
@@ -55,13 +57,17 @@ export function ImageGallery({ images }: { images: GalleryImage[] }) {
                   width={s.width}
                   height={s.height}
                   loading="lazy"
-                  className="aspect-[4/3] h-16 object-contain"
+                  style={{ width: '72px', height: '54px', objectFit: 'contain', padding: '4px' }}
                 />
               </button>
             );
           })}
         </div>
       )}
+      <div className="v6-cap">
+        <span>{caption ?? current.alt}</span>
+        <span>FIG · actual unit photo</span>
+      </div>
     </div>
   );
 }

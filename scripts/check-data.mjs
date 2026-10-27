@@ -581,12 +581,47 @@ function post() {
       if (query.get('model') !== p.model_name) fail(`${label}: CTA model prefill mismatch ("${query.get('model')}")`);
     }
 
-    // JSON-LD: BreadcrumbList + Product, no offers/price/aggregateRating.
+    // JSON-LD: BreadcrumbList + Product + FAQPage, no offers/price/aggregateRating.
     if (!html.includes('application/ld+json')) fail(`${label}: missing JSON-LD`);
     if (!/"BreadcrumbList"/.test(html)) fail(`${label}: JSON-LD missing BreadcrumbList`);
     if (!/"@type":"Product"/.test(html)) fail(`${label}: JSON-LD missing Product`);
+    if (!/"@type":"FAQPage"/.test(html)) fail(`${label}: JSON-LD missing FAQPage`);
     if (/"(offers|aggregateRating)"/.test(html)) {
       fail(`${label}: Product JSON-LD must not include offers/aggregateRating`);
+    }
+
+    // Buying FAQ: exactly 6 <details> items rendered as SSR text.
+    const faqCount = (html.match(/<details/g) || []).length;
+    if (faqCount !== 6) fail(`${label}: expected 6 FAQ <details>, found ${faqCount}`);
+
+    // Part-number rows: per-row Copy button + Quote link, row counts must
+    // equal the JSON group counts exactly (no more, no less).
+    if (groupNumbers.length > 0) {
+      const rowCount = (html.match(/<td class="pn-num">/g) || []).length;
+      if (rowCount !== groupNumbers.length) {
+        fail(`${label}: rendered ${rowCount} pn rows, JSON has ${groupNumbers.length}`);
+      }
+      for (const pn of groupNumbers) {
+        if (!html.includes(`data-copy="${pn}"`)) fail(`${label}: Copy button missing for ${pn}`);
+        if (!html.includes(`data-pn="${pn}"`)) fail(`${label}: Quote link missing for ${pn}`);
+        // URLSearchParams percent-encodes reserved chars (e.g. "/" in 333/K1153).
+        const pnEnc = encodeURIComponent(pn).replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+        const q = html.match(new RegExp(`href="(/request-quote/\\?[^"]*pn=${pnEnc})[^"]*"`));
+        if (!q) fail(`${label}: no RFQ quote link carrying pn=${pn}`);
+        else {
+          const qq = new URLSearchParams(q[1].split('?')[1].replace(/&amp;/g, '&'));
+          if (qq.get('make') !== p.make_name || qq.get('model') !== p.model_name) {
+            fail(`${label}: quote link for ${pn} has wrong make/model prefill`);
+          }
+        }
+      }
+    } else {
+      if (!/Need the right part number\?/.test(visible)) {
+        fail(`${label}: no-number page missing "Need the right part number?" block`);
+      }
+      if ((html.match(/<td class="pn-num">/g) || []).length !== 0) {
+        fail(`${label}: no-number page must not render pn rows`);
+      }
     }
   }
   ok('commercial module check done for all model pages');
@@ -601,7 +636,7 @@ function post() {
   else if (!/sitemap:/i.test(fs.readFileSync(robotsPath, 'utf8'))) fail('robots.txt missing sitemap reference');
 }
 
-console.log(`check-data (${mode}) — Mobile Parts Platform batch (${PAGE_COUNT} model pages)`);
+console.log(`check-data (${mode}) — Parts Desk batch (${PAGE_COUNT} model pages)`);
 if (mode === 'pre') pre();
 else if (mode === 'post') post();
 else {
