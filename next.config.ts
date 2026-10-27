@@ -5,7 +5,6 @@ const nextConfig: NextConfig = {
   // Pure static export: `next build` emits the whole site into `out/`.
   output: 'export',
   trailingSlash: true,
-  serverExternalPackages: ['coze-coding-dev-sdk'],
   webpack: (config, { dev }) => {
     if (dev && config.cache && config.cache.type === 'filesystem') {
       config.cache.cacheDirectory = path.resolve(
