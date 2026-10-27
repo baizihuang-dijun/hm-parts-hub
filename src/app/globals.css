@@ -358,6 +358,13 @@ body {
     color: #7e8a93;
     margin: 11px 2px 0;
   }
+  .v6-data-note {
+    font-family: var(--font-mono);
+    font-size: 12px;
+    letter-spacing: 0.04em;
+    color: #7e8a93;
+    margin: -12px 0 22px;
+  }
   .v6-search-hint b {
     color: #c7d0d7;
     font-weight: 400;

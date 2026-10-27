@@ -12,12 +12,16 @@ import {
   type ModelPage,
 } from '@/lib/data';
 
-export const metadata: Metadata = buildMetadata({
-  title: `Aftermarket Parts Sourcing for Mobile Machinery`,
-  description:
-    'Factory-direct sourcing for replacement excavator final drives and travel motors — vetted China aftermarket and OEM-equivalent supply, technical confirmation before every quote.',
-  path: '/',
-});
+export const metadata: Metadata = {
+  ...buildMetadata({
+    title: 'HM Parts Hub — Replacement Final Drives & Travel Motors',
+    description:
+      'Find replacement final drives and travel motors by equipment model or OEM part number. Configuration-matched aftermarket parts for mobile equipment, with hands-on identification and quote support.',
+    path: '/',
+  }),
+  // Absolute title — do not apply the layout "%s | SITE_NAME" template.
+  title: 'HM Parts Hub — Replacement Final Drives & Travel Motors',
+};
 
 const FEATURED_MODELS = [
   'hyundai/r140lc-7',
@@ -112,13 +116,16 @@ export default function HomePage() {
       {/* Hero */}
       <section className="v6-hero">
         <div className="v6-wrap">
-          <p className="v6-kicker">Replacement travel motor &amp; gearbox assemblies</p>
+          <p className="v6-kicker">Replacement Final Drives &amp; Travel Motors</p>
           <h1>
-            Find the exact final drive by <em>part number.</em>
+            Find Final Drives and Travel Motors by Equipment Model or{' '}
+            <em>OEM Part Number</em>
           </h1>
           <p className="v6-sub">
-            {`Search ${modelPages.length} equipment models across ${makes.length} brands. Every unit is checked against the OEM number, serial number and nameplate before we quote — no blind cross-reference.`}
+            Configuration-matched aftermarket parts for excavators and track
+            equipment, with hands-on identification and quote support.
           </p>
+          <p className="v6-data-note">{`Search ${modelPages.length} equipment models across ${makes.length} brands.`}</p>
           <HomeSearch entries={searchEntries} />
           <p className="v6-search-hint">
             Popular OEM numbers — <b>tap a chip to open its model page</b>

@@ -8,7 +8,7 @@ export function SiteHeader() {
       <div className="v6-wrap">
         <Link href="/" className="v6-brand" aria-label={`${SITE_NAME} — home`}>
           <b>{SITE_NAME}</b>
-          <span>Mobile machinery · aftermarket sourcing</span>
+          <span>Mobile Equipment Aftermarket Parts</span>
         </Link>
         <nav className="v6-mainnav" aria-label="Primary">
           <Link href={CATEGORY_PATH}>Final Drives</Link>
