@@ -70,3 +70,10 @@
 - `pnpm check`：仅跑 pre 断言；`pnpm build`：pre 断言 → 静态导出 → post 断言（扫描 `out/`）。
 - 修改数据/文案后必须 `pnpm build` 全绿方可交付。
 - 静态导出无服务端 API；接口测试不适用，验证以构建断言 + 页面静态检查为准。
+
+## 部署
+
+- 托管：GitHub Pages（仓库 `baizihuang-dijun/hm-parts-hub`，main 分支），CI 为 `.github/workflows/deploy.yml`（push to main → pnpm install --frozen-lockfile → pnpm build → 上传 `out/` → deploy-pages），与参照仓 `baizihuang-dijun/hm-hydraulics` 同构。
+- `output: 'export'` 纯静态，`trailingSlash: true`（产物为 `.../final-drives/index.html`），`images.unoptimized: true`，无 basePath（根路径引用资产，依赖自定义域，域名接入前 github.io 子路径下样式/内链不可用）。
+- `NEXT_PUBLIC_SITE_URL` 等站点变量全部环境变量注入；CI 构建无 env 时 canonical/OG 退化为根相对路径（check-data 兼容）。
+- RFQ 表单为纯浏览器端直连 Web3Forms，无任何 /api 依赖；全站无 route handler / middleware。
