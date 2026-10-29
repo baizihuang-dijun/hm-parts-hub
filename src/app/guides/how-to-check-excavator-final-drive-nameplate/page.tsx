@@ -3,6 +3,8 @@ import type { Metadata } from 'next';
 import { buildMetadata } from '@/lib/seo';
 import { GUIDE_PATH, RFQ_PATH } from '@/lib/data';
 import { Breadcrumbs } from '@/components/breadcrumbs';
+import { breadcrumbLd, graphLd } from '@/lib/schema';
+import { SITE_NAME, SITE_URL } from '@/config/site';
 
 export const metadata: Metadata = buildMetadata({
   title: 'How to Check an Excavator Final Drive Nameplate',
@@ -14,6 +16,28 @@ export const metadata: Metadata = buildMetadata({
 export default function NameplateGuidePage() {
   return (
     <div className="mx-auto max-w-3xl px-4 py-10 sm:px-6">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(
+            graphLd([
+              breadcrumbLd([
+                { name: 'Home', path: '/' },
+                { name: 'Final drive nameplate check', path: GUIDE_PATH },
+              ]),
+              {
+                '@type': 'Article',
+                headline: 'How to Check an Excavator Final Drive Nameplate',
+                description:
+                  'Where to find the final drive nameplate on an excavator, what to photograph, and how part number, serial number and nameplate together confirm the correct replacement.',
+                mainEntityOfPage: `${SITE_URL}${GUIDE_PATH}`,
+                inLanguage: 'en',
+                publisher: { '@type': 'Organization', name: SITE_NAME },
+              },
+            ]),
+          ),
+        }}
+      />
       <Breadcrumbs
         items={[
           { label: 'Home', href: '/' },

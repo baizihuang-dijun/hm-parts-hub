@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { buildMetadata } from '@/lib/seo';
+import { breadcrumbLd, graphLd } from '@/lib/schema';
 import { ModelCard } from '@/components/model-card';
 import {
   data,
@@ -25,6 +26,19 @@ export default function FinalDrivesHubPage() {
 
   return (
     <div className="mx-auto max-w-6xl px-4 py-12 sm:px-6">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(
+            graphLd([
+              breadcrumbLd([
+                { name: 'Home', path: '/' },
+                { name: 'Final Drives', path: '/parts/final-drives/' },
+              ]),
+            ]),
+          ),
+        }}
+      />
       <p className="text-xs font-semibold uppercase tracking-widest text-muted-foreground">
         Parts catalog
       </p>

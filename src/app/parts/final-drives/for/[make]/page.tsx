@@ -11,6 +11,7 @@ import {
   RFQ_PATH,
 } from '@/lib/data';
 import { buildMetadata } from '@/lib/seo';
+import { breadcrumbLd, graphLd } from '@/lib/schema';
 import { Breadcrumbs } from '@/components/breadcrumbs';
 import { ModelCard } from '@/components/model-card';
 
@@ -48,6 +49,20 @@ export default async function BrandHubPage({ params }: { params: RouteParams }) 
 
   return (
     <div className="mx-auto max-w-6xl px-4 py-12 sm:px-6">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(
+            graphLd([
+              breadcrumbLd([
+                { name: 'Home', path: '/' },
+                { name: 'Final Drives', path: CATEGORY_PATH },
+                { name: makeInfo.name, path: brandHubPath(makeInfo.slug) },
+              ]),
+            ]),
+          ),
+        }}
+      />
       <Breadcrumbs
         items={[
           { label: 'Home', href: '/' },
