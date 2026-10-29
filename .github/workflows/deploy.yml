@@ -12,6 +12,10 @@ concurrency:
   group: pages
   cancel-in-progress: true
 
+env:
+  # Public value: this key is served at /<key>.txt on the live site by design.
+  INDEXNOW_KEY: 47e6b021ce57f57c40502ff0fb6224f5
+
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -39,6 +43,7 @@ jobs:
   deploy:
     needs: build
     permissions:
+      contents: read
       pages: write
       id-token: write
     environment:
@@ -48,3 +53,12 @@ jobs:
     steps:
       - id: deployment
         uses: actions/deploy-pages@v4
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Ping IndexNow (Bing / Yandex / Seznam)
+        env:
+          INDEXNOW_KEY: ${{ env.INDEXNOW_KEY }}
+        run: node scripts/indexnow.mjs
+        continue-on-error: true
