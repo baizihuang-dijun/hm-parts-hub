@@ -32,7 +32,7 @@ export function ConsentBanner() {
           <Link href="/privacy/" className="underline underline-offset-2">
             Privacy Policy
           </Link>
-          .
+          . You can change this any time via <em>Cookie settings</em> in the footer.
         </p>
         <div className="flex shrink-0 gap-3">
           <button
@@ -40,14 +40,14 @@ export function ConsentBanner() {
             onClick={() => writeConsent('denied')}
             className="border border-border px-4 py-2 text-sm font-medium text-foreground transition-colors hover:bg-muted"
           >
-            Decline
+            Reject analytics
           </button>
           <button
             type="button"
             onClick={() => writeConsent('granted')}
             className="bg-primary px-4 py-2 text-sm font-semibold text-primary-foreground transition-colors hover:bg-primary/90"
           >
-            Accept
+            Accept analytics
           </button>
         </div>
       </div>

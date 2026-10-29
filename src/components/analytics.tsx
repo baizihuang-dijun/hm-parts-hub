@@ -16,6 +16,15 @@ export function writeConsent(value: 'granted' | 'denied') {
   window.dispatchEvent(new CustomEvent('consent-changed', { detail: value }));
 }
 
+/**
+ * Withdraw a stored choice so the banner shows again.
+ * GDPR requires consent to be as easy to withdraw as to give.
+ */
+export function resetConsent() {
+  window.localStorage.removeItem(CONSENT_STORAGE_KEY);
+  window.dispatchEvent(new CustomEvent('consent-changed', { detail: null }));
+}
+
 /** Fire a GA4 event only when consent was granted and gtag is loaded. */
 export function trackEvent(name: string, params: Record<string, unknown> = {}) {
   if (typeof window === 'undefined') return;

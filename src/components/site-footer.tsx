@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import { CookieSettingsButton } from './cookie-settings-button';
 import { RFQ_EMAIL, SITE_NAME, WHATSAPP_NUMBER, whatsappUrl } from '@/config/site';
 import { CATEGORY_PATH, GUIDE_PATH, RFQ_PATH } from '@/lib/data';
 
@@ -57,8 +58,11 @@ export function SiteFooter() {
           aftermarket sourcing service and is not an authorized dealer of, and
           is not affiliated with or endorsed by, any of these manufacturers.
         </p>
-        <p className="mt-3 w-full text-[11.5px] text-[#7e8a93]">
-          © {new Date().getFullYear()} {SITE_NAME}. All rights reserved.
+        <p className="mt-3 flex w-full flex-wrap items-center gap-x-4 gap-y-1 text-[11.5px] text-[#7e8a93]">
+          <span>
+            © {new Date().getFullYear()} {SITE_NAME}. All rights reserved.
+          </span>
+          <CookieSettingsButton className="underline decoration-[#5a6268] underline-offset-2 transition-colors hover:text-white" />
         </p>
       </div>
     </footer>
