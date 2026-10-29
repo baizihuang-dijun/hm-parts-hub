@@ -15,6 +15,24 @@ export const metadata: Metadata = {
   description:
     'Independent sourcing support for mobile machinery aftermarket parts. Excavator final drives with technical confirmation by part number, serial number and nameplate before ordering.',
   robots: { index: true, follow: true },
+  openGraph: {
+    type: 'website',
+    siteName: SITE_NAME,
+    locale: 'en_US',
+    url: SITE_URL,
+    images: [
+      {
+        url: '/og-image.png',
+        width: 1200,
+        height: 630,
+        alt: 'HM Parts Hub — replacement final drives and travel motors for mobile machinery',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    images: ['/og-image.png'],
+  },
 };
 
 export default function RootLayout({
