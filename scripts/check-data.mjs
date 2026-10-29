@@ -22,6 +22,16 @@ const ORIGIN_HOST = RAW_ORIGIN.replace(/^https?:\/\//i, '').replace(/\/.*$/, '')
 const SITE_URL = ORIGIN_HOST ? `https://${ORIGIN_HOST}` : '';
 const EXPECTED_MAKE_COUNT = 13;
 
+// Public build-time keys (Web3Forms access key, GA4 id) are baked into the static
+// bundle on purpose: they are client-side values, not secrets. The Web3Forms key is
+// UUID-shaped, so mask configured keys before the banned-token scan.
+const PUBLIC_KEY_MASKS = [
+  process.env.NEXT_PUBLIC_WEB3FORMS_KEY,
+  process.env.NEXT_PUBLIC_GA4_ID,
+]
+  .map(v => (v || '').trim())
+  .filter(v => v.length >= 8);
+
 const mode = process.argv[2] || 'pre';
 let failures = 0;
 
@@ -106,6 +116,7 @@ function scanFiles(files, { tokens = true, phrases = true, cjk = false } = {}) {
     let text = fs.readFileSync(file, 'utf8');
     if (SITE_URL) text = text.split(SITE_URL).join('');
     if (ORIGIN_HOST) text = text.split(ORIGIN_HOST).join('');
+    for (const mask of PUBLIC_KEY_MASKS) text = text.split(mask).join('');
     const rel = path.relative(ROOT, file);
     if (tokens) {
       for (const { re, label } of BANNED_TOKENS) {
