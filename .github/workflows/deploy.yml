@@ -1,0 +1,50 @@
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    env:
+      # Public build-time values only (they are baked into the static bundle).
+      NEXT_PUBLIC_SITE_URL: https://www.hmpartshub.com
+      NEXT_PUBLIC_WEB3FORMS_KEY: e9d0abd1-8bbf-4c81-b984-c76bc78b9b6b
+      NEXT_PUBLIC_RFQ_EMAIL: hm@hmhydraulics.com
+      NEXT_PUBLIC_GA4_ID: ''
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: pnpm
+      - run: pnpm install --frozen-lockfile
+      - run: node scripts/check-data.mjs pre
+      - run: pnpm next build --webpack
+      - run: node scripts/check-data.mjs post
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: out
+
+  deploy:
+    needs: build
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4
