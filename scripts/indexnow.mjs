@@ -1,28 +1,48 @@
 /**
- * Ping IndexNow with every URL in the exported sitemap.
+ * Ping IndexNow with every URL in the sitemap.
  *
  * IndexNow is a shared push protocol used by Bing, Yandex, Seznam and Naver:
  * instead of waiting for a crawler to come back, we tell them exactly which
- * URLs changed. The endpoint needs no auth - ownership is proven by the key
- * file served at /<key>.txt (public/index/...) on the live site.
+ * URLs exist or changed. The endpoint needs no auth - ownership is proven by
+ * the key file served at /<key>.txt on the live site.
  *
- * Runs after deploy-pages so the URLs are already reachable.
+ * Runs in the deploy job, AFTER deploy-pages. The build artifacts (out/) are
+ * not shared between jobs, so the sitemap is read from the live site; the
+ * local export is only a fallback for manual runs.
  */
 import { readFileSync } from 'node:fs';
 
 const HOST = 'www.hmpartshub.com';
 const KEY = process.env.INDEXNOW_KEY;
+const SITEMAP_URL = `https://${HOST}/sitemap.xml`;
 
 if (!KEY) {
   console.log('[indexnow] INDEXNOW_KEY not set - skipping');
   process.exit(0);
 }
 
-let xml = '';
-try {
-  xml = readFileSync('out/sitemap.xml', 'utf8');
-} catch {
-  console.log('[indexnow] out/sitemap.xml not found - skipping');
+async function loadSitemap() {
+  try {
+    const res = await fetch(SITEMAP_URL, { headers: { 'User-Agent': 'hm-parts-hub-indexnow/1.0' } });
+    if (res.ok) {
+      console.log(`[indexnow] sitemap fetched live (HTTP ${res.status})`);
+      return await res.text();
+    }
+    console.log(`[indexnow] live sitemap HTTP ${res.status}`);
+  } catch (err) {
+    console.log('[indexnow] live sitemap fetch failed:', err.message);
+  }
+  try {
+    console.log('[indexnow] falling back to local out/sitemap.xml');
+    return readFileSync('out/sitemap.xml', 'utf8');
+  } catch {
+    return null;
+  }
+}
+
+const xml = await loadSitemap();
+if (!xml) {
+  console.log('[indexnow] no sitemap available - skipping');
   process.exit(0);
 }
 
