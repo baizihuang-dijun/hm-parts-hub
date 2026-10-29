@@ -25,6 +25,7 @@ jobs:
       NEXT_PUBLIC_WEB3FORMS_KEY: 51d65600-a196-4d11-9be2-ab5fa821598d
       NEXT_PUBLIC_RFQ_EMAIL: hm@hmpartshub.com
       NEXT_PUBLIC_GA4_ID: G-0X3D6SR6SB
+      NEXT_PUBLIC_WHATSAPP: '8615712729989'
     steps:
       - uses: actions/checkout@v4
       - uses: pnpm/action-setup@v4

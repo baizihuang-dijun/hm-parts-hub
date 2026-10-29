@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { SITE_NAME } from '@/config/site';
+import { RFQ_EMAIL, SITE_NAME, WHATSAPP_NUMBER, whatsappUrl } from '@/config/site';
 import { CATEGORY_PATH, GUIDE_PATH, RFQ_PATH } from '@/lib/data';
 
 export function SiteFooter() {
@@ -13,6 +13,32 @@ export function SiteFooter() {
             Technical confirmation before ordering — by OEM part number, machine
             serial number and nameplate.
           </p>
+          <div className="mt-4 space-y-1.5 text-[13px]">
+            {WHATSAPP_NUMBER ? (
+              <p>
+                <a
+                  href={whatsappUrl(
+                    'Hi HM Parts Hub, I would like a quote for a final drive or travel motor.',
+                  )}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-[#d6d2c8] underline decoration-[#5a6268] underline-offset-4 hover:text-white"
+                >
+                  WhatsApp +{WHATSAPP_NUMBER}
+                </a>
+              </p>
+            ) : null}
+            {RFQ_EMAIL ? (
+              <p>
+                <a
+                  href={`mailto:${RFQ_EMAIL}`}
+                  className="text-[#d6d2c8] underline decoration-[#5a6268] underline-offset-4 hover:text-white"
+                >
+                  {RFQ_EMAIL}
+                </a>
+              </p>
+            ) : null}
+          </div>
         </div>
         <nav className="ftr-links" aria-label="Footer">
           <Link href={CATEGORY_PATH}>Final Drives</Link>

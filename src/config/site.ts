@@ -27,6 +27,17 @@ export const RFQ_EMAIL = process.env.NEXT_PUBLIC_RFQ_EMAIL || '';
 
 export const GA4_ID = process.env.NEXT_PUBLIC_GA4_ID || '';
 
+/**
+ * WhatsApp click-to-chat number in international format WITHOUT '+' or spaces
+ * (wa.me expects digits only, e.g. 8615712729989).
+ */
+export const WHATSAPP_NUMBER = (process.env.NEXT_PUBLIC_WHATSAPP || '').replace(/[^0-9]/g, '');
+
+/** Build a wa.me deep link with a pre-filled first message. */
+export function whatsappUrl(message: string): string {
+  return `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
+}
+
 /** localStorage key used by the consent banner / GA4 loader. */
 export const CONSENT_STORAGE_KEY = 'mpp_analytics_consent';
 

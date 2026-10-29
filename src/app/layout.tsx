@@ -5,6 +5,7 @@ import { SiteHeader } from '@/components/site-header';
 import { SiteFooter } from '@/components/site-footer';
 import { ConsentBanner } from '@/components/consent-banner';
 import { Analytics } from '@/components/analytics';
+import { WhatsAppButton } from '@/components/whatsapp-button';
 import { graphLd, organizationLd, webSiteLd } from '@/lib/schema';
 
 export const metadata: Metadata = {
@@ -53,6 +54,7 @@ export default function RootLayout({
         <SiteHeader />
         <main className="flex-1">{children}</main>
         <SiteFooter />
+        <WhatsAppButton />
         <ConsentBanner />
         <Analytics />
       </body>
