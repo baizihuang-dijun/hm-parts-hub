@@ -10,13 +10,13 @@ type SubmitState = 'idle' | 'submitting' | 'success' | 'error';
  * Sticky on-page RFQ form for model pages (v6 mockup aside.rfq).
  * Machine make/model are pre-attached as hidden fields; the part-number
  * input (id="mrfq-pn") is prefilled by the "Quote this" row links.
- * Submits to Web3Forms with nameplate photos as attachments.
+ * Submits to Web3Forms; nameplate photos are requested by reply email
+ * (the Web3Forms free plan does not support file uploads).
  */
 export function ModelRfqForm({ make, model }: { make: string; model: string }) {
   const [state, setState] = useState<SubmitState>('idle');
   const [errorMsg, setErrorMsg] = useState('');
   const [sourcePage, setSourcePage] = useState('');
-  const [files, setFiles] = useState<File[]>([]);
   const formRef = useRef<HTMLFormElement>(null);
 
   useEffect(() => {
@@ -66,9 +66,6 @@ export function ModelRfqForm({ make, model }: { make: string; model: string }) {
     fd.set('from_name', `${SITE_NAME} RFQ Form`);
     fd.set('form_name', 'final_drive_rfq');
     fd.set('source_page', sourcePage);
-    // Re-attach files explicitly (FormData(form) already includes them, this is a safeguard).
-    fd.delete('attachment');
-    for (const f of files) fd.append('attachment', f);
 
     try {
       const res = await fetch('https://api.web3forms.com/submit', {
@@ -79,7 +76,6 @@ export function ModelRfqForm({ make, model }: { make: string; model: string }) {
       if (res.ok && json.success) {
         setState('success');
         form.reset();
-        setFiles([]);
         // GA4: only fires when analytics consent was granted (trackEvent enforces it).
         trackEvent('generate_lead', { form_name: 'final_drive_rfq' });
       } else {
@@ -109,7 +105,7 @@ export function ModelRfqForm({ make, model }: { make: string; model: string }) {
           <div className="big">RFQ received — thank you.</div>
           <p>
             Our team will confirm the configuration against your tag and come back with a quote. For
-            faster matching, send the nameplate photo if you haven&apos;t already.
+            faster matching, reply to our email with a nameplate photo.
             {RFQ_EMAIL ? ` You can also email us at ${RFQ_EMAIL}.` : ''}
           </p>
           <p style={{ marginTop: '12px' }}>
@@ -126,7 +122,7 @@ export function ModelRfqForm({ make, model }: { make: string; model: string }) {
     <aside className="v6-rfq" id="rfq">
       <h3>Request a quote</h3>
       <p className="rqsub">We reply with technical confirmation and per-unit terms.</p>
-      <form ref={formRef} onSubmit={onSubmit} noValidate>
+      <form ref={formRef} onSubmit={onSubmit}>
         {/* Hidden Web3Forms fields */}
         <input type="hidden" name="access_key" value={WEB3FORMS_KEY} />
         <input type="hidden" name="subject" value={`Final Drive RFQ — ${make} ${model} — ${SITE_NAME}`} />
@@ -167,24 +163,11 @@ export function ModelRfqForm({ make, model }: { make: string; model: string }) {
           </div>
         </div>
         <div className="v6-field">
-          <label htmlFor="mrfq-file">Nameplate / tag photo</label>
-          <label
-            className={`v6-updrop${files.length > 0 ? ' has-files' : ''}`}
-            htmlFor="mrfq-file"
-          >
-            {files.length > 0
-              ? `${files.length} photo${files.length > 1 ? 's' : ''} attached — click to change`
-              : 'Click to attach a photo of the nameplate (JPG/PNG)'}
-          </label>
-          <input
-            id="mrfq-file"
-            name="attachment"
-            type="file"
-            accept="image/*"
-            multiple
-            hidden
-            onChange={e => setFiles(Array.from(e.target.files ?? []))}
-          />
+          <label>Nameplate / tag photo</label>
+          <p className="v6-fine" style={{ margin: 0 }}>
+            A nameplate photo is the fastest way to a confirmed match — reply to our
+            confirmation email with it attached{RFQ_EMAIL ? `, or send it to ${RFQ_EMAIL}` : ''}.
+          </p>
         </div>
         <div className="v6-field">
           <label htmlFor="mrfq-msg">Anything else (quantity, Incoterm, urgency)</label>
@@ -192,7 +175,8 @@ export function ModelRfqForm({ make, model }: { make: string; model: string }) {
             id="mrfq-msg"
             name="message"
             rows={3}
-            placeholder="e.g. 1 unit, CIF Santiago, needed within 6 weeks"
+            required
+            placeholder="What do you need — quantity, destination port, timeline…"
           />
         </div>
         {state === 'error' && (

@@ -16,7 +16,6 @@ export function RfqForm() {
   const [state, setState] = useState<SubmitState>('idle');
   const [errorMsg, setErrorMsg] = useState('');
   const [sourcePage, setSourcePage] = useState('');
-  const [files, setFiles] = useState<File[]>([]);
   const formRef = useRef<HTMLFormElement>(null);
 
   useEffect(() => {
@@ -68,9 +67,6 @@ export function RfqForm() {
     fd.set('from_name', `${SITE_NAME} RFQ Form`);
     fd.set('form_name', 'final_drive_rfq');
     fd.set('source_page', sourcePage);
-    // Re-attach files explicitly (FormData(form) already includes them, this is a safeguard).
-    fd.delete('attachment');
-    for (const f of files) fd.append('attachment', f);
 
     try {
       const res = await fetch('https://api.web3forms.com/submit', {
@@ -81,7 +77,6 @@ export function RfqForm() {
       if (res.ok && json.success) {
         setState('success');
         form.reset();
-        setFiles([]);
         // GA4: only fires when analytics consent was granted (trackEvent enforces it).
         trackEvent('generate_lead', { form_name: 'final_drive_rfq' });
       } else {
@@ -100,8 +95,8 @@ export function RfqForm() {
         <h2 className="text-base font-semibold text-foreground">RFQ submitted</h2>
         <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
           Thank you — your request has been received. We will reply with a technical
-          confirmation path for your final drive. If your matter is urgent, you can also
-          email us{RFQ_EMAIL ? ` at ${RFQ_EMAIL}` : ''}.
+          confirmation path for your final drive. To speed up matching, reply to our email
+          with a nameplate photo{RFQ_EMAIL ? `, or send it to ${RFQ_EMAIL}` : ''}.
         </p>
         <button
           type="button"
@@ -159,12 +154,11 @@ export function RfqForm() {
         </div>
         <div>
           <label htmlFor="rfq-country" className={labelCls}>
-            Country *
+            Country
           </label>
           <input
             id="rfq-country"
             name="country"
-            required
             className={inputCls}
             autoComplete="country-name"
           />
@@ -183,12 +177,11 @@ export function RfqForm() {
         </div>
         <div>
           <label htmlFor="rfq-make" className={labelCls}>
-            Machine make *
+            Machine make
           </label>
           <input
             id="rfq-make"
             name="machine_make"
-            required
             defaultValue={searchParams.get('make') ?? ''}
             className={inputCls}
             placeholder="e.g. Komatsu"
@@ -196,12 +189,11 @@ export function RfqForm() {
         </div>
         <div>
           <label htmlFor="rfq-model" className={labelCls}>
-            Machine model *
+            Machine model
           </label>
           <input
             id="rfq-model"
             name="machine_model"
-            required
             defaultValue={searchParams.get('model') ?? ''}
             className={inputCls}
             placeholder="e.g. PC200-7"
@@ -215,31 +207,33 @@ export function RfqForm() {
         </div>
         <div className="sm:col-span-2">
           <label htmlFor="rfq-message" className={labelCls}>
-            Message
+            Message *
           </label>
           <textarea
             id="rfq-message"
             name="message"
             rows={4}
+            required
             className={inputCls}
-            placeholder="Condition of the old unit, quantities, destination port, timeline…"
+            placeholder="What do you need — machine, part number, quantity, destination port, timeline…"
           />
         </div>
-        <div className="sm:col-span-2">
-          <label htmlFor="rfq-attachment" className={labelCls}>
-            Photos — nameplate &amp; mounting face (images, multiple allowed)
-          </label>
-          <input
-            id="rfq-attachment"
-            name="attachment"
-            type="file"
-            accept="image/*"
-            multiple
-            onChange={e => setFiles(Array.from(e.target.files ?? []))}
-            className="w-full text-sm text-muted-foreground file:mr-4 file:border file:border-border file:bg-muted file:px-4 file:py-2 file:text-sm file:font-medium file:text-foreground hover:file:bg-background"
-          />
-          <p className="mt-1.5 text-xs text-muted-foreground">
-            A clear nameplate photo is the fastest way to a confirmed match. See our{' '}
+        <div className="sm:col-span-2 border border-border bg-muted/40 px-4 py-3">
+          <p className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">
+            Nameplate photos
+          </p>
+          <p className="mt-1.5 text-xs leading-relaxed text-muted-foreground">
+            A clear nameplate photo is the fastest way to a confirmed match. After you submit,
+            simply reply to our confirmation email with the photo attached
+            {RFQ_EMAIL ? (
+              <>
+                {' '}— or send it to{' '}
+                <a href={`mailto:${RFQ_EMAIL}`} className="underline underline-offset-2">
+                  {RFQ_EMAIL}
+                </a>
+              </>
+            ) : null}
+            . See our{' '}
             <a
               href="/guides/how-to-check-excavator-final-drive-nameplate/"
               className="underline underline-offset-2"
