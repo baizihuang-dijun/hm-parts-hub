@@ -95,8 +95,8 @@ export function RfqForm() {
         <h2 className="text-base font-semibold text-foreground">RFQ submitted</h2>
         <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
           Thank you — your request has been received. We will reply with a technical
-          confirmation path for your final drive. To speed up matching, reply to our email
-          with a nameplate photo{RFQ_EMAIL ? `, or send it to ${RFQ_EMAIL}` : ''}.
+          confirmation path for your final drive. To speed up matching, email a nameplate
+          photo{RFQ_EMAIL ? ` to ${RFQ_EMAIL}` : ''} and mention your name or part number.
         </p>
         <button
           type="button"
@@ -224,16 +224,18 @@ export function RfqForm() {
           </p>
           <p className="mt-1.5 text-xs leading-relaxed text-muted-foreground">
             A clear nameplate photo is the fastest way to a confirmed match. After you submit,
-            simply reply to our confirmation email with the photo attached
+            send the photo
             {RFQ_EMAIL ? (
               <>
-                {' '}— or send it to{' '}
+                {' '}to{' '}
                 <a href={`mailto:${RFQ_EMAIL}`} className="underline underline-offset-2">
                   {RFQ_EMAIL}
                 </a>
               </>
-            ) : null}
-            . See our{' '}
+            ) : (
+              ' '
+            )}{' '}
+            and mention your name or part number. See our{' '}
             <a
               href="/guides/how-to-check-excavator-final-drive-nameplate/"
               className="underline underline-offset-2"

@@ -105,8 +105,8 @@ export function ModelRfqForm({ make, model }: { make: string; model: string }) {
           <div className="big">RFQ received — thank you.</div>
           <p>
             Our team will confirm the configuration against your tag and come back with a quote. For
-            faster matching, reply to our email with a nameplate photo.
-            {RFQ_EMAIL ? ` You can also email us at ${RFQ_EMAIL}.` : ''}
+            faster matching, email a nameplate photo
+            {RFQ_EMAIL ? ` to ${RFQ_EMAIL}` : ''} and mention your name or part number.
           </p>
           <p style={{ marginTop: '12px' }}>
             <button type="button" className="v6-mini cp" onClick={() => setState('idle')}>
@@ -144,7 +144,7 @@ export function ModelRfqForm({ make, model }: { make: string; model: string }) {
         </div>
         <div className="v6-f2">
           <div className="v6-field">
-            <label htmlFor="mrfq-name">Your name</label>
+            <label htmlFor="mrfq-name">Your name *</label>
             <input id="mrfq-name" name="name" type="text" required autoComplete="name" />
           </div>
           <div className="v6-field">
@@ -154,7 +154,7 @@ export function ModelRfqForm({ make, model }: { make: string; model: string }) {
         </div>
         <div className="v6-f2">
           <div className="v6-field">
-            <label htmlFor="mrfq-email">Work email</label>
+            <label htmlFor="mrfq-email">Work email *</label>
             <input id="mrfq-email" name="email" type="email" required autoComplete="email" />
           </div>
           <div className="v6-field">
@@ -165,12 +165,13 @@ export function ModelRfqForm({ make, model }: { make: string; model: string }) {
         <div className="v6-field">
           <label>Nameplate / tag photo</label>
           <p className="v6-fine" style={{ margin: 0 }}>
-            A nameplate photo is the fastest way to a confirmed match — reply to our
-            confirmation email with it attached{RFQ_EMAIL ? `, or send it to ${RFQ_EMAIL}` : ''}.
+            A nameplate photo is the fastest way to a confirmed match — email it to
+            {RFQ_EMAIL ? ` ${RFQ_EMAIL}` : ' us'} after submitting and mention your name or part
+            number.
           </p>
         </div>
         <div className="v6-field">
-          <label htmlFor="mrfq-msg">Anything else (quantity, Incoterm, urgency)</label>
+          <label htmlFor="mrfq-msg">What do you need *</label>
           <textarea
             id="mrfq-msg"
             name="message"
