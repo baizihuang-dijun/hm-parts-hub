@@ -104,9 +104,9 @@ export function ModelRfqForm({ make, model }: { make: string; model: string }) {
           </svg>
           <div className="big">RFQ received — thank you.</div>
           <p>
-            Our team will confirm the configuration against your tag and come back with a quote. For
-            faster matching, email a nameplate photo
-            {RFQ_EMAIL ? ` to ${RFQ_EMAIL}` : ''} and mention your name or part number.
+            Our team will confirm the configuration against your tag and come back with a quote. If
+            you have a nameplate photo, emailing it
+            {RFQ_EMAIL ? ` to ${RFQ_EMAIL}` : ' to us'} helps us match faster.
           </p>
           <p style={{ marginTop: '12px' }}>
             <button type="button" className="v6-mini cp" onClick={() => setState('idle')}>
@@ -165,7 +165,7 @@ export function ModelRfqForm({ make, model }: { make: string; model: string }) {
         <div className="v6-field">
           <label>Nameplate / tag photo</label>
           <p className="v6-fine" style={{ margin: 0 }}>
-            A nameplate photo is the fastest way to a confirmed match — email it to
+            A nameplate photo helps us confirm the match faster. If you have one, email it to
             {RFQ_EMAIL ? ` ${RFQ_EMAIL}` : ' us'} after submitting and mention your name or part
             number.
           </p>
