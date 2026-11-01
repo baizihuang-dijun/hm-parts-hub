@@ -86,6 +86,12 @@ export interface CategoryConfig {
   schemaCategory: string;
   /** Group headings for the part-number table. */
   groupLabels: Record<'assembly' | 'motor' | 'service', string>;
+  /** Headline on the home "Current product range" card — what the range covers. */
+  cardTitle: string;
+  /** One-line blurb under that headline. */
+  cardBlurb: string;
+  /** Product photo shown beside the card copy. */
+  cardImage: string;
 }
 
 export const CATEGORY_CONFIGS: CategoryConfig[] = [
@@ -101,6 +107,10 @@ export const CATEGORY_CONFIGS: CategoryConfig[] = [
       motor: 'Travel motor numbers',
       service: 'Service & repair kit numbers',
     },
+    cardTitle: 'Final drives & travel motors',
+    cardBlurb:
+      'Replacement assemblies for excavators, matched to OEM and aftermarket part numbers.',
+    cardImage: 'caterpillar-320-final-drive.jpg',
   },
   {
     slug: 'travel-gearboxes',
@@ -114,6 +124,10 @@ export const CATEGORY_CONFIGS: CategoryConfig[] = [
       motor: 'Travel motor numbers',
       service: 'Service & repair kit numbers',
     },
+    cardTitle: 'Travel gearboxes & reduction units',
+    cardBlurb:
+      'Crawler excavator units matched against the OEM number, machine serial and the tag on the existing gearbox.',
+    cardImage: 'komatsu-pc300-7-travel-gearbox-2.jpg',
   },
 ];
 

@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import type { Metadata } from 'next';
 import { buildMetadata } from '@/lib/seo';
+import { imageSize } from '@/lib/image-sizes';
 import { ModelCard } from '@/components/model-card';
 import { HomeSearch, type SearchEntry } from '@/components/home-search';
 import {
@@ -9,7 +10,6 @@ import {
   pagesInCategory,
   pagesByMake,
   brandHubPath,
-  categoryIntro,
   categoryPath,
   modelPages,
   RFQ_PATH,
@@ -176,22 +176,35 @@ export default function HomePage() {
             {CATEGORY_CONFIGS.map((cat) => {
               const catPages = pagesInCategory(cat.slug);
               const catMakes = makesInCategory(cat.slug);
+              const shot = imageSize(cat.cardImage);
               return (
                 <Link
                   key={cat.slug}
                   href={categoryPath(cat.slug)}
-                  className="group rounded-xl border border-border bg-white p-5 transition-colors hover:border-[#1D2A33]"
+                  className="group flex items-center gap-5 rounded-xl border border-border bg-white p-5 transition-colors hover:border-[#1D2A33]"
                 >
-                  <div className="v6-kicker">{cat.name}</div>
-                  <p className="mt-2 text-lg font-semibold text-[#1D2A33]">
-                    {`${cat.unitName} sourcing`}
-                  </p>
-                  <p className="mt-1.5 text-[13.5px] leading-relaxed text-[#5a6268]">
-                    {categoryIntro(cat.slug)}
-                  </p>
-                  <span className="mt-3 inline-block text-[12.5px] font-medium text-[#7e8a93]">
-                    {`${catPages.length} models · ${catMakes.length} brands`}
-                  </span>
+                  <div className="min-w-0 flex-1">
+                    <div className="v6-kicker">{cat.name}</div>
+                    <p className="mt-2 text-lg font-semibold text-[#1D2A33]">{cat.cardTitle}</p>
+                    <p className="mt-1.5 text-[13.5px] leading-relaxed text-[#5a6268]">
+                      {cat.cardBlurb}
+                    </p>
+                    <span className="mt-3 inline-block text-[12.5px] font-medium text-[#7e8a93]">
+                      {`${catPages.length} models · ${catMakes.length} brands`}
+                    </span>
+                  </div>
+                  {/* Contained, never cropped — same treatment as the model cards. */}
+                  <figure className="hidden h-[132px] w-[132px] shrink-0 items-center justify-center overflow-hidden rounded-lg bg-[#1e2a33] lg:flex">
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <img
+                      src={`/images/products/${cat.cardImage}`}
+                      alt={`${cat.unitName} assembly`}
+                      width={shot.width}
+                      height={shot.height}
+                      loading="lazy"
+                      className="h-full w-full object-contain p-3"
+                    />
+                  </figure>
                 </Link>
               );
             })}
