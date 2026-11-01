@@ -523,24 +523,33 @@ export function featuredAcrossCategories(count = 8): ModelPage[] {
   if (live.length === 0) return [];
   const perCategory = Math.ceil(count / live.length);
   const out: ModelPage[] = [];
-  const seen = new Set<string>();
+  const seenPage = new Set<string>();
+  const seenBrand = new Set<string>();
 
+  const push = (page: ModelPage): void => {
+    const key = `${page.make_slug}:${page.model_slug}`;
+    if (out.length >= count || seenPage.has(key)) return;
+    seenPage.add(key);
+    seenBrand.add(page.make_slug);
+    out.push(page);
+  };
+
+  // Pass 1: one machine per brand per category, so the row reads as a spread of
+  // makes instead of six Caterpillars.
   for (const cat of live) {
-    for (const page of featuredModels(pagesInCategory(cat.slug), perCategory)) {
-      const key = `${page.make_slug}:${page.model_slug}`;
-      if (seen.has(key)) continue;
-      seen.add(key);
-      out.push(page);
+    let taken = 0;
+    for (const page of featuredModels(pagesInCategory(cat.slug), perCategory * 4)) {
+      if (taken >= perCategory || out.length >= count) break;
+      if (seenBrand.has(page.make_slug)) continue;
+      push(page);
+      taken += 1;
     }
   }
-  // Top up from the widest pool if a category could not fill its share.
-  if (out.length < count) {
-    for (const page of featuredModels(modelPages, count * 2)) {
+  // Pass 2: fill any remaining slots; repeating a brand is fine here.
+  for (const cat of live) {
+    for (const page of featuredModels(pagesInCategory(cat.slug), perCategory * 4)) {
       if (out.length >= count) break;
-      const key = `${page.make_slug}:${page.model_slug}`;
-      if (seen.has(key)) continue;
-      seen.add(key);
-      out.push(page);
+      push(page);
     }
   }
   return out.slice(0, count);

@@ -92,7 +92,7 @@ export function HomeSearch({ entries }: { entries: SearchEntry[] }) {
           setTimeout(() => setOpen(false), 150);
         }}
         onKeyDown={onKeyDown}
-        placeholder="Search by part number, model or make — e.g. 20Y-27-00300, PC200, Komatsu 22t"
+        placeholder="Part number or model"
         aria-label="Search parts by part number, model or make"
         autoComplete="off"
         spellCheck={false}

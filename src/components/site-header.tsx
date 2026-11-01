@@ -52,7 +52,8 @@ export function SiteHeader() {
         </nav>
 
         <Link href={RFQ_PATH} className="v6-btn v6-btn-primary">
-          Request a quote
+          <span className="v6-btn-full">Request a quote</span>
+          <span className="v6-btn-short">Quote</span>
         </Link>
 
         <button

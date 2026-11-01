@@ -280,6 +280,9 @@ body {
     color: #1d2a33;
     background: #f2f5f7;
   }
+  .v6-btn-short {
+    display: none;
+  }
   .v6-burger {
     display: none;
     align-items: center;
@@ -862,7 +865,22 @@ body {
     padding-left: 0;
   }
   .v6-search input {
-    padding-right: 110px;
+    padding-right: 90px;
+    font-size: 14px;
+  }
+  .v6-search .v6-go {
+    padding: 10px 14px;
+    font-size: 13px;
+  }
+  /* Full "Request a quote" label squeezes the brand mark at 375px. */
+  .v6-btn-full {
+    display: none;
+  }
+  .v6-btn-short {
+    display: inline;
+  }
+  .v6-topbar .v6-btn {
+    padding: 11px 16px;
   }
 }
 
