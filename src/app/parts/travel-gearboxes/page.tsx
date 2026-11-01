@@ -9,6 +9,7 @@ import {
   pagesInCategory,
   pagesByMake,
   sortPagesByTonnage,
+  featuredModels,
   brandHubPath,
   RFQ_PATH,
   GUIDE_PATH,
@@ -24,7 +25,7 @@ export const metadata: Metadata = buildMetadata({
 });
 
 export default function TravelGearboxesHubPage() {
-  const recentCommon = sortPagesByTonnage(pagesInCategory(CATEGORY)).slice(0, 6);
+  const recentCommon = featuredModels(pagesInCategory(CATEGORY), 6);
 
   return (
     <div className="mx-auto max-w-6xl px-4 py-12 sm:px-6">

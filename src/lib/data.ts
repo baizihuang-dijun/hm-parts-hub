@@ -244,6 +244,76 @@ export function hasPartNumbers(page: ModelPage): boolean {
   return partGroups(page).length > 0;
 }
 
+/**
+ * Showcase skip list: models whose only usable photo shows several units stacked
+ * up or a messy packing shot. The pages stay live and indexed — they just do not
+ * get a card in the hub row until a clean single-unit photo comes in.
+ */
+const SHOWCASE_SKIP = new Set<string>([
+  'travel-gearboxes:caterpillar:320-gc',
+  'travel-gearboxes:hitachi:ex30',
+  'travel-gearboxes:komatsu:pc20a',
+  'travel-gearboxes:hitachi:zx670',
+]);
+
+/**
+ * Hub showcase cards ("Common model requests").
+ *
+ * Deliberately NOT the lightest models in the catalog: mini excavators are a
+ * small slice of the aftermarket, while 20-45 t machines are the volume end.
+ * Picks mainstream mid-size models that carry part numbers, one per brand first,
+ * then widens if the band is too thin to fill the row.
+ */
+export function featuredModels(pages: ModelPage[], count = 6): ModelPage[] {
+  const ton = (p: ModelPage): number =>
+    typeof p.copy.ton_class_approx === 'number' ? p.copy.ton_class_approx : 0;
+  const usable = pages.filter(
+    (p) => !SHOWCASE_SKIP.has(`${p.category_slug}:${p.make_slug}:${p.model_slug}`),
+  );
+  const inBand = usable.filter((p) => ton(p) >= 13 && ton(p) <= 45);
+  const pool = inBand.length >= count ? inBand : usable;
+
+  // Part numbers first, then lightest-to-heaviest inside each tier.
+  const ranked = [...pool].sort((a, b) => {
+    const pn = Number(hasPartNumbers(b)) - Number(hasPartNumbers(a));
+    return pn !== 0 ? pn : ton(a) - ton(b);
+  });
+
+  const out: ModelPage[] = [];
+  const seenBrand = new Set<string>();
+  const take = (list: ModelPage[], limit: number): void => {
+    for (const p of list) {
+      if (out.length >= count || limit <= 0) break;
+      if (seenBrand.has(p.make_slug) || out.includes(p)) continue;
+      seenBrand.add(p.make_slug);
+      out.push(p);
+      limit -= 1;
+    }
+  };
+
+  // Walk the tonnage tiers so one row never ends up as six 20-ton machines.
+  // Only models with part numbers seed the row; blank-number models are the
+  // last resort so the cards still look complete if a catalog is thin.
+  const withNumbers = ranked.filter((p) => hasPartNumbers(p));
+  const withoutNumbers = ranked.filter((p) => !hasPartNumbers(p));
+  const TIERS: Array<[number, number]> = [
+    [13, 20],
+    [20, 30],
+    [30, 46],
+  ];
+  const perTier = Math.ceil(count / TIERS.length);
+  for (const [lo, hi] of TIERS) {
+    take(
+      withNumbers.filter((p) => ton(p) >= lo && ton(p) < hi),
+      perTier,
+    );
+  }
+  take(withNumbers, count);
+  take(withoutNumbers, count);
+
+  return out.sort((a, b) => ton(a) - ton(b));
+}
+
 export function modelDescription(page: ModelPage): string {
   if (page.meta_description) return page.meta_description;
   const cat = categoryOf(page.category_slug);
