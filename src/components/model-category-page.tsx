@@ -198,7 +198,7 @@ export function ModelCategoryPageView({
               : `${page.copy.machine_kind} undercarriage`}
           </i>
           {page.copy.band ? <i className="idi idi-kind">{page.copy.band}</i> : null}
-          <i className="idi idi-ok">● page data verified to catalog</i>
+          <i className="idi idi-ok">● catalogue entry · fit confirmed at quote</i>
         </div>
       </div>
 
@@ -207,7 +207,7 @@ export function ModelCategoryPageView({
         <ImageGallery images={images} caption={`${unit} for ${page.make_name} ${page.model_name}`} />
 
         <div className="v6-buy">
-          <div className="v6-kicker">Sourcing &amp; RFQ · {cat.unitNameSentence}</div>
+          <div className="v6-kicker">{`Sourcing & RFQ · ${cat.unitNameSentence}`}</div>
           <h1>{page.h1}</h1>
           <p className="v6-lead">{page.copy.intro}</p>
           <div className="v6-cta-row">
@@ -345,7 +345,7 @@ export function ModelCategoryPageView({
           ) : null}
         </div>
 
-        <ModelRfqForm make={page.make_name} model={page.model_name} />
+        <ModelRfqForm make={page.make_name} model={page.model_name} unitName={cat.unitName} />
       </div>
 
       {/* FAQ */}

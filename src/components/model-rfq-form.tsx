@@ -13,7 +13,15 @@ type SubmitState = 'idle' | 'submitting' | 'success' | 'error';
  * Submits to Web3Forms; nameplate photos are requested by reply email
  * (the Web3Forms free plan does not support file uploads).
  */
-export function ModelRfqForm({ make, model }: { make: string; model: string }) {
+export function ModelRfqForm({
+  make,
+  model,
+  unitName = 'Final Drive',
+}: {
+  make: string;
+  model: string;
+  unitName?: string;
+}) {
   const [state, setState] = useState<SubmitState>('idle');
   const [errorMsg, setErrorMsg] = useState('');
   const [sourcePage, setSourcePage] = useState('');
@@ -37,7 +45,7 @@ export function ModelRfqForm({ make, model }: { make: string; model: string }) {
               at{' '}
               <a
                 href={`mailto:${RFQ_EMAIL}?subject=${encodeURIComponent(
-                  `Final Drive RFQ — ${make} ${model} — ${SITE_NAME}`,
+                  `${unitName} RFQ — ${make} ${model} — ${SITE_NAME}`,
                 )}`}
               >
                 {RFQ_EMAIL}
@@ -47,7 +55,7 @@ export function ModelRfqForm({ make, model }: { make: string; model: string }) {
             ' '
           )}
           with your machine make/model, part numbers, serial number and nameplate photos, and we
-          will confirm the matching final drive before quoting.
+          will confirm the matching unit before quoting.
         </p>
       </aside>
     );
@@ -62,7 +70,7 @@ export function ModelRfqForm({ make, model }: { make: string; model: string }) {
     const form = e.currentTarget;
     const fd = new FormData(form);
     fd.set('access_key', WEB3FORMS_KEY);
-    fd.set('subject', `Final Drive RFQ — ${make} ${model} — ${SITE_NAME}`);
+    fd.set('subject', `${unitName} RFQ — ${make} ${model} — ${SITE_NAME}`);
     fd.set('from_name', `${SITE_NAME} RFQ Form`);
     fd.set('form_name', 'final_drive_rfq');
     fd.set('source_page', sourcePage);
@@ -125,7 +133,7 @@ export function ModelRfqForm({ make, model }: { make: string; model: string }) {
       <form ref={formRef} onSubmit={onSubmit}>
         {/* Hidden Web3Forms fields */}
         <input type="hidden" name="access_key" value={WEB3FORMS_KEY} />
-        <input type="hidden" name="subject" value={`Final Drive RFQ — ${make} ${model} — ${SITE_NAME}`} />
+        <input type="hidden" name="subject" value={`${unitName} RFQ — ${make} ${model} — ${SITE_NAME}`} />
         <input type="hidden" name="from_name" value={`${SITE_NAME} RFQ Form`} />
         <input type="hidden" name="form_name" value="final_drive_rfq" />
         <input type="hidden" name="source_page" value={sourcePage} />

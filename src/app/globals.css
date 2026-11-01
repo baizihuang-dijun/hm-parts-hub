@@ -685,6 +685,13 @@ body {
   .v6-mainnav {
     display: none;
   }
+  /* Brand tagline is too wide for a 375px viewport once the nav is hidden. */
+  .v6-brand span {
+    display: none;
+  }
+  .v6-topbar .v6-wrap {
+    gap: 16px;
+  }
   .v6-topbar .v6-btn {
     margin-left: auto;
   }

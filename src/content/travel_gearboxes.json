@@ -38,10 +38,6 @@
       "name": "SANY"
     },
     {
-      "slug": "sdlg",
-      "name": "SDLG"
-    },
-    {
       "slug": "sumitomo",
       "name": "Sumitomo"
     },
@@ -2202,54 +2198,6 @@
         "machine_kind": "excavator"
       },
       "_pid": "LB-TGB-051"
-    },
-    {
-      "url_path": "/equipment/sdlg/sdlg-500/travel-gearboxes/",
-      "title": "SDLG 500 Travel Gearbox | Travel Reduction Unit Sourcing",
-      "h1": "SDLG 500 Travel Gearbox",
-      "publish_tier": "batch2",
-      "meta_description": "Source a travel gearbox for the SDLG 500 excavator. We confirm ratio, motor interface, sprocket hub and frame pattern against the OEM number, serial and nameplate before quoting.",
-      "make_slug": "sdlg",
-      "make_name": "SDLG",
-      "model_slug": "sdlg-500",
-      "model_name": "500",
-      "model_aliases": [],
-      "serial_note": null,
-      "part_number_groups": {},
-      "lead_pn": "",
-      "images": [
-        {
-          "slug": "sdlg-sdlg-500",
-          "tag": "main",
-          "file": "sdlg-sdlg-500-travel-gearbox.jpg",
-          "_src": "/tmp/tg/photos/LB行走减速箱照片汇总_26.10.26_1793413732994_d74i/LB-行走减速箱-SDLG-SDLG-500/LB-行走减速箱-SDLG-SDLG-500-001.jpg"
-        },
-        {
-          "slug": "sdlg-sdlg-500",
-          "tag": "view2",
-          "file": "sdlg-sdlg-500-travel-gearbox-2.jpg",
-          "_src": "/tmp/tg/photos/LB行走减速箱照片汇总_26.10.26_1793413732994_d74i/LB-行走减速箱-SDLG-SDLG-500/LB-行走减速箱-SDLG-SDLG-500-002.jpg"
-        },
-        {
-          "slug": "sdlg-sdlg-500",
-          "tag": "view3",
-          "file": "sdlg-sdlg-500-travel-gearbox-3.jpg",
-          "_src": "/tmp/tg/photos/LB行走减速箱照片汇总_26.10.26_1793413732994_d74i/LB-行走减速箱-SDLG-SDLG-500/LB-行走减速箱-SDLG-SDLG-500-003.jpg"
-        }
-      ],
-      "copy": {
-        "intro": "Sourcing a travel gearbox (travel reduction unit) for the SDLG 500 excavator. This is the ~50 t class final reduction between the travel motor and the track frame — the unit that carries the machine weight and converts motor speed into track pull. We match it against the OEM number, the machine serial and the tag on the existing gearbox before quoting, because the model name alone does not settle the configuration on these machines.",
-        "sourcing": "SDLG undercarriage components draw on licensed Volvo architecture, and the travel device supply base overlaps with the Volvo aftermarket. We confirm the platform from the tag before quoting.",
-        "fit_check": "On the SDLG 500, four things have to line up before a travel gearbox can be confirmed: the reduction ratio, the travel-motor mounting interface, the sprocket hub pattern, and the track-frame bolt spacing. Any one of them can differ between build years of the same model. Send a photo of the tag on the existing unit together with the machine serial and we verify all four against the factory data sheet.",
-        "pn_heading": "Need the right part number?",
-        "pn_note": "Catalog numbering for the SDLG 500 varies by serial number and build region. Send a photo of your travel-motor nameplate and your machine serial number, and we will identify the correct unit for you before quoting.",
-        "generation_note": "SDLG builds on licensed Volvo undercarriage architecture, so some travel devices are shared with Volvo platforms and some are not. The model number alone does not settle it; the tag on the existing unit does.",
-        "application": "excavator travel drive",
-        "ton_class_approx": 50,
-        "band": null,
-        "machine_kind": "excavator"
-      },
-      "_pid": "LB-TGB-052"
     },
     {
       "url_path": "/equipment/sumitomo/sh130/travel-gearboxes/",
