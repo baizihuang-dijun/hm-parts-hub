@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import { imageSize } from '@/lib/image-sizes';
-import { mainImage, RFQ_PATH, type ModelPage } from '@/lib/data';
+import { categoryOf, mainImage, RFQ_PATH, type ModelPage } from '@/lib/data';
 
 /**
  * Model card used on the home page, category hub and brand hubs.
@@ -10,6 +10,8 @@ import { mainImage, RFQ_PATH, type ModelPage } from '@/lib/data';
  */
 export function ModelCard({ page }: { page: ModelPage }) {
   const main = mainImage(page);
+  const unitSentence = categoryOf(page.category_slug).unitNameSentence;
+  const unitLabel = unitSentence.charAt(0).toUpperCase() + unitSentence.slice(1);
   const size = main ? imageSize(main.file) : { width: 1200, height: 900 };
   const ton = page.copy.ton_class_approx;
   const quoteHref =
@@ -26,7 +28,7 @@ export function ModelCard({ page }: { page: ModelPage }) {
             // eslint-disable-next-line @next/next/no-img-element
             <img
               src={`/images/products/${main.file}`}
-              alt={`Final drive for ${page.make_name} ${page.model_name}`}
+              alt={`${unitLabel} for ${page.make_name} ${page.model_name}`}
               width={size.width}
               height={size.height}
               loading="lazy"

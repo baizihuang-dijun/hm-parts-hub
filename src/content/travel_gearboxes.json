@@ -1,0 +1,2705 @@
+{
+ "category": {
+  "slug": "travel-gearboxes",
+  "name": "Travel Gearboxes",
+  "intro": "Travel gearboxes (travel reduction units) for crawler excavators. Sourcing support for OEM and aftermarket units, matched against the OEM number, machine serial and the tag on the existing gearbox."
+ },
+ "makes": [
+  {
+   "slug": "caterpillar",
+   "name": "Caterpillar"
+  },
+  {
+   "slug": "doosan",
+   "name": "Doosan"
+  },
+  {
+   "slug": "hitachi",
+   "name": "Hitachi"
+  },
+  {
+   "slug": "hyundai",
+   "name": "Hyundai"
+  },
+  {
+   "slug": "kobelco",
+   "name": "Kobelco"
+  },
+  {
+   "slug": "komatsu",
+   "name": "Komatsu"
+  },
+  {
+   "slug": "kubota",
+   "name": "Kubota"
+  },
+  {
+   "slug": "sany",
+   "name": "SANY"
+  },
+  {
+   "slug": "sdlg",
+   "name": "SDLG"
+  },
+  {
+   "slug": "sumitomo",
+   "name": "Sumitomo"
+  },
+  {
+   "slug": "volvo",
+   "name": "Volvo"
+  },
+  {
+   "slug": "xcmg",
+   "name": "XCMG"
+  }
+ ],
+ "pages": [
+  {
+   "url_path": "/equipment/caterpillar/306/travel-gearboxes/",
+   "title": "Caterpillar 306 Travel Gearbox | Travel Reduction Unit Sourcing",
+   "h1": "Caterpillar 306 Travel Gearbox",
+   "publish_tier": "batch2",
+   "meta_description": "Source a travel gearbox for the Caterpillar 306 mini excavator. We confirm ratio, motor interface, sprocket hub and frame pattern against the OEM number, serial and nameplate before quoting.",
+   "make_slug": "caterpillar",
+   "make_name": "Caterpillar",
+   "model_slug": "306",
+   "model_name": "306",
+   "model_aliases": [],
+   "serial_note": null,
+   "part_number_groups": {},
+   "lead_pn": "",
+   "images": [
+    {
+     "slug": "caterpillar-306",
+     "tag": "main",
+     "file": "caterpillar-306-travel-gearbox.jpg",
+     "_src": "/tmp/tg/photos/LB行走减速箱照片汇总_26.10.26_1793413732994_d74i/LB-行走减速箱-Caterpillar-E306/LB-行走减速箱-Caterpillar-E306-001.jpg"
+    }
+   ],
+   "copy": {
+    "intro": "Sourcing a travel gearbox (travel reduction unit) for the Caterpillar 306 mini excavator. This is the ~6 t class final reduction between the travel motor and the track frame — the unit that carries the machine weight and converts motor speed into track pull. We match it against the OEM number, the machine serial and the tag on the existing gearbox before quoting, because the model name alone does not settle the configuration on these machines.",
+    "sourcing": "Caterpillar undercarriage parts are the deepest aftermarket category in China, with several established manufacturers producing travel reduction units for the mainstream excavator families. We source against the OEM number and the machine serial, not against the model name alone.",
+    "fit_check": "On the Caterpillar 306, four things have to line up before a travel gearbox can be confirmed: the reduction ratio, the travel-motor mounting interface, the sprocket hub pattern, and the track-frame bolt spacing. Any one of them can differ between build years of the same model. Send a photo of the tag on the existing unit together with the machine serial and we verify all four against the factory data sheet.",
+    "pn_heading": "Need the right part number?",
+    "pn_note": "Catalog numbering for the Caterpillar 306 varies by serial number and build region. Send a photo of your travel-motor nameplate and your machine serial number, and we will identify the correct unit for you before quoting.",
+    "generation_note": "Caterpillar reuses model numbers across several undercarriage generations, and the travel reduction unit is not carried over between them. A 320 GC and a 320D, or a 325B and a 325C, can share a model name and still take a different gearbox housing, ratio and sprocket hub. Always read the unit against the machine serial, not the model badge.",
+    "application": "mini excavator travel drive",
+    "ton_class_approx": 6,
+    "band": null,
+    "machine_kind": "mini excavator"
+   },
+   "_pid": "LB-TGB-015"
+  },
+  {
+   "url_path": "/equipment/caterpillar/120-2/travel-gearboxes/",
+   "title": "Caterpillar 120-2 Travel Gearbox | Travel Reduction Unit Sourcing",
+   "h1": "Caterpillar 120-2 Travel Gearbox",
+   "publish_tier": "batch2",
+   "meta_description": "Source a travel gearbox for the Caterpillar 120-2 excavator. We confirm ratio, motor interface, sprocket hub and frame pattern against the OEM number, serial and nameplate before quoting.",
+   "make_slug": "caterpillar",
+   "make_name": "Caterpillar",
+   "model_slug": "120-2",
+   "model_name": "120-2",
+   "model_aliases": [],
+   "serial_note": null,
+   "part_number_groups": {},
+   "lead_pn": "",
+   "images": [
+    {
+     "slug": "caterpillar-120-2",
+     "tag": "main",
+     "file": "caterpillar-120-2-travel-gearbox.jpg",
+     "_src": "/tmp/tg/photos/LB行走减速箱照片汇总_26.10.26_1793413732994_d74i/LB-行走减速箱-Caterpillar-E120-2/LB-行走减速箱-Caterpillar-E120-2-001.jpg"
+    },
+    {
+     "slug": "caterpillar-120-2",
+     "tag": "view2",
+     "file": "caterpillar-120-2-travel-gearbox-2.jpg",
+     "_src": "/tmp/tg/photos/LB行走减速箱照片汇总_26.10.26_1793413732994_d74i/LB-行走减速箱-Caterpillar-E120-2/LB-行走减速箱-Caterpillar-E120-2-002.jpg"
+    },
+    {
+     "slug": "caterpillar-120-2",
+     "tag": "view3",
+     "file": "caterpillar-120-2-travel-gearbox-3.jpg",
+     "_src": "/tmp/tg/photos/LB行走减速箱照片汇总_26.10.26_1793413732994_d74i/LB-行走减速箱-Caterpillar-E120-2/LB-行走减速箱-Caterpillar-E120-2-003.jpg"
+    }
+   ],
+   "copy": {
+    "intro": "Sourcing a travel gearbox (travel reduction unit) for the Caterpillar 120-2 excavator. This is the ~12 t class final reduction between the travel motor and the track frame — the unit that carries the machine weight and converts motor speed into track pull. We match it against the OEM number, the machine serial and the tag on the existing gearbox before quoting, because the model name alone does not settle the configuration on these machines.",
+    "sourcing": "Caterpillar undercarriage parts are the deepest aftermarket category in China, with several established manufacturers producing travel reduction units for the mainstream excavator families. We source against the OEM number and the machine serial, not against the model name alone.",
+    "fit_check": "On the Caterpillar 120-2, four things have to line up before a travel gearbox can be confirmed: the reduction ratio, the travel-motor mounting interface, the sprocket hub pattern, and the track-frame bolt spacing. Any one of them can differ between build years of the same model. Send a photo of the tag on the existing unit together with the machine serial and we verify all four against the factory data sheet.",
+    "pn_heading": "Need the right part number?",
+    "pn_note": "Catalog numbering for the Caterpillar 120-2 varies by serial number and build region. Send a photo of your travel-motor nameplate and your machine serial number, and we will identify the correct unit for you before quoting.",
+    "generation_note": "Caterpillar reuses model numbers across several undercarriage generations, and the travel reduction unit is not carried over between them. A 320 GC and a 320D, or a 325B and a 325C, can share a model name and still take a different gearbox housing, ratio and sprocket hub. Always read the unit against the machine serial, not the model badge.",
+    "application": "excavator travel drive",
+    "ton_class_approx": 12,
+    "band": "Dash-2",
+    "machine_kind": "excavator"
+   },
+   "_pid": "LB-TGB-012"
+  },
+  {
+   "url_path": "/equipment/caterpillar/120-3/travel-gearboxes/",
+   "title": "Caterpillar 120-3 Travel Gearbox | Travel Reduction Unit Sourcing",
+   "h1": "Caterpillar 120-3 Travel Gearbox",
+   "publish_tier": "batch2",
+   "meta_description": "Source a travel gearbox for the Caterpillar 120-3 excavator. We confirm ratio, motor interface, sprocket hub and frame pattern against the OEM number, serial and nameplate before quoting.",
+   "make_slug": "caterpillar",
+   "make_name": "Caterpillar",
+   "model_slug": "120-3",
+   "model_name": "120-3",
+   "model_aliases": [],
+   "serial_note": null,
+   "part_number_groups": {},
+   "lead_pn": "",
+   "images": [
+    {
+     "slug": "caterpillar-120-3",
+     "tag": "main",
+     "file": "caterpillar-120-3-travel-gearbox.jpg",
+     "_src": "/tmp/tg/photos/LB行走减速箱照片汇总_26.10.26_1793413732994_d74i/LB-行走减速箱-Caterpillar-E120-3/LB-行走减速箱-Caterpillar-E120-3-001.jpg"
+    },
+    {
+     "slug": "caterpillar-120-3",
+     "tag": "view2",
+     "file": "caterpillar-120-3-travel-gearbox-2.jpg",
+     "_src": "/tmp/tg/photos/LB行走减速箱照片汇总_26.10.26_1793413732994_d74i/LB-行走减速箱-Caterpillar-E120-3/LB-行走减速箱-Caterpillar-E120-3-002.jpg"
+    },
+    {
+     "slug": "caterpillar-120-3",
+     "tag": "view3",
+     "file": "caterpillar-120-3-travel-gearbox-3.jpg",
+     "_src": "/tmp/tg/photos/LB行走减速箱照片汇总_26.10.26_1793413732994_d74i/LB-行走减速箱-Caterpillar-E120-3/LB-行走减速箱-Caterpillar-E120-3-003.jpg"
+    }
+   ],
+   "copy": {
+    "intro": "Sourcing a travel gearbox (travel reduction unit) for the Caterpillar 120-3 excavator. This is the ~12 t class final reduction between the travel motor and the track frame — the unit that carries the machine weight and converts motor speed into track pull. We match it against the OEM number, the machine serial and the tag on the existing gearbox before quoting, because the model name alone does not settle the configuration on these machines.",
+    "sourcing": "Caterpillar undercarriage parts are the deepest aftermarket category in China, with several established manufacturers producing travel reduction units for the mainstream excavator families. We source against the OEM number and the machine serial, not against the model name alone.",
+    "fit_check": "On the Caterpillar 120-3, four things have to line up before a travel gearbox can be confirmed: the reduction ratio, the travel-motor mounting interface, the sprocket hub pattern, and the track-frame bolt spacing. Any one of them can differ between build years of the same model. Send a photo of the tag on the existing unit together with the machine serial and we verify all four against the factory data sheet.",
+    "pn_heading": "Need the right part number?",
+    "pn_note": "Catalog numbering for the Caterpillar 120-3 varies by serial number and build region. Send a photo of your travel-motor nameplate and your machine serial number, and we will identify the correct unit for you before quoting.",
+    "generation_note": "Caterpillar reuses model numbers across several undercarriage generations, and the travel reduction unit is not carried over between them. A 320 GC and a 320D, or a 325B and a 325C, can share a model name and still take a different gearbox housing, ratio and sprocket hub. Always read the unit against the machine serial, not the model badge.",
+    "application": "excavator travel drive",
+    "ton_class_approx": 12,
+    "band": "Dash-3",
+    "machine_kind": "excavator"
+   },
+   "_pid": "LB-TGB-013"
+  },
+  {
+   "url_path": "/equipment/caterpillar/313d2-gc/travel-gearboxes/",
+   "title": "Caterpillar 313D2 GC Travel Gearbox | Travel Reduction Unit Sourcing",
+   "h1": "Caterpillar 313D2 GC Travel Gearbox",
+   "publish_tier": "batch2",
+   "meta_description": "Source a travel gearbox for the Caterpillar 313D2 GC excavator. We confirm ratio, motor interface, sprocket hub and frame pattern against the OEM number, serial and nameplate before quoting.",
+   "make_slug": "caterpillar",
+   "make_name": "Caterpillar",
+   "model_slug": "313d2-gc",
+   "model_name": "313D2 GC",
+   "model_aliases": [],
+   "serial_note": null,
+   "part_number_groups": {},
+   "lead_pn": "",
+   "images": [
+    {
+     "slug": "caterpillar-313d2-gc",
+     "tag": "main",
+     "file": "caterpillar-313d2-gc-travel-gearbox.jpg",
+     "_src": "/tmp/tg/photos/LB行走减速箱照片汇总_26.10.26_1793413732994_d74i/LB-行走减速箱-Caterpillar-E313D2GC/LB-行走减速箱-Caterpillar-E313D2GC-001.jpg"
+    },
+    {
+     "slug": "caterpillar-313d2-gc",
+     "tag": "view2",
+     "file": "caterpillar-313d2-gc-travel-gearbox-2.jpg",
+     "_src": "/tmp/tg/photos/LB行走减速箱照片汇总_26.10.26_1793413732994_d74i/LB-行走减速箱-Caterpillar-E313D2GC/LB-行走减速箱-Caterpillar-E313D2GC-002.jpg"
+    },
+    {
+     "slug": "caterpillar-313d2-gc",
+     "tag": "view3",
+     "file": "caterpillar-313d2-gc-travel-gearbox-3.jpg",
+     "_src": "/tmp/tg/photos/LB行走减速箱照片汇总_26.10.26_1793413732994_d74i/LB-行走减速箱-Caterpillar-E313D2GC/LB-行走减速箱-Caterpillar-E313D2GC-003.jpg"
+    }
+   ],
+   "copy": {
+    "intro": "Sourcing a travel gearbox (travel reduction unit) for the Caterpillar 313D2 GC excavator. This is the ~13 t class final reduction between the travel motor and the track frame — the unit that carries the machine weight and converts motor speed into track pull. We match it against the OEM number, the machine serial and the tag on the existing gearbox before quoting, because the model name alone does not settle the configuration on these machines.",
+    "sourcing": "Caterpillar undercarriage parts are the deepest aftermarket category in China, with several established manufacturers producing travel reduction units for the mainstream excavator families. We source against the OEM number and the machine serial, not against the model name alone.",
+    "fit_check": "On the Caterpillar 313D2 GC, four things have to line up before a travel gearbox can be confirmed: the reduction ratio, the travel-motor mounting interface, the sprocket hub pattern, and the track-frame bolt spacing. Any one of them can differ between build years of the same model. Send a photo of the tag on the existing unit together with the machine serial and we verify all four against the factory data sheet.",
+    "pn_heading": "Need the right part number?",
+    "pn_note": "Catalog numbering for the Caterpillar 313D2 GC varies by serial number and build region. Send a photo of your travel-motor nameplate and your machine serial number, and we will identify the correct unit for you before quoting.",
+    "generation_note": "Caterpillar reuses model numbers across several undercarriage generations, and the travel reduction unit is not carried over between them. A 320 GC and a 320D, or a 325B and a 325C, can share a model name and still take a different gearbox housing, ratio and sprocket hub. Always read the unit against the machine serial, not the model badge.",
+    "application": "excavator travel drive",
+    "ton_class_approx": 13,
+    "band": "D2 GC",
+    "machine_kind": "excavator"
+   },
+   "_pid": "LB-TGB-016"
+  },
+  {
+   "url_path": "/equipment/caterpillar/135/travel-gearboxes/",
+   "title": "Caterpillar 135 Travel Gearbox | Travel Reduction Unit Sourcing",
+   "h1": "Caterpillar 135 Travel Gearbox",
+   "publish_tier": "batch2",
+   "meta_description": "Source a travel gearbox for the Caterpillar 135 excavator. We confirm ratio, motor interface, sprocket hub and frame pattern against the OEM number, serial and nameplate before quoting.",
+   "make_slug": "caterpillar",
+   "make_name": "Caterpillar",
+   "model_slug": "135",
+   "model_name": "135",
+   "model_aliases": [],
+   "serial_note": null,
+   "part_number_groups": {},
+   "lead_pn": "",
+   "images": [
+    {
+     "slug": "caterpillar-135",
+     "tag": "main",
+     "file": "caterpillar-135-travel-gearbox.jpg",
+     "_src": "/tmp/tg/photos/LB行走减速箱照片汇总_26.10.26_1793413732994_d74i/LB-行走减速箱-Caterpillar-E135/LB-行走减速箱-Caterpillar-E135-001.jpg"
+    }
+   ],
+   "copy": {
+    "intro": "Sourcing a travel gearbox (travel reduction unit) for the Caterpillar 135 excavator. This is the ~13.5 t class final reduction between the travel motor and the track frame — the unit that carries the machine weight and converts motor speed into track pull. We match it against the OEM number, the machine serial and the tag on the existing gearbox before quoting, because the model name alone does not settle the configuration on these machines.",
+    "sourcing": "Caterpillar undercarriage parts are the deepest aftermarket category in China, with several established manufacturers producing travel reduction units for the mainstream excavator families. We source against the OEM number and the machine serial, not against the model name alone.",
+    "fit_check": "On the Caterpillar 135, four things have to line up before a travel gearbox can be confirmed: the reduction ratio, the travel-motor mounting interface, the sprocket hub pattern, and the track-frame bolt spacing. Any one of them can differ between build years of the same model. Send a photo of the tag on the existing unit together with the machine serial and we verify all four against the factory data sheet.",
+    "pn_heading": "Need the right part number?",
+    "pn_note": "Catalog numbering for the Caterpillar 135 varies by serial number and build region. Send a photo of your travel-motor nameplate and your machine serial number, and we will identify the correct unit for you before quoting.",
+    "generation_note": "Caterpillar reuses model numbers across several undercarriage generations, and the travel reduction unit is not carried over between them. A 320 GC and a 320D, or a 325B and a 325C, can share a model name and still take a different gearbox housing, ratio and sprocket hub. Always read the unit against the machine serial, not the model badge.",
+    "application": "excavator travel drive",
+    "ton_class_approx": 13.5,
+    "band": null,
+    "machine_kind": "excavator"
+   },
+   "_pid": "LB-TGB-014"
+  },
+  {
+   "url_path": "/equipment/caterpillar/315/travel-gearboxes/",
+   "title": "Caterpillar 315 Travel Gearbox | Travel Reduction Unit Sourcing",
+   "h1": "Caterpillar 315 Travel Gearbox",
+   "publish_tier": "batch2",
+   "meta_description": "Source a travel gearbox for the Caterpillar 315 excavator. We confirm ratio, motor interface, sprocket hub and frame pattern against the OEM number, serial and nameplate before quoting.",
+   "make_slug": "caterpillar",
+   "make_name": "Caterpillar",
+   "model_slug": "315",
+   "model_name": "315",
+   "model_aliases": [],
+   "serial_note": null,
+   "part_number_groups": {},
+   "lead_pn": "",
+   "images": [
+    {
+     "slug": "caterpillar-315",
+     "tag": "main",
+     "file": "caterpillar-315-travel-gearbox.jpg",
+     "_src": "/tmp/tg/photos/LB行走减速箱照片汇总_26.10.26_1793413732994_d74i/LB-行走减速箱-Caterpillar-E315/LB-行走减速箱-Caterpillar-E315-001.jpg"
+    },
+    {
+     "slug": "caterpillar-315",
+     "tag": "view2",
+     "file": "caterpillar-315-travel-gearbox-2.jpg",
+     "_src": "/tmp/tg/photos/LB行走减速箱照片汇总_26.10.26_1793413732994_d74i/LB-行走减速箱-Caterpillar-E315/LB-行走减速箱-Caterpillar-E315-002.jpg"
+    },
+    {
+     "slug": "caterpillar-315",
+     "tag": "view3",
+     "file": "caterpillar-315-travel-gearbox-3.jpg",
+     "_src": "/tmp/tg/photos/LB行走减速箱照片汇总_26.10.26_1793413732994_d74i/LB-行走减速箱-Caterpillar-E315/LB-行走减速箱-Caterpillar-E315-003.jpg"
+    },
+    {
+     "slug": "caterpillar-315",
+     "tag": "view4",
+     "file": "caterpillar-315-travel-gearbox-4.jpg",
+     "_src": "/tmp/tg/photos/LB行走减速箱照片汇总_26.10.26_1793413732994_d74i/LB-行走减速箱-Caterpillar-E315/LB-行走减速箱-Caterpillar-E315-004.jpg"
+    }
+   ],
+   "copy": {
+    "intro": "Sourcing a travel gearbox (travel reduction unit) for the Caterpillar 315 excavator. This is the ~15 t class final reduction between the travel motor and the track frame — the unit that carries the machine weight and converts motor speed into track pull. We match it against the OEM number, the machine serial and the tag on the existing gearbox before quoting, because the model name alone does not settle the configuration on these machines.",
+    "sourcing": "Caterpillar undercarriage parts are the deepest aftermarket category in China, with several established manufacturers producing travel reduction units for the mainstream excavator families. We source against the OEM number and the machine serial, not against the model name alone.",
+    "fit_check": "On the Caterpillar 315, four things have to line up before a travel gearbox can be confirmed: the reduction ratio, the travel-motor mounting interface, the sprocket hub pattern, and the track-frame bolt spacing. Any one of them can differ between build years of the same model. Send a photo of the tag on the existing unit together with the machine serial and we verify all four against the factory data sheet.",
+    "pn_heading": "Need the right part number?",
+    "pn_note": "Catalog numbering for the Caterpillar 315 varies by serial number and build region. Send a photo of your travel-motor nameplate and your machine serial number, and we will identify the correct unit for you before quoting.",
+    "generation_note": "Caterpillar reuses model numbers across several undercarriage generations, and the travel reduction unit is not carried over between them. A 320 GC and a 320D, or a 325B and a 325C, can share a model name and still take a different gearbox housing, ratio and sprocket hub. Always read the unit against the machine serial, not the model badge.",
+    "application": "excavator travel drive",
+    "ton_class_approx": 15,
+    "band": null,
+    "machine_kind": "excavator"
+   },
+   "_pid": "LB-TGB-017"
+  },
+  {
+   "url_path": "/equipment/caterpillar/320-gc/travel-gearboxes/",
+   "title": "Caterpillar 320 GC Travel Gearbox | Travel Reduction Unit Sourcing",
+   "h1": "Caterpillar 320 GC Travel Gearbox",
+   "publish_tier": "batch2",
+   "meta_description": "Source a travel gearbox for the Caterpillar 320 GC excavator. We confirm ratio, motor interface, sprocket hub and frame pattern against the OEM number, serial and nameplate before quoting.",
+   "make_slug": "caterpillar",
+   "make_name": "Caterpillar",
+   "model_slug": "320-gc",
+   "model_name": "320 GC",
+   "model_aliases": [],
+   "serial_note": null,
+   "part_number_groups": {
+    "assembly": [
+     "507-6559",
+     "507-6562",
+     "538-5276",
+     "571-4033"
+    ]
+   },
+   "lead_pn": "507-6559",
+   "images": [
+    {
+     "slug": "caterpillar-320-gc",
+     "tag": "main",
+     "file": "caterpillar-320-gc-travel-gearbox.jpg",
+     "_src": "/tmp/tg/photos/LB行走减速箱照片汇总_26.10.26_1793413732994_d74i/LB-行走减速箱-Caterpillar-E320GC/LB-行走减速箱-Caterpillar-E320GC-001.jpg"
+    }
+   ],
+   "copy": {
+    "intro": "Sourcing a travel gearbox (travel reduction unit) for the Caterpillar 320 GC excavator. This is the ~20 t class final reduction between the travel motor and the track frame — the unit that carries the machine weight and converts motor speed into track pull. We match it against the OEM number, the machine serial and the tag on the existing gearbox before quoting, because the model name alone does not settle the configuration on these machines.",
+    "sourcing": "Caterpillar undercarriage parts are the deepest aftermarket category in China, with several established manufacturers producing travel reduction units for the mainstream excavator families. We source against the OEM number and the machine serial, not against the model name alone.",
+    "fit_check": "On the Caterpillar 320 GC, four things have to line up before a travel gearbox can be confirmed: the reduction ratio, the travel-motor mounting interface, the sprocket hub pattern, and the track-frame bolt spacing. Any one of them can differ between build years of the same model. Send a photo of the tag on the existing unit together with the machine serial and we verify all four against the factory data sheet.",
+    "pn_heading": "Part numbers for this model",
+    "pn_note": "The numbers below are commonly associated with the Caterpillar 320 GC and help you cross-check the tag on your unit. Match them against your nameplate — or just send us a photo and we will identify the exact part before quoting.",
+    "generation_note": "Caterpillar reuses model numbers across several undercarriage generations, and the travel reduction unit is not carried over between them. A 320 GC and a 320D, or a 325B and a 325C, can share a model name and still take a different gearbox housing, ratio and sprocket hub. Always read the unit against the machine serial, not the model badge.",
+    "application": "excavator travel drive",
+    "ton_class_approx": 20,
+    "band": "GC",
+    "machine_kind": "excavator"
+   },
+   "_pid": "LB-TGB-018"
+  },
+  {
+   "url_path": "/equipment/caterpillar/325b/travel-gearboxes/",
+   "title": "Caterpillar 325B Travel Gearbox | Travel Reduction Unit Sourcing",
+   "h1": "Caterpillar 325B Travel Gearbox",
+   "publish_tier": "batch2",
+   "meta_description": "Source a travel gearbox for the Caterpillar 325B excavator. We confirm ratio, motor interface, sprocket hub and frame pattern against the OEM number, serial and nameplate before quoting.",
+   "make_slug": "caterpillar",
+   "make_name": "Caterpillar",
+   "model_slug": "325b",
+   "model_name": "325B",
+   "model_aliases": [],
+   "serial_note": null,
+   "part_number_groups": {
+    "assembly": [
+     "191-3238",
+     "114-1357"
+    ]
+   },
+   "lead_pn": "191-3238",
+   "images": [
+    {
+     "slug": "caterpillar-325b",
+     "tag": "main",
+     "file": "caterpillar-325b-travel-gearbox.jpg",
+     "_src": "/tmp/tg/photos/LB行走减速箱照片汇总_26.10.26_1793413732994_d74i/LB-行走减速箱-Caterpillar-E325B/LB-行走减速箱-Caterpillar-E325B-00.jpg"
+    },
+    {
+     "slug": "caterpillar-325b",
+     "tag": "view2",
+     "file": "caterpillar-325b-travel-gearbox-2.jpg",
+     "_src": "/tmp/tg/photos/LB行走减速箱照片汇总_26.10.26_1793413732994_d74i/LB-行走减速箱-Caterpillar-E325B/LB-行走减速箱-Caterpillar-E325B-001.jpg"
+    },
+    {
+     "slug": "caterpillar-325b",
+     "tag": "view3",
+     "file": "caterpillar-325b-travel-gearbox-3.jpg",
+     "_src": "/tmp/tg/photos/LB行走减速箱照片汇总_26.10.26_1793413732994_d74i/LB-行走减速箱-Caterpillar-E325B/LB-行走减速箱-Caterpillar-E325B-003.jpg"
+    }
+   ],
+   "copy": {
+    "intro": "Sourcing a travel gearbox (travel reduction unit) for the Caterpillar 325B excavator. This is the ~25 t class final reduction between the travel motor and the track frame — the unit that carries the machine weight and converts motor speed into track pull. We match it against the OEM number, the machine serial and the tag on the existing gearbox before quoting, because the model name alone does not settle the configuration on these machines.",
+    "sourcing": "Caterpillar undercarriage parts are the deepest aftermarket category in China, with several established manufacturers producing travel reduction units for the mainstream excavator families. We source against the OEM number and the machine serial, not against the model name alone.",
+    "fit_check": "On the Caterpillar 325B, four things have to line up before a travel gearbox can be confirmed: the reduction ratio, the travel-motor mounting interface, the sprocket hub pattern, and the track-frame bolt spacing. Any one of them can differ between build years of the same model. Send a photo of the tag on the existing unit together with the machine serial and we verify all four against the factory data sheet.",
+    "pn_heading": "Part numbers for this model",
+    "pn_note": "The numbers below are commonly associated with the Caterpillar 325B and help you cross-check the tag on your unit. Match them against your nameplate — or just send us a photo and we will identify the exact part before quoting.",
+    "generation_note": "Caterpillar reuses model numbers across several undercarriage generations, and the travel reduction unit is not carried over between them. A 320 GC and a 320D, or a 325B and a 325C, can share a model name and still take a different gearbox housing, ratio and sprocket hub. Always read the unit against the machine serial, not the model badge.",
+    "application": "excavator travel drive",
+    "ton_class_approx": 25,
+    "band": "B series",
+    "machine_kind": "excavator"
+   },
+   "_pid": "LB-TGB-019"
+  },
+  {
+   "url_path": "/equipment/caterpillar/326-gc/travel-gearboxes/",
+   "title": "Caterpillar 326 GC Travel Gearbox | Travel Reduction Unit Sourcing",
+   "h1": "Caterpillar 326 GC Travel Gearbox",
+   "publish_tier": "batch2",
+   "meta_description": "Source a travel gearbox for the Caterpillar 326 GC excavator. We confirm ratio, motor interface, sprocket hub and frame pattern against the OEM number, serial and nameplate before quoting.",
+   "make_slug": "caterpillar",
+   "make_name": "Caterpillar",
+   "model_slug": "326-gc",
+   "model_name": "326 GC",
+   "model_aliases": [],
+   "serial_note": null,
+   "part_number_groups": {
+    "assembly": [
+     "538-5277",
+     "584-2566"
+    ]
+   },
+   "lead_pn": "538-5277",
+   "images": [
+    {
+     "slug": "caterpillar-326-gc",
+     "tag": "main",
+     "file": "caterpillar-326-gc-travel-gearbox.jpg",
+     "_src": "/tmp/tg/photos/LB行走减速箱照片汇总_26.10.26_1793413732994_d74i/LB-行走减速箱-Caterpillar-E326GC/LB-行走减速箱-Caterpillar-E326GC-001.jpg"
+    },
+    {
+     "slug": "caterpillar-326-gc",
+     "tag": "view2",
+     "file": "caterpillar-326-gc-travel-gearbox-2.jpg",
+     "_src": "/tmp/tg/photos/LB行走减速箱照片汇总_26.10.26_1793413732994_d74i/LB-行走减速箱-Caterpillar-E326GC/LB-行走减速箱-Caterpillar-E326GC-002.jpg"
+    },
+    {
+     "slug": "caterpillar-326-gc",
+     "tag": "view3",
+     "file": "caterpillar-326-gc-travel-gearbox-3.jpg",
+     "_src": "/tmp/tg/photos/LB行走减速箱照片汇总_26.10.26_1793413732994_d74i/LB-行走减速箱-Caterpillar-E326GC/LB-行走减速箱-Caterpillar-E326GC-003.jpg"
+    }
+   ],
+   "copy": {
+    "intro": "Sourcing a travel gearbox (travel reduction unit) for the Caterpillar 326 GC excavator. This is the ~26 t class final reduction between the travel motor and the track frame — the unit that carries the machine weight and converts motor speed into track pull. We match it against the OEM number, the machine serial and the tag on the existing gearbox before quoting, because the model name alone does not settle the configuration on these machines.",
+    "sourcing": "Caterpillar undercarriage parts are the deepest aftermarket category in China, with several established manufacturers producing travel reduction units for the mainstream excavator families. We source against the OEM number and the machine serial, not against the model name alone.",
+    "fit_check": "On the Caterpillar 326 GC, four things have to line up before a travel gearbox can be confirmed: the reduction ratio, the travel-motor mounting interface, the sprocket hub pattern, and the track-frame bolt spacing. Any one of them can differ between build years of the same model. Send a photo of the tag on the existing unit together with the machine serial and we verify all four against the factory data sheet.",
+    "pn_heading": "Part numbers for this model",
+    "pn_note": "The numbers below are commonly associated with the Caterpillar 326 GC and help you cross-check the tag on your unit. Match them against your nameplate — or just send us a photo and we will identify the exact part before quoting.",
+    "generation_note": "Caterpillar reuses model numbers across several undercarriage generations, and the travel reduction unit is not carried over between them. A 320 GC and a 320D, or a 325B and a 325C, can share a model name and still take a different gearbox housing, ratio and sprocket hub. Always read the unit against the machine serial, not the model badge.",
+    "application": "excavator travel drive",
+    "ton_class_approx": 26,
+    "band": "GC",
+    "machine_kind": "excavator"
+   },
+   "_pid": "LB-TGB-020"
+  },
+  {
+   "url_path": "/equipment/caterpillar/330-gc/travel-gearboxes/",
+   "title": "Caterpillar 330 GC Travel Gearbox | Travel Reduction Unit Sourcing",
+   "h1": "Caterpillar 330 GC Travel Gearbox",
+   "publish_tier": "batch2",
+   "meta_description": "Source a travel gearbox for the Caterpillar 330 GC excavator. We confirm ratio, motor interface, sprocket hub and frame pattern against the OEM number, serial and nameplate before quoting.",
+   "make_slug": "caterpillar",
+   "make_name": "Caterpillar",
+   "model_slug": "330-gc",
+   "model_name": "330 GC",
+   "model_aliases": [],
+   "serial_note": null,
+   "part_number_groups": {
+    "assembly": [
+     "536-7274",
+     "569-4209",
+     "609-7010",
+     "612-2210"
+    ]
+   },
+   "lead_pn": "536-7274",
+   "images": [
+    {
+     "slug": "caterpillar-330-gc",
+     "tag": "main",
+     "file": "caterpillar-330-gc-travel-gearbox.jpg",
+     "_src": "/tmp/tg/photos/LB行走减速箱照片汇总_26.10.26_1793413732994_d74i/LB-行走减速箱-Caterpillar-E330GC/LB-行走减速箱-Caterpillar-E330GC-001.jpg"
+    },
+    {
+     "slug": "caterpillar-330-gc",
+     "tag": "view2",
+     "file": "caterpillar-330-gc-travel-gearbox-2.jpg",
+     "_src": "/tmp/tg/photos/LB行走减速箱照片汇总_26.10.26_1793413732994_d74i/LB-行走减速箱-Caterpillar-E330GC/LB-行走减速箱-Caterpillar-E330GC-002.jpg"
+    }
+   ],
+   "copy": {
+    "intro": "Sourcing a travel gearbox (travel reduction unit) for the Caterpillar 330 GC excavator. This is the ~30 t class final reduction between the travel motor and the track frame — the unit that carries the machine weight and converts motor speed into track pull. We match it against the OEM number, the machine serial and the tag on the existing gearbox before quoting, because the model name alone does not settle the configuration on these machines.",
+    "sourcing": "Caterpillar undercarriage parts are the deepest aftermarket category in China, with several established manufacturers producing travel reduction units for the mainstream excavator families. We source against the OEM number and the machine serial, not against the model name alone.",
+    "fit_check": "On the Caterpillar 330 GC, four things have to line up before a travel gearbox can be confirmed: the reduction ratio, the travel-motor mounting interface, the sprocket hub pattern, and the track-frame bolt spacing. Any one of them can differ between build years of the same model. Send a photo of the tag on the existing unit together with the machine serial and we verify all four against the factory data sheet.",
+    "pn_heading": "Part numbers for this model",
+    "pn_note": "The numbers below are commonly associated with the Caterpillar 330 GC and help you cross-check the tag on your unit. Match them against your nameplate — or just send us a photo and we will identify the exact part before quoting.",
+    "generation_note": "Caterpillar reuses model numbers across several undercarriage generations, and the travel reduction unit is not carried over between them. A 320 GC and a 320D, or a 325B and a 325C, can share a model name and still take a different gearbox housing, ratio and sprocket hub. Always read the unit against the machine serial, not the model badge.",
+    "application": "excavator travel drive",
+    "ton_class_approx": 30,
+    "band": "GC",
+    "machine_kind": "excavator"
+   },
+   "_pid": "LB-TGB-022"
+  },
+  {
+   "url_path": "/equipment/caterpillar/330b/travel-gearboxes/",
+   "title": "Caterpillar 330B Travel Gearbox | Travel Reduction Unit Sourcing",
+   "h1": "Caterpillar 330B Travel Gearbox",
+   "publish_tier": "batch2",
+   "meta_description": "Source a travel gearbox for the Caterpillar 330B excavator. We confirm ratio, motor interface, sprocket hub and frame pattern against the OEM number, serial and nameplate before quoting.",
+   "make_slug": "caterpillar",
+   "make_name": "Caterpillar",
+   "model_slug": "330b",
+   "model_name": "330B",
+   "model_aliases": [],
+   "serial_note": null,
+   "part_number_groups": {
+    "assembly": [
+     "114-1478",
+     "191-3241"
+    ]
+   },
+   "lead_pn": "114-1478",
+   "images": [
+    {
+     "slug": "caterpillar-330b",
+     "tag": "main",
+     "file": "caterpillar-330b-travel-gearbox.jpg",
+     "_src": "/tmp/tg/photos/LB行走减速箱照片汇总_26.10.26_1793413732994_d74i/LB-行走减速箱-Caterpillar-E330B/LB-行走减速箱-Caterpillar-E330B-001.jpg"
+    },
+    {
+     "slug": "caterpillar-330b",
+     "tag": "view2",
+     "file": "caterpillar-330b-travel-gearbox-2.jpg",
+     "_src": "/tmp/tg/photos/LB行走减速箱照片汇总_26.10.26_1793413732994_d74i/LB-行走减速箱-Caterpillar-E330B/LB-行走减速箱-Caterpillar-E330B-002.jpg"
+    },
+    {
+     "slug": "caterpillar-330b",
+     "tag": "view3",
+     "file": "caterpillar-330b-travel-gearbox-3.jpg",
+     "_src": "/tmp/tg/photos/LB行走减速箱照片汇总_26.10.26_1793413732994_d74i/LB-行走减速箱-Caterpillar-E330B/LB-行走减速箱-Caterpillar-E330B-003.jpg"
+    }
+   ],
+   "copy": {
+    "intro": "Sourcing a travel gearbox (travel reduction unit) for the Caterpillar 330B excavator. This is the ~30 t class final reduction between the travel motor and the track frame — the unit that carries the machine weight and converts motor speed into track pull. We match it against the OEM number, the machine serial and the tag on the existing gearbox before quoting, because the model name alone does not settle the configuration on these machines.",
+    "sourcing": "Caterpillar undercarriage parts are the deepest aftermarket category in China, with several established manufacturers producing travel reduction units for the mainstream excavator families. We source against the OEM number and the machine serial, not against the model name alone.",
+    "fit_check": "On the Caterpillar 330B, four things have to line up before a travel gearbox can be confirmed: the reduction ratio, the travel-motor mounting interface, the sprocket hub pattern, and the track-frame bolt spacing. Any one of them can differ between build years of the same model. Send a photo of the tag on the existing unit together with the machine serial and we verify all four against the factory data sheet.",
+    "pn_heading": "Part numbers for this model",
+    "pn_note": "The numbers below are commonly associated with the Caterpillar 330B and help you cross-check the tag on your unit. Match them against your nameplate — or just send us a photo and we will identify the exact part before quoting.",
+    "generation_note": "Caterpillar reuses model numbers across several undercarriage generations, and the travel reduction unit is not carried over between them. A 320 GC and a 320D, or a 325B and a 325C, can share a model name and still take a different gearbox housing, ratio and sprocket hub. Always read the unit against the machine serial, not the model badge.",
+    "application": "excavator travel drive",
+    "ton_class_approx": 30,
+    "band": "B series",
+    "machine_kind": "excavator"
+   },
+   "_pid": "LB-TGB-021"
+  },
+  {
+   "url_path": "/equipment/caterpillar/336d/travel-gearboxes/",
+   "title": "Caterpillar 336D Travel Gearbox | Travel Reduction Unit Sourcing",
+   "h1": "Caterpillar 336D Travel Gearbox",
+   "publish_tier": "batch2",
+   "meta_description": "Source a travel gearbox for the Caterpillar 336D excavator. We confirm ratio, motor interface, sprocket hub and frame pattern against the OEM number, serial and nameplate before quoting.",
+   "make_slug": "caterpillar",
+   "make_name": "Caterpillar",
+   "model_slug": "336d",
+   "model_name": "336D",
+   "model_aliases": [],
+   "serial_note": null,
+   "part_number_groups": {
+    "assembly": [
+     "296-6246",
+     "501-7238",
+     "518-3389"
+    ]
+   },
+   "lead_pn": "296-6246",
+   "images": [
+    {
+     "slug": "caterpillar-336d",
+     "tag": "main",
+     "file": "caterpillar-336d-travel-gearbox.jpg",
+     "_src": "/tmp/tg/photos/LB行走减速箱照片汇总_26.10.26_1793413732994_d74i/LB-行走减速箱-Caterpillar-E336D/aef171c8a55938428af8d55ecd57a6b.jpg"
+    },
+    {
+     "slug": "caterpillar-336d",
+     "tag": "view2",
+     "file": "caterpillar-336d-travel-gearbox-2.jpg",
+     "_src": "/tmp/tg/photos/LB行走减速箱照片汇总_26.10.26_1793413732994_d74i/LB-行走减速箱-Caterpillar-E336D/f8a000711db85ad56829aa3545da7ae.jpg"
+    }
+   ],
+   "copy": {
+    "intro": "Sourcing a travel gearbox (travel reduction unit) for the Caterpillar 336D excavator. This is the ~36 t class final reduction between the travel motor and the track frame — the unit that carries the machine weight and converts motor speed into track pull. We match it against the OEM number, the machine serial and the tag on the existing gearbox before quoting, because the model name alone does not settle the configuration on these machines.",
+    "sourcing": "Caterpillar undercarriage parts are the deepest aftermarket category in China, with several established manufacturers producing travel reduction units for the mainstream excavator families. We source against the OEM number and the machine serial, not against the model name alone.",
+    "fit_check": "On the Caterpillar 336D, four things have to line up before a travel gearbox can be confirmed: the reduction ratio, the travel-motor mounting interface, the sprocket hub pattern, and the track-frame bolt spacing. Any one of them can differ between build years of the same model. Send a photo of the tag on the existing unit together with the machine serial and we verify all four against the factory data sheet.",
+    "pn_heading": "Part numbers for this model",
+    "pn_note": "The numbers below are commonly associated with the Caterpillar 336D and help you cross-check the tag on your unit. Match them against your nameplate — or just send us a photo and we will identify the exact part before quoting.",
+    "generation_note": "Caterpillar reuses model numbers across several undercarriage generations, and the travel reduction unit is not carried over between them. A 320 GC and a 320D, or a 325B and a 325C, can share a model name and still take a different gearbox housing, ratio and sprocket hub. Always read the unit against the machine serial, not the model badge.",
+    "application": "excavator travel drive",
+    "ton_class_approx": 36,
+    "band": "D series",
+    "machine_kind": "excavator"
+   },
+   "_pid": "LB-TGB-023"
+  },
+  {
+   "url_path": "/equipment/caterpillar/345/travel-gearboxes/",
+   "title": "Caterpillar 345 Travel Gearbox | Travel Reduction Unit Sourcing",
+   "h1": "Caterpillar 345 Travel Gearbox",
+   "publish_tier": "batch2",
+   "meta_description": "Source a travel gearbox for the Caterpillar 345 excavator. We confirm ratio, motor interface, sprocket hub and frame pattern against the OEM number, serial and nameplate before quoting.",
+   "make_slug": "caterpillar",
+   "make_name": "Caterpillar",
+   "model_slug": "345",
+   "model_name": "345",
+   "model_aliases": [],
+   "serial_note": null,
+   "part_number_groups": {
+    "assembly": [
+     "610-8800"
+    ]
+   },
+   "lead_pn": "610-8800",
+   "images": [
+    {
+     "slug": "caterpillar-345",
+     "tag": "main",
+     "file": "caterpillar-345-travel-gearbox.jpg",
+     "_src": "/tmp/tg/photos/LB行走减速箱照片汇总_26.10.26_1793413732994_d74i/LB-行走减速箱-Caterpillar-CAT-345/LB-行走减速箱-Caterpillar-CAT-345-001.jpg"
+    },
+    {
+     "slug": "caterpillar-345",
+     "tag": "view2",
+     "file": "caterpillar-345-travel-gearbox-2.jpg",
+     "_src": "/tmp/tg/photos/LB行走减速箱照片汇总_26.10.26_1793413732994_d74i/LB-行走减速箱-Caterpillar-CAT-345/LB-行走减速箱-Caterpillar-CAT-345-002.jpg"
+    },
+    {
+     "slug": "caterpillar-345",
+     "tag": "view3",
+     "file": "caterpillar-345-travel-gearbox-3.jpg",
+     "_src": "/tmp/tg/photos/LB行走减速箱照片汇总_26.10.26_1793413732994_d74i/LB-行走减速箱-Caterpillar-CAT-345/LB-行走减速箱-Caterpillar-CAT-345-003.jpg"
+    },
+    {
+     "slug": "caterpillar-345",
+     "tag": "view4",
+     "file": "caterpillar-345-travel-gearbox-4.jpg",
+     "_src": "/tmp/tg/photos/LB行走减速箱照片汇总_26.10.26_1793413732994_d74i/LB-行走减速箱-Caterpillar-CAT-345/LB-行走减速箱-Caterpillar-CAT-345-004.jpg"
+    }
+   ],
+   "copy": {
+    "intro": "Sourcing a travel gearbox (travel reduction unit) for the Caterpillar 345 excavator. This is the ~45 t class final reduction between the travel motor and the track frame — the unit that carries the machine weight and converts motor speed into track pull. We match it against the OEM number, the machine serial and the tag on the existing gearbox before quoting, because the model name alone does not settle the configuration on these machines.",
+    "sourcing": "Caterpillar undercarriage parts are the deepest aftermarket category in China, with several established manufacturers producing travel reduction units for the mainstream excavator families. We source against the OEM number and the machine serial, not against the model name alone.",
+    "fit_check": "On the Caterpillar 345, four things have to line up before a travel gearbox can be confirmed: the reduction ratio, the travel-motor mounting interface, the sprocket hub pattern, and the track-frame bolt spacing. Any one of them can differ between build years of the same model. Send a photo of the tag on the existing unit together with the machine serial and we verify all four against the factory data sheet.",
+    "pn_heading": "Part numbers for this model",
+    "pn_note": "The numbers below are commonly associated with the Caterpillar 345 and help you cross-check the tag on your unit. Match them against your nameplate — or just send us a photo and we will identify the exact part before quoting.",
+    "generation_note": "Caterpillar reuses model numbers across several undercarriage generations, and the travel reduction unit is not carried over between them. A 320 GC and a 320D, or a 325B and a 325C, can share a model name and still take a different gearbox housing, ratio and sprocket hub. Always read the unit against the machine serial, not the model badge.",
+    "application": "excavator travel drive",
+    "ton_class_approx": 45,
+    "band": null,
+    "machine_kind": "excavator"
+   },
+   "_pid": "LB-TGB-001"
+  },
+  {
+   "url_path": "/equipment/caterpillar/345-gc/travel-gearboxes/",
+   "title": "Caterpillar 345 GC Travel Gearbox | Travel Reduction Unit Sourcing",
+   "h1": "Caterpillar 345 GC Travel Gearbox",
+   "publish_tier": "batch2",
+   "meta_description": "Source a travel gearbox for the Caterpillar 345 GC excavator. We confirm ratio, motor interface, sprocket hub and frame pattern against the OEM number, serial and nameplate before quoting.",
+   "make_slug": "caterpillar",
+   "make_name": "Caterpillar",
+   "model_slug": "345-gc",
+   "model_name": "345 GC",
+   "model_aliases": [],
+   "serial_note": null,
+   "part_number_groups": {
+    "assembly": [
+     "610-8800",
+     "610-8801"
+    ]
+   },
+   "lead_pn": "610-8800",
+   "images": [
+    {
+     "slug": "caterpillar-345-gc",
+     "tag": "main",
+     "file": "caterpillar-345-gc-travel-gearbox.jpg",
+     "_src": "/tmp/tg/photos/LB行走减速箱照片汇总_26.10.26_1793413732994_d74i/LB-行走减速箱-Caterpillar-E345GC/LB-行走减速箱-Caterpillar-E345GC-001.jpg"
+    },
+    {
+     "slug": "caterpillar-345-gc",
+     "tag": "view2",
+     "file": "caterpillar-345-gc-travel-gearbox-2.jpg",
+     "_src": "/tmp/tg/photos/LB行走减速箱照片汇总_26.10.26_1793413732994_d74i/LB-行走减速箱-Caterpillar-E345GC/LB-行走减速箱-Caterpillar-E345GC-002.jpg"
+    }
+   ],
+   "copy": {
+    "intro": "Sourcing a travel gearbox (travel reduction unit) for the Caterpillar 345 GC excavator. This is the ~45 t class final reduction between the travel motor and the track frame — the unit that carries the machine weight and converts motor speed into track pull. We match it against the OEM number, the machine serial and the tag on the existing gearbox before quoting, because the model name alone does not settle the configuration on these machines.",
+    "sourcing": "Caterpillar undercarriage parts are the deepest aftermarket category in China, with several established manufacturers producing travel reduction units for the mainstream excavator families. We source against the OEM number and the machine serial, not against the model name alone.",
+    "fit_check": "On the Caterpillar 345 GC, four things have to line up before a travel gearbox can be confirmed: the reduction ratio, the travel-motor mounting interface, the sprocket hub pattern, and the track-frame bolt spacing. Any one of them can differ between build years of the same model. Send a photo of the tag on the existing unit together with the machine serial and we verify all four against the factory data sheet.",
+    "pn_heading": "Part numbers for this model",
+    "pn_note": "The numbers below are commonly associated with the Caterpillar 345 GC and help you cross-check the tag on your unit. Match them against your nameplate — or just send us a photo and we will identify the exact part before quoting.",
+    "generation_note": "Caterpillar reuses model numbers across several undercarriage generations, and the travel reduction unit is not carried over between them. A 320 GC and a 320D, or a 325B and a 325C, can share a model name and still take a different gearbox housing, ratio and sprocket hub. Always read the unit against the machine serial, not the model badge.",
+    "application": "excavator travel drive",
+    "ton_class_approx": 45,
+    "band": "GC",
+    "machine_kind": "excavator"
+   },
+   "_pid": "LB-TGB-024"
+  },
+  {
+   "url_path": "/equipment/caterpillar/349/travel-gearboxes/",
+   "title": "Caterpillar 349 Travel Gearbox | Travel Reduction Unit Sourcing",
+   "h1": "Caterpillar 349 Travel Gearbox",
+   "publish_tier": "batch2",
+   "meta_description": "Source a travel gearbox for the Caterpillar 349 excavator. We confirm ratio, motor interface, sprocket hub and frame pattern against the OEM number, serial and nameplate before quoting.",
+   "make_slug": "caterpillar",
+   "make_name": "Caterpillar",
+   "model_slug": "349",
+   "model_name": "349",
+   "model_aliases": [],
+   "serial_note": null,
+   "part_number_groups": {
+    "assembly": [
+     "504-1674",
+     "518-1212",
+     "600-9723"
+    ]
+   },
+   "lead_pn": "504-1674",
+   "images": [
+    {
+     "slug": "caterpillar-349",
+     "tag": "main",
+     "file": "caterpillar-349-travel-gearbox.jpg",
+     "_src": "/tmp/tg/photos/LB行走减速箱照片汇总_26.10.26_1793413732994_d74i/LB-行走减速箱-Caterpillar-CAT-349/LB-行走减速箱-Caterpillar-CAT-349-001.jpg"
+    },
+    {
+     "slug": "caterpillar-349",
+     "tag": "view2",
+     "file": "caterpillar-349-travel-gearbox-2.jpg",
+     "_src": "/tmp/tg/photos/LB行走减速箱照片汇总_26.10.26_1793413732994_d74i/LB-行走减速箱-Caterpillar-CAT-349/LB-行走减速箱-Caterpillar-CAT-349-002.jpg"
+    },
+    {
+     "slug": "caterpillar-349",
+     "tag": "view3",
+     "file": "caterpillar-349-travel-gearbox-3.jpg",
+     "_src": "/tmp/tg/photos/LB行走减速箱照片汇总_26.10.26_1793413732994_d74i/LB-行走减速箱-Caterpillar-CAT-349/LB-行走减速箱-Caterpillar-CAT-349-003.jpg"
+    },
+    {
+     "slug": "caterpillar-349",
+     "tag": "view4",
+     "file": "caterpillar-349-travel-gearbox-4.jpg",
+     "_src": "/tmp/tg/photos/LB行走减速箱照片汇总_26.10.26_1793413732994_d74i/LB-行走减速箱-Caterpillar-CAT-349/LB-行走减速箱-Caterpillar-CAT-349-004.jpg"
+    }
+   ],
+   "copy": {
+    "intro": "Sourcing a travel gearbox (travel reduction unit) for the Caterpillar 349 excavator. This is the ~49 t class final reduction between the travel motor and the track frame — the unit that carries the machine weight and converts motor speed into track pull. We match it against the OEM number, the machine serial and the tag on the existing gearbox before quoting, because the model name alone does not settle the configuration on these machines.",
+    "sourcing": "Caterpillar undercarriage parts are the deepest aftermarket category in China, with several established manufacturers producing travel reduction units for the mainstream excavator families. We source against the OEM number and the machine serial, not against the model name alone.",
+    "fit_check": "On the Caterpillar 349, four things have to line up before a travel gearbox can be confirmed: the reduction ratio, the travel-motor mounting interface, the sprocket hub pattern, and the track-frame bolt spacing. Any one of them can differ between build years of the same model. Send a photo of the tag on the existing unit together with the machine serial and we verify all four against the factory data sheet.",
+    "pn_heading": "Part numbers for this model",
+    "pn_note": "The numbers below are commonly associated with the Caterpillar 349 and help you cross-check the tag on your unit. Match them against your nameplate — or just send us a photo and we will identify the exact part before quoting.",
+    "generation_note": "Caterpillar reuses model numbers across several undercarriage generations, and the travel reduction unit is not carried over between them. A 320 GC and a 320D, or a 325B and a 325C, can share a model name and still take a different gearbox housing, ratio and sprocket hub. Always read the unit against the machine serial, not the model badge.",
+    "application": "excavator travel drive",
+    "ton_class_approx": 49,
+    "band": null,
+    "machine_kind": "excavator"
+   },
+   "_pid": "LB-TGB-002"
+  },
+  {
+   "url_path": "/equipment/caterpillar/349-gc/travel-gearboxes/",
+   "title": "Caterpillar 349 GC Travel Gearbox | Travel Reduction Unit Sourcing",
+   "h1": "Caterpillar 349 GC Travel Gearbox",
+   "publish_tier": "batch2",
+   "meta_description": "Source a travel gearbox for the Caterpillar 349 GC excavator. We confirm ratio, motor interface, sprocket hub and frame pattern against the OEM number, serial and nameplate before quoting.",
+   "make_slug": "caterpillar",
+   "make_name": "Caterpillar",
+   "model_slug": "349-gc",
+   "model_name": "349 GC",
+   "model_aliases": [],
+   "serial_note": null,
+   "part_number_groups": {
+    "assembly": [
+     "650-0172"
+    ]
+   },
+   "lead_pn": "650-0172",
+   "images": [
+    {
+     "slug": "caterpillar-349-gc",
+     "tag": "main",
+     "file": "caterpillar-349-gc-travel-gearbox.jpg",
+     "_src": "/tmp/tg/photos/LB行走减速箱照片汇总_26.10.26_1793413732994_d74i/LB-行走减速箱-Caterpillar-E349GC/LB-行走减速箱-Caterpillar-E349GC-001.jpg"
+    }
+   ],
+   "copy": {
+    "intro": "Sourcing a travel gearbox (travel reduction unit) for the Caterpillar 349 GC excavator. This is the ~49 t class final reduction between the travel motor and the track frame — the unit that carries the machine weight and converts motor speed into track pull. We match it against the OEM number, the machine serial and the tag on the existing gearbox before quoting, because the model name alone does not settle the configuration on these machines.",
+    "sourcing": "Caterpillar undercarriage parts are the deepest aftermarket category in China, with several established manufacturers producing travel reduction units for the mainstream excavator families. We source against the OEM number and the machine serial, not against the model name alone.",
+    "fit_check": "On the Caterpillar 349 GC, four things have to line up before a travel gearbox can be confirmed: the reduction ratio, the travel-motor mounting interface, the sprocket hub pattern, and the track-frame bolt spacing. Any one of them can differ between build years of the same model. Send a photo of the tag on the existing unit together with the machine serial and we verify all four against the factory data sheet.",
+    "pn_heading": "Part numbers for this model",
+    "pn_note": "The numbers below are commonly associated with the Caterpillar 349 GC and help you cross-check the tag on your unit. Match them against your nameplate — or just send us a photo and we will identify the exact part before quoting.",
+    "generation_note": "Caterpillar reuses model numbers across several undercarriage generations, and the travel reduction unit is not carried over between them. A 320 GC and a 320D, or a 325B and a 325C, can share a model name and still take a different gearbox housing, ratio and sprocket hub. Always read the unit against the machine serial, not the model badge.",
+    "application": "excavator travel drive",
+    "ton_class_approx": 49,
+    "band": "GC",
+    "machine_kind": "excavator"
+   },
+   "_pid": "LB-TGB-025"
+  },
+  {
+   "url_path": "/equipment/caterpillar/374d/travel-gearboxes/",
+   "title": "Caterpillar 374D Travel Gearbox | Travel Reduction Unit Sourcing",
+   "h1": "Caterpillar 374D Travel Gearbox",
+   "publish_tier": "batch2",
+   "meta_description": "Source a travel gearbox for the Caterpillar 374D excavator. We confirm ratio, motor interface, sprocket hub and frame pattern against the OEM number, serial and nameplate before quoting.",
+   "make_slug": "caterpillar",
+   "make_name": "Caterpillar",
+   "model_slug": "374d",
+   "model_name": "374D",
+   "model_aliases": [],
+   "serial_note": null,
+   "part_number_groups": {
+    "assembly": [
+     "199-4726"
+    ]
+   },
+   "lead_pn": "199-4726",
+   "images": [
+    {
+     "slug": "caterpillar-374d",
+     "tag": "main",
+     "file": "caterpillar-374d-travel-gearbox.jpg",
+     "_src": "/tmp/tg/photos/LB行走减速箱照片汇总_26.10.26_1793413732994_d74i/LB-行走减速箱-Caterpillar-E374D/LB-行走减速箱-Caterpillar-E374D-001.jpg"
+    },
+    {
+     "slug": "caterpillar-374d",
+     "tag": "view2",
+     "file": "caterpillar-374d-travel-gearbox-2.jpg",
+     "_src": "/tmp/tg/photos/LB行走减速箱照片汇总_26.10.26_1793413732994_d74i/LB-行走减速箱-Caterpillar-E374D/LB-行走减速箱-Caterpillar-E374D-002.jpg"
+    },
+    {
+     "slug": "caterpillar-374d",
+     "tag": "view3",
+     "file": "caterpillar-374d-travel-gearbox-3.jpg",
+     "_src": "/tmp/tg/photos/LB行走减速箱照片汇总_26.10.26_1793413732994_d74i/LB-行走减速箱-Caterpillar-E374D/LB-行走减速箱-Caterpillar-E374D-003.jpg"
+    }
+   ],
+   "copy": {
+    "intro": "Sourcing a travel gearbox (travel reduction unit) for the Caterpillar 374D excavator. This is the ~74 t class final reduction between the travel motor and the track frame — the unit that carries the machine weight and converts motor speed into track pull. We match it against the OEM number, the machine serial and the tag on the existing gearbox before quoting, because the model name alone does not settle the configuration on these machines.",
+    "sourcing": "Caterpillar undercarriage parts are the deepest aftermarket category in China, with several established manufacturers producing travel reduction units for the mainstream excavator families. We source against the OEM number and the machine serial, not against the model name alone.",
+    "fit_check": "On the Caterpillar 374D, four things have to line up before a travel gearbox can be confirmed: the reduction ratio, the travel-motor mounting interface, the sprocket hub pattern, and the track-frame bolt spacing. Any one of them can differ between build years of the same model. Send a photo of the tag on the existing unit together with the machine serial and we verify all four against the factory data sheet.",
+    "pn_heading": "Part numbers for this model",
+    "pn_note": "The numbers below are commonly associated with the Caterpillar 374D and help you cross-check the tag on your unit. Match them against your nameplate — or just send us a photo and we will identify the exact part before quoting.",
+    "generation_note": "Caterpillar reuses model numbers across several undercarriage generations, and the travel reduction unit is not carried over between them. A 320 GC and a 320D, or a 325B and a 325C, can share a model name and still take a different gearbox housing, ratio and sprocket hub. Always read the unit against the machine serial, not the model badge.",
+    "application": "excavator travel drive",
+    "ton_class_approx": 74,
+    "band": "D series",
+    "machine_kind": "excavator"
+   },
+   "_pid": "LB-TGB-026"
+  },
+  {
+   "url_path": "/equipment/caterpillar/385/travel-gearboxes/",
+   "title": "Caterpillar 385 Travel Gearbox | Travel Reduction Unit Sourcing",
+   "h1": "Caterpillar 385 Travel Gearbox",
+   "publish_tier": "batch2",
+   "meta_description": "Source a travel gearbox for the Caterpillar 385 excavator. We confirm ratio, motor interface, sprocket hub and frame pattern against the OEM number, serial and nameplate before quoting.",
+   "make_slug": "caterpillar",
+   "make_name": "Caterpillar",
+   "model_slug": "385",
+   "model_name": "385",
+   "model_aliases": [],
+   "serial_note": null,
+   "part_number_groups": {},
+   "lead_pn": "",
+   "images": [
+    {
+     "slug": "caterpillar-385",
+     "tag": "main",
+     "file": "caterpillar-385-travel-gearbox.jpg",
+     "_src": "/tmp/tg/photos/LB行走减速箱照片汇总_26.10.26_1793413732994_d74i/LB-行走减速箱-Caterpillar-E385/LB-行走减速箱-Caterpillar-E385-001.jpg"
+    },
+    {
+     "slug": "caterpillar-385",
+     "tag": "view2",
+     "file": "caterpillar-385-travel-gearbox-2.jpg",
+     "_src": "/tmp/tg/photos/LB行走减速箱照片汇总_26.10.26_1793413732994_d74i/LB-行走减速箱-Caterpillar-E385/LB-行走减速箱-Caterpillar-E385-002.jpg"
+    }
+   ],
+   "copy": {
+    "intro": "Sourcing a travel gearbox (travel reduction unit) for the Caterpillar 385 excavator. This is the ~85 t class final reduction between the travel motor and the track frame — the unit that carries the machine weight and converts motor speed into track pull. We match it against the OEM number, the machine serial and the tag on the existing gearbox before quoting, because the model name alone does not settle the configuration on these machines.",
+    "sourcing": "Caterpillar undercarriage parts are the deepest aftermarket category in China, with several established manufacturers producing travel reduction units for the mainstream excavator families. We source against the OEM number and the machine serial, not against the model name alone.",
+    "fit_check": "On the Caterpillar 385, four things have to line up before a travel gearbox can be confirmed: the reduction ratio, the travel-motor mounting interface, the sprocket hub pattern, and the track-frame bolt spacing. Any one of them can differ between build years of the same model. Send a photo of the tag on the existing unit together with the machine serial and we verify all four against the factory data sheet.",
+    "pn_heading": "Need the right part number?",
+    "pn_note": "Catalog numbering for the Caterpillar 385 varies by serial number and build region. Send a photo of your travel-motor nameplate and your machine serial number, and we will identify the correct unit for you before quoting.",
+    "generation_note": "Caterpillar reuses model numbers across several undercarriage generations, and the travel reduction unit is not carried over between them. A 320 GC and a 320D, or a 325B and a 325C, can share a model name and still take a different gearbox housing, ratio and sprocket hub. Always read the unit against the machine serial, not the model badge.",
+    "application": "excavator travel drive",
+    "ton_class_approx": 85,
+    "band": null,
+    "machine_kind": "excavator"
+   },
+   "_pid": "LB-TGB-027"
+  },
+  {
+   "url_path": "/equipment/caterpillar/385c/travel-gearboxes/",
+   "title": "Caterpillar 385C Travel Gearbox | Travel Reduction Unit Sourcing",
+   "h1": "Caterpillar 385C Travel Gearbox",
+   "publish_tier": "batch2",
+   "meta_description": "Source a travel gearbox for the Caterpillar 385C excavator. We confirm ratio, motor interface, sprocket hub and frame pattern against the OEM number, serial and nameplate before quoting.",
+   "make_slug": "caterpillar",
+   "make_name": "Caterpillar",
+   "model_slug": "385c",
+   "model_name": "385C",
+   "model_aliases": [],
+   "serial_note": null,
+   "part_number_groups": {},
+   "lead_pn": "",
+   "images": [
+    {
+     "slug": "caterpillar-385c",
+     "tag": "main",
+     "file": "caterpillar-385c-travel-gearbox.jpg",
+     "_src": "/tmp/tg/photos/LB行走减速箱照片汇总_26.10.26_1793413732994_d74i/LB-行走减速箱-Caterpillar-CAT-385C/LB-行走减速箱-Caterpillar-CAT-385C-001.png"
+    }
+   ],
+   "copy": {
+    "intro": "Sourcing a travel gearbox (travel reduction unit) for the Caterpillar 385C excavator. This is the ~85 t class final reduction between the travel motor and the track frame — the unit that carries the machine weight and converts motor speed into track pull. We match it against the OEM number, the machine serial and the tag on the existing gearbox before quoting, because the model name alone does not settle the configuration on these machines.",
+    "sourcing": "Caterpillar undercarriage parts are the deepest aftermarket category in China, with several established manufacturers producing travel reduction units for the mainstream excavator families. We source against the OEM number and the machine serial, not against the model name alone.",
+    "fit_check": "On the Caterpillar 385C, four things have to line up before a travel gearbox can be confirmed: the reduction ratio, the travel-motor mounting interface, the sprocket hub pattern, and the track-frame bolt spacing. Any one of them can differ between build years of the same model. Send a photo of the tag on the existing unit together with the machine serial and we verify all four against the factory data sheet.",
+    "pn_heading": "Need the right part number?",
+    "pn_note": "Catalog numbering for the Caterpillar 385C varies by serial number and build region. Send a photo of your travel-motor nameplate and your machine serial number, and we will identify the correct unit for you before quoting.",
+    "generation_note": "Caterpillar reuses model numbers across several undercarriage generations, and the travel reduction unit is not carried over between them. A 320 GC and a 320D, or a 325B and a 325C, can share a model name and still take a different gearbox housing, ratio and sprocket hub. Always read the unit against the machine serial, not the model badge.",
+    "application": "excavator travel drive",
+    "ton_class_approx": 85,
+    "band": "C series",
+    "machine_kind": "excavator"
+   },
+   "_pid": "LB-TGB-003"
+  },
+  {
+   "url_path": "/equipment/caterpillar/390/travel-gearboxes/",
+   "title": "Caterpillar 390 Travel Gearbox | Travel Reduction Unit Sourcing",
+   "h1": "Caterpillar 390 Travel Gearbox",
+   "publish_tier": "batch2",
+   "meta_description": "Source a travel gearbox for the Caterpillar 390 excavator. We confirm ratio, motor interface, sprocket hub and frame pattern against the OEM number, serial and nameplate before quoting.",
+   "make_slug": "caterpillar",
+   "make_name": "Caterpillar",
+   "model_slug": "390",
+   "model_name": "390",
+   "model_aliases": [],
+   "serial_note": null,
+   "part_number_groups": {},
+   "lead_pn": "",
+   "images": [
+    {
+     "slug": "caterpillar-390",
+     "tag": "main",
+     "file": "caterpillar-390-travel-gearbox.jpg",
+     "_src": "/tmp/tg/photos/LB行走减速箱照片汇总_26.10.26_1793413732994_d74i/LB-行走减速箱-Caterpillar-E390/LB-行走减速箱-Caterpillar-E390-001.jpg"
+    },
+    {
+     "slug": "caterpillar-390",
+     "tag": "view2",
+     "file": "caterpillar-390-travel-gearbox-2.jpg",
+     "_src": "/tmp/tg/photos/LB行走减速箱照片汇总_26.10.26_1793413732994_d74i/LB-行走减速箱-Caterpillar-E390/LB-行走减速箱-Caterpillar-E390-002.jpg"
+    }
+   ],
+   "copy": {
+    "intro": "Sourcing a travel gearbox (travel reduction unit) for the Caterpillar 390 excavator. This is the ~90 t class final reduction between the travel motor and the track frame — the unit that carries the machine weight and converts motor speed into track pull. We match it against the OEM number, the machine serial and the tag on the existing gearbox before quoting, because the model name alone does not settle the configuration on these machines.",
+    "sourcing": "Caterpillar undercarriage parts are the deepest aftermarket category in China, with several established manufacturers producing travel reduction units for the mainstream excavator families. We source against the OEM number and the machine serial, not against the model name alone.",
+    "fit_check": "On the Caterpillar 390, four things have to line up before a travel gearbox can be confirmed: the reduction ratio, the travel-motor mounting interface, the sprocket hub pattern, and the track-frame bolt spacing. Any one of them can differ between build years of the same model. Send a photo of the tag on the existing unit together with the machine serial and we verify all four against the factory data sheet.",
+    "pn_heading": "Need the right part number?",
+    "pn_note": "Catalog numbering for the Caterpillar 390 varies by serial number and build region. Send a photo of your travel-motor nameplate and your machine serial number, and we will identify the correct unit for you before quoting.",
+    "generation_note": "Caterpillar reuses model numbers across several undercarriage generations, and the travel reduction unit is not carried over between them. A 320 GC and a 320D, or a 325B and a 325C, can share a model name and still take a different gearbox housing, ratio and sprocket hub. Always read the unit against the machine serial, not the model badge.",
+    "application": "excavator travel drive",
+    "ton_class_approx": 90,
+    "band": null,
+    "machine_kind": "excavator"
+   },
+   "_pid": "LB-TGB-028"
+  },
+  {
+   "url_path": "/equipment/caterpillar/390d/travel-gearboxes/",
+   "title": "Caterpillar 390D Travel Gearbox | Travel Reduction Unit Sourcing",
+   "h1": "Caterpillar 390D Travel Gearbox",
+   "publish_tier": "batch2",
+   "meta_description": "Source a travel gearbox for the Caterpillar 390D excavator. We confirm ratio, motor interface, sprocket hub and frame pattern against the OEM number, serial and nameplate before quoting.",
+   "make_slug": "caterpillar",
+   "make_name": "Caterpillar",
+   "model_slug": "390d",
+   "model_name": "390D",
+   "model_aliases": [],
+   "serial_note": null,
+   "part_number_groups": {},
+   "lead_pn": "",
+   "images": [
+    {
+     "slug": "caterpillar-390d",
+     "tag": "main",
+     "file": "caterpillar-390d-travel-gearbox.jpg",
+     "_src": "/tmp/tg/photos/LB行走减速箱照片汇总_26.10.26_1793413732994_d74i/LB-行走减速箱-Caterpillar-CAT-390D/LB-行走减速箱-Caterpillar-CAT-390D-002.png"
+    }
+   ],
+   "copy": {
+    "intro": "Sourcing a travel gearbox (travel reduction unit) for the Caterpillar 390D excavator. This is the ~90 t class final reduction between the travel motor and the track frame — the unit that carries the machine weight and converts motor speed into track pull. We match it against the OEM number, the machine serial and the tag on the existing gearbox before quoting, because the model name alone does not settle the configuration on these machines.",
+    "sourcing": "Caterpillar undercarriage parts are the deepest aftermarket category in China, with several established manufacturers producing travel reduction units for the mainstream excavator families. We source against the OEM number and the machine serial, not against the model name alone.",
+    "fit_check": "On the Caterpillar 390D, four things have to line up before a travel gearbox can be confirmed: the reduction ratio, the travel-motor mounting interface, the sprocket hub pattern, and the track-frame bolt spacing. Any one of them can differ between build years of the same model. Send a photo of the tag on the existing unit together with the machine serial and we verify all four against the factory data sheet.",
+    "pn_heading": "Need the right part number?",
+    "pn_note": "Catalog numbering for the Caterpillar 390D varies by serial number and build region. Send a photo of your travel-motor nameplate and your machine serial number, and we will identify the correct unit for you before quoting.",
+    "generation_note": "Caterpillar reuses model numbers across several undercarriage generations, and the travel reduction unit is not carried over between them. A 320 GC and a 320D, or a 325B and a 325C, can share a model name and still take a different gearbox housing, ratio and sprocket hub. Always read the unit against the machine serial, not the model badge.",
+    "application": "excavator travel drive",
+    "ton_class_approx": 90,
+    "band": "D series",
+    "machine_kind": "excavator"
+   },
+   "_pid": "LB-TGB-004"
+  },
+  {
+   "url_path": "/equipment/doosan/dx260/travel-gearboxes/",
+   "title": "Doosan DX260 Travel Gearbox | Travel Reduction Unit Sourcing",
+   "h1": "Doosan DX260 Travel Gearbox",
+   "publish_tier": "batch2",
+   "meta_description": "Source a travel gearbox for the Doosan DX260 excavator. We confirm ratio, motor interface, sprocket hub and frame pattern against the OEM number, serial and nameplate before quoting.",
+   "make_slug": "doosan",
+   "make_name": "Doosan",
+   "model_slug": "dx260",
+   "model_name": "DX260",
+   "model_aliases": [],
+   "serial_note": null,
+   "part_number_groups": {
+    "assembly": [
+     "170402-00029"
+    ]
+   },
+   "lead_pn": "170402-00029",
+   "images": [
+    {
+     "slug": "doosan-dx260",
+     "tag": "main",
+     "file": "doosan-dx260-travel-gearbox.jpg",
+     "_src": "/tmp/tg/photos/LB行走减速箱照片汇总_26.10.26_1793413732994_d74i/LB-行走减速箱-Doosan-DX260/LB-行走减速箱-Doosan-DX260-001.jpg"
+    },
+    {
+     "slug": "doosan-dx260",
+     "tag": "view2",
+     "file": "doosan-dx260-travel-gearbox-2.jpg",
+     "_src": "/tmp/tg/photos/LB行走减速箱照片汇总_26.10.26_1793413732994_d74i/LB-行走减速箱-Doosan-DX260/LB-行走减速箱-Doosan-DX260-003.jpg"
+    }
+   ],
+   "copy": {
+    "intro": "Sourcing a travel gearbox (travel reduction unit) for the Doosan DX260 excavator. This is the ~26 t class final reduction between the travel motor and the track frame — the unit that carries the machine weight and converts motor speed into track pull. We match it against the OEM number, the machine serial and the tag on the existing gearbox before quoting, because the model name alone does not settle the configuration on these machines.",
+    "sourcing": "Doosan and Develon travel devices are widely produced in China, including units built on the original Doosan Mottrol architecture. We source against the OEM number and confirm the generation from the serial plate.",
+    "fit_check": "On the Doosan DX260, four things have to line up before a travel gearbox can be confirmed: the reduction ratio, the travel-motor mounting interface, the sprocket hub pattern, and the track-frame bolt spacing. Any one of them can differ between build years of the same model. Send a photo of the tag on the existing unit together with the machine serial and we verify all four against the factory data sheet.",
+    "pn_heading": "Part numbers for this model",
+    "pn_note": "The numbers below are commonly associated with the Doosan DX260 and help you cross-check the tag on your unit. Match them against your nameplate — or just send us a photo and we will identify the exact part before quoting.",
+    "generation_note": "Doosan (now Develon) changed travel device suppliers between the DX, DX-3, DX-5 and DX-7 generations. The same DX model number can carry a different reduction ratio and motor interface depending on build year and market. Confirm the generation from the serial plate before quoting.",
+    "application": "excavator travel drive",
+    "ton_class_approx": 26,
+    "band": null,
+    "machine_kind": "excavator"
+   },
+   "_pid": "LB-TGB-005"
+  },
+  {
+   "url_path": "/equipment/doosan/dx350/travel-gearboxes/",
+   "title": "Doosan DX350 Travel Gearbox | Travel Reduction Unit Sourcing",
+   "h1": "Doosan DX350 Travel Gearbox",
+   "publish_tier": "batch2",
+   "meta_description": "Source a travel gearbox for the Doosan DX350 excavator. We confirm ratio, motor interface, sprocket hub and frame pattern against the OEM number, serial and nameplate before quoting.",
+   "make_slug": "doosan",
+   "make_name": "Doosan",
+   "model_slug": "dx350",
+   "model_name": "DX350",
+   "model_aliases": [],
+   "serial_note": null,
+   "part_number_groups": {
+    "assembly": [
+     "170402-00022C",
+     "170402-00022",
+     "170402-00022A",
+     "170402-00022B"
+    ]
+   },
+   "lead_pn": "170402-00022C",
+   "images": [
+    {
+     "slug": "doosan-dx350",
+     "tag": "main",
+     "file": "doosan-dx350-travel-gearbox.jpg",
+     "_src": "/tmp/tg/photos/LB行走减速箱照片汇总_26.10.26_1793413732994_d74i/LB-行走减速箱-Doosan-DX350/LB-行走减速箱-Doosan-DX350-001.jpg"
+    },
+    {
+     "slug": "doosan-dx350",
+     "tag": "view2",
+     "file": "doosan-dx350-travel-gearbox-2.jpg",
+     "_src": "/tmp/tg/photos/LB行走减速箱照片汇总_26.10.26_1793413732994_d74i/LB-行走减速箱-Doosan-DX350/LB-行走减速箱-Doosan-DX350-002.jpg"
+    },
+    {
+     "slug": "doosan-dx350",
+     "tag": "view3",
+     "file": "doosan-dx350-travel-gearbox-3.jpg",
+     "_src": "/tmp/tg/photos/LB行走减速箱照片汇总_26.10.26_1793413732994_d74i/LB-行走减速箱-Doosan-DX350/LB-行走减速箱-Doosan-DX350-003.jpg"
+    },
+    {
+     "slug": "doosan-dx350",
+     "tag": "view4",
+     "file": "doosan-dx350-travel-gearbox-4.jpg",
+     "_src": "/tmp/tg/photos/LB行走减速箱照片汇总_26.10.26_1793413732994_d74i/LB-行走减速箱-Doosan-DX350/LB-行走减速箱-Doosan-DX350-004.jpg"
+    }
+   ],
+   "copy": {
+    "intro": "Sourcing a travel gearbox (travel reduction unit) for the Doosan DX350 excavator. This is the ~35 t class final reduction between the travel motor and the track frame — the unit that carries the machine weight and converts motor speed into track pull. We match it against the OEM number, the machine serial and the tag on the existing gearbox before quoting, because the model name alone does not settle the configuration on these machines.",
+    "sourcing": "Doosan and Develon travel devices are widely produced in China, including units built on the original Doosan Mottrol architecture. We source against the OEM number and confirm the generation from the serial plate.",
+    "fit_check": "On the Doosan DX350, four things have to line up before a travel gearbox can be confirmed: the reduction ratio, the travel-motor mounting interface, the sprocket hub pattern, and the track-frame bolt spacing. Any one of them can differ between build years of the same model. Send a photo of the tag on the existing unit together with the machine serial and we verify all four against the factory data sheet.",
+    "pn_heading": "Part numbers for this model",
+    "pn_note": "The numbers below are commonly associated with the Doosan DX350 and help you cross-check the tag on your unit. Match them against your nameplate — or just send us a photo and we will identify the exact part before quoting.",
+    "generation_note": "Doosan (now Develon) changed travel device suppliers between the DX, DX-3, DX-5 and DX-7 generations. The same DX model number can carry a different reduction ratio and motor interface depending on build year and market. Confirm the generation from the serial plate before quoting.",
+    "application": "excavator travel drive",
+    "ton_class_approx": 35,
+    "band": null,
+    "machine_kind": "excavator"
+   },
+   "_pid": "LB-TGB-006"
+  },
+  {
+   "url_path": "/equipment/doosan/dx420lca/travel-gearboxes/",
+   "title": "Doosan DX420LCA Travel Gearbox | Travel Reduction Unit Sourcing",
+   "h1": "Doosan DX420LCA Travel Gearbox",
+   "publish_tier": "batch2",
+   "meta_description": "Source a travel gearbox for the Doosan DX420LCA excavator. We confirm ratio, motor interface, sprocket hub and frame pattern against the OEM number, serial and nameplate before quoting.",
+   "make_slug": "doosan",
+   "make_name": "Doosan",
+   "model_slug": "dx420lca",
+   "model_name": "DX420LCA",
+   "model_aliases": [],
+   "serial_note": null,
+   "part_number_groups": {
+    "assembly": [
+     "170402-00025",
+     "170402-00025A",
+     "170402-00025B",
+     "170402-00025D"
+    ]
+   },
+   "lead_pn": "170402-00025",
+   "images": [
+    {
+     "slug": "doosan-dx420lca",
+     "tag": "main",
+     "file": "doosan-dx420lca-travel-gearbox.jpg",
+     "_src": "/tmp/tg/photos/LB行走减速箱照片汇总_26.10.26_1793413732994_d74i/LB-行走减速箱-Doosan-DX420LCA/LB-行走减速箱-Doosan-DX420LCA-001.jpg"
+    }
+   ],
+   "copy": {
+    "intro": "Sourcing a travel gearbox (travel reduction unit) for the Doosan DX420LCA excavator. This is the ~42 t class final reduction between the travel motor and the track frame — the unit that carries the machine weight and converts motor speed into track pull. We match it against the OEM number, the machine serial and the tag on the existing gearbox before quoting, because the model name alone does not settle the configuration on these machines.",
+    "sourcing": "Doosan and Develon travel devices are widely produced in China, including units built on the original Doosan Mottrol architecture. We source against the OEM number and confirm the generation from the serial plate.",
+    "fit_check": "On the Doosan DX420LCA, four things have to line up before a travel gearbox can be confirmed: the reduction ratio, the travel-motor mounting interface, the sprocket hub pattern, and the track-frame bolt spacing. Any one of them can differ between build years of the same model. Send a photo of the tag on the existing unit together with the machine serial and we verify all four against the factory data sheet.",
+    "pn_heading": "Part numbers for this model",
+    "pn_note": "The numbers below are commonly associated with the Doosan DX420LCA and help you cross-check the tag on your unit. Match them against your nameplate — or just send us a photo and we will identify the exact part before quoting.",
+    "generation_note": "Doosan (now Develon) changed travel device suppliers between the DX, DX-3, DX-5 and DX-7 generations. The same DX model number can carry a different reduction ratio and motor interface depending on build year and market. Confirm the generation from the serial plate before quoting.",
+    "application": "excavator travel drive",
+    "ton_class_approx": 42,
+    "band": "LCA",
+    "machine_kind": "excavator"
+   },
+   "_pid": "LB-TGB-007"
+  },
+  {
+   "url_path": "/equipment/doosan/dx800/travel-gearboxes/",
+   "title": "Doosan DX800 Travel Gearbox | Travel Reduction Unit Sourcing",
+   "h1": "Doosan DX800 Travel Gearbox",
+   "publish_tier": "batch2",
+   "meta_description": "Source a travel gearbox for the Doosan DX800 excavator. We confirm ratio, motor interface, sprocket hub and frame pattern against the OEM number, serial and nameplate before quoting.",
+   "make_slug": "doosan",
+   "make_name": "Doosan",
+   "model_slug": "dx800",
+   "model_name": "DX800",
+   "model_aliases": [],
+   "serial_note": null,
+   "part_number_groups": {},
+   "lead_pn": "",
+   "images": [
+    {
+     "slug": "doosan-dx800",
+     "tag": "main",
+     "file": "doosan-dx800-travel-gearbox.jpg",
+     "_src": "/tmp/tg/photos/LB行走减速箱照片汇总_26.10.26_1793413732994_d74i/LB-行走减速箱-Doosan-DX800/LB-行走减速箱-Doosan-DX800-001.jpg"
+    },
+    {
+     "slug": "doosan-dx800",
+     "tag": "view2",
+     "file": "doosan-dx800-travel-gearbox-2.jpg",
+     "_src": "/tmp/tg/photos/LB行走减速箱照片汇总_26.10.26_1793413732994_d74i/LB-行走减速箱-Doosan-DX800/LB-行走减速箱-Doosan-DX800-002.jpg"
+    },
+    {
+     "slug": "doosan-dx800",
+     "tag": "view3",
+     "file": "doosan-dx800-travel-gearbox-3.jpg",
+     "_src": "/tmp/tg/photos/LB行走减速箱照片汇总_26.10.26_1793413732994_d74i/LB-行走减速箱-Doosan-DX800/LB-行走减速箱-Doosan-DX800-003.jpg"
+    }
+   ],
+   "copy": {
+    "intro": "Sourcing a travel gearbox (travel reduction unit) for the Doosan DX800 excavator. This is the ~80 t class final reduction between the travel motor and the track frame — the unit that carries the machine weight and converts motor speed into track pull. We match it against the OEM number, the machine serial and the tag on the existing gearbox before quoting, because the model name alone does not settle the configuration on these machines.",
+    "sourcing": "Doosan and Develon travel devices are widely produced in China, including units built on the original Doosan Mottrol architecture. We source against the OEM number and confirm the generation from the serial plate.",
+    "fit_check": "On the Doosan DX800, four things have to line up before a travel gearbox can be confirmed: the reduction ratio, the travel-motor mounting interface, the sprocket hub pattern, and the track-frame bolt spacing. Any one of them can differ between build years of the same model. Send a photo of the tag on the existing unit together with the machine serial and we verify all four against the factory data sheet.",
+    "pn_heading": "Need the right part number?",
+    "pn_note": "Catalog numbering for the Doosan DX800 varies by serial number and build region. Send a photo of your travel-motor nameplate and your machine serial number, and we will identify the correct unit for you before quoting.",
+    "generation_note": "Doosan (now Develon) changed travel device suppliers between the DX, DX-3, DX-5 and DX-7 generations. The same DX model number can carry a different reduction ratio and motor interface depending on build year and market. Confirm the generation from the serial plate before quoting.",
+    "application": "excavator travel drive",
+    "ton_class_approx": 80,
+    "band": null,
+    "machine_kind": "excavator"
+   },
+   "_pid": "LB-TGB-010"
+  },
+  {
+   "url_path": "/equipment/hitachi/ex30/travel-gearboxes/",
+   "title": "Hitachi EX30 Travel Gearbox | Travel Reduction Unit Sourcing",
+   "h1": "Hitachi EX30 Travel Gearbox",
+   "publish_tier": "batch2",
+   "meta_description": "Source a travel gearbox for the Hitachi EX30 mini excavator. We confirm ratio, motor interface, sprocket hub and frame pattern against the OEM number, serial and nameplate before quoting.",
+   "make_slug": "hitachi",
+   "make_name": "Hitachi",
+   "model_slug": "ex30",
+   "model_name": "EX30",
+   "model_aliases": [],
+   "serial_note": null,
+   "part_number_groups": {},
+   "lead_pn": "",
+   "images": [
+    {
+     "slug": "hitachi-ex30",
+     "tag": "main",
+     "file": "hitachi-ex30-travel-gearbox.jpg",
+     "_src": "/tmp/tg/photos/LB行走减速箱照片汇总_26.10.26_1793413732994_d74i/LB-行走减速箱-Hitachi-EX30/LB-行走减速箱-Hitachi-EX30-001.jpg"
+    }
+   ],
+   "copy": {
+    "intro": "Sourcing a travel gearbox (travel reduction unit) for the Hitachi EX30 mini excavator. This is the ~3 t class final reduction between the travel motor and the track frame — the unit that carries the machine weight and converts motor speed into track pull. We match it against the OEM number, the machine serial and the tag on the existing gearbox before quoting, because the model name alone does not settle the configuration on these machines.",
+    "sourcing": "Hitachi EX and ZX travel devices are among the most commonly produced aftermarket units in China, including factory equivalents for the older EX generation. We confirm the dash number from the serial before quoting.",
+    "fit_check": "On the Hitachi EX30, four things have to line up before a travel gearbox can be confirmed: the reduction ratio, the travel-motor mounting interface, the sprocket hub pattern, and the track-frame bolt spacing. Any one of them can differ between build years of the same model. Send a photo of the tag on the existing unit together with the machine serial and we verify all four against the factory data sheet.",
+    "pn_heading": "Need the right part number?",
+    "pn_note": "Catalog numbering for the Hitachi EX30 varies by serial number and build region. Send a photo of your travel-motor nameplate and your machine serial number, and we will identify the correct unit for you before quoting.",
+    "generation_note": "Hitachi moved from the EX to the ZX series, and each dash number within a series brought its own travel device. EX200-1, EX200-2, EX200-3 and EX200-5 do not share a gearbox, and the ZX generation is a different family again. Match on the serial, not on the model prefix.",
+    "application": "mini excavator travel drive",
+    "ton_class_approx": 3,
+    "band": null,
+    "machine_kind": "mini excavator"
+   },
+   "_pid": "LB-TGB-033"
+  },
+  {
+   "url_path": "/equipment/hitachi/ex60-1/travel-gearboxes/",
+   "title": "Hitachi EX60-1 Travel Gearbox | Travel Reduction Unit Sourcing",
+   "h1": "Hitachi EX60-1 Travel Gearbox",
+   "publish_tier": "batch2",
+   "meta_description": "Source a travel gearbox for the Hitachi EX60-1 excavator. We confirm ratio, motor interface, sprocket hub and frame pattern against the OEM number, serial and nameplate before quoting.",
+   "make_slug": "hitachi",
+   "make_name": "Hitachi",
+   "model_slug": "ex60-1",
+   "model_name": "EX60-1",
+   "model_aliases": [],
+   "serial_note": null,
+   "part_number_groups": {},
+   "lead_pn": "",
+   "images": [
+    {
+     "slug": "hitachi-ex60-1",
+     "tag": "main",
+     "file": "hitachi-ex60-1-travel-gearbox.jpg",
+     "_src": "/tmp/tg/photos/LB行走减速箱照片汇总_26.10.26_1793413732994_d74i/LB-行走减速箱-Hitachi-EX60-1/LB-行走减速箱-Hitachi-EX60-1-001.jpg"
+    },
+    {
+     "slug": "hitachi-ex60-1",
+     "tag": "view2",
+     "file": "hitachi-ex60-1-travel-gearbox-2.jpg",
+     "_src": "/tmp/tg/photos/LB行走减速箱照片汇总_26.10.26_1793413732994_d74i/LB-行走减速箱-Hitachi-EX60-1/LB-行走减速箱-Hitachi-EX60-1-002.jpg"
+    }
+   ],
+   "copy": {
+    "intro": "Sourcing a travel gearbox (travel reduction unit) for the Hitachi EX60-1 excavator. This is the ~6 t class final reduction between the travel motor and the track frame — the unit that carries the machine weight and converts motor speed into track pull. We match it against the OEM number, the machine serial and the tag on the existing gearbox before quoting, because the model name alone does not settle the configuration on these machines.",
+    "sourcing": "Hitachi EX and ZX travel devices are among the most commonly produced aftermarket units in China, including factory equivalents for the older EX generation. We confirm the dash number from the serial before quoting.",
+    "fit_check": "On the Hitachi EX60-1, four things have to line up before a travel gearbox can be confirmed: the reduction ratio, the travel-motor mounting interface, the sprocket hub pattern, and the track-frame bolt spacing. Any one of them can differ between build years of the same model. Send a photo of the tag on the existing unit together with the machine serial and we verify all four against the factory data sheet.",
+    "pn_heading": "Need the right part number?",
+    "pn_note": "Catalog numbering for the Hitachi EX60-1 varies by serial number and build region. Send a photo of your travel-motor nameplate and your machine serial number, and we will identify the correct unit for you before quoting.",
+    "generation_note": "Hitachi moved from the EX to the ZX series, and each dash number within a series brought its own travel device. EX200-1, EX200-2, EX200-3 and EX200-5 do not share a gearbox, and the ZX generation is a different family again. Match on the serial, not on the model prefix.",
+    "application": "excavator travel drive",
+    "ton_class_approx": 6,
+    "band": "Dash-1",
+    "machine_kind": "excavator"
+   },
+   "_pid": "LB-TGB-034"
+  },
+  {
+   "url_path": "/equipment/hitachi/ex100-1/travel-gearboxes/",
+   "title": "Hitachi EX100-1 Travel Gearbox | Travel Reduction Unit Sourcing",
+   "h1": "Hitachi EX100-1 Travel Gearbox",
+   "publish_tier": "batch2",
+   "meta_description": "Source a travel gearbox for the Hitachi EX100-1 excavator. We confirm ratio, motor interface, sprocket hub and frame pattern against the OEM number, serial and nameplate before quoting.",
+   "make_slug": "hitachi",
+   "make_name": "Hitachi",
+   "model_slug": "ex100-1",
+   "model_name": "EX100-1",
+   "model_aliases": [],
+   "serial_note": null,
+   "part_number_groups": {},
+   "lead_pn": "",
+   "images": [
+    {
+     "slug": "hitachi-ex100-1",
+     "tag": "main",
+     "file": "hitachi-ex100-1-travel-gearbox.jpg",
+     "_src": "/tmp/tg/photos/LB行走减速箱照片汇总_26.10.26_1793413732994_d74i/LB-行走减速箱-Hitachi-EX100-1/LB-行走减速箱-Hitachi-EX100-1-001.jpg"
+    }
+   ],
+   "copy": {
+    "intro": "Sourcing a travel gearbox (travel reduction unit) for the Hitachi EX100-1 excavator. This is the ~10 t class final reduction between the travel motor and the track frame — the unit that carries the machine weight and converts motor speed into track pull. We match it against the OEM number, the machine serial and the tag on the existing gearbox before quoting, because the model name alone does not settle the configuration on these machines.",
+    "sourcing": "Hitachi EX and ZX travel devices are among the most commonly produced aftermarket units in China, including factory equivalents for the older EX generation. We confirm the dash number from the serial before quoting.",
+    "fit_check": "On the Hitachi EX100-1, four things have to line up before a travel gearbox can be confirmed: the reduction ratio, the travel-motor mounting interface, the sprocket hub pattern, and the track-frame bolt spacing. Any one of them can differ between build years of the same model. Send a photo of the tag on the existing unit together with the machine serial and we verify all four against the factory data sheet.",
+    "pn_heading": "Need the right part number?",
+    "pn_note": "Catalog numbering for the Hitachi EX100-1 varies by serial number and build region. Send a photo of your travel-motor nameplate and your machine serial number, and we will identify the correct unit for you before quoting.",
+    "generation_note": "Hitachi moved from the EX to the ZX series, and each dash number within a series brought its own travel device. EX200-1, EX200-2, EX200-3 and EX200-5 do not share a gearbox, and the ZX generation is a different family again. Match on the serial, not on the model prefix.",
+    "application": "excavator travel drive",
+    "ton_class_approx": 10,
+    "band": "Dash-1",
+    "machine_kind": "excavator"
+   },
+   "_pid": "LB-TGB-035"
+  },
+  {
+   "url_path": "/equipment/hitachi/zx120/travel-gearboxes/",
+   "title": "Hitachi ZX120 Travel Gearbox | Travel Reduction Unit Sourcing",
+   "h1": "Hitachi ZX120 Travel Gearbox",
+   "publish_tier": "batch2",
+   "meta_description": "Source a travel gearbox for the Hitachi ZX120 excavator. We confirm ratio, motor interface, sprocket hub and frame pattern against the OEM number, serial and nameplate before quoting.",
+   "make_slug": "hitachi",
+   "make_name": "Hitachi",
+   "model_slug": "zx120",
+   "model_name": "ZX120",
+   "model_aliases": [],
+   "serial_note": null,
+   "part_number_groups": {
+    "assembly": [
+     "9180731NM"
+    ]
+   },
+   "lead_pn": "9180731NM",
+   "images": [
+    {
+     "slug": "hitachi-zx120",
+     "tag": "main",
+     "file": "hitachi-zx120-travel-gearbox.jpg",
+     "_src": "/tmp/tg/photos/LB行走减速箱照片汇总_26.10.26_1793413732994_d74i/LB-行走减速箱-Hitachi-ZX120/LB-行走减速箱-Hitachi-ZX120-001.jpg"
+    }
+   ],
+   "copy": {
+    "intro": "Sourcing a travel gearbox (travel reduction unit) for the Hitachi ZX120 excavator. This is the ~12 t class final reduction between the travel motor and the track frame — the unit that carries the machine weight and converts motor speed into track pull. We match it against the OEM number, the machine serial and the tag on the existing gearbox before quoting, because the model name alone does not settle the configuration on these machines.",
+    "sourcing": "Hitachi EX and ZX travel devices are among the most commonly produced aftermarket units in China, including factory equivalents for the older EX generation. We confirm the dash number from the serial before quoting.",
+    "fit_check": "On the Hitachi ZX120, four things have to line up before a travel gearbox can be confirmed: the reduction ratio, the travel-motor mounting interface, the sprocket hub pattern, and the track-frame bolt spacing. Any one of them can differ between build years of the same model. Send a photo of the tag on the existing unit together with the machine serial and we verify all four against the factory data sheet.",
+    "pn_heading": "Part numbers for this model",
+    "pn_note": "The numbers below are commonly associated with the Hitachi ZX120 and help you cross-check the tag on your unit. Match them against your nameplate — or just send us a photo and we will identify the exact part before quoting.",
+    "generation_note": "Hitachi moved from the EX to the ZX series, and each dash number within a series brought its own travel device. EX200-1, EX200-2, EX200-3 and EX200-5 do not share a gearbox, and the ZX generation is a different family again. Match on the serial, not on the model prefix.",
+    "application": "excavator travel drive",
+    "ton_class_approx": 12,
+    "band": null,
+    "machine_kind": "excavator"
+   },
+   "_pid": "LB-TGB-063"
+  },
+  {
+   "url_path": "/equipment/hitachi/zx135us/travel-gearboxes/",
+   "title": "Hitachi ZX135US Travel Gearbox | Travel Reduction Unit Sourcing",
+   "h1": "Hitachi ZX135US Travel Gearbox",
+   "publish_tier": "batch2",
+   "meta_description": "Source a travel gearbox for the Hitachi ZX135US excavator. We confirm ratio, motor interface, sprocket hub and frame pattern against the OEM number, serial and nameplate before quoting.",
+   "make_slug": "hitachi",
+   "make_name": "Hitachi",
+   "model_slug": "zx135us",
+   "model_name": "ZX135US",
+   "model_aliases": [],
+   "serial_note": null,
+   "part_number_groups": {},
+   "lead_pn": "",
+   "images": [
+    {
+     "slug": "hitachi-zx135us",
+     "tag": "main",
+     "file": "hitachi-zx135us-travel-gearbox.jpg",
+     "_src": "/tmp/tg/photos/LB行走减速箱照片汇总_26.10.26_1793413732994_d74i/LB-行走减速箱-Hitachi-ZX135us/LB-行走减速箱-Hitachi-ZX135us-001.jpg"
+    },
+    {
+     "slug": "hitachi-zx135us",
+     "tag": "view2",
+     "file": "hitachi-zx135us-travel-gearbox-2.jpg",
+     "_src": "/tmp/tg/photos/LB行走减速箱照片汇总_26.10.26_1793413732994_d74i/LB-行走减速箱-Hitachi-ZX135us/LB-行走减速箱-Hitachi-ZX135us-002.jpg"
+    },
+    {
+     "slug": "hitachi-zx135us",
+     "tag": "view3",
+     "file": "hitachi-zx135us-travel-gearbox-3.jpg",
+     "_src": "/tmp/tg/photos/LB行走减速箱照片汇总_26.10.26_1793413732994_d74i/LB-行走减速箱-Hitachi-ZX135us/LB-行走减速箱-Hitachi-ZX135us-003.jpg"
+    }
+   ],
+   "copy": {
+    "intro": "Sourcing a travel gearbox (travel reduction unit) for the Hitachi ZX135US excavator. This is the ~13.5 t class final reduction between the travel motor and the track frame — the unit that carries the machine weight and converts motor speed into track pull. We match it against the OEM number, the machine serial and the tag on the existing gearbox before quoting, because the model name alone does not settle the configuration on these machines.",
+    "sourcing": "Hitachi EX and ZX travel devices are among the most commonly produced aftermarket units in China, including factory equivalents for the older EX generation. We confirm the dash number from the serial before quoting.",
+    "fit_check": "On the Hitachi ZX135US, four things have to line up before a travel gearbox can be confirmed: the reduction ratio, the travel-motor mounting interface, the sprocket hub pattern, and the track-frame bolt spacing. Any one of them can differ between build years of the same model. Send a photo of the tag on the existing unit together with the machine serial and we verify all four against the factory data sheet.",
+    "pn_heading": "Need the right part number?",
+    "pn_note": "Catalog numbering for the Hitachi ZX135US varies by serial number and build region. Send a photo of your travel-motor nameplate and your machine serial number, and we will identify the correct unit for you before quoting.",
+    "generation_note": "Hitachi moved from the EX to the ZX series, and each dash number within a series brought its own travel device. EX200-1, EX200-2, EX200-3 and EX200-5 do not share a gearbox, and the ZX generation is a different family again. Match on the serial, not on the model prefix.",
+    "application": "excavator travel drive",
+    "ton_class_approx": 13.5,
+    "band": "US reduced tail",
+    "machine_kind": "excavator"
+   },
+   "_pid": "LB-TGB-064"
+  },
+  {
+   "url_path": "/equipment/hitachi/ex200-1/travel-gearboxes/",
+   "title": "Hitachi EX200-1 Travel Gearbox | Travel Reduction Unit Sourcing",
+   "h1": "Hitachi EX200-1 Travel Gearbox",
+   "publish_tier": "batch2",
+   "meta_description": "Source a travel gearbox for the Hitachi EX200-1 excavator. We confirm ratio, motor interface, sprocket hub and frame pattern against the OEM number, serial and nameplate before quoting.",
+   "make_slug": "hitachi",
+   "make_name": "Hitachi",
+   "model_slug": "ex200-1",
+   "model_name": "EX200-1",
+   "model_aliases": [],
+   "serial_note": null,
+   "part_number_groups": {
+    "assembly": [
+     "9066008NMO"
+    ]
+   },
+   "lead_pn": "9066008NMO",
+   "images": [
+    {
+     "slug": "hitachi-ex200-1",
+     "tag": "main",
+     "file": "hitachi-ex200-1-travel-gearbox.jpg",
+     "_src": "/tmp/tg/photos/LB行走减速箱照片汇总_26.10.26_1793413732994_d74i/LB-行走减速箱-Hitachi-EX200-1/LB-行走减速箱-Hitachi-EX200-1-002.jpg"
+    }
+   ],
+   "copy": {
+    "intro": "Sourcing a travel gearbox (travel reduction unit) for the Hitachi EX200-1 excavator. This is the ~20 t class final reduction between the travel motor and the track frame — the unit that carries the machine weight and converts motor speed into track pull. We match it against the OEM number, the machine serial and the tag on the existing gearbox before quoting, because the model name alone does not settle the configuration on these machines.",
+    "sourcing": "Hitachi EX and ZX travel devices are among the most commonly produced aftermarket units in China, including factory equivalents for the older EX generation. We confirm the dash number from the serial before quoting.",
+    "fit_check": "On the Hitachi EX200-1, four things have to line up before a travel gearbox can be confirmed: the reduction ratio, the travel-motor mounting interface, the sprocket hub pattern, and the track-frame bolt spacing. Any one of them can differ between build years of the same model. Send a photo of the tag on the existing unit together with the machine serial and we verify all four against the factory data sheet.",
+    "pn_heading": "Part numbers for this model",
+    "pn_note": "The numbers below are commonly associated with the Hitachi EX200-1 and help you cross-check the tag on your unit. Match them against your nameplate — or just send us a photo and we will identify the exact part before quoting.",
+    "generation_note": "Hitachi moved from the EX to the ZX series, and each dash number within a series brought its own travel device. EX200-1, EX200-2, EX200-3 and EX200-5 do not share a gearbox, and the ZX generation is a different family again. Match on the serial, not on the model prefix.",
+    "application": "excavator travel drive",
+    "ton_class_approx": 20,
+    "band": "Dash-1",
+    "machine_kind": "excavator"
+   },
+   "_pid": "LB-TGB-036"
+  },
+  {
+   "url_path": "/equipment/hitachi/zx670/travel-gearboxes/",
+   "title": "Hitachi ZX670 Travel Gearbox | Travel Reduction Unit Sourcing",
+   "h1": "Hitachi ZX670 Travel Gearbox",
+   "publish_tier": "batch2",
+   "meta_description": "Source a travel gearbox for the Hitachi ZX670 excavator. We confirm ratio, motor interface, sprocket hub and frame pattern against the OEM number, serial and nameplate before quoting.",
+   "make_slug": "hitachi",
+   "make_name": "Hitachi",
+   "model_slug": "zx670",
+   "model_name": "ZX670",
+   "model_aliases": [],
+   "serial_note": null,
+   "part_number_groups": {
+    "assembly": [
+     "4641493"
+    ]
+   },
+   "lead_pn": "4641493",
+   "images": [
+    {
+     "slug": "hitachi-zx670",
+     "tag": "main",
+     "file": "hitachi-zx670-travel-gearbox.jpg",
+     "_src": "/tmp/tg/photos/LB行走减速箱照片汇总_26.10.26_1793413732994_d74i/LB-行走减速箱-Hitachi-ZX670/LB-行走减速箱-Hitachi-ZX670-001.jpg"
+    },
+    {
+     "slug": "hitachi-zx670",
+     "tag": "view2",
+     "file": "hitachi-zx670-travel-gearbox-2.jpg",
+     "_src": "/tmp/tg/photos/LB行走减速箱照片汇总_26.10.26_1793413732994_d74i/LB-行走减速箱-Hitachi-ZX670/LB-行走减速箱-Hitachi-ZX670-002.jpg"
+    },
+    {
+     "slug": "hitachi-zx670",
+     "tag": "view3",
+     "file": "hitachi-zx670-travel-gearbox-3.jpg",
+     "_src": "/tmp/tg/photos/LB行走减速箱照片汇总_26.10.26_1793413732994_d74i/LB-行走减速箱-Hitachi-ZX670/LB-行走减速箱-Hitachi-ZX670-003.jpg"
+    },
+    {
+     "slug": "hitachi-zx670",
+     "tag": "view4",
+     "file": "hitachi-zx670-travel-gearbox-4.jpg",
+     "_src": "/tmp/tg/photos/LB行走减速箱照片汇总_26.10.26_1793413732994_d74i/LB-行走减速箱-Hitachi-ZX670/LB-行走减速箱-Hitachi-ZX670-004.jpg"
+    }
+   ],
+   "copy": {
+    "intro": "Sourcing a travel gearbox (travel reduction unit) for the Hitachi ZX670 excavator. This is the ~67 t class final reduction between the travel motor and the track frame — the unit that carries the machine weight and converts motor speed into track pull. We match it against the OEM number, the machine serial and the tag on the existing gearbox before quoting, because the model name alone does not settle the configuration on these machines.",
+    "sourcing": "Hitachi EX and ZX travel devices are among the most commonly produced aftermarket units in China, including factory equivalents for the older EX generation. We confirm the dash number from the serial before quoting.",
+    "fit_check": "On the Hitachi ZX670, four things have to line up before a travel gearbox can be confirmed: the reduction ratio, the travel-motor mounting interface, the sprocket hub pattern, and the track-frame bolt spacing. Any one of them can differ between build years of the same model. Send a photo of the tag on the existing unit together with the machine serial and we verify all four against the factory data sheet.",
+    "pn_heading": "Part numbers for this model",
+    "pn_note": "The numbers below are commonly associated with the Hitachi ZX670 and help you cross-check the tag on your unit. Match them against your nameplate — or just send us a photo and we will identify the exact part before quoting.",
+    "generation_note": "Hitachi moved from the EX to the ZX series, and each dash number within a series brought its own travel device. EX200-1, EX200-2, EX200-3 and EX200-5 do not share a gearbox, and the ZX generation is a different family again. Match on the serial, not on the model prefix.",
+    "application": "excavator travel drive",
+    "ton_class_approx": 67,
+    "band": null,
+    "machine_kind": "excavator"
+   },
+   "_pid": "LB-TGB-065"
+  },
+  {
+   "url_path": "/equipment/hitachi/ex800-1/travel-gearboxes/",
+   "title": "Hitachi EX800-1 Travel Gearbox | Travel Reduction Unit Sourcing",
+   "h1": "Hitachi EX800-1 Travel Gearbox",
+   "publish_tier": "batch2",
+   "meta_description": "Source a travel gearbox for the Hitachi EX800-1 excavator. We confirm ratio, motor interface, sprocket hub and frame pattern against the OEM number, serial and nameplate before quoting.",
+   "make_slug": "hitachi",
+   "make_name": "Hitachi",
+   "model_slug": "ex800-1",
+   "model_name": "EX800-1",
+   "model_aliases": [],
+   "serial_note": null,
+   "part_number_groups": {},
+   "lead_pn": "",
+   "images": [
+    {
+     "slug": "hitachi-ex800-1",
+     "tag": "main",
+     "file": "hitachi-ex800-1-travel-gearbox.jpg",
+     "_src": "/tmp/tg/photos/LB行走减速箱照片汇总_26.10.26_1793413732994_d74i/LB-行走减速箱-Hitachi-EX800-1/LB-行走减速箱-Hitachi-EX800-1-001.jpg"
+    },
+    {
+     "slug": "hitachi-ex800-1",
+     "tag": "view2",
+     "file": "hitachi-ex800-1-travel-gearbox-2.jpg",
+     "_src": "/tmp/tg/photos/LB行走减速箱照片汇总_26.10.26_1793413732994_d74i/LB-行走减速箱-Hitachi-EX800-1/LB-行走减速箱-Hitachi-EX800-1-002.jpg"
+    }
+   ],
+   "copy": {
+    "intro": "Sourcing a travel gearbox (travel reduction unit) for the Hitachi EX800-1 excavator. This is the ~80 t class final reduction between the travel motor and the track frame — the unit that carries the machine weight and converts motor speed into track pull. We match it against the OEM number, the machine serial and the tag on the existing gearbox before quoting, because the model name alone does not settle the configuration on these machines.",
+    "sourcing": "Hitachi EX and ZX travel devices are among the most commonly produced aftermarket units in China, including factory equivalents for the older EX generation. We confirm the dash number from the serial before quoting.",
+    "fit_check": "On the Hitachi EX800-1, four things have to line up before a travel gearbox can be confirmed: the reduction ratio, the travel-motor mounting interface, the sprocket hub pattern, and the track-frame bolt spacing. Any one of them can differ between build years of the same model. Send a photo of the tag on the existing unit together with the machine serial and we verify all four against the factory data sheet.",
+    "pn_heading": "Need the right part number?",
+    "pn_note": "Catalog numbering for the Hitachi EX800-1 varies by serial number and build region. Send a photo of your travel-motor nameplate and your machine serial number, and we will identify the correct unit for you before quoting.",
+    "generation_note": "Hitachi moved from the EX to the ZX series, and each dash number within a series brought its own travel device. EX200-1, EX200-2, EX200-3 and EX200-5 do not share a gearbox, and the ZX generation is a different family again. Match on the serial, not on the model prefix.",
+    "application": "excavator travel drive",
+    "ton_class_approx": 80,
+    "band": "Dash-1",
+    "machine_kind": "excavator"
+   },
+   "_pid": "LB-TGB-037"
+  },
+  {
+   "url_path": "/equipment/hitachi/ex950/travel-gearboxes/",
+   "title": "Hitachi EX950 Travel Gearbox | Travel Reduction Unit Sourcing",
+   "h1": "Hitachi EX950 Travel Gearbox",
+   "publish_tier": "batch2",
+   "meta_description": "Source a travel gearbox for the Hitachi EX950 excavator. We confirm ratio, motor interface, sprocket hub and frame pattern against the OEM number, serial and nameplate before quoting.",
+   "make_slug": "hitachi",
+   "make_name": "Hitachi",
+   "model_slug": "ex950",
+   "model_name": "EX950",
+   "model_aliases": [],
+   "serial_note": null,
+   "part_number_groups": {},
+   "lead_pn": "",
+   "images": [
+    {
+     "slug": "hitachi-ex950",
+     "tag": "main",
+     "file": "hitachi-ex950-travel-gearbox.jpg",
+     "_src": "/tmp/tg/photos/LB行走减速箱照片汇总_26.10.26_1793413732994_d74i/LB-行走减速箱-Hitachi-EX950/LB-行走减速箱-Hitachi-EX950-001.jpg"
+    },
+    {
+     "slug": "hitachi-ex950",
+     "tag": "view2",
+     "file": "hitachi-ex950-travel-gearbox-2.jpg",
+     "_src": "/tmp/tg/photos/LB行走减速箱照片汇总_26.10.26_1793413732994_d74i/LB-行走减速箱-Hitachi-EX950/LB-行走减速箱-Hitachi-EX950-002.jpg"
+    }
+   ],
+   "copy": {
+    "intro": "Sourcing a travel gearbox (travel reduction unit) for the Hitachi EX950 excavator. This is the ~95 t class final reduction between the travel motor and the track frame — the unit that carries the machine weight and converts motor speed into track pull. We match it against the OEM number, the machine serial and the tag on the existing gearbox before quoting, because the model name alone does not settle the configuration on these machines.",
+    "sourcing": "Hitachi EX and ZX travel devices are among the most commonly produced aftermarket units in China, including factory equivalents for the older EX generation. We confirm the dash number from the serial before quoting.",
+    "fit_check": "On the Hitachi EX950, four things have to line up before a travel gearbox can be confirmed: the reduction ratio, the travel-motor mounting interface, the sprocket hub pattern, and the track-frame bolt spacing. Any one of them can differ between build years of the same model. Send a photo of the tag on the existing unit together with the machine serial and we verify all four against the factory data sheet.",
+    "pn_heading": "Need the right part number?",
+    "pn_note": "Catalog numbering for the Hitachi EX950 varies by serial number and build region. Send a photo of your travel-motor nameplate and your machine serial number, and we will identify the correct unit for you before quoting.",
+    "generation_note": "Hitachi moved from the EX to the ZX series, and each dash number within a series brought its own travel device. EX200-1, EX200-2, EX200-3 and EX200-5 do not share a gearbox, and the ZX generation is a different family again. Match on the serial, not on the model prefix.",
+    "application": "excavator travel drive",
+    "ton_class_approx": 95,
+    "band": null,
+    "machine_kind": "excavator"
+   },
+   "_pid": "LB-TGB-038"
+  },
+  {
+   "url_path": "/equipment/hyundai/r140/travel-gearboxes/",
+   "title": "Hyundai R140 Travel Gearbox | Travel Reduction Unit Sourcing",
+   "h1": "Hyundai R140 Travel Gearbox",
+   "publish_tier": "batch2",
+   "meta_description": "Source a travel gearbox for the Hyundai R140 excavator. We confirm ratio, motor interface, sprocket hub and frame pattern against the OEM number, serial and nameplate before quoting.",
+   "make_slug": "hyundai",
+   "make_name": "Hyundai",
+   "model_slug": "r140",
+   "model_name": "R140",
+   "model_aliases": [],
+   "serial_note": null,
+   "part_number_groups": {
+    "assembly": [
+     "39Q4-42100"
+    ]
+   },
+   "lead_pn": "39Q4-42100",
+   "images": [
+    {
+     "slug": "hyundai-r140",
+     "tag": "main",
+     "file": "hyundai-r140-travel-gearbox.jpg",
+     "_src": "/tmp/tg/photos/LB行走减速箱照片汇总_26.10.26_1793413732994_d74i/LB-行走减速箱-Hyundai-R140/LB-行走减速箱-Hyundai-R140-001.jpg"
+    },
+    {
+     "slug": "hyundai-r140",
+     "tag": "view2",
+     "file": "hyundai-r140-travel-gearbox-2.jpg",
+     "_src": "/tmp/tg/photos/LB行走减速箱照片汇总_26.10.26_1793413732994_d74i/LB-行走减速箱-Hyundai-R140/LB-行走减速箱-Hyundai-R140-002.jpg"
+    }
+   ],
+   "copy": {
+    "intro": "Sourcing a travel gearbox (travel reduction unit) for the Hyundai R140 excavator. This is the ~14 t class final reduction between the travel motor and the track frame — the unit that carries the machine weight and converts motor speed into track pull. We match it against the OEM number, the machine serial and the tag on the existing gearbox before quoting, because the model name alone does not settle the configuration on these machines.",
+    "sourcing": "Hyundai R-series travel devices are widely produced in China, with the -9 and -9VS variants being the most commonly stocked. We confirm the exact suffix from the serial plate before quoting.",
+    "fit_check": "On the Hyundai R140, four things have to line up before a travel gearbox can be confirmed: the reduction ratio, the travel-motor mounting interface, the sprocket hub pattern, and the track-frame bolt spacing. Any one of them can differ between build years of the same model. Send a photo of the tag on the existing unit together with the machine serial and we verify all four against the factory data sheet.",
+    "pn_heading": "Part numbers for this model",
+    "pn_note": "The numbers below are commonly associated with the Hyundai R140 and help you cross-check the tag on your unit. Match them against your nameplate — or just send us a photo and we will identify the exact part before quoting.",
+    "generation_note": "Hyundai uses a generation suffix on the same base model — R150-7, R150-9 and R150-9VS are different builds. The VS and LC variants in particular change the undercarriage, so the full suffix matters when matching a travel gearbox.",
+    "application": "excavator travel drive",
+    "ton_class_approx": 14,
+    "band": null,
+    "machine_kind": "excavator"
+   },
+   "_pid": "LB-TGB-047"
+  },
+  {
+   "url_path": "/equipment/hyundai/r150-9vs/travel-gearboxes/",
+   "title": "Hyundai R150-9VS Travel Gearbox | Travel Reduction Unit Sourcing",
+   "h1": "Hyundai R150-9VS Travel Gearbox",
+   "publish_tier": "batch2",
+   "meta_description": "Source a travel gearbox for the Hyundai R150-9VS excavator. We confirm ratio, motor interface, sprocket hub and frame pattern against the OEM number, serial and nameplate before quoting.",
+   "make_slug": "hyundai",
+   "make_name": "Hyundai",
+   "model_slug": "r150-9vs",
+   "model_name": "R150-9VS",
+   "model_aliases": [],
+   "serial_note": null,
+   "part_number_groups": {},
+   "lead_pn": "",
+   "images": [
+    {
+     "slug": "hyundai-r150-9vs",
+     "tag": "main",
+     "file": "hyundai-r150-9vs-travel-gearbox.jpg",
+     "_src": "/tmp/tg/photos/LB行走减速箱照片汇总_26.10.26_1793413732994_d74i/LB-行走减速箱-Hyundai-R150-9VS/LB-行走减速箱-Hyundai-R150-9VS-001.jpg"
+    },
+    {
+     "slug": "hyundai-r150-9vs",
+     "tag": "view2",
+     "file": "hyundai-r150-9vs-travel-gearbox-2.jpg",
+     "_src": "/tmp/tg/photos/LB行走减速箱照片汇总_26.10.26_1793413732994_d74i/LB-行走减速箱-Hyundai-R150-9VS/LB-行走减速箱-Hyundai-R150-9VS-002.jpg"
+    }
+   ],
+   "copy": {
+    "intro": "Sourcing a travel gearbox (travel reduction unit) for the Hyundai R150-9VS excavator. This is the ~15 t class final reduction between the travel motor and the track frame — the unit that carries the machine weight and converts motor speed into track pull. We match it against the OEM number, the machine serial and the tag on the existing gearbox before quoting, because the model name alone does not settle the configuration on these machines.",
+    "sourcing": "Hyundai R-series travel devices are widely produced in China, with the -9 and -9VS variants being the most commonly stocked. We confirm the exact suffix from the serial plate before quoting.",
+    "fit_check": "On the Hyundai R150-9VS, four things have to line up before a travel gearbox can be confirmed: the reduction ratio, the travel-motor mounting interface, the sprocket hub pattern, and the track-frame bolt spacing. Any one of them can differ between build years of the same model. Send a photo of the tag on the existing unit together with the machine serial and we verify all four against the factory data sheet.",
+    "pn_heading": "Need the right part number?",
+    "pn_note": "Catalog numbering for the Hyundai R150-9VS varies by serial number and build region. Send a photo of your travel-motor nameplate and your machine serial number, and we will identify the correct unit for you before quoting.",
+    "generation_note": "Hyundai uses a generation suffix on the same base model — R150-7, R150-9 and R150-9VS are different builds. The VS and LC variants in particular change the undercarriage, so the full suffix matters when matching a travel gearbox.",
+    "application": "excavator travel drive",
+    "ton_class_approx": 15,
+    "band": "9 series",
+    "machine_kind": "excavator"
+   },
+   "_pid": "LB-TGB-048"
+  },
+  {
+   "url_path": "/equipment/kobelco/sk200-5/travel-gearboxes/",
+   "title": "Kobelco SK200-5 Travel Gearbox | Travel Reduction Unit Sourcing",
+   "h1": "Kobelco SK200-5 Travel Gearbox",
+   "publish_tier": "batch2",
+   "meta_description": "Source a travel gearbox for the Kobelco SK200-5 excavator. We confirm ratio, motor interface, sprocket hub and frame pattern against the OEM number, serial and nameplate before quoting.",
+   "make_slug": "kobelco",
+   "make_name": "Kobelco",
+   "model_slug": "sk200-5",
+   "model_name": "SK200-5",
+   "model_aliases": [],
+   "serial_note": null,
+   "part_number_groups": {},
+   "lead_pn": "",
+   "images": [
+    {
+     "slug": "kobelco-sk200-5",
+     "tag": "main",
+     "file": "kobelco-sk200-5-travel-gearbox.jpg",
+     "_src": "/tmp/tg/photos/LB行走减速箱照片汇总_26.10.26_1793413732994_d74i/LB-行走减速箱-Kobelco-SK200-5/LB-行走减速箱-Kobelco-SK200-5-001.jpg"
+    },
+    {
+     "slug": "kobelco-sk200-5",
+     "tag": "view2",
+     "file": "kobelco-sk200-5-travel-gearbox-2.jpg",
+     "_src": "/tmp/tg/photos/LB行走减速箱照片汇总_26.10.26_1793413732994_d74i/LB-行走减速箱-Kobelco-SK200-5/LB-行走减速箱-Kobelco-SK200-5-002.jpg"
+    }
+   ],
+   "copy": {
+    "intro": "Sourcing a travel gearbox (travel reduction unit) for the Kobelco SK200-5 excavator. This is the ~20 t class final reduction between the travel motor and the track frame — the unit that carries the machine weight and converts motor speed into track pull. We match it against the OEM number, the machine serial and the tag on the existing gearbox before quoting, because the model name alone does not settle the configuration on these machines.",
+    "sourcing": "Kobelco Mark-series travel devices are available from a narrower supplier base than Komatsu or Hitachi equivalents. We confirm the Mark generation and the motor interface from the tag before quoting.",
+    "fit_check": "On the Kobelco SK200-5, four things have to line up before a travel gearbox can be confirmed: the reduction ratio, the travel-motor mounting interface, the sprocket hub pattern, and the track-frame bolt spacing. Any one of them can differ between build years of the same model. Send a photo of the tag on the existing unit together with the machine serial and we verify all four against the factory data sheet.",
+    "pn_heading": "Need the right part number?",
+    "pn_note": "Catalog numbering for the Kobelco SK200-5 varies by serial number and build region. Send a photo of your travel-motor nameplate and your machine serial number, and we will identify the correct unit for you before quoting.",
+    "generation_note": "Kobelco Mark numbers (Mark-5, Mark-8, Mark-9) track the machine generation. SK200-5 and SK200-8 look identical on the badge but do not take the same travel gearbox. Confirm the Mark generation from the serial plate.",
+    "application": "excavator travel drive",
+    "ton_class_approx": 20,
+    "band": "Mark-5",
+    "machine_kind": "excavator"
+   },
+   "_pid": "LB-TGB-055"
+  },
+  {
+   "url_path": "/equipment/kobelco/sk350-8/travel-gearboxes/",
+   "title": "Kobelco SK350-8 Travel Gearbox | Travel Reduction Unit Sourcing",
+   "h1": "Kobelco SK350-8 Travel Gearbox",
+   "publish_tier": "batch2",
+   "meta_description": "Source a travel gearbox for the Kobelco SK350-8 excavator. We confirm ratio, motor interface, sprocket hub and frame pattern against the OEM number, serial and nameplate before quoting.",
+   "make_slug": "kobelco",
+   "make_name": "Kobelco",
+   "model_slug": "sk350-8",
+   "model_name": "SK350-8",
+   "model_aliases": [],
+   "serial_note": null,
+   "part_number_groups": {
+    "assembly": [
+     "LC53D00014F1"
+    ]
+   },
+   "lead_pn": "LC53D00014F1",
+   "images": [
+    {
+     "slug": "kobelco-sk350-8",
+     "tag": "main",
+     "file": "kobelco-sk350-8-travel-gearbox.jpg",
+     "_src": "/tmp/tg/photos/LB行走减速箱照片汇总_26.10.26_1793413732994_d74i/LB-行走减速箱-Kobelco-SK350-8/LB-行走减速箱-Kobelco-SK350-8-001.jpg"
+    }
+   ],
+   "copy": {
+    "intro": "Sourcing a travel gearbox (travel reduction unit) for the Kobelco SK350-8 excavator. This is the ~35 t class final reduction between the travel motor and the track frame — the unit that carries the machine weight and converts motor speed into track pull. We match it against the OEM number, the machine serial and the tag on the existing gearbox before quoting, because the model name alone does not settle the configuration on these machines.",
+    "sourcing": "Kobelco Mark-series travel devices are available from a narrower supplier base than Komatsu or Hitachi equivalents. We confirm the Mark generation and the motor interface from the tag before quoting.",
+    "fit_check": "On the Kobelco SK350-8, four things have to line up before a travel gearbox can be confirmed: the reduction ratio, the travel-motor mounting interface, the sprocket hub pattern, and the track-frame bolt spacing. Any one of them can differ between build years of the same model. Send a photo of the tag on the existing unit together with the machine serial and we verify all four against the factory data sheet.",
+    "pn_heading": "Part numbers for this model",
+    "pn_note": "The numbers below are commonly associated with the Kobelco SK350-8 and help you cross-check the tag on your unit. Match them against your nameplate — or just send us a photo and we will identify the exact part before quoting.",
+    "generation_note": "Kobelco Mark numbers (Mark-5, Mark-8, Mark-9) track the machine generation. SK200-5 and SK200-8 look identical on the badge but do not take the same travel gearbox. Confirm the Mark generation from the serial plate.",
+    "application": "excavator travel drive",
+    "ton_class_approx": 35,
+    "band": "Mark-8",
+    "machine_kind": "excavator"
+   },
+   "_pid": "LB-TGB-056"
+  },
+  {
+   "url_path": "/equipment/komatsu/pc18/travel-gearboxes/",
+   "title": "Komatsu PC18 Travel Gearbox | Travel Reduction Unit Sourcing",
+   "h1": "Komatsu PC18 Travel Gearbox",
+   "publish_tier": "batch2",
+   "meta_description": "Source a travel gearbox for the Komatsu PC18 mini excavator. We confirm ratio, motor interface, sprocket hub and frame pattern against the OEM number, serial and nameplate before quoting.",
+   "make_slug": "komatsu",
+   "make_name": "Komatsu",
+   "model_slug": "pc18",
+   "model_name": "PC18",
+   "model_aliases": [],
+   "serial_note": null,
+   "part_number_groups": {},
+   "lead_pn": "",
+   "images": [
+    {
+     "slug": "komatsu-pc18",
+     "tag": "main",
+     "file": "komatsu-pc18-travel-gearbox.jpg",
+     "_src": "/tmp/tg/photos/LB行走减速箱照片汇总_26.10.26_1793413732994_d74i/LB-行走减速箱-Komatsu-PC18/LB-行走减速箱-Komatsu-PC18-002.jpg"
+    },
+    {
+     "slug": "komatsu-pc18",
+     "tag": "view2",
+     "file": "komatsu-pc18-travel-gearbox-2.jpg",
+     "_src": "/tmp/tg/photos/LB行走减速箱照片汇总_26.10.26_1793413732994_d74i/LB-行走减速箱-Komatsu-PC18/LB-行走减速箱-Komatsu-PC18-003.jpg"
+    },
+    {
+     "slug": "komatsu-pc18",
+     "tag": "view3",
+     "file": "komatsu-pc18-travel-gearbox-3.jpg",
+     "_src": "/tmp/tg/photos/LB行走减速箱照片汇总_26.10.26_1793413732994_d74i/LB-行走减速箱-Komatsu-PC18/LB-行走减速箱-Komatsu-PC18-004.jpg"
+    }
+   ],
+   "copy": {
+    "intro": "Sourcing a travel gearbox (travel reduction unit) for the Komatsu PC18 mini excavator. This is the ~1.8 t class final reduction between the travel motor and the track frame — the unit that carries the machine weight and converts motor speed into track pull. We match it against the OEM number, the machine serial and the tag on the existing gearbox before quoting, because the model name alone does not settle the configuration on these machines.",
+    "sourcing": "Komatsu travel devices are produced by a large aftermarket base in China, but the dash-number differences are real and frequently mislabelled by traders. We verify the generation and the motor interface before quoting.",
+    "fit_check": "On the Komatsu PC18, four things have to line up before a travel gearbox can be confirmed: the reduction ratio, the travel-motor mounting interface, the sprocket hub pattern, and the track-frame bolt spacing. Any one of them can differ between build years of the same model. Send a photo of the tag on the existing unit together with the machine serial and we verify all four against the factory data sheet.",
+    "pn_heading": "Need the right part number?",
+    "pn_note": "Catalog numbering for the Komatsu PC18 varies by serial number and build region. Send a photo of your travel-motor nameplate and your machine serial number, and we will identify the correct unit for you before quoting.",
+    "generation_note": "Komatsu dash numbers are generation markers, not trim levels. A PC300-7 and a PC300-8 differ in the travel motor interface and the reduction ratio, and the -8MO variant adds further changes. The dash number must be confirmed before a unit is quoted.",
+    "application": "mini excavator travel drive",
+    "ton_class_approx": 1.8,
+    "band": null,
+    "machine_kind": "mini excavator"
+   },
+   "_pid": "LB-TGB-042"
+  },
+  {
+   "url_path": "/equipment/komatsu/pc20a/travel-gearboxes/",
+   "title": "Komatsu PC20A Travel Gearbox | Travel Reduction Unit Sourcing",
+   "h1": "Komatsu PC20A Travel Gearbox",
+   "publish_tier": "batch2",
+   "meta_description": "Source a travel gearbox for the Komatsu PC20A mini excavator. We confirm ratio, motor interface, sprocket hub and frame pattern against the OEM number, serial and nameplate before quoting.",
+   "make_slug": "komatsu",
+   "make_name": "Komatsu",
+   "model_slug": "pc20a",
+   "model_name": "PC20A",
+   "model_aliases": [],
+   "serial_note": null,
+   "part_number_groups": {},
+   "lead_pn": "",
+   "images": [
+    {
+     "slug": "komatsu-pc20a",
+     "tag": "main",
+     "file": "komatsu-pc20a-travel-gearbox.jpg",
+     "_src": "/tmp/tg/photos/LB行走减速箱照片汇总_26.10.26_1793413732994_d74i/LB-行走减速箱-Komatsu-PC20A/LB-行走减速箱-Komatsu-PC20A-001.jpg"
+    }
+   ],
+   "copy": {
+    "intro": "Sourcing a travel gearbox (travel reduction unit) for the Komatsu PC20A mini excavator. This is the ~2 t class final reduction between the travel motor and the track frame — the unit that carries the machine weight and converts motor speed into track pull. We match it against the OEM number, the machine serial and the tag on the existing gearbox before quoting, because the model name alone does not settle the configuration on these machines.",
+    "sourcing": "Komatsu travel devices are produced by a large aftermarket base in China, but the dash-number differences are real and frequently mislabelled by traders. We verify the generation and the motor interface before quoting.",
+    "fit_check": "On the Komatsu PC20A, four things have to line up before a travel gearbox can be confirmed: the reduction ratio, the travel-motor mounting interface, the sprocket hub pattern, and the track-frame bolt spacing. Any one of them can differ between build years of the same model. Send a photo of the tag on the existing unit together with the machine serial and we verify all four against the factory data sheet.",
+    "pn_heading": "Need the right part number?",
+    "pn_note": "Catalog numbering for the Komatsu PC20A varies by serial number and build region. Send a photo of your travel-motor nameplate and your machine serial number, and we will identify the correct unit for you before quoting.",
+    "generation_note": "Komatsu dash numbers are generation markers, not trim levels. A PC300-7 and a PC300-8 differ in the travel motor interface and the reduction ratio, and the -8MO variant adds further changes. The dash number must be confirmed before a unit is quoted.",
+    "application": "mini excavator travel drive",
+    "ton_class_approx": 2,
+    "band": null,
+    "machine_kind": "mini excavator"
+   },
+   "_pid": "LB-TGB-043"
+  },
+  {
+   "url_path": "/equipment/komatsu/pc300-7/travel-gearboxes/",
+   "title": "Komatsu PC300-7 Travel Gearbox | Travel Reduction Unit Sourcing",
+   "h1": "Komatsu PC300-7 Travel Gearbox",
+   "publish_tier": "batch2",
+   "meta_description": "Source a travel gearbox for the Komatsu PC300-7 excavator. We confirm ratio, motor interface, sprocket hub and frame pattern against the OEM number, serial and nameplate before quoting.",
+   "make_slug": "komatsu",
+   "make_name": "Komatsu",
+   "model_slug": "pc300-7",
+   "model_name": "PC300-7",
+   "model_aliases": [],
+   "serial_note": null,
+   "part_number_groups": {},
+   "lead_pn": "",
+   "images": [
+    {
+     "slug": "komatsu-pc300-7",
+     "tag": "main",
+     "file": "komatsu-pc300-7-travel-gearbox.jpg",
+     "_src": "/tmp/tg/photos/LB行走减速箱照片汇总_26.10.26_1793413732994_d74i/LB-行走减速箱-Komatsu-PC300-7/LB-行走减速箱-Komatsu-PC300-7-001.jpg"
+    },
+    {
+     "slug": "komatsu-pc300-7",
+     "tag": "view2",
+     "file": "komatsu-pc300-7-travel-gearbox-2.jpg",
+     "_src": "/tmp/tg/photos/LB行走减速箱照片汇总_26.10.26_1793413732994_d74i/LB-行走减速箱-Komatsu-PC300-7/LB-行走减速箱-Komatsu-PC300-7-002.jpg"
+    },
+    {
+     "slug": "komatsu-pc300-7",
+     "tag": "view3",
+     "file": "komatsu-pc300-7-travel-gearbox-3.jpg",
+     "_src": "/tmp/tg/photos/LB行走减速箱照片汇总_26.10.26_1793413732994_d74i/LB-行走减速箱-Komatsu-PC300-7/LB-行走减速箱-Komatsu-PC300-7-003.jpg"
+    }
+   ],
+   "copy": {
+    "intro": "Sourcing a travel gearbox (travel reduction unit) for the Komatsu PC300-7 excavator. This is the ~30 t class final reduction between the travel motor and the track frame — the unit that carries the machine weight and converts motor speed into track pull. We match it against the OEM number, the machine serial and the tag on the existing gearbox before quoting, because the model name alone does not settle the configuration on these machines.",
+    "sourcing": "Komatsu travel devices are produced by a large aftermarket base in China, but the dash-number differences are real and frequently mislabelled by traders. We verify the generation and the motor interface before quoting.",
+    "fit_check": "On the Komatsu PC300-7, four things have to line up before a travel gearbox can be confirmed: the reduction ratio, the travel-motor mounting interface, the sprocket hub pattern, and the track-frame bolt spacing. Any one of them can differ between build years of the same model. Send a photo of the tag on the existing unit together with the machine serial and we verify all four against the factory data sheet.",
+    "pn_heading": "Need the right part number?",
+    "pn_note": "Catalog numbering for the Komatsu PC300-7 varies by serial number and build region. Send a photo of your travel-motor nameplate and your machine serial number, and we will identify the correct unit for you before quoting.",
+    "generation_note": "Komatsu dash numbers are generation markers, not trim levels. A PC300-7 and a PC300-8 differ in the travel motor interface and the reduction ratio, and the -8MO variant adds further changes. The dash number must be confirmed before a unit is quoted.",
+    "application": "excavator travel drive",
+    "ton_class_approx": 30,
+    "band": "Dash-7",
+    "machine_kind": "excavator"
+   },
+   "_pid": "LB-TGB-044"
+  },
+  {
+   "url_path": "/equipment/komatsu/pc300-8mo/travel-gearboxes/",
+   "title": "Komatsu PC300-8MO Travel Gearbox | Travel Reduction Unit Sourcing",
+   "h1": "Komatsu PC300-8MO Travel Gearbox",
+   "publish_tier": "batch2",
+   "meta_description": "Source a travel gearbox for the Komatsu PC300-8MO excavator. We confirm ratio, motor interface, sprocket hub and frame pattern against the OEM number, serial and nameplate before quoting.",
+   "make_slug": "komatsu",
+   "make_name": "Komatsu",
+   "model_slug": "pc300-8mo",
+   "model_name": "PC300-8MO",
+   "model_aliases": [],
+   "serial_note": null,
+   "part_number_groups": {},
+   "lead_pn": "",
+   "images": [
+    {
+     "slug": "komatsu-pc300-8mo",
+     "tag": "main",
+     "file": "komatsu-pc300-8mo-travel-gearbox.jpg",
+     "_src": "/tmp/tg/photos/LB行走减速箱照片汇总_26.10.26_1793413732994_d74i/LB-行走减速箱-Komatsu-PC300-8MO/LB-行走减速箱-Komatsu-PC300-8MO-001.jpg"
+    },
+    {
+     "slug": "komatsu-pc300-8mo",
+     "tag": "view2",
+     "file": "komatsu-pc300-8mo-travel-gearbox-2.jpg",
+     "_src": "/tmp/tg/photos/LB行走减速箱照片汇总_26.10.26_1793413732994_d74i/LB-行走减速箱-Komatsu-PC300-8MO/LB-行走减速箱-Komatsu-PC300-8MO-002.jpg"
+    },
+    {
+     "slug": "komatsu-pc300-8mo",
+     "tag": "view3",
+     "file": "komatsu-pc300-8mo-travel-gearbox-3.jpg",
+     "_src": "/tmp/tg/photos/LB行走减速箱照片汇总_26.10.26_1793413732994_d74i/LB-行走减速箱-Komatsu-PC300-8MO/LB-行走减速箱-Komatsu-PC300-8MO-003.jpg"
+    }
+   ],
+   "copy": {
+    "intro": "Sourcing a travel gearbox (travel reduction unit) for the Komatsu PC300-8MO excavator. This is the ~30 t class final reduction between the travel motor and the track frame — the unit that carries the machine weight and converts motor speed into track pull. We match it against the OEM number, the machine serial and the tag on the existing gearbox before quoting, because the model name alone does not settle the configuration on these machines.",
+    "sourcing": "Komatsu travel devices are produced by a large aftermarket base in China, but the dash-number differences are real and frequently mislabelled by traders. We verify the generation and the motor interface before quoting.",
+    "fit_check": "On the Komatsu PC300-8MO, four things have to line up before a travel gearbox can be confirmed: the reduction ratio, the travel-motor mounting interface, the sprocket hub pattern, and the track-frame bolt spacing. Any one of them can differ between build years of the same model. Send a photo of the tag on the existing unit together with the machine serial and we verify all four against the factory data sheet.",
+    "pn_heading": "Need the right part number?",
+    "pn_note": "Catalog numbering for the Komatsu PC300-8MO varies by serial number and build region. Send a photo of your travel-motor nameplate and your machine serial number, and we will identify the correct unit for you before quoting.",
+    "generation_note": "Komatsu dash numbers are generation markers, not trim levels. A PC300-7 and a PC300-8 differ in the travel motor interface and the reduction ratio, and the -8MO variant adds further changes. The dash number must be confirmed before a unit is quoted.",
+    "application": "excavator travel drive",
+    "ton_class_approx": 30,
+    "band": "Dash-8",
+    "machine_kind": "excavator"
+   },
+   "_pid": "LB-TGB-045"
+  },
+  {
+   "url_path": "/equipment/komatsu/pc1250/travel-gearboxes/",
+   "title": "Komatsu PC1250 Travel Gearbox | Travel Reduction Unit Sourcing",
+   "h1": "Komatsu PC1250 Travel Gearbox",
+   "publish_tier": "batch2",
+   "meta_description": "Source a travel gearbox for the Komatsu PC1250 excavator. We confirm ratio, motor interface, sprocket hub and frame pattern against the OEM number, serial and nameplate before quoting.",
+   "make_slug": "komatsu",
+   "make_name": "Komatsu",
+   "model_slug": "pc1250",
+   "model_name": "PC1250",
+   "model_aliases": [],
+   "serial_note": null,
+   "part_number_groups": {},
+   "lead_pn": "",
+   "images": [
+    {
+     "slug": "komatsu-pc1250",
+     "tag": "main",
+     "file": "komatsu-pc1250-travel-gearbox.jpg",
+     "_src": "/tmp/tg/photos/LB行走减速箱照片汇总_26.10.26_1793413732994_d74i/LB-行走减速箱-Komatsu-PC1250/LB-行走减速箱-Komatsu-PC1250-001.jpg"
+    },
+    {
+     "slug": "komatsu-pc1250",
+     "tag": "view2",
+     "file": "komatsu-pc1250-travel-gearbox-2.jpg",
+     "_src": "/tmp/tg/photos/LB行走减速箱照片汇总_26.10.26_1793413732994_d74i/LB-行走减速箱-Komatsu-PC1250/LB-行走减速箱-Komatsu-PC1250-002.jpg"
+    },
+    {
+     "slug": "komatsu-pc1250",
+     "tag": "view3",
+     "file": "komatsu-pc1250-travel-gearbox-3.jpg",
+     "_src": "/tmp/tg/photos/LB行走减速箱照片汇总_26.10.26_1793413732994_d74i/LB-行走减速箱-Komatsu-PC1250/LB-行走减速箱-Komatsu-PC1250-003.jpg"
+    },
+    {
+     "slug": "komatsu-pc1250",
+     "tag": "view4",
+     "file": "komatsu-pc1250-travel-gearbox-4.jpg",
+     "_src": "/tmp/tg/photos/LB行走减速箱照片汇总_26.10.26_1793413732994_d74i/LB-行走减速箱-Komatsu-PC1250/LB-行走减速箱-Komatsu-PC1250-004.jpg"
+    },
+    {
+     "slug": "komatsu-pc1250",
+     "tag": "view5",
+     "file": "komatsu-pc1250-travel-gearbox-5.jpg",
+     "_src": "/tmp/tg/photos/LB行走减速箱照片汇总_26.10.26_1793413732994_d74i/LB-行走减速箱-Komatsu-PC1250/LB-行走减速箱-Komatsu-PC1250-005.jpg"
+    }
+   ],
+   "copy": {
+    "intro": "Sourcing a travel gearbox (travel reduction unit) for the Komatsu PC1250 excavator. This is the ~125 t class final reduction between the travel motor and the track frame — the unit that carries the machine weight and converts motor speed into track pull. We match it against the OEM number, the machine serial and the tag on the existing gearbox before quoting, because the model name alone does not settle the configuration on these machines.",
+    "sourcing": "Komatsu travel devices are produced by a large aftermarket base in China, but the dash-number differences are real and frequently mislabelled by traders. We verify the generation and the motor interface before quoting.",
+    "fit_check": "On the Komatsu PC1250, four things have to line up before a travel gearbox can be confirmed: the reduction ratio, the travel-motor mounting interface, the sprocket hub pattern, and the track-frame bolt spacing. Any one of them can differ between build years of the same model. Send a photo of the tag on the existing unit together with the machine serial and we verify all four against the factory data sheet.",
+    "pn_heading": "Need the right part number?",
+    "pn_note": "Catalog numbering for the Komatsu PC1250 varies by serial number and build region. Send a photo of your travel-motor nameplate and your machine serial number, and we will identify the correct unit for you before quoting.",
+    "generation_note": "Komatsu dash numbers are generation markers, not trim levels. A PC300-7 and a PC300-8 differ in the travel motor interface and the reduction ratio, and the -8MO variant adds further changes. The dash number must be confirmed before a unit is quoted.",
+    "application": "excavator travel drive",
+    "ton_class_approx": 125,
+    "band": null,
+    "machine_kind": "excavator"
+   },
+   "_pid": "LB-TGB-046"
+  },
+  {
+   "url_path": "/equipment/kubota/kubota-15/travel-gearboxes/",
+   "title": "Kubota Kubota 15 Travel Gearbox | Travel Reduction Unit Sourcing",
+   "h1": "Kubota Kubota 15 Travel Gearbox",
+   "publish_tier": "batch2",
+   "meta_description": "Source a travel gearbox for the Kubota Kubota 15 mini excavator. We confirm ratio, motor interface, sprocket hub and frame pattern against the OEM number, serial and nameplate before quoting.",
+   "make_slug": "kubota",
+   "make_name": "Kubota",
+   "model_slug": "kubota-15",
+   "model_name": "Kubota 15",
+   "model_aliases": [],
+   "serial_note": null,
+   "part_number_groups": {},
+   "lead_pn": "",
+   "images": [
+    {
+     "slug": "kubota-kubota-15",
+     "tag": "main",
+     "file": "kubota-kubota-15-travel-gearbox.jpg",
+     "_src": "/tmp/tg/photos/LB行走减速箱照片汇总_26.10.26_1793413732994_d74i/LB-行走减速箱-Kubota-Kubota-15/LB-行走减速箱-Kubota-Kubota-15-001.jpg"
+    },
+    {
+     "slug": "kubota-kubota-15",
+     "tag": "view2",
+     "file": "kubota-kubota-15-travel-gearbox-2.jpg",
+     "_src": "/tmp/tg/photos/LB行走减速箱照片汇总_26.10.26_1793413732994_d74i/LB-行走减速箱-Kubota-Kubota-15/LB-行走减速箱-Kubota-Kubota-15-002.jpg"
+    }
+   ],
+   "copy": {
+    "intro": "Sourcing a travel gearbox (travel reduction unit) for the Kubota Kubota 15 mini excavator. This is the ~1.5 t class final reduction between the travel motor and the track frame — the unit that carries the machine weight and converts motor speed into track pull. We match it against the OEM number, the machine serial and the tag on the existing gearbox before quoting, because the model name alone does not settle the configuration on these machines.",
+    "sourcing": "Kubota mini excavator travel devices are compact, high-precision units produced by a limited number of factories. We confirm the bolt pattern and the output shaft from the tag before quoting.",
+    "fit_check": "On the Kubota Kubota 15, four things have to line up before a travel gearbox can be confirmed: the reduction ratio, the travel-motor mounting interface, the sprocket hub pattern, and the track-frame bolt spacing. Any one of them can differ between build years of the same model. Send a photo of the tag on the existing unit together with the machine serial and we verify all four against the factory data sheet.",
+    "pn_heading": "Need the right part number?",
+    "pn_note": "Catalog numbering for the Kubota Kubota 15 varies by serial number and build region. Send a photo of your travel-motor nameplate and your machine serial number, and we will identify the correct unit for you before quoting.",
+    "generation_note": "Kubota mini excavators use compact travel devices with a small bolt pattern and a short output shaft. Several U and KX models share the same physical envelope but not the same ratio, so the unit has to be identified from the tag rather than from the machine size.",
+    "application": "mini excavator travel drive",
+    "ton_class_approx": 1.5,
+    "band": null,
+    "machine_kind": "mini excavator"
+   },
+   "_pid": "LB-TGB-041"
+  },
+  {
+   "url_path": "/equipment/sany/sy135/travel-gearboxes/",
+   "title": "SANY SY135 Travel Gearbox | Travel Reduction Unit Sourcing",
+   "h1": "SANY SY135 Travel Gearbox",
+   "publish_tier": "batch2",
+   "meta_description": "Source a travel gearbox for the SANY SY135 excavator. We confirm ratio, motor interface, sprocket hub and frame pattern against the OEM number, serial and nameplate before quoting.",
+   "make_slug": "sany",
+   "make_name": "SANY",
+   "model_slug": "sy135",
+   "model_name": "SY135",
+   "model_aliases": [],
+   "serial_note": null,
+   "part_number_groups": {},
+   "lead_pn": "",
+   "images": [
+    {
+     "slug": "sany-sy135",
+     "tag": "main",
+     "file": "sany-sy135-travel-gearbox.jpg",
+     "_src": "/tmp/tg/photos/LB行走减速箱照片汇总_26.10.26_1793413732994_d74i/LB-行走减速箱-SANY-SANY-135/LB-行走减速箱-SANY-SANY-135-001.jpg"
+    },
+    {
+     "slug": "sany-sy135",
+     "tag": "view2",
+     "file": "sany-sy135-travel-gearbox-2.jpg",
+     "_src": "/tmp/tg/photos/LB行走减速箱照片汇总_26.10.26_1793413732994_d74i/LB-行走减速箱-SANY-SANY-135/LB-行走减速箱-SANY-SANY-135-002.jpg"
+    },
+    {
+     "slug": "sany-sy135",
+     "tag": "view3",
+     "file": "sany-sy135-travel-gearbox-3.jpg",
+     "_src": "/tmp/tg/photos/LB行走减速箱照片汇总_26.10.26_1793413732994_d74i/LB-行走减速箱-SANY-SANY-135/LB-行走减速箱-SANY-SANY-135-003.jpg"
+    },
+    {
+     "slug": "sany-sy135",
+     "tag": "view4",
+     "file": "sany-sy135-travel-gearbox-4.jpg",
+     "_src": "/tmp/tg/photos/LB行走减速箱照片汇总_26.10.26_1793413732994_d74i/LB-行走减速箱-SANY-SANY-135/LB-行走减速箱-SANY-SANY-135-004.jpg"
+    }
+   ],
+   "copy": {
+    "intro": "Sourcing a travel gearbox (travel reduction unit) for the SANY SY135 excavator. This is the ~13.5 t class final reduction between the travel motor and the track frame — the unit that carries the machine weight and converts motor speed into track pull. We match it against the OEM number, the machine serial and the tag on the existing gearbox before quoting, because the model name alone does not settle the configuration on these machines.",
+    "sourcing": "SANY SY-series travel devices are produced both inside SANY supply chain and by independent Chinese manufacturers. We confirm which build the unit belongs to before quoting.",
+    "fit_check": "On the SANY SY135, four things have to line up before a travel gearbox can be confirmed: the reduction ratio, the travel-motor mounting interface, the sprocket hub pattern, and the track-frame bolt spacing. Any one of them can differ between build years of the same model. Send a photo of the tag on the existing unit together with the machine serial and we verify all four against the factory data sheet.",
+    "pn_heading": "Need the right part number?",
+    "pn_note": "Catalog numbering for the SANY SY135 varies by serial number and build region. Send a photo of your travel-motor nameplate and your machine serial number, and we will identify the correct unit for you before quoting.",
+    "generation_note": "SANY SY-series machines sold in different markets carry different travel device suppliers for the same model number. Confirm the market and the build year from the serial plate before matching a gearbox.",
+    "application": "excavator travel drive",
+    "ton_class_approx": 13.5,
+    "band": null,
+    "machine_kind": "excavator"
+   },
+   "_pid": "LB-TGB-049"
+  },
+  {
+   "url_path": "/equipment/sany/sy375/travel-gearboxes/",
+   "title": "SANY SY375 Travel Gearbox | Travel Reduction Unit Sourcing",
+   "h1": "SANY SY375 Travel Gearbox",
+   "publish_tier": "batch2",
+   "meta_description": "Source a travel gearbox for the SANY SY375 excavator. We confirm ratio, motor interface, sprocket hub and frame pattern against the OEM number, serial and nameplate before quoting.",
+   "make_slug": "sany",
+   "make_name": "SANY",
+   "model_slug": "sy375",
+   "model_name": "SY375",
+   "model_aliases": [],
+   "serial_note": null,
+   "part_number_groups": {},
+   "lead_pn": "",
+   "images": [
+    {
+     "slug": "sany-sy375",
+     "tag": "main",
+     "file": "sany-sy375-travel-gearbox.jpg",
+     "_src": "/tmp/tg/photos/LB行走减速箱照片汇总_26.10.26_1793413732994_d74i/LB-行走减速箱-SANY-SANY-375/LB-行走减速箱-SANY-SANY-375-001.jpg"
+    }
+   ],
+   "copy": {
+    "intro": "Sourcing a travel gearbox (travel reduction unit) for the SANY SY375 excavator. This is the ~37.5 t class final reduction between the travel motor and the track frame — the unit that carries the machine weight and converts motor speed into track pull. We match it against the OEM number, the machine serial and the tag on the existing gearbox before quoting, because the model name alone does not settle the configuration on these machines.",
+    "sourcing": "SANY SY-series travel devices are produced both inside SANY supply chain and by independent Chinese manufacturers. We confirm which build the unit belongs to before quoting.",
+    "fit_check": "On the SANY SY375, four things have to line up before a travel gearbox can be confirmed: the reduction ratio, the travel-motor mounting interface, the sprocket hub pattern, and the track-frame bolt spacing. Any one of them can differ between build years of the same model. Send a photo of the tag on the existing unit together with the machine serial and we verify all four against the factory data sheet.",
+    "pn_heading": "Need the right part number?",
+    "pn_note": "Catalog numbering for the SANY SY375 varies by serial number and build region. Send a photo of your travel-motor nameplate and your machine serial number, and we will identify the correct unit for you before quoting.",
+    "generation_note": "SANY SY-series machines sold in different markets carry different travel device suppliers for the same model number. Confirm the market and the build year from the serial plate before matching a gearbox.",
+    "application": "excavator travel drive",
+    "ton_class_approx": 37.5,
+    "band": null,
+    "machine_kind": "excavator"
+   },
+   "_pid": "LB-TGB-050"
+  },
+  {
+   "url_path": "/equipment/sany/sy650/travel-gearboxes/",
+   "title": "SANY SY650 Travel Gearbox | Travel Reduction Unit Sourcing",
+   "h1": "SANY SY650 Travel Gearbox",
+   "publish_tier": "batch2",
+   "meta_description": "Source a travel gearbox for the SANY SY650 excavator. We confirm ratio, motor interface, sprocket hub and frame pattern against the OEM number, serial and nameplate before quoting.",
+   "make_slug": "sany",
+   "make_name": "SANY",
+   "model_slug": "sy650",
+   "model_name": "SY650",
+   "model_aliases": [],
+   "serial_note": null,
+   "part_number_groups": {},
+   "lead_pn": "",
+   "images": [
+    {
+     "slug": "sany-sy650",
+     "tag": "main",
+     "file": "sany-sy650-travel-gearbox.jpg",
+     "_src": "/tmp/tg/photos/LB行走减速箱照片汇总_26.10.26_1793413732994_d74i/LB-行走减速箱-SANY-SANY-650/LB-行走减速箱-SANY-SANY-650-001.jpg"
+    },
+    {
+     "slug": "sany-sy650",
+     "tag": "view2",
+     "file": "sany-sy650-travel-gearbox-2.jpg",
+     "_src": "/tmp/tg/photos/LB行走减速箱照片汇总_26.10.26_1793413732994_d74i/LB-行走减速箱-SANY-SANY-650/LB-行走减速箱-SANY-SANY-650-002.jpg"
+    }
+   ],
+   "copy": {
+    "intro": "Sourcing a travel gearbox (travel reduction unit) for the SANY SY650 excavator. This is the ~65 t class final reduction between the travel motor and the track frame — the unit that carries the machine weight and converts motor speed into track pull. We match it against the OEM number, the machine serial and the tag on the existing gearbox before quoting, because the model name alone does not settle the configuration on these machines.",
+    "sourcing": "SANY SY-series travel devices are produced both inside SANY supply chain and by independent Chinese manufacturers. We confirm which build the unit belongs to before quoting.",
+    "fit_check": "On the SANY SY650, four things have to line up before a travel gearbox can be confirmed: the reduction ratio, the travel-motor mounting interface, the sprocket hub pattern, and the track-frame bolt spacing. Any one of them can differ between build years of the same model. Send a photo of the tag on the existing unit together with the machine serial and we verify all four against the factory data sheet.",
+    "pn_heading": "Need the right part number?",
+    "pn_note": "Catalog numbering for the SANY SY650 varies by serial number and build region. Send a photo of your travel-motor nameplate and your machine serial number, and we will identify the correct unit for you before quoting.",
+    "generation_note": "SANY SY-series machines sold in different markets carry different travel device suppliers for the same model number. Confirm the market and the build year from the serial plate before matching a gearbox.",
+    "application": "excavator travel drive",
+    "ton_class_approx": 65,
+    "band": null,
+    "machine_kind": "excavator"
+   },
+   "_pid": "LB-TGB-051"
+  },
+  {
+   "url_path": "/equipment/sdlg/sdlg-500/travel-gearboxes/",
+   "title": "SDLG SDLG 500 Travel Gearbox | Travel Reduction Unit Sourcing",
+   "h1": "SDLG SDLG 500 Travel Gearbox",
+   "publish_tier": "batch2",
+   "meta_description": "Source a travel gearbox for the SDLG SDLG 500 excavator. We confirm ratio, motor interface, sprocket hub and frame pattern against the OEM number, serial and nameplate before quoting.",
+   "make_slug": "sdlg",
+   "make_name": "SDLG",
+   "model_slug": "sdlg-500",
+   "model_name": "SDLG 500",
+   "model_aliases": [],
+   "serial_note": null,
+   "part_number_groups": {},
+   "lead_pn": "",
+   "images": [
+    {
+     "slug": "sdlg-sdlg-500",
+     "tag": "main",
+     "file": "sdlg-sdlg-500-travel-gearbox.jpg",
+     "_src": "/tmp/tg/photos/LB行走减速箱照片汇总_26.10.26_1793413732994_d74i/LB-行走减速箱-SDLG-SDLG-500/LB-行走减速箱-SDLG-SDLG-500-001.jpg"
+    },
+    {
+     "slug": "sdlg-sdlg-500",
+     "tag": "view2",
+     "file": "sdlg-sdlg-500-travel-gearbox-2.jpg",
+     "_src": "/tmp/tg/photos/LB行走减速箱照片汇总_26.10.26_1793413732994_d74i/LB-行走减速箱-SDLG-SDLG-500/LB-行走减速箱-SDLG-SDLG-500-002.jpg"
+    },
+    {
+     "slug": "sdlg-sdlg-500",
+     "tag": "view3",
+     "file": "sdlg-sdlg-500-travel-gearbox-3.jpg",
+     "_src": "/tmp/tg/photos/LB行走减速箱照片汇总_26.10.26_1793413732994_d74i/LB-行走减速箱-SDLG-SDLG-500/LB-行走减速箱-SDLG-SDLG-500-003.jpg"
+    }
+   ],
+   "copy": {
+    "intro": "Sourcing a travel gearbox (travel reduction unit) for the SDLG SDLG 500 excavator. This is the ~50 t class final reduction between the travel motor and the track frame — the unit that carries the machine weight and converts motor speed into track pull. We match it against the OEM number, the machine serial and the tag on the existing gearbox before quoting, because the model name alone does not settle the configuration on these machines.",
+    "sourcing": "SDLG undercarriage components draw on licensed Volvo architecture, and the travel device supply base overlaps with the Volvo aftermarket. We confirm the platform from the tag before quoting.",
+    "fit_check": "On the SDLG SDLG 500, four things have to line up before a travel gearbox can be confirmed: the reduction ratio, the travel-motor mounting interface, the sprocket hub pattern, and the track-frame bolt spacing. Any one of them can differ between build years of the same model. Send a photo of the tag on the existing unit together with the machine serial and we verify all four against the factory data sheet.",
+    "pn_heading": "Need the right part number?",
+    "pn_note": "Catalog numbering for the SDLG SDLG 500 varies by serial number and build region. Send a photo of your travel-motor nameplate and your machine serial number, and we will identify the correct unit for you before quoting.",
+    "generation_note": "SDLG builds on licensed Volvo undercarriage architecture, so some travel devices are shared with Volvo platforms and some are not. The model number alone does not settle it; the tag on the existing unit does.",
+    "application": "excavator travel drive",
+    "ton_class_approx": 50,
+    "band": null,
+    "machine_kind": "excavator"
+   },
+   "_pid": "LB-TGB-052"
+  },
+  {
+   "url_path": "/equipment/sumitomo/sh130/travel-gearboxes/",
+   "title": "Sumitomo SH130 Travel Gearbox | Travel Reduction Unit Sourcing",
+   "h1": "Sumitomo SH130 Travel Gearbox",
+   "publish_tier": "batch2",
+   "meta_description": "Source a travel gearbox for the Sumitomo SH130 excavator. We confirm ratio, motor interface, sprocket hub and frame pattern against the OEM number, serial and nameplate before quoting.",
+   "make_slug": "sumitomo",
+   "make_name": "Sumitomo",
+   "model_slug": "sh130",
+   "model_name": "SH130",
+   "model_aliases": [],
+   "serial_note": null,
+   "part_number_groups": {},
+   "lead_pn": "",
+   "images": [
+    {
+     "slug": "sumitomo-sh130",
+     "tag": "main",
+     "file": "sumitomo-sh130-travel-gearbox.jpg",
+     "_src": "/tmp/tg/photos/LB行走减速箱照片汇总_26.10.26_1793413732994_d74i/LB-行走减速箱-Sumitomo-SH130/LB-行走减速箱-Sumitomo-SH130-001.jpg"
+    }
+   ],
+   "copy": {
+    "intro": "Sourcing a travel gearbox (travel reduction unit) for the Sumitomo SH130 excavator. This is the ~13 t class final reduction between the travel motor and the track frame — the unit that carries the machine weight and converts motor speed into track pull. We match it against the OEM number, the machine serial and the tag on the existing gearbox before quoting, because the model name alone does not settle the configuration on these machines.",
+    "sourcing": "Sumitomo SH-series travel devices are produced by a smaller group of Chinese manufacturers, and some models share architecture with the Link-Belt equivalents. We verify the unit against the tag rather than the model badge.",
+    "fit_check": "On the Sumitomo SH130, four things have to line up before a travel gearbox can be confirmed: the reduction ratio, the travel-motor mounting interface, the sprocket hub pattern, and the track-frame bolt spacing. Any one of them can differ between build years of the same model. Send a photo of the tag on the existing unit together with the machine serial and we verify all four against the factory data sheet.",
+    "pn_heading": "Need the right part number?",
+    "pn_note": "Catalog numbering for the Sumitomo SH130 varies by serial number and build region. Send a photo of your travel-motor nameplate and your machine serial number, and we will identify the correct unit for you before quoting.",
+    "generation_note": "Sumitomo SH-series machines share model numbers across generations, and the travel device changed with each revision. The model badge alone will not identify the unit — the serial and the tag on the existing gearbox are the reliable reference.",
+    "application": "excavator travel drive",
+    "ton_class_approx": 13,
+    "band": null,
+    "machine_kind": "excavator"
+   },
+   "_pid": "LB-TGB-053"
+  },
+  {
+   "url_path": "/equipment/sumitomo/sh350/travel-gearboxes/",
+   "title": "Sumitomo SH350 Travel Gearbox | Travel Reduction Unit Sourcing",
+   "h1": "Sumitomo SH350 Travel Gearbox",
+   "publish_tier": "batch2",
+   "meta_description": "Source a travel gearbox for the Sumitomo SH350 excavator. We confirm ratio, motor interface, sprocket hub and frame pattern against the OEM number, serial and nameplate before quoting.",
+   "make_slug": "sumitomo",
+   "make_name": "Sumitomo",
+   "model_slug": "sh350",
+   "model_name": "SH350",
+   "model_aliases": [],
+   "serial_note": null,
+   "part_number_groups": {},
+   "lead_pn": "",
+   "images": [
+    {
+     "slug": "sumitomo-sh350",
+     "tag": "main",
+     "file": "sumitomo-sh350-travel-gearbox.jpg",
+     "_src": "/tmp/tg/photos/LB行走减速箱照片汇总_26.10.26_1793413732994_d74i/LB-行走减速箱-Sumitomo-SH350/LB-行走减速箱-Sumitomo-SH350-001.jpg"
+    },
+    {
+     "slug": "sumitomo-sh350",
+     "tag": "view2",
+     "file": "sumitomo-sh350-travel-gearbox-2.jpg",
+     "_src": "/tmp/tg/photos/LB行走减速箱照片汇总_26.10.26_1793413732994_d74i/LB-行走减速箱-Sumitomo-SH350/LB-行走减速箱-Sumitomo-SH350-002.jpg"
+    },
+    {
+     "slug": "sumitomo-sh350",
+     "tag": "view3",
+     "file": "sumitomo-sh350-travel-gearbox-3.jpg",
+     "_src": "/tmp/tg/photos/LB行走减速箱照片汇总_26.10.26_1793413732994_d74i/LB-行走减速箱-Sumitomo-SH350/LB-行走减速箱-Sumitomo-SH350-003.jpg"
+    }
+   ],
+   "copy": {
+    "intro": "Sourcing a travel gearbox (travel reduction unit) for the Sumitomo SH350 excavator. This is the ~35 t class final reduction between the travel motor and the track frame — the unit that carries the machine weight and converts motor speed into track pull. We match it against the OEM number, the machine serial and the tag on the existing gearbox before quoting, because the model name alone does not settle the configuration on these machines.",
+    "sourcing": "Sumitomo SH-series travel devices are produced by a smaller group of Chinese manufacturers, and some models share architecture with the Link-Belt equivalents. We verify the unit against the tag rather than the model badge.",
+    "fit_check": "On the Sumitomo SH350, four things have to line up before a travel gearbox can be confirmed: the reduction ratio, the travel-motor mounting interface, the sprocket hub pattern, and the track-frame bolt spacing. Any one of them can differ between build years of the same model. Send a photo of the tag on the existing unit together with the machine serial and we verify all four against the factory data sheet.",
+    "pn_heading": "Need the right part number?",
+    "pn_note": "Catalog numbering for the Sumitomo SH350 varies by serial number and build region. Send a photo of your travel-motor nameplate and your machine serial number, and we will identify the correct unit for you before quoting.",
+    "generation_note": "Sumitomo SH-series machines share model numbers across generations, and the travel device changed with each revision. The model badge alone will not identify the unit — the serial and the tag on the existing gearbox are the reliable reference.",
+    "application": "excavator travel drive",
+    "ton_class_approx": 35,
+    "band": null,
+    "machine_kind": "excavator"
+   },
+   "_pid": "LB-TGB-054"
+  },
+  {
+   "url_path": "/equipment/volvo/ec240b/travel-gearboxes/",
+   "title": "Volvo EC240B Travel Gearbox | Travel Reduction Unit Sourcing",
+   "h1": "Volvo EC240B Travel Gearbox",
+   "publish_tier": "batch2",
+   "meta_description": "Source a travel gearbox for the Volvo EC240B excavator. We confirm ratio, motor interface, sprocket hub and frame pattern against the OEM number, serial and nameplate before quoting.",
+   "make_slug": "volvo",
+   "make_name": "Volvo",
+   "model_slug": "ec240b",
+   "model_name": "EC240B",
+   "model_aliases": [],
+   "serial_note": null,
+   "part_number_groups": {
+    "assembly": [
+     "SA7117-34050",
+     "VOE14528735"
+    ]
+   },
+   "lead_pn": "SA7117-34050",
+   "images": [
+    {
+     "slug": "volvo-ec240b",
+     "tag": "main",
+     "file": "volvo-ec240b-travel-gearbox.jpg",
+     "_src": "/tmp/tg/photos/LB行走减速箱照片汇总_26.10.26_1793413732994_d74i/LB-行走减速箱-Volvo-EC240B/LB-行走减速箱-Volvo-EC240B-001.jpg"
+    },
+    {
+     "slug": "volvo-ec240b",
+     "tag": "view2",
+     "file": "volvo-ec240b-travel-gearbox-2.jpg",
+     "_src": "/tmp/tg/photos/LB行走减速箱照片汇总_26.10.26_1793413732994_d74i/LB-行走减速箱-Volvo-EC240B/LB-行走减速箱-Volvo-EC240B-002.jpg"
+    }
+   ],
+   "copy": {
+    "intro": "Sourcing a travel gearbox (travel reduction unit) for the Volvo EC240B excavator. This is the ~24 t class final reduction between the travel motor and the track frame — the unit that carries the machine weight and converts motor speed into track pull. We match it against the OEM number, the machine serial and the tag on the existing gearbox before quoting, because the model name alone does not settle the configuration on these machines.",
+    "sourcing": "Volvo undercarriage components are produced by a smaller set of Chinese manufacturers than the Japanese and Korean brands, and quality varies more between them. We qualify the factory per unit and state the supply type on the quote.",
+    "fit_check": "On the Volvo EC240B, four things have to line up before a travel gearbox can be confirmed: the reduction ratio, the travel-motor mounting interface, the sprocket hub pattern, and the track-frame bolt spacing. Any one of them can differ between build years of the same model. Send a photo of the tag on the existing unit together with the machine serial and we verify all four against the factory data sheet.",
+    "pn_heading": "Part numbers for this model",
+    "pn_note": "The numbers below are commonly associated with the Volvo EC240B and help you cross-check the tag on your unit. Match them against your nameplate — or just send us a photo and we will identify the exact part before quoting.",
+    "generation_note": "Volvo suffixes mark the machine generation — EC240 and EC240B, EC290B and EC290C are not the same undercarriage. The travel gearbox changed with the engine tier and the hydraulic system revision, so the model name alone is not enough to match a unit.",
+    "application": "excavator travel drive",
+    "ton_class_approx": 24,
+    "band": "B series",
+    "machine_kind": "excavator"
+   },
+   "_pid": "LB-TGB-029"
+  },
+  {
+   "url_path": "/equipment/volvo/ec290/travel-gearboxes/",
+   "title": "Volvo EC290 Travel Gearbox | Travel Reduction Unit Sourcing",
+   "h1": "Volvo EC290 Travel Gearbox",
+   "publish_tier": "batch2",
+   "meta_description": "Source a travel gearbox for the Volvo EC290 excavator. We confirm ratio, motor interface, sprocket hub and frame pattern against the OEM number, serial and nameplate before quoting.",
+   "make_slug": "volvo",
+   "make_name": "Volvo",
+   "model_slug": "ec290",
+   "model_name": "EC290",
+   "model_aliases": [],
+   "serial_note": null,
+   "part_number_groups": {
+    "assembly": [
+     "VOE14569763",
+     "VOE14704139"
+    ]
+   },
+   "lead_pn": "VOE14569763",
+   "images": [
+    {
+     "slug": "volvo-ec290",
+     "tag": "main",
+     "file": "volvo-ec290-travel-gearbox.jpg",
+     "_src": "/tmp/tg/photos/LB行走减速箱照片汇总_26.10.26_1793413732994_d74i/LB-行走减速箱-Volvo-EC290/LB-行走减速箱-Volvo-EC290-001.jpg"
+    },
+    {
+     "slug": "volvo-ec290",
+     "tag": "view2",
+     "file": "volvo-ec290-travel-gearbox-2.jpg",
+     "_src": "/tmp/tg/photos/LB行走减速箱照片汇总_26.10.26_1793413732994_d74i/LB-行走减速箱-Volvo-EC290/LB-行走减速箱-Volvo-EC290-002.jpg"
+    }
+   ],
+   "copy": {
+    "intro": "Sourcing a travel gearbox (travel reduction unit) for the Volvo EC290 excavator. This is the ~29 t class final reduction between the travel motor and the track frame — the unit that carries the machine weight and converts motor speed into track pull. We match it against the OEM number, the machine serial and the tag on the existing gearbox before quoting, because the model name alone does not settle the configuration on these machines.",
+    "sourcing": "Volvo undercarriage components are produced by a smaller set of Chinese manufacturers than the Japanese and Korean brands, and quality varies more between them. We qualify the factory per unit and state the supply type on the quote.",
+    "fit_check": "On the Volvo EC290, four things have to line up before a travel gearbox can be confirmed: the reduction ratio, the travel-motor mounting interface, the sprocket hub pattern, and the track-frame bolt spacing. Any one of them can differ between build years of the same model. Send a photo of the tag on the existing unit together with the machine serial and we verify all four against the factory data sheet.",
+    "pn_heading": "Part numbers for this model",
+    "pn_note": "The numbers below are commonly associated with the Volvo EC290 and help you cross-check the tag on your unit. Match them against your nameplate — or just send us a photo and we will identify the exact part before quoting.",
+    "generation_note": "Volvo suffixes mark the machine generation — EC240 and EC240B, EC290B and EC290C are not the same undercarriage. The travel gearbox changed with the engine tier and the hydraulic system revision, so the model name alone is not enough to match a unit.",
+    "application": "excavator travel drive",
+    "ton_class_approx": 29,
+    "band": null,
+    "machine_kind": "excavator"
+   },
+   "_pid": "LB-TGB-030"
+  },
+  {
+   "url_path": "/equipment/volvo/ec480/travel-gearboxes/",
+   "title": "Volvo EC480 Travel Gearbox | Travel Reduction Unit Sourcing",
+   "h1": "Volvo EC480 Travel Gearbox",
+   "publish_tier": "batch2",
+   "meta_description": "Source a travel gearbox for the Volvo EC480 excavator. We confirm ratio, motor interface, sprocket hub and frame pattern against the OEM number, serial and nameplate before quoting.",
+   "make_slug": "volvo",
+   "make_name": "Volvo",
+   "model_slug": "ec480",
+   "model_name": "EC480",
+   "model_aliases": [],
+   "serial_note": null,
+   "part_number_groups": {
+    "assembly": [
+     "VOE14557192"
+    ]
+   },
+   "lead_pn": "VOE14557192",
+   "images": [
+    {
+     "slug": "volvo-ec480",
+     "tag": "main",
+     "file": "volvo-ec480-travel-gearbox.jpg",
+     "_src": "/tmp/tg/photos/LB行走减速箱照片汇总_26.10.26_1793413732994_d74i/LB-行走减速箱-Volvo-VOLOVO-480/LB-行走减速箱-Volvo-VOLOVO-480-001.jpg"
+    },
+    {
+     "slug": "volvo-ec480",
+     "tag": "view2",
+     "file": "volvo-ec480-travel-gearbox-2.jpg",
+     "_src": "/tmp/tg/photos/LB行走减速箱照片汇总_26.10.26_1793413732994_d74i/LB-行走减速箱-Volvo-VOLOVO-480/LB-行走减速箱-Volvo-VOLOVO-480-002.jpg"
+    },
+    {
+     "slug": "volvo-ec480",
+     "tag": "view3",
+     "file": "volvo-ec480-travel-gearbox-3.jpg",
+     "_src": "/tmp/tg/photos/LB行走减速箱照片汇总_26.10.26_1793413732994_d74i/LB-行走减速箱-Volvo-VOLOVO-480/LB-行走减速箱-Volvo-VOLOVO-480-003.jpg"
+    }
+   ],
+   "copy": {
+    "intro": "Sourcing a travel gearbox (travel reduction unit) for the Volvo EC480 excavator. This is the ~48 t class final reduction between the travel motor and the track frame — the unit that carries the machine weight and converts motor speed into track pull. We match it against the OEM number, the machine serial and the tag on the existing gearbox before quoting, because the model name alone does not settle the configuration on these machines.",
+    "sourcing": "Volvo undercarriage components are produced by a smaller set of Chinese manufacturers than the Japanese and Korean brands, and quality varies more between them. We qualify the factory per unit and state the supply type on the quote.",
+    "fit_check": "On the Volvo EC480, four things have to line up before a travel gearbox can be confirmed: the reduction ratio, the travel-motor mounting interface, the sprocket hub pattern, and the track-frame bolt spacing. Any one of them can differ between build years of the same model. Send a photo of the tag on the existing unit together with the machine serial and we verify all four against the factory data sheet.",
+    "pn_heading": "Part numbers for this model",
+    "pn_note": "The numbers below are commonly associated with the Volvo EC480 and help you cross-check the tag on your unit. Match them against your nameplate — or just send us a photo and we will identify the exact part before quoting.",
+    "generation_note": "Volvo suffixes mark the machine generation — EC240 and EC240B, EC290B and EC290C are not the same undercarriage. The travel gearbox changed with the engine tier and the hydraulic system revision, so the model name alone is not enough to match a unit.",
+    "application": "excavator travel drive",
+    "ton_class_approx": 48,
+    "band": null,
+    "machine_kind": "excavator"
+   },
+   "_pid": "LB-TGB-057"
+  },
+  {
+   "url_path": "/equipment/volvo/ec750/travel-gearboxes/",
+   "title": "Volvo EC750 Travel Gearbox | Travel Reduction Unit Sourcing",
+   "h1": "Volvo EC750 Travel Gearbox",
+   "publish_tier": "batch2",
+   "meta_description": "Source a travel gearbox for the Volvo EC750 excavator. We confirm ratio, motor interface, sprocket hub and frame pattern against the OEM number, serial and nameplate before quoting.",
+   "make_slug": "volvo",
+   "make_name": "Volvo",
+   "model_slug": "ec750",
+   "model_name": "EC750",
+   "model_aliases": [],
+   "serial_note": null,
+   "part_number_groups": {},
+   "lead_pn": "",
+   "images": [
+    {
+     "slug": "volvo-ec750",
+     "tag": "main",
+     "file": "volvo-ec750-travel-gearbox.jpg",
+     "_src": "/tmp/tg/photos/LB行走减速箱照片汇总_26.10.26_1793413732994_d74i/LB-行走减速箱-Volvo-EC750/LB-行走减速箱-Volvo-EC750-003.jpg"
+    }
+   ],
+   "copy": {
+    "intro": "Sourcing a travel gearbox (travel reduction unit) for the Volvo EC750 excavator. This is the ~75 t class final reduction between the travel motor and the track frame — the unit that carries the machine weight and converts motor speed into track pull. We match it against the OEM number, the machine serial and the tag on the existing gearbox before quoting, because the model name alone does not settle the configuration on these machines.",
+    "sourcing": "Volvo undercarriage components are produced by a smaller set of Chinese manufacturers than the Japanese and Korean brands, and quality varies more between them. We qualify the factory per unit and state the supply type on the quote.",
+    "fit_check": "On the Volvo EC750, four things have to line up before a travel gearbox can be confirmed: the reduction ratio, the travel-motor mounting interface, the sprocket hub pattern, and the track-frame bolt spacing. Any one of them can differ between build years of the same model. Send a photo of the tag on the existing unit together with the machine serial and we verify all four against the factory data sheet.",
+    "pn_heading": "Need the right part number?",
+    "pn_note": "Catalog numbering for the Volvo EC750 varies by serial number and build region. Send a photo of your travel-motor nameplate and your machine serial number, and we will identify the correct unit for you before quoting.",
+    "generation_note": "Volvo suffixes mark the machine generation — EC240 and EC240B, EC290B and EC290C are not the same undercarriage. The travel gearbox changed with the engine tier and the hydraulic system revision, so the model name alone is not enough to match a unit.",
+    "application": "excavator travel drive",
+    "ton_class_approx": 75,
+    "band": null,
+    "machine_kind": "excavator"
+   },
+   "_pid": "LB-TGB-031"
+  },
+  {
+   "url_path": "/equipment/xcmg/xe370d/travel-gearboxes/",
+   "title": "XCMG XE370D Travel Gearbox | Travel Reduction Unit Sourcing",
+   "h1": "XCMG XE370D Travel Gearbox",
+   "publish_tier": "batch2",
+   "meta_description": "Source a travel gearbox for the XCMG XE370D excavator. We confirm ratio, motor interface, sprocket hub and frame pattern against the OEM number, serial and nameplate before quoting.",
+   "make_slug": "xcmg",
+   "make_name": "XCMG",
+   "model_slug": "xe370d",
+   "model_name": "XE370D",
+   "model_aliases": [],
+   "serial_note": null,
+   "part_number_groups": {},
+   "lead_pn": "",
+   "images": [
+    {
+     "slug": "xcmg-xe370d",
+     "tag": "main",
+     "file": "xcmg-xe370d-travel-gearbox.jpg",
+     "_src": "/tmp/tg/photos/LB行走减速箱照片汇总_26.10.26_1793413732994_d74i/LB-行走减速箱-XCMG-XCMG-370D/LB-行走减速箱-XCMG-XCMG-370D-001.jpg"
+    },
+    {
+     "slug": "xcmg-xe370d",
+     "tag": "view2",
+     "file": "xcmg-xe370d-travel-gearbox-2.jpg",
+     "_src": "/tmp/tg/photos/LB行走减速箱照片汇总_26.10.26_1793413732994_d74i/LB-行走减速箱-XCMG-XCMG-370D/LB-行走减速箱-XCMG-XCMG-370D-002.jpg"
+    }
+   ],
+   "copy": {
+    "intro": "Sourcing a travel gearbox (travel reduction unit) for the XCMG XE370D excavator. This is the ~37 t class final reduction between the travel motor and the track frame — the unit that carries the machine weight and converts motor speed into track pull. We match it against the OEM number, the machine serial and the tag on the existing gearbox before quoting, because the model name alone does not settle the configuration on these machines.",
+    "sourcing": "XCMG XE-series travel devices are produced by several Chinese suppliers, and the unit behind a given model number changed across production batches. We match against the tag on the existing gearbox.",
+    "fit_check": "On the XCMG XE370D, four things have to line up before a travel gearbox can be confirmed: the reduction ratio, the travel-motor mounting interface, the sprocket hub pattern, and the track-frame bolt spacing. Any one of them can differ between build years of the same model. Send a photo of the tag on the existing unit together with the machine serial and we verify all four against the factory data sheet.",
+    "pn_heading": "Need the right part number?",
+    "pn_note": "Catalog numbering for the XCMG XE370D varies by serial number and build region. Send a photo of your travel-motor nameplate and your machine serial number, and we will identify the correct unit for you before quoting.",
+    "generation_note": "XCMG XE-series excavators changed travel device suppliers between production batches. The model number is stable, the unit behind it is not — confirm against the tag on the existing gearbox.",
+    "application": "excavator travel drive",
+    "ton_class_approx": 37,
+    "band": null,
+    "machine_kind": "excavator"
+   },
+   "_pid": "LB-TGB-059"
+  },
+  {
+   "url_path": "/equipment/xcmg/xe700/travel-gearboxes/",
+   "title": "XCMG XE700 Travel Gearbox | Travel Reduction Unit Sourcing",
+   "h1": "XCMG XE700 Travel Gearbox",
+   "publish_tier": "batch2",
+   "meta_description": "Source a travel gearbox for the XCMG XE700 excavator. We confirm ratio, motor interface, sprocket hub and frame pattern against the OEM number, serial and nameplate before quoting.",
+   "make_slug": "xcmg",
+   "make_name": "XCMG",
+   "model_slug": "xe700",
+   "model_name": "XE700",
+   "model_aliases": [],
+   "serial_note": null,
+   "part_number_groups": {},
+   "lead_pn": "",
+   "images": [
+    {
+     "slug": "xcmg-xe700",
+     "tag": "main",
+     "file": "xcmg-xe700-travel-gearbox.jpg",
+     "_src": "/tmp/tg/photos/LB行走减速箱照片汇总_26.10.26_1793413732994_d74i/LB-行走减速箱-XCMG-XCMG-700/LB-行走减速箱-XCMG-XCMG-700-001.jpg"
+    },
+    {
+     "slug": "xcmg-xe700",
+     "tag": "view2",
+     "file": "xcmg-xe700-travel-gearbox-2.jpg",
+     "_src": "/tmp/tg/photos/LB行走减速箱照片汇总_26.10.26_1793413732994_d74i/LB-行走减速箱-XCMG-XCMG-700/LB-行走减速箱-XCMG-XCMG-700-002.jpg"
+    },
+    {
+     "slug": "xcmg-xe700",
+     "tag": "view3",
+     "file": "xcmg-xe700-travel-gearbox-3.jpg",
+     "_src": "/tmp/tg/photos/LB行走减速箱照片汇总_26.10.26_1793413732994_d74i/LB-行走减速箱-XCMG-XCMG-700/LB-行走减速箱-XCMG-XCMG-700-003.jpg"
+    },
+    {
+     "slug": "xcmg-xe700",
+     "tag": "view4",
+     "file": "xcmg-xe700-travel-gearbox-4.jpg",
+     "_src": "/tmp/tg/photos/LB行走减速箱照片汇总_26.10.26_1793413732994_d74i/LB-行走减速箱-XCMG-XCMG-700/LB-行走减速箱-XCMG-XCMG-700-004.jpg"
+    }
+   ],
+   "copy": {
+    "intro": "Sourcing a travel gearbox (travel reduction unit) for the XCMG XE700 excavator. This is the ~70 t class final reduction between the travel motor and the track frame — the unit that carries the machine weight and converts motor speed into track pull. We match it against the OEM number, the machine serial and the tag on the existing gearbox before quoting, because the model name alone does not settle the configuration on these machines.",
+    "sourcing": "XCMG XE-series travel devices are produced by several Chinese suppliers, and the unit behind a given model number changed across production batches. We match against the tag on the existing gearbox.",
+    "fit_check": "On the XCMG XE700, four things have to line up before a travel gearbox can be confirmed: the reduction ratio, the travel-motor mounting interface, the sprocket hub pattern, and the track-frame bolt spacing. Any one of them can differ between build years of the same model. Send a photo of the tag on the existing unit together with the machine serial and we verify all four against the factory data sheet.",
+    "pn_heading": "Need the right part number?",
+    "pn_note": "Catalog numbering for the XCMG XE700 varies by serial number and build region. Send a photo of your travel-motor nameplate and your machine serial number, and we will identify the correct unit for you before quoting.",
+    "generation_note": "XCMG XE-series excavators changed travel device suppliers between production batches. The model number is stable, the unit behind it is not — confirm against the tag on the existing gearbox.",
+    "application": "excavator travel drive",
+    "ton_class_approx": 70,
+    "band": null,
+    "machine_kind": "excavator"
+   },
+   "_pid": "LB-TGB-060"
+  },
+  {
+   "url_path": "/equipment/xcmg/xe950/travel-gearboxes/",
+   "title": "XCMG XE950 Travel Gearbox | Travel Reduction Unit Sourcing",
+   "h1": "XCMG XE950 Travel Gearbox",
+   "publish_tier": "batch2",
+   "meta_description": "Source a travel gearbox for the XCMG XE950 excavator. We confirm ratio, motor interface, sprocket hub and frame pattern against the OEM number, serial and nameplate before quoting.",
+   "make_slug": "xcmg",
+   "make_name": "XCMG",
+   "model_slug": "xe950",
+   "model_name": "XE950",
+   "model_aliases": [],
+   "serial_note": null,
+   "part_number_groups": {},
+   "lead_pn": "",
+   "images": [
+    {
+     "slug": "xcmg-xe950",
+     "tag": "main",
+     "file": "xcmg-xe950-travel-gearbox.jpg",
+     "_src": "/tmp/tg/photos/LB行走减速箱照片汇总_26.10.26_1793413732994_d74i/LB-行走减速箱-XCMG-XCMG-950/LB-行走减速箱-XCMG-XCMG-950-001.jpg"
+    },
+    {
+     "slug": "xcmg-xe950",
+     "tag": "view2",
+     "file": "xcmg-xe950-travel-gearbox-2.jpg",
+     "_src": "/tmp/tg/photos/LB行走减速箱照片汇总_26.10.26_1793413732994_d74i/LB-行走减速箱-XCMG-XCMG-950/LB-行走减速箱-XCMG-XCMG-950-002.jpg"
+    },
+    {
+     "slug": "xcmg-xe950",
+     "tag": "view3",
+     "file": "xcmg-xe950-travel-gearbox-3.jpg",
+     "_src": "/tmp/tg/photos/LB行走减速箱照片汇总_26.10.26_1793413732994_d74i/LB-行走减速箱-XCMG-XCMG-950/LB-行走减速箱-XCMG-XCMG-950-003.jpg"
+    }
+   ],
+   "copy": {
+    "intro": "Sourcing a travel gearbox (travel reduction unit) for the XCMG XE950 excavator. This is the ~95 t class final reduction between the travel motor and the track frame — the unit that carries the machine weight and converts motor speed into track pull. We match it against the OEM number, the machine serial and the tag on the existing gearbox before quoting, because the model name alone does not settle the configuration on these machines.",
+    "sourcing": "XCMG XE-series travel devices are produced by several Chinese suppliers, and the unit behind a given model number changed across production batches. We match against the tag on the existing gearbox.",
+    "fit_check": "On the XCMG XE950, four things have to line up before a travel gearbox can be confirmed: the reduction ratio, the travel-motor mounting interface, the sprocket hub pattern, and the track-frame bolt spacing. Any one of them can differ between build years of the same model. Send a photo of the tag on the existing unit together with the machine serial and we verify all four against the factory data sheet.",
+    "pn_heading": "Need the right part number?",
+    "pn_note": "Catalog numbering for the XCMG XE950 varies by serial number and build region. Send a photo of your travel-motor nameplate and your machine serial number, and we will identify the correct unit for you before quoting.",
+    "generation_note": "XCMG XE-series excavators changed travel device suppliers between production batches. The model number is stable, the unit behind it is not — confirm against the tag on the existing gearbox.",
+    "application": "excavator travel drive",
+    "ton_class_approx": 95,
+    "band": null,
+    "machine_kind": "excavator"
+   },
+   "_pid": "LB-TGB-061"
+  },
+  {
+   "url_path": "/equipment/xcmg/xe1250/travel-gearboxes/",
+   "title": "XCMG XE1250 Travel Gearbox | Travel Reduction Unit Sourcing",
+   "h1": "XCMG XE1250 Travel Gearbox",
+   "publish_tier": "batch2",
+   "meta_description": "Source a travel gearbox for the XCMG XE1250 excavator. We confirm ratio, motor interface, sprocket hub and frame pattern against the OEM number, serial and nameplate before quoting.",
+   "make_slug": "xcmg",
+   "make_name": "XCMG",
+   "model_slug": "xe1250",
+   "model_name": "XE1250",
+   "model_aliases": [],
+   "serial_note": null,
+   "part_number_groups": {
+    "assembly": [
+     "800360066"
+    ]
+   },
+   "lead_pn": "800360066",
+   "images": [
+    {
+     "slug": "xcmg-xe1250",
+     "tag": "main",
+     "file": "xcmg-xe1250-travel-gearbox.jpg",
+     "_src": "/tmp/tg/photos/LB行走减速箱照片汇总_26.10.26_1793413732994_d74i/LB-行走减速箱-XCMG-XCMG-1250/LB-行走减速箱-XCMG-XCMG-1250-001.jpg"
+    }
+   ],
+   "copy": {
+    "intro": "Sourcing a travel gearbox (travel reduction unit) for the XCMG XE1250 excavator. This is the ~125 t class final reduction between the travel motor and the track frame — the unit that carries the machine weight and converts motor speed into track pull. We match it against the OEM number, the machine serial and the tag on the existing gearbox before quoting, because the model name alone does not settle the configuration on these machines.",
+    "sourcing": "XCMG XE-series travel devices are produced by several Chinese suppliers, and the unit behind a given model number changed across production batches. We match against the tag on the existing gearbox.",
+    "fit_check": "On the XCMG XE1250, four things have to line up before a travel gearbox can be confirmed: the reduction ratio, the travel-motor mounting interface, the sprocket hub pattern, and the track-frame bolt spacing. Any one of them can differ between build years of the same model. Send a photo of the tag on the existing unit together with the machine serial and we verify all four against the factory data sheet.",
+    "pn_heading": "Part numbers for this model",
+    "pn_note": "The numbers below are commonly associated with the XCMG XE1250 and help you cross-check the tag on your unit. Match them against your nameplate — or just send us a photo and we will identify the exact part before quoting.",
+    "generation_note": "XCMG XE-series excavators changed travel device suppliers between production batches. The model number is stable, the unit behind it is not — confirm against the tag on the existing gearbox.",
+    "application": "excavator travel drive",
+    "ton_class_approx": 125,
+    "band": null,
+    "machine_kind": "excavator"
+   },
+   "_pid": "LB-TGB-062"
+  }
+ ]
+}

@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import { SITE_NAME } from '@/config/site';
-import { CATEGORY_PATH, GUIDE_PATH, RFQ_PATH } from '@/lib/data';
+import { CATEGORY_CONFIGS, categoryPath, GUIDE_PATH, RFQ_PATH } from '@/lib/data';
 
 export function SiteHeader() {
   return (
@@ -11,7 +11,11 @@ export function SiteHeader() {
           <span>Mobile Equipment Aftermarket Parts</span>
         </Link>
         <nav className="v6-mainnav" aria-label="Primary">
-          <Link href={CATEGORY_PATH}>Final Drives</Link>
+          {CATEGORY_CONFIGS.map(cat => (
+            <Link key={cat.slug} href={categoryPath(cat.slug)}>
+              {cat.name}
+            </Link>
+          ))}
           <Link href="/#makes">By Make</Link>
           <Link href={GUIDE_PATH}>Nameplate Guide</Link>
         </nav>
