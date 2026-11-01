@@ -53,7 +53,7 @@ export function BrandHubView({
       <p className="mt-4 max-w-3xl text-[15px] leading-7 text-muted-foreground">
         {`Replacement ${cat.unitNameSentence} and travel motor assemblies for ${pages.length} ${
           pages.length === 1 ? 'excavator model' : 'excavator models'
-        } in the ${makeInfo.name} range. Each listing links to a sourcing page with the associated OEM numbers for that model. We confirm every unit against the part number, machine serial number and nameplate before quoting factory-direct supply.`}
+        } in the ${makeInfo.name} range. Each listing links to a sourcing page with the associated OEM numbers for that model. We confirm every unit against the part number, machine serial number and nameplate before quoting.`}
       </p>
 
       <ul className="mt-10 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">

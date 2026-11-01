@@ -352,6 +352,200 @@ export function brandHubPath(makeSlug: string, category: string = DEFAULT_CATEGO
   return `/parts/${category}/for/${makeSlug}/`;
 }
 
+/**
+ * Brands that get a cross-category landing page at /parts/for/{make}/.
+ *
+ * Not a formula, and not a permanent roster. These are the brands where the
+ * catalogue covers enough machines that "pick your model" beats browsing
+ * category by category. CASE (3 models), Kobelco (3), Sumitomo (3), JCB (1),
+ * Kato (1) and Kubota (1) stay category-only for now — their machines are
+ * already one screen long inside the category brand hub, so a separate page
+ * would add a click without adding navigation value. Their home-page chips
+ * fall back to that hub, so nothing is orphaned. Revisit per brand when its
+ * catalogue grows, not against a model-count threshold.
+ */
+export const BRAND_PAGE_MAKES: string[] = [
+  'caterpillar',
+  'hitachi',
+  'komatsu',
+  'doosan',
+  'volvo',
+  'sany',
+  'xcmg',
+  'hyundai',
+];
+
+/** Cross-category brand landing page, e.g. /parts/for/caterpillar/. */
+export function brandPagePath(makeSlug: string): string {
+  return `/parts/for/${makeSlug}/`;
+}
+
+/**
+ * Where a brand chip should point. Brands with a cross-category page go there;
+ * everyone else falls back to the category brand hub holding most of their
+ * machines, so a chip is never a dead link.
+ */
+export function brandEntryPath(makeSlug: string): string {
+  if (BRAND_PAGE_MAKES.includes(makeSlug)) return brandPagePath(makeSlug);
+  let best = CATEGORY_CONFIGS[0].slug;
+  let bestCount = -1;
+  for (const cat of CATEGORY_CONFIGS) {
+    const n = pagesByMake(makeSlug, cat.slug).length;
+    if (n > bestCount) {
+      best = cat.slug;
+      bestCount = n;
+    }
+  }
+  return brandHubPath(makeSlug, best);
+}
+
+/**
+ * Equipment type for a machine, derived from the copy field the catalogue
+ * already carries. Nothing is hardcoded to "excavator": the batch includes a
+ * compact track loader and several mini excavators, and this keeps them
+ * distinct instead of silently flattening the range into one machine type.
+ * No new database column — a future loader or dozer only needs its
+ * machine_kind filled in.
+ */
+export function equipmentType(page: ModelPage): string {
+  const kind = (page.copy.machine_kind ?? 'excavator').toLowerCase().trim();
+  if (kind.includes('excavator')) return 'excavator';
+  return kind || 'excavator';
+}
+
+export function equipmentTypeLabel(type: string, count = 2): string {
+  const one = count === 1;
+  if (type === 'excavator') return one ? 'excavator' : 'excavators';
+  if (type === 'compact track loader') {
+    return one ? 'compact track loader' : 'compact track loaders';
+  }
+  return one ? type : `${type}s`;
+}
+
+/** Every catalogue entry for a make, across all live categories. */
+export function pagesByMakeAllCategories(makeSlug: string): ModelPage[] {
+  return modelPages.filter(p => p.make_slug === makeSlug);
+}
+
+/**
+ * Distinct machines in a set of catalogue entries.
+ *
+ * One machine can hold a page in more than one category, so entry count and
+ * machine count are different numbers and must never be shown as one. Cat has
+ * 48 entries but 38 machines.
+ */
+export function distinctModelCount(pages: ModelPage[]): number {
+  return new Set(pages.map(p => `${p.make_slug}:${p.model_slug}`)).size;
+}
+
+export interface MakeGroup {
+  make: Make;
+  /** Catalogue entries — one per model x category pair. */
+  entries: number;
+  /** Distinct machines. Smaller than `entries` when a model spans categories. */
+  models: number;
+  byCategory: { category: CategoryConfig; entries: number }[];
+  /** Equipment types present, most common first. */
+  equipmentTypes: string[];
+}
+
+/** Every make across all live categories, richest first. */
+export function makesAcrossCategories(): MakeGroup[] {
+  const out: MakeGroup[] = [];
+  for (const make of makes) {
+    const own = pagesByMakeAllCategories(make.slug);
+    if (own.length === 0) continue;
+    const byCategory = CATEGORY_CONFIGS.map(category => ({
+      category,
+      entries: own.filter(p => p.category_slug === category.slug).length,
+    })).filter(row => row.entries > 0);
+
+    const typeCount = new Map<string, number>();
+    for (const p of own) {
+      const t = equipmentType(p);
+      typeCount.set(t, (typeCount.get(t) ?? 0) + 1);
+    }
+
+    out.push({
+      make,
+      entries: own.length,
+      models: distinctModelCount(own),
+      byCategory,
+      equipmentTypes: [...typeCount.entries()].sort((a, b) => b[1] - a[1]).map(([t]) => t),
+    });
+  }
+  return out.sort((a, b) => b.entries - a.entries || a.make.name.localeCompare(b.make.name));
+}
+
+export interface MakeModelRow {
+  modelSlug: string;
+  modelName: string;
+  ton: number | null;
+  listings: { category: CategoryConfig; page: ModelPage }[];
+}
+
+/** One row per machine for a make, lightest first, missing tonnage last. */
+export function makeModelRows(makeSlug: string): MakeModelRow[] {
+  const rows = new Map<string, MakeModelRow>();
+  for (const page of pagesByMakeAllCategories(makeSlug)) {
+    let row = rows.get(page.model_slug);
+    if (!row) {
+      row = {
+        modelSlug: page.model_slug,
+        modelName: page.model_name,
+        ton: typeof page.copy.ton_class_approx === 'number' ? page.copy.ton_class_approx : null,
+        listings: [],
+      };
+      rows.set(page.model_slug, row);
+    }
+    row.listings.push({ category: categoryOf(page.category_slug), page });
+  }
+  for (const row of rows.values()) {
+    row.listings.sort((a, b) => a.category.slug.localeCompare(b.category.slug));
+  }
+  return [...rows.values()].sort((a, b) => {
+    if (a.ton === null && b.ton === null) return a.modelName.localeCompare(b.modelName);
+    if (a.ton === null) return 1;
+    if (b.ton === null) return -1;
+    return a.ton - b.ton || a.modelName.localeCompare(b.modelName);
+  });
+}
+
+/**
+ * Featured machines for the home page, balanced across categories.
+ *
+ * Each category contributes its own picks so the row never becomes six
+ * final drives, and the same machine is never listed twice when it has pages
+ * in both categories.
+ */
+export function featuredAcrossCategories(count = 8): ModelPage[] {
+  const live = CATEGORY_CONFIGS.filter(cat => pagesInCategory(cat.slug).length > 0);
+  if (live.length === 0) return [];
+  const perCategory = Math.ceil(count / live.length);
+  const out: ModelPage[] = [];
+  const seen = new Set<string>();
+
+  for (const cat of live) {
+    for (const page of featuredModels(pagesInCategory(cat.slug), perCategory)) {
+      const key = `${page.make_slug}:${page.model_slug}`;
+      if (seen.has(key)) continue;
+      seen.add(key);
+      out.push(page);
+    }
+  }
+  // Top up from the widest pool if a category could not fill its share.
+  if (out.length < count) {
+    for (const page of featuredModels(modelPages, count * 2)) {
+      if (out.length >= count) break;
+      const key = `${page.make_slug}:${page.model_slug}`;
+      if (seen.has(key)) continue;
+      seen.add(key);
+      out.push(page);
+    }
+  }
+  return out.slice(0, count);
+}
+
 /** Every public route, derived only from the JSON + fixed static pages. */
 export function allPublicRoutes(): string[] {
   const routes: string[] = ['/'];
@@ -363,6 +557,7 @@ export function allPublicRoutes(): string[] {
     routes.push(...pages.map(p => p.url_path));
   }
   routes.push(
+    ...BRAND_PAGE_MAKES.filter(slug => Boolean(getMake(slug))).map(brandPagePath),
     '/request-quote/',
     '/about/',
     '/privacy/',

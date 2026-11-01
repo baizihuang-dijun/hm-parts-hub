@@ -95,7 +95,31 @@ function catMetaOf(page) {
 }
 
 const MODEL_ROUTES = pages.map(p => p.url_path);
-const ALL_ROUTES = [...FIXED_ROUTES, ...BRAND_ROUTES, ...MODEL_ROUTES];
+
+/**
+ * Brands that ship a cross-category landing page at /parts/for/{make}/.
+ * Must stay identical to BRAND_PAGE_MAKES in src/lib/data.ts — the post build
+ * asserts the two lists match, so they cannot drift apart silently.
+ */
+const BRAND_PAGE_MAKES = [
+  'caterpillar', 'hitachi', 'komatsu', 'doosan', 'volvo', 'sany', 'xcmg', 'hyundai',
+];
+const BRAND_PAGE_ROUTES = BRAND_PAGE_MAKES.map(m => `/parts/for/${m}/`);
+
+/** Where a home-page brand chip points: its brand page, or the category hub
+ *  holding most of its machines when it has no cross-category page. */
+function brandEntryPath(makeSlug) {
+  if (BRAND_PAGE_MAKES.includes(makeSlug)) return `/parts/for/${makeSlug}/`;
+  let best = CATEGORIES[0].slug;
+  let bestCount = -1;
+  for (const c of CATEGORIES) {
+    const n = c.pages.filter(p => p.make_slug === makeSlug).length;
+    if (n > bestCount) { best = c.slug; bestCount = n; }
+  }
+  return `/parts/${best}/for/${makeSlug}/`;
+}
+
+const ALL_ROUTES = [...FIXED_ROUTES, ...BRAND_ROUTES, ...BRAND_PAGE_ROUTES, ...MODEL_ROUTES];
 
 /* ---------- banned patterns ---------- */
 // Internal identifiers that must never reach public output.
@@ -346,6 +370,91 @@ function post() {
   }
   ok('brand hubs link exactly their own model pages');
 
+  console.log('\n[check-data:post] cross-category brand pages (/parts/for/{make}/)');
+  {
+    const dataSrc = fs.readFileSync(path.join(ROOT, 'src/lib/data.ts'), 'utf8');
+    const block = dataSrc.match(/export const BRAND_PAGE_MAKES[^=]*=\s*\[([\s\S]*?)\]/);
+    if (!block) {
+      fail('data.ts: BRAND_PAGE_MAKES not found');
+    } else {
+      const declared = [...block[1].matchAll(/'([^']+)'/g)].map(m => m[1]);
+      const a = [...declared].sort().join(',');
+      const b = [...BRAND_PAGE_MAKES].sort().join(',');
+      if (a !== b) fail(`BRAND_PAGE_MAKES drift — data.ts [${a}] vs check-data [${b}]`);
+      else ok(`BRAND_PAGE_MAKES in sync (${declared.length} brands)`);
+    }
+
+    const brandDir = path.join(OUT_DIR, 'parts/for');
+    const exported = fs.existsSync(brandDir)
+      ? fs.readdirSync(brandDir, { withFileTypes: true }).filter(e => e.isDirectory()).map(e => e.name)
+      : [];
+    for (const m of BRAND_PAGE_MAKES) {
+      if (!exported.includes(m)) fail(`missing exported brand page /parts/for/${m}/`);
+    }
+    for (const m of exported) {
+      if (!BRAND_PAGE_MAKES.includes(m)) fail(`unexpected exported brand page /parts/for/${m}/`);
+    }
+    if (exported.length === BRAND_PAGE_MAKES.length) {
+      ok(`exactly the ${BRAND_PAGE_MAKES.length} approved brand pages exported`);
+    }
+
+    // Each brand page leads to that brand's machines and nothing else, and it
+    // must not present catalogue entries as a machine count.
+    for (const m of BRAND_PAGE_MAKES) {
+      const file = path.join(OUT_DIR, `/parts/for/${m}/`, 'index.html');
+      if (!fs.existsSync(file)) continue;
+      const html = fs.readFileSync(file, 'utf8');
+
+      const own = pages.filter(p => p.make_slug === m);
+      const ownMachines = new Set(own.map(p => p.model_slug)).size;
+      for (const p of own) {
+        if (!html.includes(`href="${p.url_path}"`)) {
+          fail(`brand page ${m}: missing link to ${p.url_path}`);
+        }
+      }
+      for (const p of pages) {
+        if (p.make_slug !== m && html.includes(`href="${p.url_path}"`)) {
+          fail(`brand page ${m}: leaks another brand's page ${p.url_path}`);
+        }
+      }
+      if (ownMachines !== own.length && html.includes(`${own.length} machines`)) {
+        fail(`brand page ${m}: shows catalogue entries (${own.length}) as machine count (${ownMachines})`);
+      }
+      if (!html.includes(`${ownMachines} machines`)) {
+        fail(`brand page ${m}: machine count ${ownMachines} not shown`);
+      }
+
+      const t = (html.match(/<title>([^<]*)<\/title>/) || [])[1] || '';
+      if (!t) fail(`brand page ${m}: no <title>`);
+      for (const c of CATEGORIES) {
+        const hub = path.join(OUT_DIR, `/parts/${c.slug}/for/${m}/`, 'index.html');
+        if (!fs.existsSync(hub)) continue;
+        const hubTitle = (fs.readFileSync(hub, 'utf8').match(/<title>([^<]*)<\/title>/) || [])[1] || '';
+        if (t && hubTitle && t === hubTitle) {
+          fail(`brand page ${m} and ${c.slug} brand hub share the same title "${t}"`);
+        }
+      }
+    }
+    ok('brand pages link their own machines, count machines, and keep distinct titles');
+
+    // Home brand grid: every chip must resolve to a page that actually exists,
+    // including the thin brands that have no cross-category page.
+    const home = fs.readFileSync(path.join(OUT_DIR, '/', 'index.html'), 'utf8');
+    const seenMake = new Set();
+    for (const p of pages) {
+      if (seenMake.has(p.make_slug)) continue;
+      seenMake.add(p.make_slug);
+      const href = brandEntryPath(p.make_slug);
+      if (!home.includes(`href="${href}"`)) {
+        fail(`home: brand ${p.make_slug} does not link to ${href}`);
+      }
+      if (!fs.existsSync(path.join(OUT_DIR, href, 'index.html'))) {
+        fail(`home: brand ${p.make_slug} links to ${href} which is not exported (dead link)`);
+      }
+    }
+    ok(`home brand grid: ${seenMake.size} brands, every link resolves`);
+  }
+
   console.log('\n[check-data:post] list surfaces use thumbnail cards (no application blurbs)');
   // copy.application is duplicated low-value text for list surfaces: it must
   // never appear on the home page, category hub or any brand hub.
@@ -412,7 +521,7 @@ function post() {
     const html = fs.readFileSync(path.join(OUT_DIR, '/', 'index.html'), 'utf8');
     // Client search is progressive enhancement: the input ships in SSR HTML
     // and every model is reachable through static brand/card links.
-    if (!/aria-label="Search final drives by part number, model or make"/.test(html)) {
+    if (!/aria-label="Search parts by part number, model or make"/.test(html)) {
       fail('home: search input missing from SSR HTML');
     }
     // Hot part-number chips render as real links to their model pages.
@@ -427,24 +536,42 @@ function post() {
         fail(`home: hot PN chip ${pn} does not link to ${owner.url_path}`);
       }
     }
-    // Brand chips must carry the natural "{count} {Make} models" text with a
-    // real space (regression guard for the JSX whitespace-mashing bug).
-    // Home page is scoped to the lead category, so brand chips count lead-category models.
-    const homePages = CATEGORIES[0].pages;
-    for (const m of CATEGORIES[0].makes) {
-      const count = homePages.filter(p => p.make_slug === m.slug).length;
-      const label = `${count} ${m.name} ${count === 1 ? 'model' : 'models'}`;
+    // Brand chips are cross-category and must carry the natural
+    // "{models} {Make} models, {entries} catalogue entries" text with real
+    // spaces (regression guard for the JSX whitespace-mashing bug).
+    // The headline number is DISTINCT MACHINES, never catalogue entries.
+    const brandMap = new Map();
+    for (const p of pages) {
+      let g = brandMap.get(p.make_slug);
+      if (!g) { g = { name: p.make_name, models: new Set(), entries: 0 }; brandMap.set(p.make_slug, g); }
+      g.models.add(p.model_slug);
+      g.entries += 1;
+    }
+    for (const [slug, g] of brandMap) {
+      const models = g.models.size;
+      const label = `${models} ${g.name} ${models === 1 ? 'model' : 'models'}, ${g.entries} catalogue ${g.entries === 1 ? 'entry' : 'entries'}`;
       if (!html.includes(label)) {
         fail(`home: brand chip missing natural count text "${label}"`);
       }
-      if (html.includes(`${count}${m.name}`)) {
-        fail(`home: brand count stuck to make name ("${count}${m.name}")`);
+      if (html.includes(`${models}${g.name}`)) {
+        fail(`home: brand count stuck to make name ("${models}${g.name}")`);
       }
+      if (models !== g.entries && html.includes(`${g.entries} ${g.name} model`)) {
+        fail(`home: brand ${slug} shows catalogue entries (${g.entries}) as machines (${models})`);
+      }
+    }
+    // Machine count on the hero must be distinct machines, not entries.
+    const machines = new Set(pages.map(p => `${p.make_slug}:${p.model_slug}`)).size;
+    if (!html.includes(`Search ${machines} equipment models across ${brandMap.size} brands.`)) {
+      fail(`home: hero must say "Search ${machines} equipment models across ${brandMap.size} brands."`);
+    }
+    if (machines !== pages.length && html.includes(`Search ${pages.length} equipment models`)) {
+      fail(`home: hero counts catalogue entries (${pages.length}) as equipment models (${machines})`);
     }
     // Trust strip and how-it-works anchors exist for the topbar nav.
     if (!html.includes('id="makes"')) fail('home: missing #makes anchor');
     if (!html.includes('id="how"')) fail('home: missing #how anchor');
-    for (const t of ['Nameplate-verified fitment', 'China aftermarket sourcing', 'Quote by part number']) {
+    for (const t of ['Nameplate-based fitment check', 'China aftermarket sourcing', 'Quote by part number']) {
       if (!html.includes(t)) fail(`home: trust item "${t}" missing`);
     }
     if (failures === 0) ok('home v6: SSR search input, hot PN chips, spaced brand counts');

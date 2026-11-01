@@ -27,8 +27,8 @@ export default function AboutPage() {
           We are not an authorized dealer of any equipment manufacturer. What we do is
           identify and source: you tell us the machine, the numbers stamped on your unit and
           show us the nameplate; our team confirms the exact part against those details and
-          sources it through vetted China aftermarket and OEM-equivalent factories at
-          factory-direct pricing.
+          sources it through vetted China aftermarket and OEM-equivalent factories, then
+          quotes on the confirmed unit.
         </p>
         <p>
           The part numbers listed on our model pages are the catalog numbers commonly

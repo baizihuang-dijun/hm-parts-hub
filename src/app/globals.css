@@ -189,6 +189,7 @@ body {
     border-bottom: 3px solid var(--orange);
   }
   .v6-topbar .v6-wrap {
+    position: relative;
     display: flex;
     align-items: center;
     gap: 28px;
@@ -220,6 +221,99 @@ body {
   }
   .v6-mainnav a:hover {
     color: #ffffff;
+  }
+  /* Products disclosure: hover on pointer devices, focus for keyboard. */
+  .v6-navgroup {
+    position: relative;
+    display: flex;
+    align-items: center;
+  }
+  .v6-navgroup-label {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    cursor: default;
+  }
+  .v6-navgroup-label::after {
+    content: '';
+    width: 0;
+    height: 0;
+    border-left: 3.5px solid transparent;
+    border-right: 3.5px solid transparent;
+    border-top: 4px solid currentColor;
+    opacity: 0.7;
+  }
+  .v6-navmenu {
+    position: absolute;
+    top: calc(100% + 14px);
+    left: -14px;
+    display: none;
+    min-width: 196px;
+    padding: 6px;
+    background: #ffffff;
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    box-shadow: 0 12px 28px rgba(10, 16, 20, 0.18);
+    z-index: 60;
+  }
+  /* Invisible bridge so the pointer can cross the 14px gap without the menu closing. */
+  .v6-navmenu::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: -14px;
+    height: 14px;
+  }
+  .v6-navgroup:hover .v6-navmenu,
+  .v6-navgroup:focus-within .v6-navmenu {
+    display: block;
+  }
+  .v6-mainnav .v6-navmenu a {
+    display: block;
+    padding: 9px 12px;
+    border-radius: 4px;
+    color: #1d2a33;
+    font-size: 13.5px;
+  }
+  .v6-mainnav .v6-navmenu a:hover {
+    color: #1d2a33;
+    background: #f2f5f7;
+  }
+  .v6-burger {
+    display: none;
+    align-items: center;
+    justify-content: center;
+    width: 38px;
+    height: 38px;
+    cursor: pointer;
+    background: none;
+    border: 1px solid rgba(255, 255, 255, 0.28);
+    border-radius: 4px;
+  }
+  .v6-burger-bars,
+  .v6-burger-bars::before,
+  .v6-burger-bars::after {
+    display: block;
+    width: 16px;
+    height: 2px;
+    background: #e7ecef;
+    border-radius: 1px;
+  }
+  .v6-burger-bars {
+    position: relative;
+  }
+  .v6-burger-bars::before,
+  .v6-burger-bars::after {
+    content: '';
+    position: absolute;
+    left: 0;
+  }
+  .v6-burger-bars::before {
+    top: -5px;
+  }
+  .v6-burger-bars::after {
+    top: 5px;
   }
   .v6-hero .v6-kicker {
     color: #8b97a0;
@@ -682,8 +776,69 @@ body {
 }
 
 @media (max-width: 920px) {
+  /* Drawer, not a disappearing nav: the old rule hid the whole menu on phones. */
   .v6-mainnav {
     display: none;
+    position: absolute;
+    top: 63px;
+    left: 0;
+    right: 0;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+    margin-left: 0;
+    padding: 6px 18px 18px;
+    background: var(--steel);
+    border-bottom: 3px solid var(--orange);
+    box-shadow: 0 14px 24px rgba(10, 16, 20, 0.28);
+    z-index: 70;
+  }
+  .v6-mainnav.is-open {
+    display: flex;
+  }
+  .v6-mainnav > a,
+  .v6-navgroup-label {
+    padding: 13px 0;
+    font-size: 15px;
+    color: #c2cbd1;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  }
+  .v6-navgroup {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .v6-navgroup-label {
+    border-bottom: 0;
+    padding-bottom: 2px;
+  }
+  .v6-navgroup-label::after {
+    display: none;
+  }
+  .v6-navmenu {
+    position: static;
+    display: block;
+    min-width: 0;
+    padding: 0 0 10px 12px;
+    background: transparent;
+    border: 0;
+    border-radius: 0;
+    box-shadow: none;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  }
+  .v6-navmenu::before {
+    display: none;
+  }
+  .v6-mainnav .v6-navmenu a {
+    color: #c2cbd1;
+    font-size: 15px;
+    padding: 10px 0;
+  }
+  .v6-mainnav .v6-navmenu a:hover {
+    color: #ffffff;
+    background: transparent;
+  }
+  .v6-burger {
+    display: inline-flex;
   }
   /* Brand tagline is too wide for a 375px viewport once the nav is hidden. */
   .v6-brand span {

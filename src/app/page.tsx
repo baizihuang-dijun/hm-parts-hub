@@ -6,44 +6,35 @@ import { ModelCard } from '@/components/model-card';
 import { HomeSearch, type SearchEntry } from '@/components/home-search';
 import {
   CATEGORY_CONFIGS,
-  makesInCategory,
-  pagesInCategory,
-  pagesByMake,
-  brandHubPath,
+  brandEntryPath,
   categoryPath,
+  distinctModelCount,
+  featuredAcrossCategories,
+  makesAcrossCategories,
+  makesInCategory,
   modelPages,
+  pagesInCategory,
   RFQ_PATH,
   type ModelPage,
 } from '@/lib/data';
 
-/* Home page is scoped to the lead category; other categories get their own hubs. */
 const FD = 'final-drives';
-const fdModels = pagesInCategory(FD);
-const fdMakes = makesInCategory(FD);
-/* Search indexes every category, even though the home copy counts only the lead one. */
+/* Search indexes every category — the box is site-wide, not final-drive-only. */
 const searchable = [...pagesInCategory('final-drives'), ...pagesInCategory('travel-gearboxes')];
+/* Distinct machines, not catalogue entries: one machine can hold a page in
+   more than one category, so 137 entries are 121 machines. */
+const MACHINE_COUNT = distinctModelCount(modelPages);
 
 export const metadata: Metadata = {
   ...buildMetadata({
-    title: 'HM Parts Hub — Replacement Final Drives & Travel Motors',
+    title: 'HM Parts Hub — Replacement Parts for Mobile Equipment',
     description:
-      'Find replacement final drives and travel motors by equipment model or OEM part number. Configuration-matched aftermarket parts for mobile equipment, with hands-on identification and quote support.',
+      'Find replacement parts for mobile equipment by part number, equipment make or model. Starting with excavator final drives and travel gearboxes, with fitment confirmed against the part number, serial number and nameplate before quoting.',
     path: '/',
   }),
   // Absolute title — do not apply the layout "%s | SITE_NAME" template.
-  title: 'HM Parts Hub — Replacement Final Drives & Travel Motors',
+  title: 'HM Parts Hub — Replacement Parts for Mobile Equipment',
 };
-
-const FEATURED_MODELS = [
-  'hyundai/r140lc-7',
-  'caterpillar/320d',
-  'komatsu/pc200-7',
-  'kobelco/sk200-8',
-  'hitachi/zx200-3',
-  'doosan/dx225',
-  'volvo/ec220d',
-  'sany/sy285',
-];
 
 const HOT_PNS = [
   '20Y-27-00300',
@@ -91,7 +82,8 @@ function pageForPartNumber(pn: string): ModelPage | undefined {
 }
 
 const TRUST_ITEMS = [
-  'Nameplate-verified fitment',
+  // A check we run before quoting — not a claim that fitment is already proven.
+  'Nameplate-based fitment check',
   'China aftermarket sourcing',
   'Quote by part number',
 ];
@@ -106,16 +98,14 @@ const HOW_STEPS = [
     d: 'Our team checks displacement, mounting pattern, sprocket interface and speed ratio against vetted factory supply.',
   },
   {
-    t: 'Get a factory-direct quote',
-    d: 'Receive a clear sourcing quote with the technical confirmation attached — no guesswork, no blind cross-reference.',
+    t: 'Get a sourcing quote',
+    d: 'Receive a clear quote with the technical confirmation attached — no guesswork, no blind cross-reference.',
   },
 ];
 
 export default function HomePage() {
-  const featured = FEATURED_MODELS.map((key) => {
-    const [make, model] = key.split('/');
-    return fdModels.find((p) => p.make_slug === make && p.model_slug === model);
-  }).filter((p): p is NonNullable<typeof p> => Boolean(p));
+  const featured = featuredAcrossCategories(8);
+  const brandGroups = makesAcrossCategories();
 
   const searchEntries = buildSearchEntries();
   const hotPns = HOT_PNS.map((pn) => ({ pn, page: pageForPartNumber(pn) })).filter(
@@ -127,16 +117,16 @@ export default function HomePage() {
       {/* Hero */}
       <section className="v6-hero">
         <div className="v6-wrap">
-          <p className="v6-kicker">Replacement Final Drives &amp; Travel Motors</p>
+          <p className="v6-kicker">Starting with excavator final drives &amp; travel gearboxes</p>
           <h1>
-            Find Final Drives and Travel Motors by Equipment Model or{' '}
-            <em>OEM Part Number</em>
+            Find Replacement Parts for <em>Mobile Equipment</em>
           </h1>
           <p className="v6-sub">
-            Configuration-matched aftermarket parts for excavators and track
-            equipment, with hands-on identification and quote support.
+            Search by part number, equipment make or model. Fitment is confirmed
+            against the part number, machine serial number and nameplate before
+            quoting.
           </p>
-          <p className="v6-data-note">{`Search ${fdModels.length} equipment models across ${fdMakes.length} brands.`}</p>
+          <p className="v6-data-note">{`Search ${MACHINE_COUNT} equipment models across ${brandGroups.length} brands.`}</p>
           <HomeSearch entries={searchEntries} />
           <p className="v6-search-hint">
             Popular OEM numbers — <b>tap a chip to open its model page</b>
@@ -170,7 +160,7 @@ export default function HomePage() {
           <div className="v6-sec-head">
             <h2>Current product range</h2>
             <span className="rule" />
-            <span className="cnt">{`${CATEGORY_CONFIGS.length} categories · ${modelPages.length} models`}</span>
+            <span className="cnt">{`${CATEGORY_CONFIGS.length} categories · ${modelPages.length} catalogue entries`}</span>
           </div>
           <div className="grid gap-4 sm:grid-cols-2">
             {CATEGORY_CONFIGS.map((cat) => {
@@ -216,25 +206,26 @@ export default function HomePage() {
       <section id="makes" className="v6-block">
         <div className="v6-wrap">
           <div className="v6-sec-head">
-            <h2>Browse final drives by make</h2>
+            <h2>Browse by make</h2>
             <span className="rule" />
-            <span className="cnt">{`${fdMakes.length} brands · ${fdModels.length} models`}</span>
+            <span className="cnt">{`${brandGroups.length} brands · ${MACHINE_COUNT} machines`}</span>
           </div>
           <div className="v6-brands">
-            {fdMakes.map((make) => {
-              const count = pagesByMake(make.slug, FD).length;
-              return (
-                <Link
-                  key={make.slug}
-                  href={brandHubPath(make.slug, FD)}
-                  className="v6-brandchip"
-                >
-                  <span className="b-name">{make.name}</span>
-                  <span className="b-count">{count}</span>
-                  <span className="sr-only">{`${count} ${make.name} ${count === 1 ? 'model' : 'models'}`}</span>
-                </Link>
-              );
-            })}
+            {brandGroups.map((group) => (
+              <Link
+                key={group.make.slug}
+                href={brandEntryPath(group.make.slug)}
+                className="v6-brandchip"
+              >
+                <span className="b-name">{group.make.name}</span>
+                <span className="b-count">{group.models}</span>
+                <span className="sr-only">
+                  {`${group.models} ${group.make.name} ${
+                    group.models === 1 ? 'model' : 'models'
+                  }, ${group.entries} catalogue ${group.entries === 1 ? 'entry' : 'entries'}`}
+                </span>
+              </Link>
+            ))}
           </div>
         </div>
       </section>
@@ -243,9 +234,9 @@ export default function HomePage() {
       <section className="v6-block border-t border-border">
         <div className="v6-wrap">
           <div className="v6-sec-head">
-            <h2>Frequently requested models</h2>
+            <h2>Featured equipment models</h2>
             <span className="rule" />
-            <span className="cnt">{`sample of ${fdModels.length}`}</span>
+            <span className="cnt">{`${featured.length} of ${MACHINE_COUNT} machines`}</span>
           </div>
           <div className="v6-mgrid">
             {featured.map((page) => (
@@ -283,8 +274,8 @@ export default function HomePage() {
           <div>
             <h2>Have a nameplate photo?</h2>
             <p>
-              Send it through and we will confirm the exact final drive for your
-              machine before quoting factory-direct supply.
+              Send it through and we will confirm the exact part for your
+              machine before quoting.
             </p>
           </div>
           <Link href={RFQ_PATH} className="v6-btn v6-btn-primary v6-btn-lg">

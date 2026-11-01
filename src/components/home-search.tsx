@@ -93,7 +93,7 @@ export function HomeSearch({ entries }: { entries: SearchEntry[] }) {
         }}
         onKeyDown={onKeyDown}
         placeholder="Search by part number, model or make — e.g. 20Y-27-00300, PC200, Komatsu 22t"
-        aria-label="Search final drives by part number, model or make"
+        aria-label="Search parts by part number, model or make"
         autoComplete="off"
         spellCheck={false}
       />
