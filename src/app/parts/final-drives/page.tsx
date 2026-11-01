@@ -5,14 +5,16 @@ import { breadcrumbLd, graphLd } from '@/lib/schema';
 import { ModelCard } from '@/components/model-card';
 import {
   data,
-  makes,
-  modelPages,
+  makesInCategory,
+  pagesInCategory,
   pagesByMake,
   sortPagesByTonnage,
   brandHubPath,
   RFQ_PATH,
   GUIDE_PATH,
 } from '@/lib/data';
+
+const CATEGORY = 'final-drives';
 
 export const metadata: Metadata = buildMetadata({
   title: `Excavator Final Drives & Travel Motors — Aftermarket Sourcing`,
@@ -22,7 +24,7 @@ export const metadata: Metadata = buildMetadata({
 });
 
 export default function FinalDrivesHubPage() {
-  const recentCommon = sortPagesByTonnage(modelPages).slice(0, 6);
+  const recentCommon = sortPagesByTonnage(pagesInCategory(CATEGORY)).slice(0, 6);
 
   return (
     <div className="mx-auto max-w-6xl px-4 py-12 sm:px-6">
@@ -56,8 +58,8 @@ export default function FinalDrivesHubPage() {
       <section className="mt-12">
         <h2 className="text-lg font-semibold tracking-tight">Browse by equipment make</h2>
         <ul className="mt-6 grid grid-cols-2 gap-px border border-border bg-border sm:grid-cols-3 lg:grid-cols-4">
-          {makes.map(make => {
-            const pages = sortPagesByTonnage(pagesByMake(make.slug));
+          {makesInCategory(CATEGORY).map(make => {
+            const pages = sortPagesByTonnage(pagesByMake(make.slug, CATEGORY));
             const range = pages
               .map(p => p.copy.ton_class_approx)
               .filter((t): t is number => typeof t === 'number');
@@ -68,7 +70,7 @@ export default function FinalDrivesHubPage() {
             return (
               <li key={make.slug}>
                 <Link
-                  href={brandHubPath(make.slug)}
+                  href={brandHubPath(make.slug, CATEGORY)}
                   className="flex h-full flex-col gap-2 bg-background p-5 transition-colors hover:bg-muted"
                 >
                   <span className="text-base font-semibold tracking-tight text-primary">

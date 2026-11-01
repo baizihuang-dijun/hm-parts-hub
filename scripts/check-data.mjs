@@ -45,20 +45,55 @@ function ok(msg) {
 
 /* ---------- shared data ---------- */
 const data = JSON.parse(fs.readFileSync(JSON_PATH, 'utf8'));
-const pages = data.pages;
-const makes = data.makes;
+const TG_PATH = path.join(ROOT, 'src/content/travel_gearboxes.json');
+const tgData = fs.existsSync(TG_PATH)
+  ? JSON.parse(fs.readFileSync(TG_PATH, 'utf8'))
+  : { pages: [], makes: [] };
+
+/** Every content category that ships model pages. Add a line here when a category goes live. */
+const CATEGORIES = [
+  { slug: 'final-drives', pages: data.pages, makes: data.makes },
+  { slug: 'travel-gearboxes', pages: tgData.pages, makes: tgData.makes },
+].filter(c => c.pages.length > 0);
+
+const pages = CATEGORIES.flatMap(c => c.pages);
+const makes = (() => {
+  const seen = new Set();
+  const out = [];
+  for (const c of CATEGORIES) {
+    for (const m of c.makes) {
+      if (seen.has(m.slug)) continue;
+      seen.add(m.slug);
+      out.push(m);
+    }
+  }
+  return out;
+})();
 const PAGE_COUNT = pages.length;
 
 const FIXED_ROUTES = [
   '/',
-  '/parts/final-drives/',
+  ...CATEGORIES.map(c => `/parts/${c.slug}/`),
   '/request-quote/',
   '/about/',
   '/privacy/',
   '/terms/',
   '/guides/how-to-check-excavator-final-drive-nameplate/',
 ];
-const BRAND_ROUTES = makes.map(m => `/parts/final-drives/for/${m.slug}/`);
+const BRAND_ROUTES = CATEGORIES.flatMap(c =>
+  c.makes.map(m => `/parts/${c.slug}/for/${m.slug}/`),
+);
+const CAT_META = {
+  'final-drives': { sentence: 'final drive', groupAssembly: 'Final drive assembly numbers' },
+  'travel-gearboxes': { sentence: 'travel gearbox', groupAssembly: 'Travel gearbox assembly numbers' },
+};
+
+/** Category metadata for a model page (fallback keeps legacy final-drive assertions intact). */
+function catMetaOf(page) {
+  const owner = CATEGORIES.find((c) => c.pages.includes(page));
+  return CAT_META[owner ? owner.slug : 'final-drives'] || CAT_META['final-drives'];
+}
+
 const MODEL_ROUTES = pages.map(p => p.url_path);
 const ALL_ROUTES = [...FIXED_ROUTES, ...BRAND_ROUTES, ...MODEL_ROUTES];
 
@@ -142,8 +177,8 @@ function pre() {
   } else {
     ok(`${PAGE_COUNT} model pages in JSON`);
   }
-  if (makes.length !== EXPECTED_MAKE_COUNT) {
-    fail(`expected ${EXPECTED_MAKE_COUNT} makes in JSON, found ${makes.length}`);
+  if (data.makes.length !== EXPECTED_MAKE_COUNT) {
+    fail(`expected ${EXPECTED_MAKE_COUNT} makes in JSON, found ${data.makes.length}`);
   } else {
     ok(`${EXPECTED_MAKE_COUNT} makes in JSON`);
   }
@@ -158,7 +193,8 @@ function pre() {
 
   const seenRoutes = new Set();
   for (const p of pages) {
-    const expected = `/equipment/${p.make_slug}/${p.model_slug}/final-drives/`;
+    const owner = CATEGORIES.find(c => c.pages.includes(p));
+    const expected = `/equipment/${p.make_slug}/${p.model_slug}/${owner ? owner.slug : 'final-drives'}/`;
     if (p.url_path !== expected) {
       fail(`url_path mismatch: "${p.url_path}" !== derived "${expected}"`);
     }
@@ -293,16 +329,19 @@ function post() {
     ok(`exactly the ${PAGE_COUNT} published machine routes exist, nothing else`);
   }
 
-  // Brand hubs: each must link every model page of that make, and no other model.
-  for (const make of makes) {
-    const file = path.join(OUT_DIR, `/parts/final-drives/for/${make.slug}/`, 'index.html');
-    if (!fs.existsSync(file)) continue;
-    const html = fs.readFileSync(file, 'utf8');
-    for (const p of pages) {
-      const should = p.make_slug === make.slug;
-      const linked = html.includes(`href="${p.url_path}"`);
-      if (should && !linked) fail(`brand hub ${make.slug} missing link to ${p.url_path}`);
-      if (!should && linked) fail(`brand hub ${make.slug} unexpectedly links ${p.url_path}`);
+  // Brand hubs: each must link every model page of that make *within its own
+  // category*, and must not leak pages from another category.
+  for (const cat of CATEGORIES) {
+    for (const make of cat.makes) {
+      const file = path.join(OUT_DIR, `/parts/${cat.slug}/for/${make.slug}/`, 'index.html');
+      if (!fs.existsSync(file)) continue;
+      const html = fs.readFileSync(file, 'utf8');
+      for (const p of pages) {
+        const should = p.make_slug === make.slug && cat.pages.includes(p);
+        const linked = html.includes(`href="${p.url_path}"`);
+        if (should && !linked) fail(`brand hub ${cat.slug}/${make.slug} missing link to ${p.url_path}`);
+        if (!should && linked) fail(`brand hub ${cat.slug}/${make.slug} unexpectedly links ${p.url_path}`);
+      }
     }
   }
   ok('brand hubs link exactly their own model pages');
@@ -310,7 +349,7 @@ function post() {
   console.log('\n[check-data:post] list surfaces use thumbnail cards (no application blurbs)');
   // copy.application is duplicated low-value text for list surfaces: it must
   // never appear on the home page, category hub or any brand hub.
-  const LIST_PAGES = ['/', '/parts/final-drives/', ...BRAND_ROUTES];
+  const LIST_PAGES = ['/', ...CATEGORIES.map(c => `/parts/${c.slug}/`), ...BRAND_ROUTES];
   for (const route of LIST_PAGES) {
     const file = path.join(OUT_DIR, route, 'index.html');
     if (!fs.existsSync(file)) continue;
@@ -333,10 +372,14 @@ function post() {
     if (/<\/span><span[^>]*>\d+ [A-Za-z]+ models? in this batch/.test(html)) {
       fail(`${route}: brand name stuck to model count (missing space text node)`);
     }
-    const relevant =
-      route === '/' || route === '/parts/final-drives/'
-        ? pages
-        : pages.filter(p => `/parts/final-drives/for/${p.make_slug}/` === route);
+    const routeCat = CATEGORIES.find(
+      (c) => route === `/parts/${c.slug}/` || route.startsWith(`/parts/${c.slug}/for/`),
+    );
+    const relevant = routeCat
+      ? route === `/parts/${routeCat.slug}/`
+        ? routeCat.pages
+        : routeCat.pages.filter((p) => `/parts/${routeCat.slug}/for/${p.make_slug}/` === route)
+      : pages;
     for (const p of relevant) {
       const app = (p.copy.application || '').trim();
       if (app && visible.includes(app)) {
@@ -344,7 +387,7 @@ function post() {
       }
       // Every card must show the model main image thumbnail.
       const main = p.images.find(i => i.tag === 'main') || p.images[0];
-      const isBrandHub = route.startsWith('/parts/final-drives/for/');
+      const isBrandHub = /^\/parts\/[^/]+\/for\//.test(route);
       if (main && (isBrandHub || html.includes(`href="${p.url_path}"`))) {
         if (isBrandHub && !html.includes(`/images/products/${main.file}`)) {
           fail(`${route}: card for ${p.model_name} missing main-image thumbnail ${main.file}`);
@@ -386,8 +429,10 @@ function post() {
     }
     // Brand chips must carry the natural "{count} {Make} models" text with a
     // real space (regression guard for the JSX whitespace-mashing bug).
-    for (const m of makes) {
-      const count = pages.filter(p => p.make_slug === m.slug).length;
+    // Home page is scoped to the lead category, so brand chips count lead-category models.
+    const homePages = CATEGORIES[0].pages;
+    for (const m of CATEGORIES[0].makes) {
+      const count = homePages.filter(p => p.make_slug === m.slug).length;
       const label = `${count} ${m.name} ${count === 1 ? 'model' : 'models'}`;
       if (!html.includes(label)) {
         fail(`home: brand chip missing natural count text "${label}"`);
@@ -499,8 +544,10 @@ function post() {
         fail(`${label}: ${img.file} missing from exported out/images/products/`);
       }
     }
-    if (!new RegExp(`Final drive assembly for ${p.make_name} ${p.model_name} excavator`).test(html)) {
-      fail(`${label}: main image missing descriptive alt "Final drive assembly for {Make} {Model} excavator"`);
+    const unitSentence = catMetaOf(p).sentence;
+    const unitCap = unitSentence.charAt(0).toUpperCase() + unitSentence.slice(1);
+    if (!new RegExp(`${unitCap} assembly for ${p.make_name} ${p.model_name} excavator`).test(html)) {
+      fail(`${label}: main image missing descriptive alt "${unitCap} assembly for {Make} {Model} excavator"`);
     }
     if (/-main\.jpg|-view\d\.jpg/.test(html)) {
       fail(`${label}: legacy image filename (-main/-view) still referenced`);
@@ -514,8 +561,8 @@ function post() {
     }
     if (!visible.includes(copy.pn_heading)) fail(`${label}: pn_heading not rendered`);
     if (!visible.includes(copy.pn_note.slice(0, 50))) fail(`${label}: pn_note not rendered`);
-    if (!/Why source this final drive through us/.test(visible)) {
-      fail(`${label}: missing "Why source this final drive through us" section`);
+    if (!new RegExp(`Why source this ${unitSentence} through us`).test(visible)) {
+      fail(`${label}: missing "Why source this ${unitSentence} through us" section`);
     }
     if (!/Confirm the exact fit before you order/.test(visible)) {
       fail(`${label}: missing "Confirm the exact fit before you order" section`);
@@ -524,7 +571,7 @@ function post() {
     // Part numbers: non-empty groups rendered with headings; lead_pn visible.
     // No-number pages: no group tables, mandatory "Send my nameplate" CTA.
     const GROUP_LABELS = {
-      assembly: 'Final drive assembly numbers',
+      assembly: catMetaOf(p).groupAssembly,
       motor: 'Travel motor numbers',
       service: 'Service & repair kit numbers',
     };

@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import { CookieSettingsButton } from './cookie-settings-button';
 import { RFQ_EMAIL, SITE_NAME, WHATSAPP_NUMBER, whatsappUrl } from '@/config/site';
-import { CATEGORY_PATH, GUIDE_PATH, RFQ_PATH } from '@/lib/data';
+import { CATEGORY_CONFIGS, categoryPath, GUIDE_PATH, RFQ_PATH } from '@/lib/data';
 
 export function SiteFooter() {
   return (
@@ -42,7 +42,11 @@ export function SiteFooter() {
           </div>
         </div>
         <nav className="ftr-links" aria-label="Footer">
-          <Link href={CATEGORY_PATH}>Final Drives</Link>
+          {CATEGORY_CONFIGS.map(cat => (
+            <Link key={cat.slug} href={categoryPath(cat.slug)}>
+              {cat.name}
+            </Link>
+          ))}
           <Link href={GUIDE_PATH}>Nameplate Guide</Link>
           <Link href={RFQ_PATH}>Request a Quote</Link>
           <Link href="/about/">About</Link>

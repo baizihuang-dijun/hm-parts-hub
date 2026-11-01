@@ -37,7 +37,7 @@ export function RfqForm() {
               at{' '}
               <a
                 href={`mailto:${RFQ_EMAIL}?subject=${encodeURIComponent(
-                  `Final Drive RFQ — ${SITE_NAME}`,
+                  `Parts RFQ — ${SITE_NAME}`,
                 )}`}
                 className="font-semibold text-primary underline underline-offset-4"
               >
@@ -48,7 +48,7 @@ export function RfqForm() {
             ' '
           )}
           with your machine make/model, part numbers, serial number and nameplate photos,
-          and we will confirm the matching final drive before quoting.
+          and we will confirm the matching unit before quoting.
         </p>
       </div>
     );
@@ -63,9 +63,9 @@ export function RfqForm() {
     const form = e.currentTarget;
     const fd = new FormData(form);
     fd.set('access_key', WEB3FORMS_KEY);
-    fd.set('subject', `Final Drive RFQ — ${SITE_NAME}`);
+    fd.set('subject', `Parts RFQ — ${SITE_NAME}`);
     fd.set('from_name', `${SITE_NAME} RFQ Form`);
-    fd.set('form_name', 'final_drive_rfq');
+    fd.set('form_name', 'parts_rfq');
     fd.set('source_page', sourcePage);
 
     try {
@@ -113,7 +113,7 @@ export function RfqForm() {
     <form ref={formRef} onSubmit={onSubmit} className="border border-border bg-card p-6">
       {/* Hidden Web3Forms fields */}
       <input type="hidden" name="access_key" value={WEB3FORMS_KEY} />
-      <input type="hidden" name="subject" value={`Final Drive RFQ — ${SITE_NAME}`} />
+      <input type="hidden" name="subject" value={`Parts RFQ — ${SITE_NAME}`} />
       <input type="hidden" name="from_name" value={`${SITE_NAME} RFQ Form`} />
       <input type="hidden" name="form_name" value="final_drive_rfq" />
       <input type="hidden" name="source_page" value={sourcePage} />

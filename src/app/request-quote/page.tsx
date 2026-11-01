@@ -7,9 +7,9 @@ import { RfqForm } from '@/components/rfq-form';
 import { Breadcrumbs } from '@/components/breadcrumbs';
 
 export const metadata: Metadata = buildMetadata({
-  title: 'Request a Quote — Final Drive Sourcing',
+  title: 'Request a Quote — Final Drives & Travel Gearboxes',
   description:
-    'Request sourcing for an excavator final drive. Send part numbers, machine serial number and nameplate photos — technical confirmation before any order.',
+    'Request sourcing for an excavator final drive or travel gearbox. Send part numbers, machine serial number and nameplate photos — technical confirmation before any order.',
   path: RFQ_PATH,
 });
 
@@ -20,14 +20,14 @@ export default function RequestQuotePage() {
 
       <div className="mt-6">
         <p className="text-xs font-semibold uppercase tracking-widest text-muted-foreground">
-          RFQ · Final drives
+          RFQ · Final drives &amp; travel gearboxes
         </p>
         <h1 className="mt-3 text-3xl font-bold tracking-tight text-foreground md:text-4xl">
           Request a Quote
         </h1>
         <p className="mt-4 max-w-2xl text-sm leading-relaxed text-foreground/80 md:text-base">
           Tell us the machine, the part numbers you have, and attach photos of the
-          nameplate and mounting face. We confirm the matching final drive technically —
+          nameplate and mounting face. We confirm the matching unit technically —
           OEM part number, serial number and nameplate — before quoting from our vetted
           OEM-equivalent aftermarket supply network.
         </p>
