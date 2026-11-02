@@ -122,9 +122,11 @@ function galleryImages(page: ModelPage, cat: CategoryConfig): GalleryImage[] {
   return ordered.map((img, idx) => ({
     file: img.file,
     alt:
-      idx === 0
-        ? `${unit} assembly for ${page.make_name} ${page.model_name} excavator`
-        : `${unit} for ${page.make_name} ${page.model_name} excavator — additional view ${idx}`,
+      img.tag === 'plate'
+        ? `Nameplate on the ${page.make_name} ${page.model_name} unit — type and part number stamped on the assembly`
+        : idx === 0
+          ? `${unit} assembly for ${page.make_name} ${page.model_name} excavator`
+          : `${unit} for ${page.make_name} ${page.model_name} excavator — additional view ${idx}`,
   }));
 }
 

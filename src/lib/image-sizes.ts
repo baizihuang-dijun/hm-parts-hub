@@ -73,6 +73,7 @@ const IMAGE_SIZES: Record<string, { width: number; height: number }> = {
   "caterpillar-336-gc-final-drive-4.jpg": { width: 900, height: 1200 },
   "caterpillar-336-gc-final-drive-5.jpg": { width: 900, height: 1200 },
   "caterpillar-336-gc-final-drive.jpg": { width: 1200, height: 900 },
+  "caterpillar-336-gc-final-drive-plate.jpg": { width: 1200, height: 900 },
   "caterpillar-336d-final-drive-2.jpg": { width: 900, height: 1200 },
   "caterpillar-336d-final-drive.jpg": { width: 1200, height: 900 },
   "caterpillar-345-gc-final-drive-2.jpg": { width: 900, height: 1200 },
