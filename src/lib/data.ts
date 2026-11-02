@@ -169,7 +169,7 @@ export const CATEGORY_CONFIGS: CategoryConfig[] = [
     cardTitle: 'Swing gearboxes & reduction units',
     cardBlurb:
       'Slewing reduction units sold on their own, matched against the OEM number, machine serial and the tag on the existing gearbox.',
-    cardImage: 'caterpillar-320-gc-swing-gearbox.jpg',
+    cardImage: 'caterpillar-323-swing-gearbox.jpg',
   },
 ];
 
@@ -332,8 +332,13 @@ export function featuredModels(pages: ModelPage[], count = 6): ModelPage[] {
   const usable = pages.filter(
     (p) => !SHOWCASE_SKIP.has(`${p.category_slug}:${p.make_slug}:${p.model_slug}`),
   );
-  const inBand = usable.filter((p) => ton(p) >= 13 && ton(p) <= 45);
-  const pool = inBand.length >= count ? inBand : usable;
+  /* The featured row is the shop window. A card whose unit is still waiting for a usable
+     photograph renders as an empty frame, so those units stay out of the window until the
+     pool of photographed machines runs dry. */
+  const photographed = usable.filter((p) => p.images.length > 0);
+  const base = photographed.length >= count ? photographed : usable;
+  const inBand = base.filter((p) => ton(p) >= 13 && ton(p) <= 45);
+  const pool = inBand.length >= count ? inBand : base;
 
   // Part numbers first, then lightest-to-heaviest inside each tier.
   const ranked = [...pool].sort((a, b) => {
