@@ -20,7 +20,7 @@ import {
 
 const FD = 'final-drives';
 /* Search indexes every category — the box is site-wide, not final-drive-only. */
-const searchable = [...pagesInCategory('final-drives'), ...pagesInCategory('travel-gearboxes')];
+const searchable = CATEGORY_CONFIGS.flatMap((c) => pagesInCategory(c.slug));
 /* Distinct machines, not catalogue entries: one machine can hold a page in
    more than one category, so 137 entries are 121 machines. */
 const MACHINE_COUNT = distinctModelCount(modelPages);
@@ -51,7 +51,7 @@ function norm(s: string): string {
 
 function allPartNumbers(p: ModelPage): string[] {
   const g = p.part_number_groups;
-  return [...(g.assembly ?? []), ...(g.motor ?? []), ...(g.service ?? [])];
+  return [...(g.assembly ?? []), ...(g.gearbox ?? []), ...(g.motor ?? []), ...(g.service ?? [])];
 }
 
 function buildSearchEntries(): SearchEntry[] {

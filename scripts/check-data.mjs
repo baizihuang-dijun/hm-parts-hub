@@ -53,12 +53,40 @@ const SD_PATH = path.join(ROOT, 'src/content/swing_drives.json');
 const sdData = fs.existsSync(SD_PATH)
   ? JSON.parse(fs.readFileSync(SD_PATH, 'utf8'))
   : { pages: [], makes: [] };
+const SG_PATH = path.join(ROOT, 'src/content/swing_gearboxes.json');
+const sgData = fs.existsSync(SG_PATH)
+  ? JSON.parse(fs.readFileSync(SG_PATH, 'utf8'))
+  : { pages: [], makes: [] };
+
+/**
+ * Old /equipment/{make}/{model}/swing-drives/ URLs reclassified as swing gearboxes.
+ * They stay in the export as noindex redirect stubs, so they are legal machine routes
+ * but must never reach the sitemap.
+ */
+const SR_PATH = path.join(ROOT, 'src/content/swing_legacy_redirects.json');
+const SWING_REDIRECTS = fs.existsSync(SR_PATH)
+  ? JSON.parse(fs.readFileSync(SR_PATH, 'utf8'))
+  : [];
+const REDIRECT_ROUTES = SWING_REDIRECTS.map(r => r.from);
+
+/**
+ * Pages that deliberately publish without a photograph because every source image showed a
+ * different product (a swing motor, a ring gear, a bare housing ring or a packing board).
+ * Keep this list in sync with BLOCKED_SOURCE_PHOTOS in gen_data.py.
+ */
+const NO_PHOTO_PAGES = [
+  '/equipment/caterpillar/313d/swing-drives/',
+  '/equipment/caterpillar/349-gc/swing-drives/',
+  '/equipment/caterpillar/395/swing-drives/',
+  '/equipment/caterpillar/320-gc/swing-gearboxes/',
+];
 
 /** Every content category that ships model pages. Add a line here when a category goes live. */
 const CATEGORIES = [
   { slug: 'final-drives', pages: data.pages, makes: data.makes },
   { slug: 'travel-gearboxes', pages: tgData.pages, makes: tgData.makes },
   { slug: 'swing-drives', pages: sdData.pages, makes: sdData.makes },
+  { slug: 'swing-gearboxes', pages: sgData.pages, makes: sgData.makes },
 ].filter(c => c.pages.length > 0);
 
 const pages = CATEGORIES.flatMap(c => c.pages);
@@ -112,6 +140,13 @@ const CAT_META = {
     groupGearbox: 'Swing gearbox numbers',
     groupMotor: 'Swing motor numbers',
   },
+  'swing-gearboxes': {
+    sentence: 'swing gearbox',
+    subtitleSuffix: '',
+    groupAssembly: 'Swing drive assembly numbers',
+    groupGearbox: 'Swing gearbox numbers',
+    groupMotor: 'Swing motor numbers',
+  },
 };
 
 /** Category metadata for a model page (fallback keeps legacy final-drive assertions intact). */
@@ -121,6 +156,8 @@ function catMetaOf(page) {
 }
 
 const MODEL_ROUTES = pages.map(p => p.url_path);
+/** Machine routes that only exist as a redirect stub (noindex, not in sitemap). */
+const REDIRECT_MODEL_ROUTES = REDIRECT_ROUTES.filter(r => !MODEL_ROUTES.includes(r));
 
 /**
  * Brands that ship a cross-category landing page at /parts/for/{make}/.
@@ -299,10 +336,15 @@ function pre() {
 
     if (!p.title || !p.h1) fail(`${p.url_path}: missing title/h1`);
 
-    // main image present + every referenced file exists on disk
+    // main image present + every referenced file exists on disk.
+    // A unit whose only source photo showed the wrong product keeps its page and part numbers
+    // but publishes no picture at all, so those pages are named here instead of being skipped.
     const main = p.images.find(i => i.tag === 'main') || p.images[0];
-    if (!main) {
+    if (!main && !NO_PHOTO_PAGES.includes(p.url_path)) {
       fail(`${p.url_path}: no images in JSON`);
+    }
+    if (main && NO_PHOTO_PAGES.includes(p.url_path)) {
+      fail(`${p.url_path}: listed as photo-less but still carries images`);
     }
     for (const img of p.images || []) {
       if (!fs.existsSync(path.join(ROOT, 'public/images/products', img.file))) {
@@ -310,7 +352,7 @@ function pre() {
       }
     }
   }
-  ok('url_path verbatim, copy completeness & image existence done');
+  ok(`url_path verbatim, copy completeness & image existence done (${NO_PHOTO_PAGES.length} pages intentionally photo-less)`);
 
   console.log('\n[check-data:pre] image dimension map coverage (CLS width/height)');
   const sizesSrc = fs.readFileSync(path.join(ROOT, 'src/lib/image-sizes.ts'), 'utf8');
@@ -371,13 +413,32 @@ function post() {
     `/${path.relative(OUT_DIR, path.dirname(f))}/`,
   );
   for (const r of exportedModels) {
-    if (!MODEL_ROUTES.includes(r)) fail(`unexpected exported machine route: ${r}`);
+    if (!MODEL_ROUTES.includes(r) && !REDIRECT_MODEL_ROUTES.includes(r)) {
+      fail(`unexpected exported machine route: ${r}`);
+    }
   }
-  if (exportedModels.length !== MODEL_ROUTES.length) {
-    fail(`exported machine route count ${exportedModels.length} !== ${MODEL_ROUTES.length}`);
+  const expectedMachineRoutes = MODEL_ROUTES.length + REDIRECT_MODEL_ROUTES.length;
+  if (exportedModels.length !== expectedMachineRoutes) {
+    fail(`exported machine route count ${exportedModels.length} !== ${expectedMachineRoutes}`);
   } else {
-    ok(`exactly the ${PAGE_COUNT} published machine routes exist, nothing else`);
+    ok(`exactly the ${PAGE_COUNT} published machine routes + ${REDIRECT_MODEL_ROUTES.length} redirect stubs exist, nothing else`);
   }
+
+  // Every redirect stub must land on a route that really exists, and every target must
+  // be a live page rather than another stub — a chain of hops would lose link equity.
+  const liveRouteSet = new Set(ALL_ROUTES);
+  for (const r of SWING_REDIRECTS) {
+    if (!REDIRECT_MODEL_ROUTES.includes(r.from)) {
+      fail(`redirect source is not a stub route: ${r.from}`);
+    }
+    if (!liveRouteSet.has(r.to)) fail(`redirect target is not a live route: ${r.from} -> ${r.to}`);
+    const stubFile = path.join(OUT_DIR, r.from, 'index.html');
+    if (!fs.existsSync(stubFile)) { fail(`missing redirect stub page: ${r.from}`); continue; }
+    const html = fs.readFileSync(stubFile, 'utf8');
+    if (!html.includes(`url=${r.to}`)) fail(`redirect stub ${r.from} does not point at ${r.to}`);
+    if (!/name="robots" content="noindex/i.test(html)) fail(`redirect stub ${r.from} is not noindex`);
+  }
+  if (failures === 0) ok(`${SWING_REDIRECTS.length} swing redirect stubs point at live pages and are noindex`);
 
   // Brand hubs: each must link every model page of that make *within its own
   // category*, and must not leak pages from another category.
@@ -621,6 +682,7 @@ function post() {
     for (const loc of locs) {
       if (!expected.has(loc)) fail(`sitemap contains unexpected URL: ${loc}`);
       if (/404/.test(loc)) fail('sitemap must not contain the 404 page');
+      if (REDIRECT_MODEL_ROUTES.includes(loc)) fail(`sitemap must not list a redirect stub: ${loc}`);
     }
     for (const route of expected) {
       if (!locs.includes(route)) fail(`sitemap missing route: ${route}`);
@@ -699,7 +761,12 @@ function post() {
     }
     const unitSentence = catMetaOf(p).sentence;
     const unitCap = unitSentence.charAt(0).toUpperCase() + unitSentence.slice(1);
-    if (!new RegExp(`${unitCap} assembly for ${p.make_name} ${p.model_name} excavator`).test(html)) {
+    if (NO_PHOTO_PAGES.includes(p.url_path)) {
+      // No picture is published, so the page must say so instead of showing a stand-in.
+      if (!visible.includes('Photo pending')) {
+        fail(`${label}: photo-less page does not show the "Photo pending" placeholder`);
+      }
+    } else if (!new RegExp(`${unitCap} assembly for ${p.make_name} ${p.model_name} excavator`).test(html)) {
       fail(`${label}: main image missing descriptive alt "${unitCap} assembly for {Make} {Model} excavator"`);
     }
     if (/-main\.jpg|-view\d\.jpg/.test(html)) {

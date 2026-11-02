@@ -1,6 +1,8 @@
 import fdRaw from '@/content/public_batch1.json';
 import tgRaw from '@/content/travel_gearboxes.json';
 import sdRaw from '@/content/swing_drives.json';
+import sgRaw from '@/content/swing_gearboxes.json';
+import swingLegacyRedirects from '@/content/swing_legacy_redirects.json';
 
 export interface PageImage {
   slug: string;
@@ -146,10 +148,28 @@ export const CATEGORY_CONFIGS: CategoryConfig[] = [
       motor: 'Swing motor numbers',
       service: 'Service & repair kit numbers',
     },
-    cardTitle: 'Swing drives, gearboxes & swing motors',
+    cardTitle: 'Swing drives & swing motors',
     cardBlurb:
-      'Slewing units matched to the OEM reference numbers published for each machine, then confirmed on serial number before quoting.',
+      'Complete slewing units matched to the OEM reference numbers published for each machine, then confirmed on serial number before quoting.',
     cardImage: 'caterpillar-336d-swing-drive.jpg',
+  },
+  {
+    slug: 'swing-gearboxes',
+    name: 'Swing Gearboxes',
+    unitName: 'Swing Gearbox',
+    unitNameSentence: 'swing gearbox',
+    kicker: 'swing gearbox',
+    schemaCategory: 'Swing gearbox / swing reduction unit',
+    groupLabels: {
+      assembly: 'Swing drive assembly numbers',
+      gearbox: 'Swing gearbox numbers',
+      motor: 'Swing motor numbers',
+      service: 'Service & repair kit numbers',
+    },
+    cardTitle: 'Swing gearboxes & reduction units',
+    cardBlurb:
+      'Slewing reduction units sold on their own, matched against the OEM number, machine serial and the tag on the existing gearbox.',
+    cardImage: 'caterpillar-320-gc-swing-gearbox.jpg',
   },
 ];
 
@@ -164,6 +184,7 @@ export function categoryOf(slug: string | undefined): CategoryConfig {
 const fd = fdRaw as unknown as BatchData;
 const tg = tgRaw as unknown as BatchData;
 const sd = sdRaw as unknown as BatchData;
+const sg = sgRaw as unknown as BatchData;
 
 /** Category slug attached to every page so lookups never cross categories. */
 function withCategory(pages: ModelPage[], slug: string): ModelPage[] {
@@ -176,6 +197,7 @@ export const data = fd;
 export function categoryIntro(slug: string = DEFAULT_CATEGORY): string {
   if (slug === 'travel-gearboxes') return tg.category.intro;
   if (slug === 'swing-drives') return sd.category.intro;
+  if (slug === 'swing-gearboxes') return sg.category.intro;
   return fd.category.intro;
 }
 
@@ -184,13 +206,14 @@ export const modelPages: ModelPage[] = [
   ...withCategory(fd.pages, 'final-drives'),
   ...withCategory(tg.pages, 'travel-gearboxes'),
   ...withCategory(sd.pages, 'swing-drives'),
+  ...withCategory(sg.pages, 'swing-gearboxes'),
 ];
 
 /** Union of makes across categories, first occurrence wins. */
 export const makes: Make[] = (() => {
   const seen = new Set<string>();
   const out: Make[] = [];
-  for (const m of [...fd.makes, ...tg.makes, ...sd.makes]) {
+  for (const m of [...fd.makes, ...tg.makes, ...sd.makes, ...sg.makes]) {
     if (seen.has(m.slug)) continue;
     seen.add(m.slug);
     out.push(m);
@@ -368,6 +391,32 @@ export function modelDescription(page: ModelPage): string {
 }
 
 /** Category hub path, e.g. /parts/final-drives/. */
+/**
+ * Old /equipment/{make}/{model}/swing-drives/ URLs whose page turned out to describe a
+ * swing gearbox rather than a complete swing drive assembly. They stay in the build as a
+ * redirect stub so the published URL never 404s; the stub is noindex and is never listed
+ * in the sitemap, and Cloudflare should carry the same rule as a real 301.
+ */
+export const SWING_REDIRECTS: { from: string; to: string }[] =
+  swingLegacyRedirects as { from: string; to: string }[];
+
+const swingRedirectByPath = new Map(SWING_REDIRECTS.map(r => [r.from, r.to]));
+
+/** Target of a retired swing-drives URL, or undefined when the URL is still a live page. */
+export function swingRedirectTarget(path: string): string | undefined {
+  return swingRedirectByPath.get(path);
+}
+
+/** Machine pairs under /equipment/{make}/{model}/ that only survive as a redirect stub. */
+export function swingRedirectParams(): { make: string; model: string }[] {
+  const out: { make: string; model: string }[] = [];
+  for (const r of SWING_REDIRECTS) {
+    const m = r.from.match(/^\/equipment\/([^/]+)\/([^/]+)\/swing-drives\/$/);
+    if (m) out.push({ make: m[1], model: m[2] });
+  }
+  return out;
+}
+
 export function categoryPath(category: string = DEFAULT_CATEGORY): string {
   return `/parts/${category}/`;
 }

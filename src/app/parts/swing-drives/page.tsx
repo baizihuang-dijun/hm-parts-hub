@@ -18,9 +18,9 @@ import {
 const CATEGORY = 'swing-drives';
 
 export const metadata: Metadata = buildMetadata({
-  title: `Excavator Swing Drives, Swing Gearboxes & Swing Motors — Aftermarket Sourcing`,
+  title: `Excavator Swing Drives & Swing Motors — Aftermarket Sourcing`,
   description:
-    'Swing drives, swing gearboxes and swing motors for crawler and wheeled excavators across all major brands. Vetted China aftermarket and OEM-equivalent supply, fitment confirmed against OEM number, serial number and nameplate before quoting.',
+    'Swing drive assemblies and swing motors for crawler and wheeled excavators across all major brands. Vetted China aftermarket and OEM-equivalent supply, fitment confirmed against OEM number, serial number and nameplate before quoting.',
   path: '/parts/swing-drives/',
 });
 
@@ -46,13 +46,13 @@ export default function SwingDrivesHubPage() {
         Parts catalog
       </p>
       <h1 className="mt-3 text-3xl font-semibold tracking-tight sm:text-4xl">
-        Excavator swing drives, gearboxes &amp; swing motors
+        Excavator swing drives &amp; swing motors
       </h1>
       <p className="mt-4 max-w-3xl text-[15px] leading-7 text-muted-foreground">
-        {categoryIntro(CATEGORY)} We source the complete swing drive, the swing gearbox on its own,
-        or the swing motor separately from vetted China aftermarket and OEM-equivalent factories,
-        then confirm every order against the OEM part number, machine serial number and a nameplate
-        photo — so the unit that ships is the one that bolts on.
+        {categoryIntro(CATEGORY)} We source the complete swing drive — the unit that carries the
+        swing motor — from vetted China aftermarket and OEM-equivalent factories, then confirm
+        every order against the OEM part number, machine serial number and a nameplate photo, so
+        the unit that ships is the one that bolts on.
       </p>
 
       {/* Brand grid */}
@@ -115,7 +115,7 @@ export default function SwingDrivesHubPage() {
           </p>
           <ul className="mt-3 space-y-2 text-sm leading-6 text-muted-foreground">
             {[
-              'The OEM number stamped on the swing drive, gearbox or motor',
+              'The OEM number stamped on the swing drive',
               'The machine serial number',
               'A clear nameplate or tag photo',
               'Mounting bolt pattern, gear ratio, output flange and motor interface',

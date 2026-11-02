@@ -43,7 +43,7 @@ function faqs(page: ModelPage, cat: CategoryConfig): { q: string; a: string }[] 
     },
     {
       q: 'Do I need the nameplate part number to order?',
-      a: 'It is the fastest way, but not required. Send a clear photo of the travel-motor nameplate together with the machine serial number and we identify the unit from the tag instead of guessing from the model name.',
+      a: `It is the fastest way, but not required. Send a clear photo of the ${cat.unitNameSentence} nameplate together with the machine serial number and we identify the unit from the tag instead of guessing from the model name.`,
     },
     {
       q: 'Is this an OEM or an aftermarket unit?',
@@ -51,7 +51,7 @@ function faqs(page: ModelPage, cat: CategoryConfig): { q: string; a: string }[] 
     },
     {
       q: 'How do you confirm the unit fits my machine?',
-      a: 'We match the OEM number and machine serial, check the nameplate photo, and verify displacement, mounting bolt pattern, sprocket interface and speed ratio against the factory data sheet. The configuration is confirmed on paper before anything ships.',
+      a: `We match the OEM number and machine serial, check the nameplate photo, and verify ${cat.slug.startsWith('swing') ? 'displacement, mounting bolt pattern, output flange and speed ratio' : 'displacement, mounting bolt pattern, sprocket interface and speed ratio'} against the factory data sheet. The configuration is confirmed on paper before anything ships.`,
     },
     {
       q: 'Do you ship worldwide?',
@@ -132,7 +132,8 @@ function galleryImages(page: ModelPage, cat: CategoryConfig): GalleryImage[] {
 
 /** Group subtitle (mono chip) and per-row type label, keyed by JSON group. */
 function groupMeta(cat: CategoryConfig): Record<PartGroupKey, { code: string; role: string }> {
-  const swing = cat.slug === 'swing-drives';
+  /* Both swing categories sit on the upper structure and use the same group wording. */
+  const swing = cat.slug.startsWith('swing');
   return {
     assembly: { code: 'complete unit', role: 'assembly' },
     gearbox: { code: 'gearbox only', role: swing ? 'swing gearbox' : 'gearbox' },
@@ -141,15 +142,20 @@ function groupMeta(cat: CategoryConfig): Record<PartGroupKey, { code: string; ro
   };
 }
 
-const FIT_CHECKLIST: { what: string; why: string }[] = [
-  { what: 'OEM number stamped on the unit', why: 'identifies the build' },
-  { what: 'Machine serial number', why: 'year & region' },
-  { what: 'Clear nameplate photo', why: 'removes tag-reading errors' },
-  {
-    what: 'We verify 4 fit points',
-    why: 'displacement · mounting holes · sprocket interface · speed ratio',
-  },
-];
+function fitChecklist(cat: CategoryConfig): { what: string; why: string }[] {
+  /* A swing unit drives the swing ring from the upper structure, so its output side is a
+     flange rather than the sprocket a travel unit turns. */
+  const lastInterface = cat.slug.startsWith('swing') ? 'output flange' : 'sprocket interface';
+  return [
+    { what: 'OEM number stamped on the unit', why: 'identifies the build' },
+    { what: 'Machine serial number', why: 'year & region' },
+    { what: 'Clear nameplate photo', why: 'removes tag-reading errors' },
+    {
+      what: 'We verify 4 fit points',
+      why: `displacement · mounting holes · ${lastInterface} · speed ratio`,
+    },
+  ];
+}
 
 export function ModelCategoryPageView({
   page,
@@ -163,7 +169,7 @@ export function ModelCategoryPageView({
   const hasNumbers = hasPartNumbers(page);
   const meta = groupMeta(cat);
   /* Swing drives sit on the upper structure, not on the undercarriage. */
-  const underbody = cat.slug === 'swing-drives' ? '' : ' undercarriage';
+  const underbody = cat.slug.startsWith('swing') ? '' : ' undercarriage';
   const ton = page.copy.ton_class_approx;
   const faqItems = faqs(page, cat);
   const unit = cap(cat.unitNameSentence);
@@ -290,11 +296,13 @@ export function ModelCategoryPageView({
           ) : (
             <div className="v6-nonum">
               <div>
-                <h3 style={{ margin: 0, fontSize: '17px' }}>Need the right part number?</h3>
+                <h3 style={{ margin: 0, fontSize: '17px' }}>
+                  No confirmed number for this build
+                </h3>
                 <p>
                   Numbering varies by serial number and build region. Send a photo of the
-                  travel-motor nameplate and the machine serial — we identify the correct unit
-                  from the tag instead of guessing from the model name.
+                  {cat.unitNameSentence} nameplate and the machine serial — we identify the
+                  correct unit from the tag instead of guessing from the model name.
                 </p>
               </div>
               <Link href={rfqHref(page)} className="v6-btn v6-btn-primary v6-btn-lg">
@@ -314,7 +322,7 @@ export function ModelCategoryPageView({
           <h2>Confirm the exact fit before you order</h2>
           <p>{page.copy.fit_check}</p>
           <ul className="v6-checklist">
-            {FIT_CHECKLIST.map((item, i) => (
+            {fitChecklist(cat).map((item, i) => (
               <li key={item.what}>
                 <span className="ck">{`0${i + 1}`}</span>
                 <span className="what">{item.what}</span>

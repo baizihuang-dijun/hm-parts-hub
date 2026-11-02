@@ -24,6 +24,7 @@ export function ModelCard({ page }: { page: ModelPage }) {
       <Link href={page.url_path} className="flex flex-1 flex-col">
         {/* Fixed 4:3 frame on a dark steel backdrop; images are contained, never stretched or cropped. */}
         <figure className="v6-mfig">
+          {!main && <span className="v6-mfig-empty">Photo pending</span>}
           {main && (
             // eslint-disable-next-line @next/next/no-img-element
             <img

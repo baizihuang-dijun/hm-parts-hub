@@ -1,0 +1,262 @@
+[
+  {
+    "from": "/equipment/caterpillar/307e2/swing-drives/",
+    "to": "/equipment/caterpillar/307e2/swing-gearboxes/"
+  },
+  {
+    "from": "/equipment/caterpillar/311c/swing-drives/",
+    "to": "/equipment/caterpillar/311c/swing-gearboxes/"
+  },
+  {
+    "from": "/equipment/caterpillar/312c/swing-drives/",
+    "to": "/equipment/caterpillar/312c/swing-gearboxes/"
+  },
+  {
+    "from": "/equipment/caterpillar/315/swing-drives/",
+    "to": "/equipment/caterpillar/315/swing-gearboxes/"
+  },
+  {
+    "from": "/equipment/caterpillar/315d/swing-drives/",
+    "to": "/equipment/caterpillar/315d/swing-gearboxes/"
+  },
+  {
+    "from": "/equipment/caterpillar/320-gc/swing-drives/",
+    "to": "/equipment/caterpillar/320-gc/swing-gearboxes/"
+  },
+  {
+    "from": "/equipment/caterpillar/320c/swing-drives/",
+    "to": "/equipment/caterpillar/320c/swing-gearboxes/"
+  },
+  {
+    "from": "/equipment/caterpillar/323/swing-drives/",
+    "to": "/equipment/caterpillar/323/swing-gearboxes/"
+  },
+  {
+    "from": "/equipment/caterpillar/326d2/swing-drives/",
+    "to": "/equipment/caterpillar/326d2/swing-gearboxes/"
+  },
+  {
+    "from": "/equipment/caterpillar/330-gc/swing-drives/",
+    "to": "/equipment/caterpillar/330-gc/swing-gearboxes/"
+  },
+  {
+    "from": "/equipment/caterpillar/345d/swing-drives/",
+    "to": "/equipment/caterpillar/345d/swing-gearboxes/"
+  },
+  {
+    "from": "/equipment/caterpillar/349d/swing-drives/",
+    "to": "/equipment/caterpillar/349d/swing-gearboxes/"
+  },
+  {
+    "from": "/equipment/caterpillar/m315/swing-drives/",
+    "to": "/equipment/caterpillar/m315/swing-gearboxes/"
+  },
+  {
+    "from": "/equipment/doosan/dh150/swing-drives/",
+    "to": "/equipment/doosan/dh150/swing-gearboxes/"
+  },
+  {
+    "from": "/equipment/doosan/dh258/swing-drives/",
+    "to": "/equipment/doosan/dh258/swing-gearboxes/"
+  },
+  {
+    "from": "/equipment/doosan/dx215-9c/swing-drives/",
+    "to": "/equipment/doosan/dx215-9c/swing-gearboxes/"
+  },
+  {
+    "from": "/equipment/doosan/dx55/swing-drives/",
+    "to": "/equipment/doosan/dx55/swing-gearboxes/"
+  },
+  {
+    "from": "/equipment/doosan/dx60/swing-drives/",
+    "to": "/equipment/doosan/dx60/swing-gearboxes/"
+  },
+  {
+    "from": "/equipment/hitachi/ex120-2/swing-drives/",
+    "to": "/equipment/hitachi/ex120-2/swing-gearboxes/"
+  },
+  {
+    "from": "/equipment/hitachi/ex400-1/swing-drives/",
+    "to": "/equipment/hitachi/ex400-1/swing-gearboxes/"
+  },
+  {
+    "from": "/equipment/hitachi/ex60-2/swing-drives/",
+    "to": "/equipment/hitachi/ex60-2/swing-gearboxes/"
+  },
+  {
+    "from": "/equipment/hitachi/zx70-5g/swing-drives/",
+    "to": "/equipment/hitachi/zx70-5g/swing-gearboxes/"
+  },
+  {
+    "from": "/equipment/hyundai/r210/swing-drives/",
+    "to": "/equipment/hyundai/r210/swing-gearboxes/"
+  },
+  {
+    "from": "/equipment/hyundai/r220-9/swing-drives/",
+    "to": "/equipment/hyundai/r220-9/swing-gearboxes/"
+  },
+  {
+    "from": "/equipment/hyundai/r250-7/swing-drives/",
+    "to": "/equipment/hyundai/r250-7/swing-gearboxes/"
+  },
+  {
+    "from": "/equipment/hyundai/r305/swing-drives/",
+    "to": "/equipment/hyundai/r305/swing-gearboxes/"
+  },
+  {
+    "from": "/equipment/jcb/js220/swing-drives/",
+    "to": "/equipment/jcb/js220/swing-gearboxes/"
+  },
+  {
+    "from": "/equipment/kobelco/sk130-8/swing-drives/",
+    "to": "/equipment/kobelco/sk130-8/swing-gearboxes/"
+  },
+  {
+    "from": "/equipment/kobelco/sk200-8/swing-drives/",
+    "to": "/equipment/kobelco/sk200-8/swing-gearboxes/"
+  },
+  {
+    "from": "/equipment/kobelco/sk200/swing-drives/",
+    "to": "/equipment/kobelco/sk200/swing-gearboxes/"
+  },
+  {
+    "from": "/equipment/kobelco/sk350-8/swing-drives/",
+    "to": "/equipment/kobelco/sk350-8/swing-gearboxes/"
+  },
+  {
+    "from": "/equipment/kobelco/sk460/swing-drives/",
+    "to": "/equipment/kobelco/sk460/swing-gearboxes/"
+  },
+  {
+    "from": "/equipment/komatsu/pc1250-7/swing-drives/",
+    "to": "/equipment/komatsu/pc1250-7/swing-gearboxes/"
+  },
+  {
+    "from": "/equipment/komatsu/pc200-8/swing-drives/",
+    "to": "/equipment/komatsu/pc200-8/swing-gearboxes/"
+  },
+  {
+    "from": "/equipment/komatsu/pc220-7/swing-drives/",
+    "to": "/equipment/komatsu/pc220-7/swing-gearboxes/"
+  },
+  {
+    "from": "/equipment/komatsu/pc400-7/swing-drives/",
+    "to": "/equipment/komatsu/pc400-7/swing-gearboxes/"
+  },
+  {
+    "from": "/equipment/komatsu/pc450-7/swing-drives/",
+    "to": "/equipment/komatsu/pc450-7/swing-gearboxes/"
+  },
+  {
+    "from": "/equipment/komatsu/pc490lc-11/swing-drives/",
+    "to": "/equipment/komatsu/pc490lc-11/swing-gearboxes/"
+  },
+  {
+    "from": "/equipment/lovol/700/swing-drives/",
+    "to": "/equipment/lovol/700/swing-gearboxes/"
+  },
+  {
+    "from": "/equipment/sany/sy135/swing-drives/",
+    "to": "/equipment/sany/sy135/swing-gearboxes/"
+  },
+  {
+    "from": "/equipment/sany/sy235-8/swing-drives/",
+    "to": "/equipment/sany/sy235-8/swing-gearboxes/"
+  },
+  {
+    "from": "/equipment/sany/sy245/swing-drives/",
+    "to": "/equipment/sany/sy245/swing-gearboxes/"
+  },
+  {
+    "from": "/equipment/sany/sy305/swing-drives/",
+    "to": "/equipment/sany/sy305/swing-gearboxes/"
+  },
+  {
+    "from": "/equipment/sany/sy335/swing-drives/",
+    "to": "/equipment/sany/sy335/swing-gearboxes/"
+  },
+  {
+    "from": "/equipment/sany/sy365/swing-drives/",
+    "to": "/equipment/sany/sy365/swing-gearboxes/"
+  },
+  {
+    "from": "/equipment/sany/sy375/swing-drives/",
+    "to": "/equipment/sany/sy375/swing-gearboxes/"
+  },
+  {
+    "from": "/equipment/sany/sy465/swing-drives/",
+    "to": "/equipment/sany/sy465/swing-gearboxes/"
+  },
+  {
+    "from": "/equipment/sany/sy500/swing-drives/",
+    "to": "/equipment/sany/sy500/swing-gearboxes/"
+  },
+  {
+    "from": "/equipment/sany/sy550/swing-drives/",
+    "to": "/equipment/sany/sy550/swing-gearboxes/"
+  },
+  {
+    "from": "/equipment/sany/sy650/swing-drives/",
+    "to": "/equipment/sany/sy650/swing-gearboxes/"
+  },
+  {
+    "from": "/equipment/sany/sy750/swing-drives/",
+    "to": "/equipment/sany/sy750/swing-gearboxes/"
+  },
+  {
+    "from": "/equipment/sany/sy900/swing-drives/",
+    "to": "/equipment/sany/sy900/swing-gearboxes/"
+  },
+  {
+    "from": "/equipment/shantui/se600/swing-drives/",
+    "to": "/equipment/shantui/se600/swing-gearboxes/"
+  },
+  {
+    "from": "/equipment/sumitomo/sh265/swing-drives/",
+    "to": "/equipment/sumitomo/sh265/swing-gearboxes/"
+  },
+  {
+    "from": "/equipment/sumitomo/sh460/swing-drives/",
+    "to": "/equipment/sumitomo/sh460/swing-gearboxes/"
+  },
+  {
+    "from": "/equipment/sumitomo/sh480/swing-drives/",
+    "to": "/equipment/sumitomo/sh480/swing-gearboxes/"
+  },
+  {
+    "from": "/equipment/volvo/ec200d/swing-drives/",
+    "to": "/equipment/volvo/ec200d/swing-gearboxes/"
+  },
+  {
+    "from": "/equipment/volvo/ec210/swing-drives/",
+    "to": "/equipment/volvo/ec210/swing-gearboxes/"
+  },
+  {
+    "from": "/equipment/volvo/ec360/swing-drives/",
+    "to": "/equipment/volvo/ec360/swing-gearboxes/"
+  },
+  {
+    "from": "/equipment/volvo/ec480/swing-drives/",
+    "to": "/equipment/volvo/ec480/swing-gearboxes/"
+  },
+  {
+    "from": "/equipment/volvo/ec700/swing-drives/",
+    "to": "/equipment/volvo/ec700/swing-gearboxes/"
+  },
+  {
+    "from": "/equipment/xcmg/xe215/swing-drives/",
+    "to": "/equipment/xcmg/xe215/swing-gearboxes/"
+  },
+  {
+    "from": "/equipment/xcmg/xe600/swing-drives/",
+    "to": "/equipment/xcmg/xe600/swing-gearboxes/"
+  },
+  {
+    "from": "/equipment/xcmg/xe650/swing-drives/",
+    "to": "/equipment/xcmg/xe650/swing-gearboxes/"
+  },
+  {
+    "from": "/equipment/xcmg/xe690/swing-drives/",
+    "to": "/equipment/xcmg/xe690/swing-gearboxes/"
+  }
+]

@@ -22,6 +22,24 @@ export function ImageGallery({
   caption?: string;
 }) {
   const [active, setActive] = useState(0);
+
+  /* A unit with no usable photograph keeps its page and its part numbers, but never gets a
+     stand-in shot: a motor, a ring gear or a packing board shown as a complete assembly is
+     worse than no picture at all. */
+  if (images.length === 0) {
+    return (
+      <div className="v6-gallery">
+        <figure className="v6-shot v6-shot-empty">
+          <span className="v6-shot-empty-label">Photo pending</span>
+          <span className="v6-shot-empty-note">
+            Send a photo of the unit or its nameplate and we will confirm the exact part before
+            quoting.
+          </span>
+        </figure>
+      </div>
+    );
+  }
+
   const current = images[Math.min(active, images.length - 1)];
   const size = imageSize(current.file);
 

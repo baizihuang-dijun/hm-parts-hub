@@ -22,6 +22,13 @@ export function BrandHubView({
 }) {
   const hubPath = brandHubPath(makeInfo.slug, cat.slug);
   const hubPathRoot = categoryPath(cat.slug);
+  /* Swing units live on the upper structure and pair with a swing motor, so the
+     undercarriage wording the travel ranges use would be wrong here. */
+  const swing = cat.slug.startsWith('swing');
+  const unitLine = swing
+    ? `Replacement ${cat.unitNameSentence} units`
+    : `Replacement ${cat.unitNameSentence} and travel motor assemblies`;
+  const tagPart = swing ? 'swing drive or gearbox' : 'travel motor or gearbox';
 
   return (
     <div className="mx-auto max-w-6xl px-4 py-12 sm:px-6">
@@ -51,7 +58,7 @@ export function BrandHubView({
         {makeInfo.name} excavator {cat.name.toLowerCase()}
       </h1>
       <p className="mt-4 max-w-3xl text-[15px] leading-7 text-muted-foreground">
-        {`Replacement ${cat.unitNameSentence} and travel motor assemblies for ${pages.length} ${
+        {`${unitLine} for ${pages.length} ${
           pages.length === 1 ? 'excavator model' : 'excavator models'
         } in the ${makeInfo.name} range. Each listing links to a sourcing page with the associated OEM numbers for that model. We confirm every unit against the part number, machine serial number and nameplate before quoting.`}
       </p>
@@ -69,9 +76,8 @@ export function BrandHubView({
           Sourcing for a {makeInfo.name} not listed here?
         </h2>
         <p className="mt-3 max-w-2xl text-sm leading-6 text-muted-foreground">
-          Send the model, machine serial number and the part number stamped on your travel motor
-          or gearbox — or a photo of the nameplate — and we will confirm and quote the matching
-          unit.
+          Send the model, machine serial number and the part number stamped on your {tagPart} —
+          or a photo of the nameplate — and we will confirm and quote the matching unit.
         </p>
         <Link
           href={`${RFQ_PATH}?make=${encodeURIComponent(makeInfo.name)}`}

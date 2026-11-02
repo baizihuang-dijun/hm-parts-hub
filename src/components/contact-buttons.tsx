@@ -17,10 +17,12 @@ import { readConsent } from './analytics';
  * buyers who will not use a messaging app (or see a +86 number and hesitate).
  * Each button renders independently and only when its value is configured.
  */
+/* The floating stack is mounted in the root layout, so the wording has to cover every
+   category on the site rather than naming one of them. */
 const WHATSAPP_MESSAGE =
-  'Hi HM Parts Hub, I would like a quote for a final drive or travel motor. Machine make / model: ';
+  'Hi HM Parts Hub, I would like a quote for a replacement drive or gearbox. Machine make / model: ';
 
-const EMAIL_SUBJECT = 'Final drive / travel motor quote request';
+const EMAIL_SUBJECT = 'Replacement drive / gearbox quote request';
 const EMAIL_BODY =
   'Machine make / model: \n' +
   'Part number on nameplate (if known): \n' +

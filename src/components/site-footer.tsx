@@ -19,7 +19,7 @@ export function SiteFooter() {
               <p>
                 <a
                   href={whatsappUrl(
-                    'Hi HM Parts Hub, I would like a quote for a final drive or travel motor.',
+                    'Hi HM Parts Hub, I would like a quote for a replacement drive or gearbox.',
                   )}
                   target="_blank"
                   rel="noopener noreferrer"
