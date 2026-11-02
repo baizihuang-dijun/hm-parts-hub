@@ -4,6 +4,7 @@
  */
 
 const IMAGE_SIZES: Record<string, { width: number; height: number }> = {
+  "caterpillar-374-gc-swing-drive-4.jpg": { width: 900, height: 1200 },
   "caterpillar-307e2-swing-drive.jpg": { width: 1080, height: 1080 },
   "caterpillar-311c-swing-gearbox-2.jpg": { width: 1080, height: 1080 },
   "caterpillar-311c-swing-gearbox.jpg": { width: 1080, height: 1080 },
@@ -42,7 +43,7 @@ const IMAGE_SIZES: Record<string, { width: number; height: number }> = {
   "caterpillar-349d-swing-gearbox.jpg": { width: 900, height: 1200 },
   "caterpillar-374-gc-swing-drive-2.jpg": { width: 1026, height: 1200 },
   "caterpillar-374-gc-swing-drive-3.jpg": { width: 1118, height: 1080 },
-  "caterpillar-374-gc-swing-drive.jpg": { width: 900, height: 1200 },
+  "caterpillar-374-gc-swing-drive.jpg": { width: 980, height: 1200 },
   "caterpillar-395-swing-drive.jpg": { width: 900, height: 1200 },
   "caterpillar-395-swing-gearbox-2.jpg": { width: 900, height: 1200 },
   "caterpillar-395-swing-gearbox-3.jpg": { width: 900, height: 1200 },

@@ -108,7 +108,8 @@
    "_product_ids": [
     "LB-SW-007"
    ],
-   "_kind": "assembly"
+   "_kind": "assembly",
+   "_scope_fixes": []
   },
   {
    "url_path": "/equipment/caterpillar/311c/swing-drives/",
@@ -165,7 +166,8 @@
    "_product_ids": [
     "LB-SGB-011"
    ],
-   "_kind": "gearbox"
+   "_kind": "gearbox",
+   "_scope_fixes": []
   },
   {
    "url_path": "/equipment/caterpillar/312c/swing-drives/",
@@ -222,7 +224,8 @@
    "_product_ids": [
     "LB-SGB-012"
    ],
-   "_kind": "gearbox"
+   "_kind": "gearbox",
+   "_scope_fixes": []
   },
   {
    "url_path": "/equipment/caterpillar/313d/swing-drives/",
@@ -270,7 +273,8 @@
    "_product_ids": [
     "LB-SW-008"
    ],
-   "_kind": "assembly"
+   "_kind": "assembly",
+   "_scope_fixes": []
   },
   {
    "url_path": "/equipment/caterpillar/315/swing-drives/",
@@ -318,7 +322,8 @@
    "_product_ids": [
     "LB-SGB-001"
    ],
-   "_kind": "gearbox"
+   "_kind": "gearbox",
+   "_scope_fixes": []
   },
   {
    "url_path": "/equipment/caterpillar/315d/swing-drives/",
@@ -386,7 +391,8 @@
    "_product_ids": [
     "LB-SGB-013"
    ],
-   "_kind": "gearbox"
+   "_kind": "gearbox",
+   "_scope_fixes": []
   },
   {
    "url_path": "/equipment/caterpillar/320-gc/swing-drives/",
@@ -401,7 +407,7 @@
    "model_aliases": [],
    "serial_note": null,
    "part_number_groups": {
-    "assembly": [
+    "gearbox": [
      "596-1499",
      "608-2918",
      "378-9517"
@@ -436,7 +442,30 @@
    "_product_ids": [
     "LB-SGB-015"
    ],
-   "_kind": "gearbox"
+   "_kind": "gearbox",
+   "_scope_fixes": [
+    {
+     "pn": "596-1499",
+     "from": "assembly",
+     "to": "gearbox",
+     "scope_label": "SWING_DRIVE_WITH_MOTOR",
+     "reason": "不含马达；与608-2918分别作为配置参考。；不含马达；599-0937/608-2919为同页323GX号，未加入本机型。"
+    },
+    {
+     "pn": "608-2918",
+     "from": "assembly",
+     "to": "gearbox",
+     "scope_label": "SWING_DRIVE_WITH_MOTOR",
+     "reason": "不含马达；与608-2918分别作为配置参考。；不含马达；599-0937/608-2919为同页323GX号，未加入本机型。"
+    },
+    {
+     "pn": "378-9517",
+     "from": "assembly",
+     "to": "gearbox",
+     "scope_label": "SWING_DRIVE_GROUP",
+     "reason": "不含马达；与608-2918分别作为配置参考。；不含马达；599-0937/608-2919为同页323GX号，未加入本机型。"
+    }
+   ]
   },
   {
    "url_path": "/equipment/caterpillar/320c/swing-drives/",
@@ -485,7 +514,8 @@
    "_product_ids": [
     "LB-SGB-014"
    ],
-   "_kind": "gearbox"
+   "_kind": "gearbox",
+   "_scope_fixes": []
   },
   {
    "url_path": "/equipment/caterpillar/323/swing-drives/",
@@ -553,7 +583,8 @@
    "_product_ids": [
     "LB-SGB-016"
    ],
-   "_kind": "gearbox"
+   "_kind": "gearbox",
+   "_scope_fixes": []
   },
   {
    "url_path": "/equipment/caterpillar/325b/swing-drives/",
@@ -622,7 +653,8 @@
    "_product_ids": [
     "LB-SW-009"
    ],
-   "_kind": "assembly"
+   "_kind": "assembly",
+   "_scope_fixes": []
   },
   {
    "url_path": "/equipment/caterpillar/326d2/swing-drives/",
@@ -637,10 +669,8 @@
    "model_aliases": [],
    "serial_note": null,
    "part_number_groups": {
-    "assembly": [
-     "191-2693"
-    ],
     "gearbox": [
+     "191-2693",
      "418-7154"
     ]
    },
@@ -691,7 +721,16 @@
    "_product_ids": [
     "LB-SGB-017"
    ],
-   "_kind": "gearbox"
+   "_kind": "gearbox",
+   "_scope_fixes": [
+    {
+     "pn": "191-2693",
+     "from": "assembly",
+     "to": "gearbox",
+     "scope_label": "SWING_DRIVE_WITH_MOTOR",
+     "reason": "不含马达；与418-7154分列配置。；CAT官方明确Without Motor且列明326D2。"
+    }
+   ]
   },
   {
    "url_path": "/equipment/caterpillar/329/swing-drives/",
@@ -749,7 +788,8 @@
    "_product_ids": [
     "LB-SW-010"
    ],
-   "_kind": "assembly"
+   "_kind": "assembly",
+   "_scope_fixes": []
   },
   {
    "url_path": "/equipment/caterpillar/330-gc/swing-drives/",
@@ -807,7 +847,8 @@
    "_product_ids": [
     "LB-SGB-018"
    ],
-   "_kind": "gearbox"
+   "_kind": "gearbox",
+   "_scope_fixes": []
   },
   {
    "url_path": "/equipment/caterpillar/330c/swing-drives/",
@@ -867,7 +908,8 @@
    "_product_ids": [
     "LB-SW-011"
    ],
-   "_kind": "assembly"
+   "_kind": "assembly",
+   "_scope_fixes": []
   },
   {
    "url_path": "/equipment/caterpillar/336d/swing-drives/",
@@ -925,7 +967,8 @@
    "_product_ids": [
     "LB-SW-012"
    ],
-   "_kind": "assembly"
+   "_kind": "assembly",
+   "_scope_fixes": []
   },
   {
    "url_path": "/equipment/caterpillar/345d/swing-drives/",
@@ -994,7 +1037,8 @@
    "_product_ids": [
     "LB-SGB-019"
    ],
-   "_kind": "gearbox"
+   "_kind": "gearbox",
+   "_scope_fixes": []
   },
   {
    "url_path": "/equipment/caterpillar/349-gc/swing-drives/",
@@ -1042,7 +1086,8 @@
    "_product_ids": [
     "LB-SW-013"
    ],
-   "_kind": "assembly"
+   "_kind": "assembly",
+   "_scope_fixes": []
   },
   {
    "url_path": "/equipment/caterpillar/349d/swing-drives/",
@@ -1057,7 +1102,7 @@
    "model_aliases": [],
    "serial_note": null,
    "part_number_groups": {
-    "assembly": [
+    "gearbox": [
      "296-6253"
     ],
     "motor": [
@@ -1111,7 +1156,16 @@
    "_product_ids": [
     "LB-SGB-002"
    ],
-   "_kind": "gearbox"
+   "_kind": "gearbox",
+   "_scope_fixes": [
+    {
+     "pn": "296-6253",
+     "from": "assembly",
+     "to": "gearbox",
+     "scope_label": "SWING_DRIVE_GROUP",
+     "reason": "供应商明确列为不含马达减速箱；安装位置按旧件核对。；LH左侧配置；不与其他位置默认互换。"
+    }
+   ]
   },
   {
    "url_path": "/equipment/caterpillar/374-gc/swing-drives/",
@@ -1146,13 +1200,13 @@
     {
      "slug": "caterpillar-374-gc",
      "tag": "main",
-     "file": "caterpillar-374-gc-swing-drive.jpg"
+     "file": "caterpillar-374-gc-swing-drive-4.jpg"
     }
    ],
    "copy": {
     "intro": "The Caterpillar 374 GC is a 74-tonne class excavator used for mass excavation, quarry work and haul-road maintenance. Its swing drive turns the upper structure on the swing ring — when the swing gearbox wears or the swing motor fails, the machine swings slowly, judders on start-up or loses holding power on a slope. A replacement swing drive assembly, gearbox or motor is usually the fastest route back to work.",
     "sourcing": "We source the swing drive against the reference numbers below from vetted China aftermarket and OEM-equivalent manufacturers, then confirm the exact unit against the tag on your machine before you commit. Every order gets a technical check on ratio, flange and motor interface — not a blind cross-reference.",
-    "fit_check": "Send the OEM number stamped on the existing unit, the machine serial number and a clear nameplate photo. We check mounting bolt pattern, gear ratio, output flange and motor interface before quoting, so the unit that ships is the one that bolts on.",
+    "fit_check": "Send the OEM number stamped on the existing unit, the machine serial number and a clear nameplate photo. We check mounting bolt pattern, gear ratio, output flange and motor interface before quoting, so the unit that ships is the one that bolts on. Two separate supplier records are filed under this model name. They are listed as two configurations, not as confirmed interchangeable units, so the serial number decides which one applies.",
     "pn_heading": "Need the right part number?",
     "pn_note": "The numbers below are commonly associated with the Caterpillar 374 GC and help you cross-check the tag on your unit. Match them against your nameplate — or just send us a photo and we will identify the exact part before quoting.",
     "generation_note": "Different build years and regions of the Caterpillar 374 GC can use different swing drives even within the same model name. Always confirm by serial number and nameplate rather than model name alone.",
@@ -1176,14 +1230,15 @@
     },
     {
      "src": "/Coze/Drive/扣子/hm_swing_assets/LB-回转总成-Caterpillar-E374GC/LB-回转总成-Caterpillar-E374GC-001.jpg",
-     "dest": "caterpillar-374-gc-swing-drive.jpg"
+     "dest": "caterpillar-374-gc-swing-drive-4.jpg"
     }
    ],
    "_product_ids": [
     "LB-SW-002",
     "LB-SW-014"
    ],
-   "_kind": "assembly"
+   "_kind": "assembly",
+   "_scope_fixes": []
   },
   {
    "url_path": "/equipment/caterpillar/395/swing-drives/",
@@ -1259,7 +1314,8 @@
     "LB-SW-015",
     "LB-SGB-020"
    ],
-   "_kind": "both"
+   "_kind": "both",
+   "_scope_fixes": []
   },
   {
    "url_path": "/equipment/caterpillar/m315/swing-drives/",
@@ -1334,7 +1390,8 @@
    "_product_ids": [
     "LB-SGB-035"
    ],
-   "_kind": "gearbox"
+   "_kind": "gearbox",
+   "_scope_fixes": []
   },
   {
    "url_path": "/equipment/doosan/dh150/swing-drives/",
@@ -1383,7 +1440,8 @@
    "_product_ids": [
     "LB-SGB-004"
    ],
-   "_kind": "gearbox"
+   "_kind": "gearbox",
+   "_scope_fixes": []
   },
   {
    "url_path": "/equipment/doosan/dh258/swing-drives/",
@@ -1442,7 +1500,8 @@
    "_product_ids": [
     "LB-SGB-006"
    ],
-   "_kind": "gearbox"
+   "_kind": "gearbox",
+   "_scope_fixes": []
   },
   {
    "url_path": "/equipment/doosan/dx215-9c/swing-drives/",
@@ -1486,7 +1545,8 @@
    "_product_ids": [
     "LB-SGB-009"
    ],
-   "_kind": "gearbox"
+   "_kind": "gearbox",
+   "_scope_fixes": []
   },
   {
    "url_path": "/equipment/doosan/dx340/swing-drives/",
@@ -1538,7 +1598,8 @@
    "_product_ids": [
     "LB-SW-003"
    ],
-   "_kind": "assembly"
+   "_kind": "assembly",
+   "_scope_fixes": []
   },
   {
    "url_path": "/equipment/doosan/dx500/swing-drives/",
@@ -1600,7 +1661,8 @@
    "_product_ids": [
     "LB-SW-004"
    ],
-   "_kind": "assembly"
+   "_kind": "assembly",
+   "_scope_fixes": []
   },
   {
    "url_path": "/equipment/doosan/dx520/swing-drives/",
@@ -1662,7 +1724,8 @@
    "_product_ids": [
     "LB-SW-005"
    ],
-   "_kind": "assembly"
+   "_kind": "assembly",
+   "_scope_fixes": []
   },
   {
    "url_path": "/equipment/doosan/dx55/swing-drives/",
@@ -1719,7 +1782,8 @@
    "_product_ids": [
     "LB-SGB-007"
    ],
-   "_kind": "gearbox"
+   "_kind": "gearbox",
+   "_scope_fixes": []
   },
   {
    "url_path": "/equipment/doosan/dx60/swing-drives/",
@@ -1776,7 +1840,8 @@
    "_product_ids": [
     "LB-SGB-008"
    ],
-   "_kind": "gearbox"
+   "_kind": "gearbox",
+   "_scope_fixes": []
   },
   {
    "url_path": "/equipment/hitachi/ex120-2/swing-drives/",
@@ -1825,7 +1890,8 @@
    "_product_ids": [
     "LB-SGB-025"
    ],
-   "_kind": "gearbox"
+   "_kind": "gearbox",
+   "_scope_fixes": []
   },
   {
    "url_path": "/equipment/hitachi/ex120-5/swing-drives/",
@@ -1894,7 +1960,8 @@
    "_product_ids": [
     "LB-SW-020"
    ],
-   "_kind": "assembly"
+   "_kind": "assembly",
+   "_scope_fixes": []
   },
   {
    "url_path": "/equipment/hitachi/ex1200/swing-drives/",
@@ -1970,7 +2037,8 @@
    "_product_ids": [
     "LB-SGB-027"
    ],
-   "_kind": "gearbox"
+   "_kind": "gearbox",
+   "_scope_fixes": []
   },
   {
    "url_path": "/equipment/hitachi/ex200-5/swing-drives/",
@@ -2021,7 +2089,8 @@
    "_product_ids": [
     "LB-SW-021"
    ],
-   "_kind": "assembly"
+   "_kind": "assembly",
+   "_scope_fixes": []
   },
   {
    "url_path": "/equipment/hitachi/ex300-5/swing-drives/",
@@ -2096,7 +2165,8 @@
    "_product_ids": [
     "LB-SGB-026"
    ],
-   "_kind": "gearbox"
+   "_kind": "gearbox",
+   "_scope_fixes": []
   },
   {
    "url_path": "/equipment/hitachi/ex400-1/swing-drives/",
@@ -2144,7 +2214,8 @@
    "_product_ids": [
     "LB-SW-022"
    ],
-   "_kind": "assembly"
+   "_kind": "assembly",
+   "_scope_fixes": []
   },
   {
    "url_path": "/equipment/hitachi/ex60-2/swing-drives/",
@@ -2201,7 +2272,8 @@
    "_product_ids": [
     "LB-SGB-024"
    ],
-   "_kind": "gearbox"
+   "_kind": "gearbox",
+   "_scope_fixes": []
   },
   {
    "url_path": "/equipment/hitachi/zx330-3/swing-drives/",
@@ -2264,7 +2336,8 @@
    "_product_ids": [
     "LB-SW-043"
    ],
-   "_kind": "assembly"
+   "_kind": "assembly",
+   "_scope_fixes": []
   },
   {
    "url_path": "/equipment/hitachi/zx450/swing-drives/",
@@ -2324,7 +2397,8 @@
    "_product_ids": [
     "LB-SW-044"
    ],
-   "_kind": "assembly"
+   "_kind": "assembly",
+   "_scope_fixes": []
   },
   {
    "url_path": "/equipment/hitachi/zx470-5g/swing-drives/",
@@ -2379,7 +2453,8 @@
    "_product_ids": [
     "LB-SW-045"
    ],
-   "_kind": "assembly"
+   "_kind": "assembly",
+   "_scope_fixes": []
   },
   {
    "url_path": "/equipment/hitachi/zx670-5g/swing-drives/",
@@ -2443,7 +2518,8 @@
    "_product_ids": [
     "LB-SW-046"
    ],
-   "_kind": "assembly"
+   "_kind": "assembly",
+   "_scope_fixes": []
   },
   {
    "url_path": "/equipment/hitachi/zx70-5g/swing-drives/",
@@ -2458,10 +2534,8 @@
    "model_aliases": [],
    "serial_note": null,
    "part_number_groups": {
-    "assembly": [
-     "YD60001603"
-    ],
     "gearbox": [
+     "YD60001603",
      "YD60001602"
     ],
     "motor": [
@@ -2515,7 +2589,16 @@
    "_product_ids": [
     "LB-SGB-072"
    ],
-   "_kind": "gearbox"
+   "_kind": "gearbox",
+   "_scope_fixes": [
+    {
+     "pn": "YD60001603",
+     "from": "assembly",
+     "to": "gearbox",
+     "scope_label": "SWING_DEVICE_WITH_MOTOR",
+     "reason": "5G明确减速箱号，不能直接套用早期ZX70。"
+    }
+   ]
   },
   {
    "url_path": "/equipment/hyundai/r210/swing-drives/",
@@ -2564,7 +2647,8 @@
    "_product_ids": [
     "LB-SGB-043"
    ],
-   "_kind": "gearbox"
+   "_kind": "gearbox",
+   "_scope_fixes": []
   },
   {
    "url_path": "/equipment/hyundai/r215vs/swing-drives/",
@@ -2631,7 +2715,8 @@
    "_product_ids": [
     "LB-SW-030"
    ],
-   "_kind": "assembly"
+   "_kind": "assembly",
+   "_scope_fixes": []
   },
   {
    "url_path": "/equipment/hyundai/r220-9/swing-drives/",
@@ -2691,7 +2776,8 @@
    "_product_ids": [
     "LB-SGB-044"
    ],
-   "_kind": "gearbox"
+   "_kind": "gearbox",
+   "_scope_fixes": []
   },
   {
    "url_path": "/equipment/hyundai/r250-7/swing-drives/",
@@ -2770,7 +2856,8 @@
    "_product_ids": [
     "LB-SW-031"
    ],
-   "_kind": "assembly"
+   "_kind": "assembly",
+   "_scope_fixes": []
   },
   {
    "url_path": "/equipment/hyundai/r305/swing-drives/",
@@ -2828,7 +2915,8 @@
    "_product_ids": [
     "LB-SGB-045"
    ],
-   "_kind": "gearbox"
+   "_kind": "gearbox",
+   "_scope_fixes": []
   },
   {
    "url_path": "/equipment/hyundai/r485vs/swing-drives/",
@@ -2890,7 +2978,8 @@
    "_product_ids": [
     "LB-SW-032"
    ],
-   "_kind": "assembly"
+   "_kind": "assembly",
+   "_scope_fixes": []
   },
   {
    "url_path": "/equipment/jcb/js220/swing-drives/",
@@ -2939,7 +3028,8 @@
    "_product_ids": [
     "LB-SGB-028"
    ],
-   "_kind": "gearbox"
+   "_kind": "gearbox",
+   "_scope_fixes": []
   },
   {
    "url_path": "/equipment/jcb/js240/swing-drives/",
@@ -3001,7 +3091,8 @@
    "_product_ids": [
     "LB-SW-023"
    ],
-   "_kind": "assembly"
+   "_kind": "assembly",
+   "_scope_fixes": []
   },
   {
    "url_path": "/equipment/jcb/js330/swing-drives/",
@@ -3045,7 +3136,8 @@
    "_product_ids": [
     "LB-SW-024"
    ],
-   "_kind": "assembly"
+   "_kind": "assembly",
+   "_scope_fixes": []
   },
   {
    "url_path": "/equipment/kobelco/sk130-8/swing-drives/",
@@ -3060,7 +3152,7 @@
    "model_aliases": [],
    "serial_note": null,
    "part_number_groups": {
-    "assembly": [
+    "gearbox": [
      "YY32W00004F1"
     ]
    },
@@ -3120,7 +3212,16 @@
    "_product_ids": [
     "LB-SGB-064"
    ],
-   "_kind": "gearbox"
+   "_kind": "gearbox",
+   "_scope_fixes": [
+    {
+     "pn": "YY32W00004F1",
+     "from": "assembly",
+     "to": "gearbox",
+     "scope_label": "SWING_DRIVE_WITH_MOTOR",
+     "reason": "手册适用LP09-T0200-UP；不含马达的REDUCTION ASSY,SWING。"
+    }
+   ]
   },
   {
    "url_path": "/equipment/kobelco/sk200/swing-drives/",
@@ -3178,7 +3279,8 @@
    "_product_ids": [
     "LB-SGB-065"
    ],
-   "_kind": "gearbox"
+   "_kind": "gearbox",
+   "_scope_fixes": []
   },
   {
    "url_path": "/equipment/kobelco/sk200-8/swing-drives/",
@@ -3240,7 +3342,8 @@
    "_product_ids": [
     "LB-SW-039"
    ],
-   "_kind": "assembly"
+   "_kind": "assembly",
+   "_scope_fixes": []
   },
   {
    "url_path": "/equipment/kobelco/sk350-8/swing-drives/",
@@ -3289,7 +3392,8 @@
    "_product_ids": [
     "LB-SGB-066"
    ],
-   "_kind": "gearbox"
+   "_kind": "gearbox",
+   "_scope_fixes": []
   },
   {
    "url_path": "/equipment/kobelco/sk460/swing-drives/",
@@ -3346,7 +3450,8 @@
    "_product_ids": [
     "LB-SGB-067"
    ],
-   "_kind": "gearbox"
+   "_kind": "gearbox",
+   "_scope_fixes": []
   },
   {
    "url_path": "/equipment/komatsu/pc1250-7/swing-drives/",
@@ -3413,7 +3518,8 @@
    "_product_ids": [
     "LB-SGB-042"
    ],
-   "_kind": "gearbox"
+   "_kind": "gearbox",
+   "_scope_fixes": []
   },
   {
    "url_path": "/equipment/komatsu/pc200-8/swing-drives/",
@@ -3428,11 +3534,9 @@
    "model_aliases": [],
    "serial_note": null,
    "part_number_groups": {
-    "assembly": [
-     "20Y-26-00232"
-    ],
     "gearbox": [
-     "20Y-26-00230"
+     "20Y-26-00230",
+     "20Y-26-00232"
     ],
     "motor": [
      "706-7G-01041",
@@ -3440,7 +3544,7 @@
      "706-7G-01170"
     ]
    },
-   "lead_pn": "20Y-26-00232",
+   "lead_pn": "20Y-26-00230",
    "images": [
     {
      "slug": "komatsu-pc200-8",
@@ -3497,7 +3601,16 @@
     "LB-SW-026",
     "LB-SGB-038"
    ],
-   "_kind": "both"
+   "_kind": "both",
+   "_scope_fixes": [
+    {
+     "pn": "20Y-26-00232",
+     "from": "assembly",
+     "to": "gearbox",
+     "scope_label": "SWING_MACHINERY",
+     "reason": "保留原表减速箱号；706-7G-01170仅马达。"
+    }
+   ]
   },
   {
    "url_path": "/equipment/komatsu/pc210-10/swing-drives/",
@@ -3554,7 +3667,8 @@
    "_product_ids": [
     "LB-SGB-039"
    ],
-   "_kind": "gearbox"
+   "_kind": "gearbox",
+   "_scope_fixes": []
   },
   {
    "url_path": "/equipment/komatsu/pc220-7/swing-drives/",
@@ -3603,7 +3717,8 @@
    "_product_ids": [
     "LB-SGB-040"
    ],
-   "_kind": "gearbox"
+   "_kind": "gearbox",
+   "_scope_fixes": []
   },
   {
    "url_path": "/equipment/komatsu/pc300-8m0/swing-drives/",
@@ -3656,7 +3771,8 @@
    "_product_ids": [
     "LB-SW-027"
    ],
-   "_kind": "assembly"
+   "_kind": "assembly",
+   "_scope_fixes": []
   },
   {
    "url_path": "/equipment/komatsu/pc400-7/swing-drives/",
@@ -3731,7 +3847,8 @@
    "_product_ids": [
     "LB-SW-028"
    ],
-   "_kind": "assembly"
+   "_kind": "assembly",
+   "_scope_fixes": []
   },
   {
    "url_path": "/equipment/komatsu/pc450-7/swing-drives/",
@@ -3798,7 +3915,8 @@
    "_product_ids": [
     "LB-SGB-041"
    ],
-   "_kind": "gearbox"
+   "_kind": "gearbox",
+   "_scope_fixes": []
   },
   {
    "url_path": "/equipment/komatsu/pc490lc-11/swing-drives/",
@@ -3849,7 +3967,8 @@
    "_product_ids": [
     "LB-SW-029"
    ],
-   "_kind": "assembly"
+   "_kind": "assembly",
+   "_scope_fixes": []
   },
   {
    "url_path": "/equipment/komatsu/pc55/swing-drives/",
@@ -3915,7 +4034,8 @@
    "_product_ids": [
     "LB-SGB-037"
    ],
-   "_kind": "gearbox"
+   "_kind": "gearbox",
+   "_scope_fixes": []
   },
   {
    "url_path": "/equipment/lovol/600/swing-drives/",
@@ -3990,7 +4110,8 @@
    "_product_ids": [
     "LB-SGB-033"
    ],
-   "_kind": "gearbox"
+   "_kind": "gearbox",
+   "_scope_fixes": []
   },
   {
    "url_path": "/equipment/lovol/700/swing-drives/",
@@ -4034,7 +4155,8 @@
    "_product_ids": [
     "LB-SGB-034"
    ],
-   "_kind": "gearbox"
+   "_kind": "gearbox",
+   "_scope_fixes": []
   },
   {
    "url_path": "/equipment/sany/sy135/swing-drives/",
@@ -4049,20 +4171,18 @@
    "model_aliases": [],
    "serial_note": null,
    "part_number_groups": {
-    "assembly": [
-     "60359570",
-     "B229900002718"
-    ],
     "gearbox": [
      "60181550",
-     "61029170"
+     "60359570",
+     "61029170",
+     "B229900002718"
     ],
     "motor": [
      "60181551",
      "61029171"
     ]
    },
-   "lead_pn": "60359570",
+   "lead_pn": "60181550",
    "images": [
     {
      "slug": "sany-sy135",
@@ -4100,7 +4220,23 @@
    "_product_ids": [
     "LB-SGB-047"
    ],
-   "_kind": "gearbox"
+   "_kind": "gearbox",
+   "_scope_fixes": [
+    {
+     "pn": "60359570",
+     "from": "assembly",
+     "to": "gearbox",
+     "scope_label": "SWING_DRIVE_WITH_MOTOR",
+     "reason": "配置B229900002718的裸减速箱。；配置60359570的裸减速箱；不同于RG06D19G10配置。"
+    },
+    {
+     "pn": "B229900002718",
+     "from": "assembly",
+     "to": "gearbox",
+     "scope_label": "SWING_DRIVE_WITH_MOTOR",
+     "reason": "配置B229900002718的裸减速箱。；配置60359570的裸减速箱；不同于RG06D19G10配置。"
+    }
+   ]
   },
   {
    "url_path": "/equipment/sany/sy215/swing-drives/",
@@ -4163,7 +4299,8 @@
    "_product_ids": [
     "LB-SW-034"
    ],
-   "_kind": "assembly"
+   "_kind": "assembly",
+   "_scope_fixes": []
   },
   {
    "url_path": "/equipment/sany/sy235-8/swing-drives/",
@@ -4214,7 +4351,8 @@
    "_product_ids": [
     "LB-SGB-048"
    ],
-   "_kind": "gearbox"
+   "_kind": "gearbox",
+   "_scope_fixes": []
   },
   {
    "url_path": "/equipment/sany/sy245/swing-drives/",
@@ -4229,17 +4367,15 @@
    "model_aliases": [],
    "serial_note": null,
    "part_number_groups": {
-    "assembly": [
-     "60197000"
-    ],
     "gearbox": [
-     "60203915"
+     "60203915",
+     "60197000"
     ],
     "motor": [
      "60203914"
     ]
    },
-   "lead_pn": "60197000",
+   "lead_pn": "60203915",
    "images": [
     {
      "slug": "sany-sy245",
@@ -4277,7 +4413,16 @@
    "_product_ids": [
     "LB-SGB-049"
    ],
-   "_kind": "gearbox"
+   "_kind": "gearbox",
+   "_scope_fixes": [
+    {
+     "pn": "60197000",
+     "from": "assembly",
+     "to": "gearbox",
+     "scope_label": "SWING_DRIVE_WITH_MOTOR",
+     "reason": "60197000配套减速箱；60203914为马达，未放入减速箱字段。"
+    }
+   ]
   },
   {
    "url_path": "/equipment/sany/sy305/swing-drives/",
@@ -4334,7 +4479,8 @@
    "_product_ids": [
     "LB-SGB-050"
    ],
-   "_kind": "gearbox"
+   "_kind": "gearbox",
+   "_scope_fixes": []
   },
   {
    "url_path": "/equipment/sany/sy330/swing-drives/",
@@ -4409,7 +4555,8 @@
    "_product_ids": [
     "LB-SW-035"
    ],
-   "_kind": "assembly"
+   "_kind": "assembly",
+   "_scope_fixes": []
   },
   {
    "url_path": "/equipment/sany/sy335/swing-drives/",
@@ -4475,7 +4622,8 @@
    "_product_ids": [
     "LB-SGB-051"
    ],
-   "_kind": "gearbox"
+   "_kind": "gearbox",
+   "_scope_fixes": []
   },
   {
    "url_path": "/equipment/sany/sy365/swing-drives/",
@@ -4550,7 +4698,8 @@
    "_product_ids": [
     "LB-SGB-052"
    ],
-   "_kind": "gearbox"
+   "_kind": "gearbox",
+   "_scope_fixes": []
   },
   {
    "url_path": "/equipment/sany/sy375/swing-drives/",
@@ -4608,7 +4757,8 @@
    "_product_ids": [
     "LB-SGB-053"
    ],
-   "_kind": "gearbox"
+   "_kind": "gearbox",
+   "_scope_fixes": []
   },
   {
    "url_path": "/equipment/sany/sy465/swing-drives/",
@@ -4665,7 +4815,8 @@
    "_product_ids": [
     "LB-SGB-054"
    ],
-   "_kind": "gearbox"
+   "_kind": "gearbox",
+   "_scope_fixes": []
   },
   {
    "url_path": "/equipment/sany/sy500/swing-drives/",
@@ -4747,7 +4898,8 @@
    "_product_ids": [
     "LB-SGB-055"
    ],
-   "_kind": "gearbox"
+   "_kind": "gearbox",
+   "_scope_fixes": []
   },
   {
    "url_path": "/equipment/sany/sy55/swing-drives/",
@@ -4800,7 +4952,8 @@
    "_product_ids": [
     "LB-SW-033"
    ],
-   "_kind": "assembly"
+   "_kind": "assembly",
+   "_scope_fixes": []
   },
   {
    "url_path": "/equipment/sany/sy550/swing-drives/",
@@ -4866,7 +5019,8 @@
    "_product_ids": [
     "LB-SGB-056"
    ],
-   "_kind": "gearbox"
+   "_kind": "gearbox",
+   "_scope_fixes": []
   },
   {
    "url_path": "/equipment/sany/sy650/swing-drives/",
@@ -4881,14 +5035,12 @@
    "model_aliases": [],
    "serial_note": null,
    "part_number_groups": {
-    "assembly": [
-     "150201010052A"
-    ],
     "gearbox": [
-     "JSJ005043894"
+     "JSJ005043894",
+     "150201010052A"
     ]
    },
-   "lead_pn": "150201010052A",
+   "lead_pn": "JSJ005043894",
    "images": [
     {
      "slug": "sany-sy650",
@@ -4917,7 +5069,16 @@
    "_product_ids": [
     "LB-SGB-057"
    ],
-   "_kind": "gearbox"
+   "_kind": "gearbox",
+   "_scope_fixes": [
+    {
+     "pn": "150201010052A",
+     "from": "assembly",
+     "to": "gearbox",
+     "scope_label": "SWING_DRIVE_WITH_MOTOR",
+     "reason": "裸减速箱号；单机配置数量2，产品按单台减速箱展示。"
+    }
+   ]
   },
   {
    "url_path": "/equipment/sany/sy750/swing-drives/",
@@ -4932,19 +5093,17 @@
    "model_aliases": [],
    "serial_note": null,
    "part_number_groups": {
-    "assembly": [
-     "60295801",
-     "60295802"
-    ],
     "gearbox": [
      "60042755",
+     "60295801",
+     "60295802",
      "JSJ005043894"
     ],
     "motor": [
      "60180837"
     ]
    },
-   "lead_pn": "60295801",
+   "lead_pn": "60042755",
    "images": [
     {
      "slug": "sany-sy750",
@@ -4973,7 +5132,23 @@
    "_product_ids": [
     "LB-SGB-058"
    ],
-   "_kind": "gearbox"
+   "_kind": "gearbox",
+   "_scope_fixes": [
+    {
+     "pn": "60295801",
+     "from": "assembly",
+     "to": "gearbox",
+     "scope_label": "SWING_DRIVE_WITH_MOTOR",
+     "reason": "供应商列出的另一减速箱配置，不与60042755自动互换。"
+    },
+    {
+     "pn": "60295802",
+     "from": "assembly",
+     "to": "gearbox",
+     "scope_label": "SWING_DRIVE_WITH_MOTOR",
+     "reason": "供应商列出的另一减速箱配置，不与60042755自动互换。"
+    }
+   ]
   },
   {
    "url_path": "/equipment/sany/sy900/swing-drives/",
@@ -5021,7 +5196,8 @@
    "_product_ids": [
     "LB-SGB-059"
    ],
-   "_kind": "gearbox"
+   "_kind": "gearbox",
+   "_scope_fixes": []
   },
   {
    "url_path": "/equipment/shantui/se600/swing-drives/",
@@ -5092,7 +5268,8 @@
    "_product_ids": [
     "LB-SGB-063"
    ],
-   "_kind": "gearbox"
+   "_kind": "gearbox",
+   "_scope_fixes": []
   },
   {
    "url_path": "/equipment/sumitomo/sh265/swing-drives/",
@@ -5163,7 +5340,8 @@
    "_product_ids": [
     "LB-SGB-060"
    ],
-   "_kind": "gearbox"
+   "_kind": "gearbox",
+   "_scope_fixes": []
   },
   {
    "url_path": "/equipment/sumitomo/sh350a3/swing-drives/",
@@ -5225,7 +5403,8 @@
    "_product_ids": [
     "LB-SW-038"
    ],
-   "_kind": "assembly"
+   "_kind": "assembly",
+   "_scope_fixes": []
   },
   {
    "url_path": "/equipment/sumitomo/sh460/swing-drives/",
@@ -5275,7 +5454,8 @@
    "_product_ids": [
     "LB-SGB-061"
    ],
-   "_kind": "gearbox"
+   "_kind": "gearbox",
+   "_scope_fixes": []
   },
   {
    "url_path": "/equipment/sumitomo/sh480/swing-drives/",
@@ -5324,7 +5504,8 @@
    "_product_ids": [
     "LB-SGB-062"
    ],
-   "_kind": "gearbox"
+   "_kind": "gearbox",
+   "_scope_fixes": []
   },
   {
    "url_path": "/equipment/sumitomo/sh60/swing-drives/",
@@ -5395,7 +5576,8 @@
    "_product_ids": [
     "LB-SW-037"
    ],
-   "_kind": "assembly"
+   "_kind": "assembly",
+   "_scope_fixes": []
   },
   {
    "url_path": "/equipment/volvo/ec140/swing-drives/",
@@ -5478,7 +5660,8 @@
    "_product_ids": [
     "LB-SW-017"
    ],
-   "_kind": "assembly"
+   "_kind": "assembly",
+   "_scope_fixes": []
   },
   {
    "url_path": "/equipment/volvo/ec200d/swing-drives/",
@@ -5535,7 +5718,8 @@
    "_product_ids": [
     "LB-SGB-021"
    ],
-   "_kind": "gearbox"
+   "_kind": "gearbox",
+   "_scope_fixes": []
   },
   {
    "url_path": "/equipment/volvo/ec210/swing-drives/",
@@ -5602,7 +5786,8 @@
    "_product_ids": [
     "LB-SGB-022"
    ],
-   "_kind": "gearbox"
+   "_kind": "gearbox",
+   "_scope_fixes": []
   },
   {
    "url_path": "/equipment/volvo/ec360/swing-drives/",
@@ -5663,7 +5848,8 @@
    "_product_ids": [
     "LB-SW-018"
    ],
-   "_kind": "assembly"
+   "_kind": "assembly",
+   "_scope_fixes": []
   },
   {
    "url_path": "/equipment/volvo/ec480/swing-drives/",
@@ -5730,7 +5916,8 @@
    "_product_ids": [
     "LB-SW-019"
    ],
-   "_kind": "assembly"
+   "_kind": "assembly",
+   "_scope_fixes": []
   },
   {
    "url_path": "/equipment/volvo/ec700/swing-drives/",
@@ -5780,7 +5967,8 @@
    "_product_ids": [
     "LB-SGB-023"
    ],
-   "_kind": "gearbox"
+   "_kind": "gearbox",
+   "_scope_fixes": []
   },
   {
    "url_path": "/equipment/volvo/ec80/swing-drives/",
@@ -5824,7 +6012,8 @@
    "_product_ids": [
     "LB-SW-016"
    ],
-   "_kind": "assembly"
+   "_kind": "assembly",
+   "_scope_fixes": []
   },
   {
    "url_path": "/equipment/xcmg/xe215/swing-drives/",
@@ -5902,7 +6091,8 @@
    "_product_ids": [
     "LB-SW-040"
    ],
-   "_kind": "assembly"
+   "_kind": "assembly",
+   "_scope_fixes": []
   },
   {
    "url_path": "/equipment/xcmg/xe600/swing-drives/",
@@ -5947,7 +6137,7 @@
    "copy": {
     "intro": "The XCMG XE600 is a 60-tonne class excavator used for mass excavation, quarry work and haul-road maintenance. Its swing gearbox reduces motor speed to the swing ring — worn planetary gears, a failing bearing or a leaking output seal show up as swing drift, noise under load or grease loss around the housing. We source the gearbox on its own, or the complete swing drive if the motor needs replacing as well.",
     "sourcing": "We source the swing gearbox against the reference numbers below from vetted China aftermarket and OEM-equivalent manufacturers, then confirm the exact unit against the tag on your machine before you commit. Every order gets a technical check on gear ratio, output flange and motor interface — not a blind cross-reference.",
-    "fit_check": "Send the OEM number stamped on the existing unit, the machine serial number and a clear nameplate photo. We check mounting bolt pattern, gear ratio, output flange and motor interface before quoting, so the unit that ships is the one that bolts on.",
+    "fit_check": "Send the OEM number stamped on the existing unit, the machine serial number and a clear nameplate photo. We check mounting bolt pattern, gear ratio, output flange and motor interface before quoting, so the unit that ships is the one that bolts on. XE600 and XE600DK are not unconditionally equivalent: 314022578 and 804001916 are referenced for the XE600DK build. Send the machine plate and we will confirm which configuration your unit carries.",
     "pn_heading": "Part numbers for this model",
     "pn_note": "The numbers below are commonly associated with the XCMG XE600 and help you cross-check the tag on your unit. Some of them apply only to specific build variants — match them against your serial number and nameplate, or send us a photo and we will identify the exact part before quoting.",
     "generation_note": "Different build years and regions of the XCMG XE600 can use different swing drives even within the same model name. Always confirm by serial number and nameplate rather than model name alone.",
@@ -5973,7 +6163,8 @@
    "_product_ids": [
     "LB-SGB-068"
    ],
-   "_kind": "gearbox"
+   "_kind": "gearbox",
+   "_scope_fixes": []
   },
   {
    "url_path": "/equipment/xcmg/xe650/swing-drives/",
@@ -6026,7 +6217,8 @@
    "_product_ids": [
     "LB-SGB-069"
    ],
-   "_kind": "gearbox"
+   "_kind": "gearbox",
+   "_scope_fixes": []
   },
   {
    "url_path": "/equipment/xcmg/xe690/swing-drives/",
@@ -6079,7 +6271,8 @@
    "_product_ids": [
     "LB-SGB-070"
    ],
-   "_kind": "gearbox"
+   "_kind": "gearbox",
+   "_scope_fixes": []
   },
   {
    "url_path": "/equipment/xcmg/xe700/swing-drives/",
@@ -6137,7 +6330,8 @@
    "_product_ids": [
     "LB-SGB-071"
    ],
-   "_kind": "gearbox"
+   "_kind": "gearbox",
+   "_scope_fixes": []
   },
   {
    "url_path": "/equipment/xcmg/xe950/swing-drives/",
@@ -6181,7 +6375,8 @@
    "_product_ids": [
     "LB-SW-041"
    ],
-   "_kind": "assembly"
+   "_kind": "assembly",
+   "_scope_fixes": []
   }
  ]
 }
