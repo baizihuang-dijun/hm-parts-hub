@@ -1,5 +1,6 @@
 import fdRaw from '@/content/public_batch1.json';
 import tgRaw from '@/content/travel_gearboxes.json';
+import sdRaw from '@/content/swing_drives.json';
 
 export interface PageImage {
   slug: string;
@@ -26,6 +27,7 @@ export interface ModelCopy {
  */
 export interface PartNumberGroups {
   assembly?: string[];
+  gearbox?: string[];
   motor?: string[];
   service?: string[];
 }
@@ -85,7 +87,7 @@ export interface CategoryConfig {
   /** schema.org Product.category value. */
   schemaCategory: string;
   /** Group headings for the part-number table. */
-  groupLabels: Record<'assembly' | 'motor' | 'service', string>;
+  groupLabels: Record<'assembly' | 'gearbox' | 'motor' | 'service', string>;
   /** Headline on the home "Current product range" card — what the range covers. */
   cardTitle: string;
   /** One-line blurb under that headline. */
@@ -104,6 +106,7 @@ export const CATEGORY_CONFIGS: CategoryConfig[] = [
     schemaCategory: 'Final drive / travel motor assembly',
     groupLabels: {
       assembly: 'Final drive assembly numbers',
+      gearbox: 'Gearbox numbers',
       motor: 'Travel motor numbers',
       service: 'Service & repair kit numbers',
     },
@@ -121,6 +124,7 @@ export const CATEGORY_CONFIGS: CategoryConfig[] = [
     schemaCategory: 'Travel gearbox / travel reduction unit',
     groupLabels: {
       assembly: 'Travel gearbox assembly numbers',
+      gearbox: 'Gearbox numbers',
       motor: 'Travel motor numbers',
       service: 'Service & repair kit numbers',
     },
@@ -128,6 +132,24 @@ export const CATEGORY_CONFIGS: CategoryConfig[] = [
     cardBlurb:
       'Crawler excavator units matched against the OEM number, machine serial and the tag on the existing gearbox.',
     cardImage: 'komatsu-pc300-7-travel-gearbox-2.jpg',
+  },
+  {
+    slug: 'swing-drives',
+    name: 'Swing Drives',
+    unitName: 'Swing Drive',
+    unitNameSentence: 'swing drive',
+    kicker: 'swing drive',
+    schemaCategory: 'Swing drive / swing gearbox / swing motor assembly',
+    groupLabels: {
+      assembly: 'Swing drive assembly numbers',
+      gearbox: 'Swing gearbox numbers',
+      motor: 'Swing motor numbers',
+      service: 'Service & repair kit numbers',
+    },
+    cardTitle: 'Swing drives, gearboxes & swing motors',
+    cardBlurb:
+      'Slewing units matched to the OEM reference numbers published for each machine, then confirmed on serial number before quoting.',
+    cardImage: 'caterpillar-336d-swing-drive.jpg',
   },
 ];
 
@@ -141,6 +163,7 @@ export function categoryOf(slug: string | undefined): CategoryConfig {
 
 const fd = fdRaw as unknown as BatchData;
 const tg = tgRaw as unknown as BatchData;
+const sd = sdRaw as unknown as BatchData;
 
 /** Category slug attached to every page so lookups never cross categories. */
 function withCategory(pages: ModelPage[], slug: string): ModelPage[] {
@@ -152,6 +175,7 @@ export const data = fd;
 /** Category hub intro paragraph for the given category slug. */
 export function categoryIntro(slug: string = DEFAULT_CATEGORY): string {
   if (slug === 'travel-gearboxes') return tg.category.intro;
+  if (slug === 'swing-drives') return sd.category.intro;
   return fd.category.intro;
 }
 
@@ -159,13 +183,14 @@ export function categoryIntro(slug: string = DEFAULT_CATEGORY): string {
 export const modelPages: ModelPage[] = [
   ...withCategory(fd.pages, 'final-drives'),
   ...withCategory(tg.pages, 'travel-gearboxes'),
+  ...withCategory(sd.pages, 'swing-drives'),
 ];
 
 /** Union of makes across categories, first occurrence wins. */
 export const makes: Make[] = (() => {
   const seen = new Set<string>();
   const out: Make[] = [];
-  for (const m of [...fd.makes, ...tg.makes]) {
+  for (const m of [...fd.makes, ...tg.makes, ...sd.makes]) {
     if (seen.has(m.slug)) continue;
     seen.add(m.slug);
     out.push(m);
@@ -237,7 +262,7 @@ export function extraImages(page: ModelPage): PageImage[] {
 }
 
 /** Group display order for the part-number section. */
-export const GROUP_ORDER = ['assembly', 'motor', 'service'] as const;
+export const GROUP_ORDER = ['assembly', 'gearbox', 'motor', 'service'] as const;
 export type PartGroupKey = (typeof GROUP_ORDER)[number];
 
 /** Group headings for the given category. */

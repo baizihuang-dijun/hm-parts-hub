@@ -131,11 +131,15 @@ function galleryImages(page: ModelPage, cat: CategoryConfig): GalleryImage[] {
 }
 
 /** Group subtitle (mono chip) and per-row type label, keyed by JSON group. */
-const GROUP_META: Record<PartGroupKey, { code: string; role: string }> = {
-  assembly: { code: 'complete unit', role: 'assembly' },
-  motor: { code: 'hydraulic motor only', role: 'travel motor' },
-  service: { code: 'components / seals', role: 'service part' },
-};
+function groupMeta(cat: CategoryConfig): Record<PartGroupKey, { code: string; role: string }> {
+  const swing = cat.slug === 'swing-drives';
+  return {
+    assembly: { code: 'complete unit', role: 'assembly' },
+    gearbox: { code: 'gearbox only', role: swing ? 'swing gearbox' : 'gearbox' },
+    motor: { code: 'hydraulic motor only', role: swing ? 'swing motor' : 'travel motor' },
+    service: { code: 'components / seals', role: 'service part' },
+  };
+}
 
 const FIT_CHECKLIST: { what: string; why: string }[] = [
   { what: 'OEM number stamped on the unit', why: 'identifies the build' },
@@ -157,6 +161,9 @@ export function ModelCategoryPageView({
   const images = galleryImages(page, cat);
   const groups = partGroups(page);
   const hasNumbers = hasPartNumbers(page);
+  const meta = groupMeta(cat);
+  /* Swing drives sit on the upper structure, not on the undercarriage. */
+  const underbody = cat.slug === 'swing-drives' ? '' : ' undercarriage';
   const ton = page.copy.ton_class_approx;
   const faqItems = faqs(page, cat);
   const unit = cap(cat.unitNameSentence);
@@ -196,8 +203,8 @@ export function ModelCategoryPageView({
           </i>
           <i className="idi idi-kind">
             {typeof ton === 'number'
-              ? `${page.copy.machine_kind} undercarriage · ~${ton} T class`
-              : `${page.copy.machine_kind} undercarriage`}
+              ? `${page.copy.machine_kind}${underbody} · ~${ton} T class`
+              : `${page.copy.machine_kind}${underbody}`}
           </i>
           {page.copy.band ? <i className="idi idi-kind">{page.copy.band}</i> : null}
           <i className="idi idi-ok">● catalogue entry · fit confirmed at quote</i>
@@ -252,7 +259,7 @@ export function ModelCategoryPageView({
               <div className="v6-pn-group" key={group.key}>
                 <div className="v6-pn-gtitle">
                   <h3>{group.label}</h3>
-                  <span className="gcode">{GROUP_META[group.key].code}</span>
+                  <span className="gcode">{meta[group.key].code}</span>
                   <span className="rule" />
                 </div>
                 <table className="v6-pn">
@@ -269,7 +276,7 @@ export function ModelCategoryPageView({
                     {group.numbers.map(pn => (
                       <tr key={pn}>
                         <td className="pn-num">{pn}</td>
-                        <td className="pn-role">{GROUP_META[group.key].role}</td>
+                        <td className="pn-role">{meta[group.key].role}</td>
                         <td className="pn-act">
                           <CopyPnButton pn={pn} />
                           <QuoteThisLink pn={pn} href={rfqHref(page, pn)} />

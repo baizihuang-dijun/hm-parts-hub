@@ -49,11 +49,16 @@ const TG_PATH = path.join(ROOT, 'src/content/travel_gearboxes.json');
 const tgData = fs.existsSync(TG_PATH)
   ? JSON.parse(fs.readFileSync(TG_PATH, 'utf8'))
   : { pages: [], makes: [] };
+const SD_PATH = path.join(ROOT, 'src/content/swing_drives.json');
+const sdData = fs.existsSync(SD_PATH)
+  ? JSON.parse(fs.readFileSync(SD_PATH, 'utf8'))
+  : { pages: [], makes: [] };
 
 /** Every content category that ships model pages. Add a line here when a category goes live. */
 const CATEGORIES = [
   { slug: 'final-drives', pages: data.pages, makes: data.makes },
   { slug: 'travel-gearboxes', pages: tgData.pages, makes: tgData.makes },
+  { slug: 'swing-drives', pages: sdData.pages, makes: sdData.makes },
 ].filter(c => c.pages.length > 0);
 
 const pages = CATEGORIES.flatMap(c => c.pages);
@@ -84,8 +89,29 @@ const BRAND_ROUTES = CATEGORIES.flatMap(c =>
   c.makes.map(m => `/parts/${c.slug}/for/${m.slug}/`),
 );
 const CAT_META = {
-  'final-drives': { sentence: 'final drive', groupAssembly: 'Final drive assembly numbers' },
-  'travel-gearboxes': { sentence: 'travel gearbox', groupAssembly: 'Travel gearbox assembly numbers' },
+  'final-drives': {
+    sentence: 'final drive',
+    // Subtitle reads "{machine_kind} undercarriage" for drivetrain categories;
+    // swing drives sit on the upper structure, so no undercarriage suffix.
+    subtitleSuffix: ' undercarriage',
+    groupAssembly: 'Final drive assembly numbers',
+    groupGearbox: 'Gearbox numbers',
+    groupMotor: 'Travel motor numbers',
+  },
+  'travel-gearboxes': {
+    sentence: 'travel gearbox',
+    subtitleSuffix: ' undercarriage',
+    groupAssembly: 'Travel gearbox assembly numbers',
+    groupGearbox: 'Gearbox numbers',
+    groupMotor: 'Travel motor numbers',
+  },
+  'swing-drives': {
+    sentence: 'swing drive',
+    subtitleSuffix: '',
+    groupAssembly: 'Swing drive assembly numbers',
+    groupGearbox: 'Swing gearbox numbers',
+    groupMotor: 'Swing motor numbers',
+  },
 };
 
 /** Category metadata for a model page (fallback keeps legacy final-drive assertions intact). */
@@ -247,7 +273,7 @@ function pre() {
     // New schema: part_number_groups + lead_pn; legacy fields must be gone.
     if ('reported_numbers' in p) fail(`${p.url_path}: legacy field "reported_numbers" still present`);
     if ('verification_note' in p) fail(`${p.url_path}: legacy field "verification_note" still present`);
-    const GROUP_KEYS = ['assembly', 'motor', 'service'];
+    const GROUP_KEYS = ['assembly', 'gearbox', 'motor', 'service'];
     const groups = p.part_number_groups || {};
     for (const key of Object.keys(groups)) {
       if (!GROUP_KEYS.includes(key)) fail(`${p.url_path}: unknown part_number_groups key "${key}"`);
@@ -699,11 +725,12 @@ function post() {
     // No-number pages: no group tables, mandatory "Send my nameplate" CTA.
     const GROUP_LABELS = {
       assembly: catMetaOf(p).groupAssembly,
-      motor: 'Travel motor numbers',
+      gearbox: catMetaOf(p).groupGearbox,
+      motor: catMetaOf(p).groupMotor,
       service: 'Service & repair kit numbers',
     };
     const groups = p.part_number_groups || {};
-    const groupNumbers = ['assembly', 'motor', 'service'].flatMap(k =>
+    const groupNumbers = ['assembly', 'gearbox', 'motor', 'service'].flatMap(k =>
       Array.isArray(groups[k]) ? groups[k] : [],
     );
     if (groupNumbers.length > 0) {
@@ -749,8 +776,9 @@ function post() {
 
     // Subtitle machine kind comes from copy.machine_kind (excavator vs compact
     // track loader) — no front-end inference from the model name.
-    if (!visible.includes(`${p.copy.machine_kind} undercarriage`)) {
-      fail(`${label}: subtitle must render "${p.copy.machine_kind} undercarriage"`);
+    const subtitle = `${p.copy.machine_kind}${catMetaOf(p).subtitleSuffix}`;
+    if (!visible.includes(subtitle)) {
+      fail(`${label}: subtitle must render "${subtitle}"`);
     }
 
     // Fit-check guide link + prefilling RFQ CTA.
