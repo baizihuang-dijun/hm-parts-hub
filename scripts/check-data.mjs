@@ -74,10 +74,7 @@ const REDIRECT_ROUTES = SWING_REDIRECTS.map(r => r.from);
  * different product (a swing motor, a ring gear, a bare housing ring or a packing board).
  * Keep this list in sync with BLOCKED_SOURCE_PHOTOS in gen_data.py.
  */
-const NO_PHOTO_PAGES = [
-  '/equipment/caterpillar/313d/swing-drives/',
-  '/equipment/caterpillar/349-gc/swing-drives/',
-];
+const NO_PHOTO_PAGES = [];
 
 /** Every content category that ships model pages. Add a line here when a category goes live. */
 const CATEGORIES = [
