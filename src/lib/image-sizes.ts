@@ -343,7 +343,7 @@ const IMAGE_SIZES: Record<string, { width: number; height: number }> = {
   "hitachi-zx200-6-final-drive-2.jpg": { width: 1200, height: 900 },
   "hitachi-zx200-6-final-drive-3.jpg": { width: 1200, height: 900 },
   "hitachi-zx200-6-final-drive.jpg": { width: 1200, height: 900 },
-  "hitachi-zx240-3-final-drive.jpg": { width: 1080, height: 1440 },
+  "hitachi-zx240-3-final-drive.jpg": { width: 1200, height: 900 },
   "hitachi-zx330-3-final-drive-2.jpg": { width: 1000, height: 1333 },
   "hitachi-zx330-3-final-drive-3.jpg": { width: 900, height: 1200 },
   "hitachi-zx330-3-final-drive.jpg": { width: 1200, height: 900 },
