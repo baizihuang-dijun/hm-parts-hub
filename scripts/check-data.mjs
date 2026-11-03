@@ -77,8 +77,6 @@ const REDIRECT_ROUTES = SWING_REDIRECTS.map(r => r.from);
 const NO_PHOTO_PAGES = [
   '/equipment/caterpillar/313d/swing-drives/',
   '/equipment/caterpillar/349-gc/swing-drives/',
-  '/equipment/caterpillar/395/swing-drives/',
-  '/equipment/caterpillar/320-gc/swing-gearboxes/',
 ];
 
 /** Every content category that ships model pages. Add a line here when a category goes live. */

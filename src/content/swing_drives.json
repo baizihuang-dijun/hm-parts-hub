@@ -547,7 +547,13 @@
     ]
    },
    "lead_pn": "584-2692",
-   "images": [],
+   "images": [
+    {
+     "slug": "caterpillar-395",
+     "tag": "main",
+     "file": "caterpillar-395-swing-drive.jpg"
+    }
+   ],
    "copy": {
     "intro": "The Caterpillar 395 is a 95-tonne class excavator used for mass excavation, quarry and mining haulage support. Its swing drive turns the upper structure on the swing ring — when the swing gearbox wears or the swing motor fails, the machine swings slowly, judders on start-up or loses holding power on a slope. A replacement swing drive assembly is usually the fastest route back to work.",
     "sourcing": "We source the swing drive against the reference numbers below from vetted China aftermarket and OEM-equivalent manufacturers, then confirm the exact unit against the tag on your machine before you commit. Every order gets a technical check on ratio, flange and motor interface — not a blind cross-reference.",

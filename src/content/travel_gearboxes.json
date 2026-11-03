@@ -348,6 +348,11 @@
           "tag": "main",
           "file": "caterpillar-320-gc-travel-gearbox.jpg",
           "_src": "/tmp/tg/photos/LB行走减速箱照片汇总_26.10.26_1793413732994_d74i/LB-行走减速箱-Caterpillar-E320GC/LB-行走减速箱-Caterpillar-E320GC-001.jpg"
+        },
+        {
+          "slug": "caterpillar-320-gc",
+          "tag": "view2",
+          "file": "caterpillar-320-gc-travel-gearbox-2.jpg"
         }
       ],
       "copy": {
@@ -809,6 +814,11 @@
           "tag": "main",
           "file": "caterpillar-349-gc-travel-gearbox.jpg",
           "_src": "/tmp/tg/photos/LB行走减速箱照片汇总_26.10.26_1793413732994_d74i/LB-行走减速箱-Caterpillar-E349GC/LB-行走减速箱-Caterpillar-E349GC-001.jpg"
+        },
+        {
+          "slug": "caterpillar-349-gc",
+          "tag": "view2",
+          "file": "caterpillar-349-gc-travel-gearbox-2.jpg"
         }
       ],
       "copy": {
@@ -2642,6 +2652,111 @@
         "machine_kind": "excavator"
       },
       "_pid": "LB-TGB-062"
+    },
+    {
+      "url_path": "/equipment/caterpillar/345d/travel-gearboxes/",
+      "title": "Caterpillar 345D Travel Gearbox | Travel Reduction Unit Sourcing",
+      "h1": "Caterpillar 345D Travel Gearbox",
+      "publish_tier": "batch2",
+      "meta_description": "Source a travel gearbox for the Caterpillar 345D excavator. We confirm ratio, motor interface, sprocket hub and frame pattern against the OEM number, serial and nameplate before quoting.",
+      "make_slug": "caterpillar",
+      "make_name": "Caterpillar",
+      "model_slug": "345d",
+      "model_name": "345D",
+      "model_aliases": [],
+      "serial_note": null,
+      "part_number_groups": {},
+      "lead_pn": "",
+      "images": [
+        {
+          "slug": "caterpillar-345d",
+          "tag": "main",
+          "file": "caterpillar-345d-travel-gearbox.jpg"
+        }
+      ],
+      "copy": {
+        "intro": "Sourcing a travel gearbox (travel reduction unit) for the Caterpillar 345D excavator. This is the ~45 t class final reduction between the travel motor and the track frame — the unit that carries the machine weight and converts motor speed into track pull. We match it against the OEM number, the machine serial and the tag on the existing gearbox before quoting, because the model name alone does not settle the configuration on these machines.",
+        "sourcing": "Caterpillar undercarriage parts are the deepest aftermarket category in China, with several established manufacturers producing travel reduction units for the mainstream excavator families. We source against the OEM number and the machine serial, not against the model name alone.",
+        "fit_check": "On the Caterpillar 345D, four things have to line up before a travel gearbox can be confirmed: the reduction ratio, the travel-motor mounting interface, the sprocket hub pattern, and the track-frame bolt spacing. Any one of them can differ between build years of the same model. Send a photo of the tag on the existing unit together with the machine serial and we verify all four against the factory data sheet.",
+        "pn_heading": "Need the right part number?",
+        "pn_note": "Catalog numbering for the Caterpillar 345D varies by serial number and build region. Send a photo of your travel-motor nameplate and your machine serial number, and we will identify the correct unit for you before quoting.",
+        "generation_note": "Caterpillar reuses model numbers across several undercarriage generations, and the travel reduction unit is not carried over between them. Machines that share a model badge can still take a different gearbox housing, ratio and sprocket hub. Always read the unit against the machine serial, not the model badge.",
+        "application": "excavator travel drive",
+        "ton_class_approx": 45,
+        "band": "heavy",
+        "machine_kind": "excavator"
+      },
+      "_pid": "LB-TGB-066"
+    },
+    {
+      "url_path": "/equipment/caterpillar/313d/travel-gearboxes/",
+      "title": "Caterpillar 313D Travel Gearbox | Travel Reduction Unit Sourcing",
+      "h1": "Caterpillar 313D Travel Gearbox",
+      "publish_tier": "batch2",
+      "meta_description": "Source a travel gearbox for the Caterpillar 313D excavator. We confirm ratio, motor interface, sprocket hub and frame pattern against the OEM number, serial and nameplate before quoting.",
+      "make_slug": "caterpillar",
+      "make_name": "Caterpillar",
+      "model_slug": "313d",
+      "model_name": "313D",
+      "model_aliases": [],
+      "serial_note": null,
+      "part_number_groups": {},
+      "lead_pn": "",
+      "images": [
+        {
+          "slug": "caterpillar-313d",
+          "tag": "main",
+          "file": "caterpillar-313d-travel-gearbox.jpg"
+        }
+      ],
+      "copy": {
+        "intro": "Sourcing a travel gearbox (travel reduction unit) for the Caterpillar 313D excavator. This is the ~13 t class final reduction between the travel motor and the track frame — the unit that carries the machine weight and converts motor speed into track pull. We match it against the OEM number, the machine serial and the tag on the existing gearbox before quoting, because the model name alone does not settle the configuration on these machines.",
+        "sourcing": "Caterpillar undercarriage parts are the deepest aftermarket category in China, with several established manufacturers producing travel reduction units for the mainstream excavator families. We source against the OEM number and the machine serial, not against the model name alone.",
+        "fit_check": "On the Caterpillar 313D, four things have to line up before a travel gearbox can be confirmed: the reduction ratio, the travel-motor mounting interface, the sprocket hub pattern, and the track-frame bolt spacing. Any one of them can differ between build years of the same model. Send a photo of the tag on the existing unit together with the machine serial and we verify all four against the factory data sheet.",
+        "pn_heading": "Need the right part number?",
+        "pn_note": "Catalog numbering for the Caterpillar 313D varies by serial number and build region. Send a photo of your travel-motor nameplate and your machine serial number, and we will identify the correct unit for you before quoting.",
+        "generation_note": "Caterpillar reuses model numbers across several undercarriage generations, and the travel reduction unit is not carried over between them. Machines that share a model badge can still take a different gearbox housing, ratio and sprocket hub. Always read the unit against the machine serial, not the model badge.",
+        "application": "excavator travel drive",
+        "ton_class_approx": 13,
+        "band": "small",
+        "machine_kind": "excavator"
+      },
+      "_pid": "LB-TGB-067"
+    },
+    {
+      "url_path": "/equipment/caterpillar/395/travel-gearboxes/",
+      "title": "Caterpillar 395 Travel Gearbox | Travel Reduction Unit Sourcing",
+      "h1": "Caterpillar 395 Travel Gearbox",
+      "publish_tier": "batch2",
+      "meta_description": "Source a travel gearbox for the Caterpillar 395 excavator. We confirm ratio, motor interface, sprocket hub and frame pattern against the OEM number, serial and nameplate before quoting.",
+      "make_slug": "caterpillar",
+      "make_name": "Caterpillar",
+      "model_slug": "395",
+      "model_name": "395",
+      "model_aliases": [],
+      "serial_note": null,
+      "part_number_groups": {},
+      "lead_pn": "",
+      "images": [
+        {
+          "slug": "caterpillar-395",
+          "tag": "main",
+          "file": "caterpillar-395-travel-gearbox.jpg"
+        }
+      ],
+      "copy": {
+        "intro": "Sourcing a travel gearbox (travel reduction unit) for the Caterpillar 395 excavator. This is the ~95 t class final reduction between the travel motor and the track frame — the unit that carries the machine weight and converts motor speed into track pull. We match it against the OEM number, the machine serial and the tag on the existing gearbox before quoting, because the model name alone does not settle the configuration on these machines.",
+        "sourcing": "Caterpillar undercarriage parts are the deepest aftermarket category in China, with several established manufacturers producing travel reduction units for the mainstream excavator families. We source against the OEM number and the machine serial, not against the model name alone.",
+        "fit_check": "On the Caterpillar 395, four things have to line up before a travel gearbox can be confirmed: the reduction ratio, the travel-motor mounting interface, the sprocket hub pattern, and the track-frame bolt spacing. Any one of them can differ between build years of the same model. Send a photo of the tag on the existing unit together with the machine serial and we verify all four against the factory data sheet.",
+        "pn_heading": "Need the right part number?",
+        "pn_note": "Catalog numbering for the Caterpillar 395 varies by serial number and build region. Send a photo of your travel-motor nameplate and your machine serial number, and we will identify the correct unit for you before quoting.",
+        "generation_note": "Caterpillar reuses model numbers across several undercarriage generations, and the travel reduction unit is not carried over between them. Machines that share a model badge can still take a different gearbox housing, ratio and sprocket hub. Always read the unit against the machine serial, not the model badge.",
+        "application": "excavator travel drive",
+        "ton_class_approx": 95,
+        "band": "ultra-class mining",
+        "machine_kind": "excavator"
+      },
+      "_pid": "LB-TGB-068"
     }
   ]
 }

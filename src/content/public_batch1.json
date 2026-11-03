@@ -4458,6 +4458,40 @@
         "band": "heavy",
         "machine_kind": "excavator"
       }
+    },
+    {
+      "url_path": "/equipment/caterpillar/395/final-drives/",
+      "title": "Final Drive for Caterpillar 395 — Sourcing & RFQ",
+      "h1": "Final Drive for Caterpillar 395",
+      "publish_tier": "B",
+      "meta_description": null,
+      "make_slug": "caterpillar",
+      "make_name": "Caterpillar",
+      "model_slug": "395",
+      "model_name": "395",
+      "model_aliases": [],
+      "serial_note": null,
+      "part_number_groups": {},
+      "lead_pn": "",
+      "images": [
+        {
+          "slug": "caterpillar-395",
+          "tag": "main",
+          "file": "caterpillar-395-final-drive.jpg"
+        }
+      ],
+      "copy": {
+        "intro": "The Caterpillar 395 is a large mining-class excavator (around 95 t class), typically used for mass excavation, quarry and mining haulage support. When its final drive wears — slow tracking, a leaking travel motor, noise from the track drive, or metal in the oil — a replacement travel motor and gearbox assembly is usually the fastest way back to work.",
+        "sourcing": "We help you source a matching final drive for the Caterpillar 395 from vetted China aftermarket and OEM-equivalent manufacturers, then confirm the exact unit against your tag before you commit. Every order gets a technical check on displacement, mounting pattern and ratio, not a blind cross-reference.",
+        "fit_check": "Send the OEM number stamped on your travel motor or gearbox, your machine serial number, and a clear nameplate photo. We verify displacement, mounting bolt pattern, sprocket interface and speed ratio before quoting, so the unit that ships is the one that bolts on.",
+        "pn_heading": "Need the right part number?",
+        "pn_note": "Catalog numbering for the Caterpillar 395 varies by serial number and build region. Send a photo of your travel-motor nameplate and your machine serial number, and we will identify the correct unit for you before quoting.",
+        "generation_note": "Different build years and regions of the Caterpillar 395 can use different final drives even within the same model name — the standard 395 and the long-reach 395 LRE run different undercarriage configurations. Always confirm by serial number and nameplate rather than model name alone.",
+        "application": "mass excavation, quarry and mining haulage support",
+        "ton_class_approx": 95,
+        "band": "ultra-class mining",
+        "machine_kind": "excavator"
+      }
     }
   ]
 }
